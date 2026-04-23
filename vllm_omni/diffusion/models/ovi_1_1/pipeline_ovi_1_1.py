@@ -13,7 +13,7 @@ External components required at runtime (downloaded from Hugging Face the
 first time the pipeline is constructed):
 
 - chetwinlow1/Ovi                 — fusion DiT checkpoint (`od_config.model`)
-- Wan-AI/Wan2.2-TI2V-5B           — UMT5 text encoder + WAN VAE 2.2 (video)
+- Wan-AI/Wan2.2-TI2V-5B-Diffusers — UMT5 text encoder + WAN VAE 2.2 (video)
 - hkchengrex/MMAudio              — MMAudio TOD VAE + BigVGAN vocoder
 
 The selected fusion checkpoint variant is read from
@@ -128,7 +128,16 @@ NAME_TO_MODEL_SPECS_MAP: dict[str, dict[str, Any]] = {
 }
 
 # External HF repos that supply non-fusion components.
-_WAN_REPO = "Wan-AI/Wan2.2-TI2V-5B"   # UMT5 + WAN VAE 2.2
+_WAN_REPO = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"  # UMT5 + WAN VAE 2.2 (diffusers layout)
+# We only need tokenizer/, text_encoder/ and vae/; the transformer/ shards
+# belong to Wan2.2's own DiT and are unused by Ovi.
+_WAN_ALLOW_PATTERNS = [
+    "tokenizer/*",
+    "text_encoder/*",
+    "vae/*",
+    "model_index.json",
+    "scheduler/*",
+]
 _MMAUDIO_REPO = "hkchengrex/MMAudio"  # TOD VAE + BigVGAN vocoder
 _MMAUDIO_TOD_VAE_PATH = "ext_weights/v1-16.pth"
 _MMAUDIO_VOCODER_PATH = "ext_weights/best_netG.pt"
@@ -276,7 +285,8 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         # in the Ovi repo. Override paths can be passed via tf_model_config:
         #   wan_model_path, mmaudio_model_path
         wan_model_path = od_config.tf_model_config.get(
-            "wan_model_path", _ensure_repo_local(_WAN_REPO)
+            "wan_model_path",
+            _ensure_repo_local(_WAN_REPO, allow_patterns=_WAN_ALLOW_PATTERNS),
         )
         mmaudio_model_path = od_config.tf_model_config.get(
             "mmaudio_model_path",
@@ -436,13 +446,20 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
             if is_i2v:
                 video_noise[:, :1] = first_frame_clean
 
+            # NOTE: upstream Ovi exposes a `first_frame_is_clean` kwarg that, in
+            # I2V mode, zeros the per-token timestep for the first-frame tokens
+            # so the model skips denoising them. The fusion/WAN modules in
+            # vllm-omni (inherited from dreamid_omni) do not plumb that kwarg
+            # through `prepare_transformer_block_kwargs`. Re-injecting the
+            # clean first-frame latents each step still produces reasonable I2V
+            # output; exact numerical parity with upstream I2V requires adding
+            # the per-token timestep mask — tracked as a follow-up.
             common_kwargs = {
                 "vid": [video_noise],
                 "audio": [audio_noise],
                 "t": timestep_input,
                 "vid_seq_len": max_seq_len_video,
                 "audio_seq_len": max_seq_len_audio,
-                "first_frame_is_clean": is_i2v,
             }
             pred_vid_pos, pred_audio_pos = self.transformer(
                 vid_context=[text_pos],
@@ -605,14 +622,15 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
                 slg_layer=slg_layer,
             )
 
-        # Decode video.
+        # Decode video. Keep as a [B, C, F, H, W] tensor so that the
+        # post-process function's ``VideoProcessor.postprocess_video`` can
+        # normalize [-1, 1] → [0, 1] and reshape to [B, F, H, W, C].
         video_latents_for_vae = video_noise.unsqueeze(0)
         decoded_video = (
             self.vae.wrapped_decode(video_latents_for_vae)
             if hasattr(self.vae, "wrapped_decode")
             else self.vae.decode(video_latents_for_vae).sample
         )
-        decoded_video = decoded_video.squeeze(0).cpu().float().numpy()
 
         # Decode audio. Latents are [L, C]; MMAudio decode wants [B, C, L].
         audio_latents_for_vae = audio_noise.unsqueeze(0).transpose(1, 2)

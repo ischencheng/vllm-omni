@@ -13,12 +13,13 @@ Three Hugging Face repos are required (the script pulls them on first run):
 | Repo | Purpose |
 | --- | --- |
 | `chetwinlow1/Ovi` | Fusion DiT checkpoint (passed as `--model`) |
-| `Wan-AI/Wan2.2-TI2V-5B` | UMT5 text encoder + WAN VAE 2.2 (video) |
+| `Wan-AI/Wan2.2-TI2V-5B-Diffusers` | UMT5 text encoder + WAN VAE 2.2 (video) |
 | `hkchengrex/MMAudio` | MMAudio TOD VAE + BigVGAN vocoder (audio) |
 
-The Ovi repo only ships a `model.safetensors` plus a near-empty
-`config.json`. After download, append the architecture name so vLLM-Omni can
-resolve the pipeline class:
+The Ovi repo only ships `model*.safetensors` files plus a nearly empty
+`config.json`. Patch it with `architectures` (for pipeline class routing)
+and `model_type` (so vLLM-Omni's stage-config resolver accepts it) before
+launching any inference:
 
 ```bash
 huggingface-cli download chetwinlow1/Ovi --local-dir ./ckpts/Ovi
@@ -27,6 +28,7 @@ import json, pathlib
 p = pathlib.Path("ckpts/Ovi/config.json")
 cfg = json.loads(p.read_text())
 cfg["architectures"] = ["Ovi11Pipeline"]
+cfg["model_type"] = "ovi_1_1"
 p.write_text(json.dumps(cfg, indent=2))
 PY
 ```
@@ -56,14 +58,14 @@ style — the formatter applies before tokenization.
 
 ## Outputs
 
-Each request returns a single `OmniRequestOutput` whose
-`multimodal_output` payload is:
+Each request returns a single `OmniRequestOutput`. The diffusion engine
+routes decoded video frames into the `images` attribute and the paired
+audio into `multimodal_output`:
 
 ```python
-{
-    "video": np.ndarray,       # [B, F, H, W, 3] uint8-friendly
-    "audio": np.ndarray,       # 1-D waveform
-    "audio_sample_rate": 16000,
-    "fps": 24.0,
-}
+ro = outputs[0]
+video = ro.images[0]                           # np.ndarray [B, F, H, W, 3] float32 in [0, 1]
+audio = ro.multimodal_output["audio"]          # 1-D np.ndarray, 16 kHz
+sample_rate = ro.multimodal_output["audio_sample_rate"]  # 16000
+fps = ro.multimodal_output["fps"]              # 24.0
 ```

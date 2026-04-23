@@ -90,7 +90,13 @@ def rope_apply_3d(x, grid_sizes, freqs):
 
 
 @amp.autocast("cuda", enabled=False)
-def rope_apply(x, grid_sizes, freqs):
+def rope_apply(x, grid_sizes, freqs, ref_lengths=None, freqs_scaling=None):
+    # ref_lengths / freqs_scaling are dreamid-style runtime kwargs retained in
+    # the call chain for signature compatibility with inherited modules. In
+    # Ovi these are always None at runtime — RoPE scaling is baked into
+    # `self.freqs` at init via `rope_params(..., freqs_scaling=...)` — so we
+    # accept and ignore them here.
+    del ref_lengths, freqs_scaling
     if grid_sizes.shape[-1] == 3:
         return rope_apply_3d(x, grid_sizes, freqs)
     return rope_apply_1d(x, grid_sizes, freqs)

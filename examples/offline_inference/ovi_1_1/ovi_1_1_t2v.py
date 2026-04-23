@@ -8,12 +8,11 @@ Prerequisites
 The following Hugging Face repos are pulled lazily on first run:
 
   * ``chetwinlow1/Ovi``                — fusion DiT (this is ``--model``)
-  * ``Wan-AI/Wan2.2-TI2V-5B``          — UMT5 text encoder + WAN VAE 2.2
+  * ``Wan-AI/Wan2.2-TI2V-5B-Diffusers`` — UMT5 text encoder + WAN VAE 2.2
   * ``hkchengrex/MMAudio``             — MMAudio TOD VAE + BigVGAN vocoder
 
-Ovi's repo only contains a ``model.safetensors`` file plus an essentially
-empty ``config.json``. Append the architecture name so vLLM-Omni can route
-to the right pipeline class:
+Ovi's repo only contains ``model*.safetensors`` files plus a nearly empty
+``config.json``. Patch the config so vLLM-Omni can resolve the pipeline:
 
 .. code-block:: bash
 
@@ -23,11 +22,16 @@ to the right pipeline class:
     p = pathlib.Path("ckpts/Ovi/config.json")
     cfg = json.loads(p.read_text())
     cfg["architectures"] = ["Ovi11Pipeline"]
+    cfg["model_type"] = "ovi_1_1"
     p.write_text(json.dumps(cfg, indent=2))
     PY
 """
 
+import imageio
+import numpy as np
+
 from vllm_omni.entrypoints.omni import Omni
+from vllm_omni.inputs.data import OmniDiffusionSamplingParams
 
 
 def main():
@@ -45,30 +49,28 @@ def main():
 
     outputs = omni.generate(
         prompt,
-        sampling_params={
-            "height": 960,
-            "width": 960,
-            "num_inference_steps": 50,
-            "seed": 42,
-            "extra_args": {
+        OmniDiffusionSamplingParams(
+            height=960,
+            width=960,
+            num_inference_steps=50,
+            seed=42,
+            extra_args={
                 "video_guidance_scale": 4.0,
                 "audio_guidance_scale": 3.0,
                 "slg_layer": 11,
                 "shift": 5.0,
             },
-        },
+        ),
     )
 
-    request_output = outputs[0].request_output
-    multimodal = request_output.outputs[0].multimodal_output
-    video = multimodal["video"]
-    audio = multimodal["audio"]
-    fps = multimodal.get("fps", 24)
-    sample_rate = multimodal.get("audio_sample_rate", 16000)
-
-    # Save mp4 with embedded audio. Requires `pip install imageio[ffmpeg]`.
-    import imageio
-    import numpy as np
+    # The diffusion engine puts decoded video frames in `ro.images` (shape
+    # [B, F, H, W, C], float32 in [0, 1]) and the paired audio payload in
+    # `ro.multimodal_output` alongside `audio_sample_rate` and `fps`.
+    ro = outputs[0]
+    video = np.asarray(ro.images[0])
+    audio = np.asarray(ro.multimodal_output["audio"]).flatten()
+    fps = float(ro.multimodal_output.get("fps", 24))
+    sample_rate = int(ro.multimodal_output.get("audio_sample_rate", 16000))
 
     out_path = "ovi_1_1_t2v.mp4"
     writer = imageio.get_writer(
@@ -76,13 +78,12 @@ def main():
         fps=fps,
         codec="libx264",
         audio_codec="aac",
-        audio_fps=sample_rate,
-        audio_data=np.asarray(audio).flatten(),
+        audio_data=audio,
     )
     for frame in video[0]:
-        writer.append_data((frame * 255).astype("uint8"))
+        writer.append_data((frame * 255).clip(0, 255).astype(np.uint8))
     writer.close()
-    print(f"Saved {out_path}")
+    print(f"Saved {out_path} ({video.shape[1]} frames @ {fps} fps, audio {audio.shape[0]}/{sample_rate}Hz)")
 
 
 if __name__ == "__main__":
