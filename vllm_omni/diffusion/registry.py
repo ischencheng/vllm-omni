@@ -53,6 +53,11 @@ _DIFFUSION_MODELS = {
         "pipeline_ovis_image",
         "OvisImagePipeline",
     ),
+    "Ovi11Pipeline": (
+        "ovi_1_1",
+        "pipeline_ovi_1_1",
+        "Ovi11Pipeline",
+    ),
     "WanPipeline": (
         "wan2_2",
         "pipeline_wan2_2",
@@ -376,6 +381,7 @@ _DIFFUSION_POST_PROCESS_FUNCS = {
     "GlmImagePipeline": "get_glm_image_post_process_func",
     "ZImagePipeline": "get_post_process_func",
     "OvisImagePipeline": "get_ovis_image_post_process_func",
+    "Ovi11Pipeline": "get_ovi_1_1_post_process_func",
     "WanPipeline": "get_wan22_post_process_func",
     "WanVACEPipeline": "get_wan22_vace_post_process_func",
     "LTX2Pipeline": "get_ltx2_post_process_func",
@@ -416,6 +422,7 @@ _DIFFUSION_PRE_PROCESS_FUNCS = {
     "QwenImageEditPlusPipeline": "get_qwen_image_edit_plus_pre_process_func",
     "LongCatImageEditPipeline": "get_longcat_image_edit_pre_process_func",
     "QwenImageLayeredPipeline": "get_qwen_image_layered_pre_process_func",
+    "Ovi11Pipeline": "get_ovi_1_1_pre_process_func",
     "WanPipeline": "get_wan22_pre_process_func",
     "WanVACEPipeline": "get_wan22_vace_pre_process_func",
     "WanImageToVideoPipeline": "get_wan22_i2v_pre_process_func",
