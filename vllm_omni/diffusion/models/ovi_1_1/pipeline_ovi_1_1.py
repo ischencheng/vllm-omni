@@ -324,7 +324,7 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
             bigvgan_vocoder_ckpt=os.path.join(mmaudio_model_path, _MMAUDIO_VOCODER_PATH),
             mode="16k",
             need_vae_encoder=True,
-        ).to(self.device)
+        ).to(self.device, dtype=self.target_dtype)
         self.audio_vae.requires_grad_(False).eval()
         self.audio_sample_rate = 16000
         self.video_fps = 24
@@ -388,7 +388,32 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
                 attention_mask=tokens.attention_mask,
             )
         embeds = outputs.last_hidden_state
+        # Match upstream Ovi: upstream trims to real seq_len then re-pads with
+        # zeros before feeding the fusion model (see ovi/modules/t5.py `return
+        # [u[:v] for u, v in zip(context, seq_lens)]` and
+        # ovi/modules/model.py padding block). Our HF UMT5EncoderModel returns
+        # full-length hidden states whose padding positions carry non-zero
+        # `<pad>` embeddings; those leak into cross-attention (padding has no
+        # k_lens mask) and corrupt the audio branch in particular because its
+        # short sequence is dominated by the 490+ padding tokens.
+        mask = tokens.attention_mask.to(dtype=embeds.dtype).unsqueeze(-1)
+        embeds = embeds * mask
         return [embeds[i].to(self.target_dtype) for i in range(embeds.size(0))]
+
+    def _video_latents_mean_std(self) -> tuple[torch.Tensor, torch.Tensor]:
+        """Return the WAN VAE's per-channel normalization stats as broadcastable
+        [1, z_dim, 1, 1, 1] tensors on the pipeline device/dtype.
+
+        DiT input/output is in *normalized* latent space — trained on
+        ``(raw - mean) / std``. To reach the diffusers VAE decoder we must
+        invert: ``raw = norm * std + mean``. The matching encoder side
+        applies ``(raw - mean) / std``.
+        """
+        cfg = self.vae.config
+        mean = torch.tensor(cfg.latents_mean, device=self.device, dtype=self.target_dtype)
+        std = torch.tensor(cfg.latents_std, device=self.device, dtype=self.target_dtype)
+        shape = (1, cfg.z_dim, 1, 1, 1)
+        return mean.view(shape), std.view(shape)
 
     def _encode_first_frame(
         self,
@@ -396,14 +421,23 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         height: int,
         width: int,
     ) -> torch.Tensor:
-        """VAE-encode the I2V first frame. Returns a [C, 1, H, W] latent."""
+        """VAE-encode the I2V first frame. Returns a [C, 1, H, W] latent
+        already normalized into the DiT's latent space.
+        """
         from torchvision.transforms import functional as TVF
 
         tensor = TVF.to_tensor(image).to(self.device, dtype=self.target_dtype)
         tensor = (tensor - 0.5) * 2.0  # [-1, 1]
         tensor = tensor.unsqueeze(0).unsqueeze(2)  # [B=1, C, T=1, H, W]
         with torch.inference_mode():
-            latents = self.vae.wrapped_encode(tensor) if hasattr(self.vae, "wrapped_encode") else self.vae.encode(tensor).latent_dist.mean
+            if hasattr(self.vae, "wrapped_encode"):
+                latents = self.vae.wrapped_encode(tensor)
+            else:
+                latents = self.vae.encode(tensor).latent_dist.mean
+                # diffusers' AutoencoderKLWan.encode returns raw-space mu;
+                # normalize into DiT latent space with per-channel (mean, std).
+                mean, std = self._video_latents_mean_std()
+                latents = (latents - mean) / std
         return latents.to(self.target_dtype).squeeze(0)  # [C, 1, h, w]
 
     # ------------------------------------------------------------------
@@ -625,12 +659,17 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         # Decode video. Keep as a [B, C, F, H, W] tensor so that the
         # post-process function's ``VideoProcessor.postprocess_video`` can
         # normalize [-1, 1] → [0, 1] and reshape to [B, F, H, W, C].
+        # The DiT operates in normalized latent space; de-normalize back to
+        # the diffusers VAE's native latent space before decoding (matches
+        # upstream Ovi's `WanVAE22.decode` which applies the same step and
+        # wan2_2's pipeline which does `latents / std + mean`).
         video_latents_for_vae = video_noise.unsqueeze(0)
-        decoded_video = (
-            self.vae.wrapped_decode(video_latents_for_vae)
-            if hasattr(self.vae, "wrapped_decode")
-            else self.vae.decode(video_latents_for_vae).sample
-        )
+        if hasattr(self.vae, "wrapped_decode"):
+            decoded_video = self.vae.wrapped_decode(video_latents_for_vae)
+        else:
+            mean, std = self._video_latents_mean_std()
+            video_latents_denorm = video_latents_for_vae.to(self.vae.dtype) * std + mean
+            decoded_video = self.vae.decode(video_latents_denorm, return_dict=False)[0]
 
         # Decode audio. Latents are [L, C]; MMAudio decode wants [B, C, L].
         audio_latents_for_vae = audio_noise.unsqueeze(0).transpose(1, 2)
