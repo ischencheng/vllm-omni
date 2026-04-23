@@ -347,12 +347,22 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
             )
         ]
 
-        # --- CFG defaults (per modality) ---
+        # --- CFG defaults (per modality, mirroring upstream Ovi's
+        # ovi/configs/inference/inference_fusion.yaml). The negative-prompt
+        # defaults matter for CFG guidance strength: empty strings make
+        # pos and neg text embeddings near-identical, collapsing the
+        # CFG delta and yielding near-static output.
         self.video_guidance_scale_default: float = 4.0
         self.audio_guidance_scale_default: float = 3.0
         self.slg_layer_default: int = 11
         self.flow_shift_default: float = 5.0
         self.num_inference_steps_default: int = 50
+        self.video_negative_prompt_default: str = (
+            "jitter, bad hands, blur, distortion"
+        )
+        self.audio_negative_prompt_default: str = (
+            "robotic, muffled, echo, distorted"
+        )
 
     # ------------------------------------------------------------------
     # Standard hooks
@@ -539,13 +549,17 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
 
         if isinstance(r_prompt, str):
             prompt = r_prompt
-            video_negative_prompt = ""
-            audio_negative_prompt = ""
+            video_negative_prompt = self.video_negative_prompt_default
+            audio_negative_prompt = self.audio_negative_prompt_default
             multi_modal_data: dict[str, Any] = {}
         else:
             prompt = r_prompt.get("prompt", "")
-            video_negative_prompt = r_prompt.get("video_negative_prompt", "")
-            audio_negative_prompt = r_prompt.get("audio_negative_prompt", "")
+            video_negative_prompt = r_prompt.get(
+                "video_negative_prompt", self.video_negative_prompt_default
+            )
+            audio_negative_prompt = r_prompt.get(
+                "audio_negative_prompt", self.audio_negative_prompt_default
+            )
             multi_modal_data = r_prompt.get("multi_modal_data") or {}
 
         if not prompt:

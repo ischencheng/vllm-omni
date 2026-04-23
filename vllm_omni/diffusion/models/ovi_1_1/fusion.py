@@ -383,7 +383,17 @@ class FusionModel(nn.Module):
 
         kwargs = self.merge_kwargs(vid_kwargs, audio_kwargs)
 
-        for fused_block in self.fused_blocks:
+        # Skip Layer Guidance: on the negative forward pass, skip the
+        # layer at index ``slg_layer`` so the negative branch deviates
+        # more from the positive branch, strengthening classifier-free
+        # guidance. Matches upstream Ovi fusion.py:286-302
+        # (``if slg_layer > 0 and i == slg_layer: continue``). ``slg_layer``
+        # is ``False`` / ``0`` by default (positive pass) — ``False > 0``
+        # is ``False`` so the guard only fires on the negative pass where
+        # the caller explicitly passes ``slg_layer=<int>``.
+        for i, fused_block in enumerate(self.fused_blocks):
+            if slg_layer and slg_layer > 0 and i == slg_layer:
+                continue
             vid, audio = fused_block(vid, audio, self.attn, **kwargs)
 
         vid = self.video_model.post_transformer_block_out(vid, vid_kwargs["grid_sizes"], vid_e)
