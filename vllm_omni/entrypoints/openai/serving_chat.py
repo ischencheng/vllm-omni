@@ -1950,9 +1950,10 @@ class OmniOpenAIServingChat(OpenAIServingChat, AudioMixin):
         if audio_tensor.ndim > 1:
             audio_tensor = audio_tensor.flatten()
 
+        sample_rate = final_res.outputs[0].multimodal_output.get("audio_sample_rate", 24000)
         audio_obj = CreateAudio(
             audio_tensor=audio_tensor,
-            sample_rate=24000,
+            sample_rate=sample_rate,
             response_format="wav",
             speed=1.0,
             stream_format="audio",
