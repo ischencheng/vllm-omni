@@ -207,6 +207,11 @@ class DiffusionEngine:
 
             if supports_audio_output(self.od_config.model_class_name):
                 request_audio_payload = outputs[0] if len(outputs) == 1 else outputs
+                mm_output = {"audio": request_audio_payload}
+                if model_audio_sample_rate is not None:
+                    mm_output["audio_sample_rate"] = model_audio_sample_rate
+                if model_fps is not None:
+                    mm_output["fps"] = model_fps
                 return [
                     OmniRequestOutput.from_diffusion(
                         request_id=request_id,
@@ -218,7 +223,7 @@ class DiffusionEngine:
                         trajectory_timesteps=output.trajectory_timesteps,
                         trajectory_log_probs=output.trajectory_log_probs,
                         trajectory_decoded=output.trajectory_decoded,
-                        multimodal_output={"audio": request_audio_payload},
+                        multimodal_output=mm_output,
                         final_output_type="audio",
                         stage_durations=output.stage_durations,
                         peak_memory_mb=output.peak_memory_mb,
@@ -267,6 +272,11 @@ class DiffusionEngine:
 
                 if supports_audio_output(self.od_config.model_class_name):
                     request_audio_payload = request_outputs[0] if len(request_outputs) == 1 else request_outputs
+                    mm_output = {"audio": request_audio_payload}
+                    if model_audio_sample_rate is not None:
+                        mm_output["audio_sample_rate"] = model_audio_sample_rate
+                    if model_fps is not None:
+                        mm_output["fps"] = model_fps
                     results.append(
                         OmniRequestOutput.from_diffusion(
                             request_id=request_id,
@@ -278,7 +288,7 @@ class DiffusionEngine:
                             trajectory_timesteps=output.trajectory_timesteps,
                             trajectory_log_probs=output.trajectory_log_probs,
                             trajectory_decoded=output.trajectory_decoded,
-                            multimodal_output={"audio": request_audio_payload},
+                            multimodal_output=mm_output,
                             final_output_type="audio",
                             stage_durations=output.stage_durations,
                             peak_memory_mb=output.peak_memory_mb,
