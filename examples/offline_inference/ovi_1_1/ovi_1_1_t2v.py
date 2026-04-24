@@ -27,9 +27,9 @@ Ovi's repo only contains ``model*.safetensors`` files plus a nearly empty
     PY
 """
 
-import imageio
 import numpy as np
 
+from vllm_omni.diffusion.utils.media_utils import mux_video_audio_bytes
 from vllm_omni.entrypoints.omni import Omni
 from vllm_omni.inputs.data import OmniDiffusionSamplingParams
 
@@ -72,17 +72,19 @@ def main():
     fps = float(ro.multimodal_output.get("fps", 24))
     sample_rate = int(ro.multimodal_output.get("audio_sample_rate", 16000))
 
-    out_path = "ovi_1_1_t2v.mp4"
-    writer = imageio.get_writer(
-        out_path,
+    # Mux video + audio through the in-repo PyAV helper. Critically this
+    # passes ``audio_sample_rate`` explicitly so the audio track plays back at
+    # 16 kHz instead of whatever the encoder's default happens to be.
+    frames = (video[0] * 255).clip(0, 255).astype(np.uint8)
+    mp4_bytes = mux_video_audio_bytes(
+        frames,
+        audio_waveform=audio,
         fps=fps,
-        codec="libx264",
-        audio_codec="aac",
-        audio_data=audio,
+        audio_sample_rate=sample_rate,
     )
-    for frame in video[0]:
-        writer.append_data((frame * 255).clip(0, 255).astype(np.uint8))
-    writer.close()
+    out_path = "ovi_1_1_t2v.mp4"
+    with open(out_path, "wb") as f:
+        f.write(mp4_bytes)
     print(f"Saved {out_path} ({video.shape[1]} frames @ {fps} fps, audio {audio.shape[0]}/{sample_rate}Hz)")
 
 

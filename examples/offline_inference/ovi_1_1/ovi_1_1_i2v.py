@@ -16,14 +16,11 @@ for the ``960x960_5s`` variant). For a 1424×736 input this produces a
 """
 
 import argparse
-import subprocess
 
-import imageio
-import imageio_ffmpeg
 import numpy as np
-import soundfile as sf
 from PIL import Image
 
+from vllm_omni.diffusion.utils.media_utils import mux_video_audio_bytes
 from vllm_omni.entrypoints.omni import Omni
 from vllm_omni.inputs.data import OmniDiffusionSamplingParams
 
@@ -75,31 +72,14 @@ def main():
     sr = int(ro.multimodal_output["audio_sample_rate"])
 
     frames = (video[0] * 255).clip(0, 255).astype(np.uint8)
-    tmp_video = args.output + ".video_only.mp4"
-    tmp_audio = args.output + ".audio.wav"
-    imageio.mimwrite(tmp_video, frames, fps=fps, codec="libx264", quality=8)
-    sf.write(tmp_audio, audio, sr)
-
-    ff = imageio_ffmpeg.get_ffmpeg_exe()
-    subprocess.run(
-        [
-            ff,
-            "-y",
-            "-loglevel",
-            "error",
-            "-i",
-            tmp_video,
-            "-i",
-            tmp_audio,
-            "-c:v",
-            "copy",
-            "-c:a",
-            "aac",
-            "-shortest",
-            args.output,
-        ],
-        check=True,
+    mp4_bytes = mux_video_audio_bytes(
+        frames,
+        audio_waveform=audio,
+        fps=fps,
+        audio_sample_rate=sr,
     )
+    with open(args.output, "wb") as f:
+        f.write(mp4_bytes)
     print(
         f"Saved {args.output} ({video.shape[1]} frames @ {fps} fps, "
         f"{video.shape[2]}x{video.shape[3]}, audio {audio.shape[0]}/{sr}Hz)"

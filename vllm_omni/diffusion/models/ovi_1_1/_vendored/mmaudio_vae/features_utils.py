@@ -15,7 +15,12 @@ class FeaturesUtils(nn.Module):
         *,
         tod_vae_ckpt: str,
         bigvgan_vocoder_ckpt: Optional[str] = None,
-        mode=Literal['16k', '44k'],
+        # NOTE: upstream MMAudio wrote ``mode=Literal['16k', '44k']`` which
+        # makes the default value the ``typing.Literal`` object itself — calling
+        # ``FeaturesUtils(...)`` without ``mode=`` would pass that object into
+        # ``get_mel_converter`` and raise ``ValueError: Unknown mode``. Fixed
+        # to a proper annotation with a concrete default.
+        mode: Literal['16k', '44k'] = '16k',
         need_vae_encoder: bool = True,
     ):
         super().__init__()

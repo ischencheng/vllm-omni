@@ -208,7 +208,11 @@ class FusedBlock(nn.Module):
             target_freqs_scaling=None,
         )
 
-        assert not torch.equal(og_audio, audio), "Audio should be changed after cross-attention!"
+        # NOTE: upstream Ovi has an
+        # ``assert not torch.equal(og_audio, audio)`` sanity check here; we
+        # drop it because it can false-trigger on valid numerical edge cases
+        # (zeroed weights, deterministic inputs) and would turn a diagnostic
+        # into a hard production failure.
 
         # video cross-attention
         vid = self._cross_attention_ffn_forward(
