@@ -517,20 +517,20 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
             if is_i2v:
                 video_noise[:, :1] = first_frame_clean
 
-            # NOTE: upstream Ovi exposes a `first_frame_is_clean` kwarg that, in
-            # I2V mode, zeros the per-token timestep for the first-frame tokens
-            # so the model skips denoising them. The fusion/WAN modules in
-            # vllm-omni (inherited from dreamid_omni) do not plumb that kwarg
-            # through `prepare_transformer_block_kwargs`. Re-injecting the
-            # clean first-frame latents each step still produces reasonable I2V
-            # output; exact numerical parity with upstream I2V requires adding
-            # the per-token timestep mask — tracked as a follow-up.
+            # In I2V mode ``first_frame_is_clean=True`` tells ``prepare_
+            # transformer_block_kwargs`` to zero the per-token timestep for
+            # first-frame tokens, so the transformer treats them as already-
+            # denoised instead of trying to denoise them anew. Without this
+            # (re-injection only), the model changes the subject's identity
+            # after the first frame because each step's model pred still
+            # moves the first-frame tokens, and CFG amplifies the drift.
             common_kwargs = {
                 "vid": [video_noise],
                 "audio": [audio_noise],
                 "t": timestep_input,
                 "vid_seq_len": max_seq_len_video,
                 "audio_seq_len": max_seq_len_audio,
+                "first_frame_is_clean": is_i2v,
             }
             pred_vid_pos, pred_audio_pos = self.transformer(
                 vid_context=[text_pos],

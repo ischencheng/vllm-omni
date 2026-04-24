@@ -563,6 +563,7 @@ class WanModel(ModelMixin, ConfigMixin):
         seq_len,
         ref_lengths=None,
         freqs_scaling=None,
+        first_frame_is_clean=False,
     ):
         # params
         ## need to change!
@@ -599,7 +600,18 @@ class WanModel(ModelMixin, ConfigMixin):
 
         # time embeddings
         if t.dim() == 1:
-            t = t.unsqueeze(1).expand(t.size(0), seq_len)
+            if first_frame_is_clean:
+                # I2V: zero out the timestep for first-frame tokens so the
+                # transformer treats them as already-denoised. Upstream Ovi:
+                # ovi/modules/model.py ~ line 735.
+                t = torch.ones((t.size(0), seq_len), device=t.device, dtype=t.dtype) * t.unsqueeze(1)
+                # grid_sizes is [B, 3] for video (F, H, W). First-frame tokens
+                # = H * W per sample (one temporal slice).
+                first_frame_lens = grid_sizes[:, 1:].prod(-1)
+                for bi in range(t.size(0)):
+                    t[bi, : first_frame_lens[bi]] = 0
+            else:
+                t = t.unsqueeze(1).expand(t.size(0), seq_len)
         with amp.autocast("cuda", dtype=torch.bfloat16):
             bt = t.size(0)
             t = t.flatten()

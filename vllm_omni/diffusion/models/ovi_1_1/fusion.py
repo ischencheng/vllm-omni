@@ -367,9 +367,15 @@ class FusionModel(nn.Module):
         ref_audio_lengths=None,
         slg_layer=False,
         freqs_scaling=None,
+        first_frame_is_clean=False,
     ):
         vid, vid_e, vid_kwargs = self.video_model.prepare_transformer_block_kwargs(
-            x=vid, t=t, context=vid_context, seq_len=vid_seq_len, ref_lengths=ref_ip_lengths
+            x=vid,
+            t=t,
+            context=vid_context,
+            seq_len=vid_seq_len,
+            ref_lengths=ref_ip_lengths,
+            first_frame_is_clean=first_frame_is_clean,
         )
 
         audio, audio_e, audio_kwargs = self.audio_model.prepare_transformer_block_kwargs(
@@ -379,6 +385,7 @@ class FusionModel(nn.Module):
             seq_len=audio_seq_len,
             ref_lengths=ref_audio_lengths,
             freqs_scaling=freqs_scaling,
+            # audio has no spatial first-frame concept — keep it at False always
         )
 
         kwargs = self.merge_kwargs(vid_kwargs, audio_kwargs)
