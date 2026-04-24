@@ -13,7 +13,7 @@ class FeaturesUtils(nn.Module):
     def __init__(
         self,
         *,
-        tod_vae_ckpt: str, 
+        tod_vae_ckpt: str,
         bigvgan_vocoder_ckpt: Optional[str] = None,
         mode=Literal['16k', '44k'],
         need_vae_encoder: bool = True,
@@ -67,7 +67,7 @@ class FeaturesUtils(nn.Module):
             mel_decoded = self.decode(z)
             audio = self.vocode(mel_decoded)
 
-            return audio 
+            return audio
 
     @torch.no_grad()
     def wrapped_encode(self, audio):
