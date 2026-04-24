@@ -277,17 +277,18 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         # We additionally pull WAN and MMAudio because they are not redistributed
         # in the Ovi repo. Override paths can be passed via tf_model_config:
         #   wan_model_path, mmaudio_model_path
-        wan_model_path = od_config.tf_model_config.get(
-            "wan_model_path",
-            _ensure_repo_local(_WAN_REPO, allow_patterns=_WAN_ALLOW_PATTERNS),
-        )
-        mmaudio_model_path = od_config.tf_model_config.get(
-            "mmaudio_model_path",
-            _ensure_repo_local(
+        # NOTE: resolve override paths BEFORE calling ``_ensure_repo_local`` so
+        # that offline / restricted environments with explicit local paths
+        # never trigger the Hugging Face snapshot download.
+        wan_model_path = od_config.tf_model_config.get("wan_model_path")
+        if wan_model_path is None:
+            wan_model_path = _ensure_repo_local(_WAN_REPO, allow_patterns=_WAN_ALLOW_PATTERNS)
+        mmaudio_model_path = od_config.tf_model_config.get("mmaudio_model_path")
+        if mmaudio_model_path is None:
+            mmaudio_model_path = _ensure_repo_local(
                 _MMAUDIO_REPO,
                 allow_patterns=[_MMAUDIO_TOD_VAE_PATH, _MMAUDIO_VOCODER_PATH],
-            ),
-        )
+            )
 
         # --- Text encoder (UMT5, shared with Wan2.2 ti2v) ---
         self.tokenizer = AutoTokenizer.from_pretrained(wan_model_path, subfolder="tokenizer")
@@ -528,6 +529,15 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         if len(request.prompts) > 1:
             raise ValueError(
                 "Ovi 1.1 supports only a single prompt per request; please pass one prompt object or string at a time."
+            )
+        # Ovi generates one video/audio pair per forward — mirror upstream
+        # `ovi/ovi_fusion_engine.py` which loops over prompts serially.
+        # Reject n>1 explicitly rather than silently returning a single clip.
+        n = getattr(request.sampling_params, "num_outputs_per_prompt", 1)
+        if n and n > 1:
+            raise NotImplementedError(
+                f"Ovi 1.1 does not support num_outputs_per_prompt>1 (got {n}); "
+                "submit multiple requests with different seeds instead."
             )
         r_prompt = request.prompts[0]
 

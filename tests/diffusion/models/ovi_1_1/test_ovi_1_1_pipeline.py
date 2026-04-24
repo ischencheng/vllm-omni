@@ -192,3 +192,25 @@ def test_post_process_func_rejects_non_dict_payload() -> None:
     post_process = get_ovi_1_1_post_process_func(SimpleNamespace())
     with pytest.raises(TypeError, match="expected a dict"):
         post_process(torch.zeros(1, 3, 2, 4, 4))
+
+
+# ---------------------------------------------------------------------------
+# forward() input validation (Codex review #3088: n>1 must raise, not
+# silently return 1 clip)
+# ---------------------------------------------------------------------------
+
+
+def test_forward_rejects_num_outputs_per_prompt_gt_one() -> None:
+    from vllm_omni.diffusion.models.ovi_1_1 import Ovi11Pipeline
+
+    # Build a bare Ovi11Pipeline shell so we can call the first two lines
+    # of forward() without instantiating the whole model graph.
+    pipeline = object.__new__(Ovi11Pipeline)
+    torch.nn.Module.__init__(pipeline)
+
+    request = SimpleNamespace(
+        prompts=["unused"],
+        sampling_params=SimpleNamespace(num_outputs_per_prompt=4),
+    )
+    with pytest.raises(NotImplementedError, match="num_outputs_per_prompt"):
+        Ovi11Pipeline.forward(pipeline, request)
