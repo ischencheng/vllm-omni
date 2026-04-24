@@ -46,8 +46,24 @@ Selection is via `tf_model_config={"variant": "..."}` on the `Omni` constructor.
 
 ## Run
 
+### T2V (text → video + audio)
+
 ```bash
 python ovi_1_1_t2v.py
+```
+
+### I2V (image + text → video + audio)
+
+Takes a reference image as the clean first frame. Output resolution is
+derived from the image's aspect ratio and the variant's target area —
+don't pass `height` / `width` for I2V.
+
+```bash
+python ovi_1_1_i2v.py \
+  --model ./ckpts/Ovi \
+  --image ./first_frame.png \
+  --prompt "... Audio: ..." \
+  --output ovi_1_1_i2v.mp4
 ```
 
 ## Audio prompts
@@ -92,4 +108,9 @@ on the same prompt + seed: temporal frame variance 24.8 vs 25.3 (within
 ??? abstract "ovi_1_1_t2v.py"
     ``````py
     --8<-- "examples/offline_inference/ovi_1_1/ovi_1_1_t2v.py"
+    ``````
+
+??? abstract "ovi_1_1_i2v.py"
+    ``````py
+    --8<-- "examples/offline_inference/ovi_1_1/ovi_1_1_i2v.py"
     ``````

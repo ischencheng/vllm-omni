@@ -152,7 +152,55 @@ def _ensure_repo_local(repo_id: str, allow_patterns: list[str] | None = None) ->
 
 
 def get_ovi_1_1_pre_process_func(od_config: OmniDiffusionConfig):
-    """Pre-process: load and resize an optional input image for I2V mode."""
+    """Pre-process: resize the optional input image for I2V mode.
+
+    Mirrors upstream Ovi's ``preprocess_image_tensor`` +
+    ``snap_hw_to_multiple_of_32`` pair: given the input image's aspect ratio
+    and the selected variant's target area (e.g. 960² for ``960x960_5s``),
+    compute the (h, w) closest to the target area in 32-pixel steps, and
+    resize the image to match. Also overwrites ``sampling_params.{height,
+    width}`` so the pipeline's ``forward`` uses the same values. User-
+    supplied ``height``/``width`` are ignored for I2V — they were meant
+    for T2V where there is no reference image to derive aspect from.
+    """
+    variant = od_config.tf_model_config.get("variant", "960x960_5s")
+    target_area = NAME_TO_MODEL_SPECS_MAP[variant]["video_area"]
+
+    def _best_hw_for_area(h: int, w: int, area: int, multiple: int = 32) -> tuple[int, int]:
+        """Return the multiple-of-``multiple`` ``(h, w)`` pair that best
+        matches ``area`` while preserving the ``w/h`` aspect ratio.
+
+        Ports upstream Ovi's ``_best_hw_for_area`` inner helper from
+        ``ovi/utils/processing_utils.py``: considers both a small grid
+        search around the aspect-derived candidate **and** the sqrt-
+        rescale candidate, then picks the one with minimum
+        ``(abs_area_diff, abs_ratio_diff)``. For the 1424×736 test
+        image against 960² target this yields 704×1344 — identical to
+        what ``inference.py`` produces.
+        """
+        ratio_wh = w / max(h, 1e-8)
+        unit = multiple * multiple
+        tgt_units = max(1, area // unit)
+        p0 = max(1, int(round((tgt_units / max(ratio_wh, 1e-8)) ** 0.5)))
+        candidates: list[tuple[int, int]] = []
+        for dp in range(-3, 4):
+            p = max(1, p0 + dp)
+            q = max(1, int(round(p * ratio_wh)))
+            candidates.append((p * multiple, q * multiple))
+        # sqrt-rescale candidate (the one upstream usually picks).
+        scale = (area / (h * float(w))) ** 0.5
+        candidates.append(
+            (
+                max(multiple, int(round(h * scale / multiple)) * multiple),
+                max(multiple, int(round(w * scale / multiple)) * multiple),
+            )
+        )
+
+        def score(hw: tuple[int, int]) -> tuple[float, float]:
+            hc, wc = hw
+            return (abs(hc * wc - area), abs((wc / max(hc, 1e-8)) - ratio_wh))
+
+        return min(candidates, key=score)
 
     def pre_process_func(request: OmniDiffusionRequest) -> OmniDiffusionRequest:
         for i, prompt in enumerate(request.prompts):
@@ -170,20 +218,13 @@ def get_ovi_1_1_pre_process_func(od_config: OmniDiffusionConfig):
             else:
                 raise TypeError(f"Unsupported image format {type(raw_image)}; expected file path or PIL.Image.Image.")
 
-            # Default to 720P max area if dimensions weren't specified.
-            sp = request.sampling_params
-            if sp.height is None or sp.width is None:
-                max_area = 720 * 1280
-                aspect_ratio = image.height / image.width
-                mod_value = 16
-                h = round((max_area * aspect_ratio) ** 0.5) // mod_value * mod_value
-                w = round((max_area / aspect_ratio) ** 0.5) // mod_value * mod_value
-                if sp.height is None:
-                    sp.height = h
-                if sp.width is None:
-                    sp.width = w
+            h, w = _best_hw_for_area(image.height, image.width, target_area)
+            image = image.resize((w, h), PIL.Image.Resampling.LANCZOS)
 
-            image = image.resize((sp.width, sp.height), PIL.Image.Resampling.LANCZOS)
+            sp = request.sampling_params
+            sp.height = h
+            sp.width = w
+
             prompt["multi_modal_data"]["image"] = image
             request.prompts[i] = prompt
         return request

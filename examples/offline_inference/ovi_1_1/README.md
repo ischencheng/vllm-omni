@@ -45,9 +45,31 @@ Selection is via `tf_model_config={"variant": "..."}` on the `Omni` constructor.
 
 ## Run
 
+### T2V (text → video + audio)
+
 ```bash
 python ovi_1_1_t2v.py
 ```
+
+### I2V (image + text → video + audio)
+
+Takes a reference image as the clean first frame and animates the rest
+of the sequence. The output resolution is derived automatically from
+the input image's aspect ratio and the variant's target area — do not
+pass ``height`` / ``width`` for I2V.
+
+```bash
+python ovi_1_1_i2v.py \
+  --model ./ckpts/Ovi \
+  --image /path/to/first_frame.png \
+  --prompt "A man looks up and smiles warmly, then turns his head to the side. Audio: soft ambient indoor hum." \
+  --output ovi_1_1_i2v.mp4
+```
+
+For a 1424×736 input image against the ``960x960_5s`` variant (target
+area 921 600), the pipeline produces a 704×1344 video (~960² area,
+aspect preserved) — identical to what upstream Ovi picks via
+``preprocess_image_tensor`` + ``snap_hw_to_multiple_of_32``.
 
 ## Audio prompts
 
