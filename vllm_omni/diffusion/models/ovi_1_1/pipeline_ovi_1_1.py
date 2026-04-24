@@ -168,9 +168,7 @@ def get_ovi_1_1_pre_process_func(od_config: OmniDiffusionConfig):
             elif isinstance(raw_image, PIL.Image.Image):
                 image = raw_image.convert("RGB")
             else:
-                raise TypeError(
-                    f"Unsupported image format {type(raw_image)}; expected file path or PIL.Image.Image."
-                )
+                raise TypeError(f"Unsupported image format {type(raw_image)}; expected file path or PIL.Image.Image.")
 
             # Default to 720P max area if dimensions weren't specified.
             sp = request.sampling_params
@@ -202,9 +200,7 @@ def get_ovi_1_1_post_process_func(od_config: OmniDiffusionConfig):
         # `payload` is what pipeline.forward stuffed into DiffusionOutput.output.
         # We expect a dict with "video" and "audio" tensors (numpy arrays).
         if not isinstance(payload, dict):
-            raise TypeError(
-                f"Ovi 1.1 post-process expected a dict payload, got {type(payload).__name__}"
-            )
+            raise TypeError(f"Ovi 1.1 post-process expected a dict payload, got {type(payload).__name__}")
 
         video = payload["video"]
         audio = payload["audio"]
@@ -242,12 +238,12 @@ class _VideoAudioScheduler:
         self.audio_scheduler = audio_scheduler
 
     def step(self, noise_pred, t, latents, return_dict=False, generator=None):
-        video_out = self.video_scheduler.step(
-            noise_pred[0], t[0], latents[0], return_dict=False, generator=generator
-        )[0]
-        audio_out = self.audio_scheduler.step(
-            noise_pred[1], t[1], latents[1], return_dict=False, generator=generator
-        )[0]
+        video_out = self.video_scheduler.step(noise_pred[0], t[0], latents[0], return_dict=False, generator=generator)[
+            0
+        ]
+        audio_out = self.audio_scheduler.step(noise_pred[1], t[1], latents[1], return_dict=False, generator=generator)[
+            0
+        ]
         return ((video_out, audio_out),)
 
 
@@ -266,10 +262,7 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         # --- Resolve variant + spec ---
         variant = od_config.tf_model_config.get("variant", "960x960_5s")
         if variant not in NAME_TO_MODEL_SPECS_MAP:
-            raise ValueError(
-                f"Unknown Ovi variant {variant!r}; expected one of "
-                f"{list(NAME_TO_MODEL_SPECS_MAP)}"
-            )
+            raise ValueError(f"Unknown Ovi variant {variant!r}; expected one of {list(NAME_TO_MODEL_SPECS_MAP)}")
         spec = NAME_TO_MODEL_SPECS_MAP[variant]
         self.variant = variant
         self.video_latent_length: int = spec["video_latent_length"]
@@ -297,9 +290,7 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         )
 
         # --- Text encoder (UMT5, shared with Wan2.2 ti2v) ---
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            wan_model_path, subfolder="tokenizer"
-        )
+        self.tokenizer = AutoTokenizer.from_pretrained(wan_model_path, subfolder="tokenizer")
         self.text_encoder = UMT5EncoderModel.from_pretrained(
             wan_model_path,
             subfolder="text_encoder",
@@ -357,12 +348,8 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         self.slg_layer_default: int = 11
         self.flow_shift_default: float = 5.0
         self.num_inference_steps_default: int = 50
-        self.video_negative_prompt_default: str = (
-            "jitter, bad hands, blur, distortion"
-        )
-        self.audio_negative_prompt_default: str = (
-            "robotic, muffled, echo, distorted"
-        )
+        self.video_negative_prompt_default: str = "jitter, bad hands, blur, distortion"
+        self.audio_negative_prompt_default: str = "robotic, muffled, echo, distorted"
 
     # ------------------------------------------------------------------
     # Standard hooks
@@ -374,9 +361,7 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
 
     @staticmethod
     def _make_scheduler(num_steps: int, shift: float, device) -> tuple[Any, torch.Tensor]:
-        sched = FlowUniPCMultistepScheduler(
-            num_train_timesteps=1000, shift=1, use_dynamic_shifting=False
-        )
+        sched = FlowUniPCMultistepScheduler(num_train_timesteps=1000, shift=1, use_dynamic_shifting=False)
         sched.set_timesteps(num_steps, device=device, shift=shift)
         return sched, sched.timesteps
 
@@ -542,8 +527,7 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
     def forward(self, request: OmniDiffusionRequest, **kwargs) -> DiffusionOutput:
         if len(request.prompts) > 1:
             raise ValueError(
-                "Ovi 1.1 supports only a single prompt per request; please pass "
-                "one prompt object or string at a time."
+                "Ovi 1.1 supports only a single prompt per request; please pass one prompt object or string at a time."
             )
         r_prompt = request.prompts[0]
 
@@ -554,12 +538,8 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
             multi_modal_data: dict[str, Any] = {}
         else:
             prompt = r_prompt.get("prompt", "")
-            video_negative_prompt = r_prompt.get(
-                "video_negative_prompt", self.video_negative_prompt_default
-            )
-            audio_negative_prompt = r_prompt.get(
-                "audio_negative_prompt", self.audio_negative_prompt_default
-            )
+            video_negative_prompt = r_prompt.get("video_negative_prompt", self.video_negative_prompt_default)
+            audio_negative_prompt = r_prompt.get("audio_negative_prompt", self.audio_negative_prompt_default)
             multi_modal_data = r_prompt.get("multi_modal_data") or {}
 
         if not prompt:
@@ -575,12 +555,8 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
         shift = sp.extra_args.get("shift", self.flow_shift_default)
         seed = sp.seed if sp.seed is not None else 42
 
-        video_guidance_scale = float(
-            sp.extra_args.get("video_guidance_scale", self.video_guidance_scale_default)
-        )
-        audio_guidance_scale = float(
-            sp.extra_args.get("audio_guidance_scale", self.audio_guidance_scale_default)
-        )
+        video_guidance_scale = float(sp.extra_args.get("video_guidance_scale", self.video_guidance_scale_default))
+        audio_guidance_scale = float(sp.extra_args.get("audio_guidance_scale", self.audio_guidance_scale_default))
         slg_layer = int(sp.extra_args.get("slg_layer", self.slg_layer_default))
 
         # If an input image is provided, switch to I2V mode.
@@ -610,9 +586,7 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
             video_latent_w = width // self.vae_scale_factor_spatial
 
         # Encode all three prompts in one batched call.
-        prompt_embeds = self.encode_prompt(
-            [prompt, video_negative_prompt, audio_negative_prompt]
-        )
+        prompt_embeds = self.encode_prompt([prompt, video_negative_prompt, audio_negative_prompt])
         text_pos, text_video_neg, text_audio_neg = prompt_embeds
 
         # Initial noise.
@@ -640,9 +614,7 @@ class Ovi11Pipeline(nn.Module, CFGParallelMixin, SupportImageInput, SupportAudio
             self.transformer.video_model.patch_size[1],
             self.transformer.video_model.patch_size[2],
         )
-        max_seq_len_video = (
-            video_noise.shape[1] * video_noise.shape[2] * video_noise.shape[3] // (ph * pw)
-        )
+        max_seq_len_video = video_noise.shape[1] * video_noise.shape[2] * video_noise.shape[3] // (ph * pw)
 
         scheduler_video, timesteps_video = self._make_scheduler(num_steps, shift, self.device)
         scheduler_audio, timesteps_audio = self._make_scheduler(num_steps, shift, self.device)

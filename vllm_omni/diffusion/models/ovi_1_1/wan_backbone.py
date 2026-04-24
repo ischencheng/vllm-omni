@@ -19,7 +19,6 @@ from diffusers.models.modeling_utils import ModelMixin
 
 from vllm_omni.diffusion.attention.layer import Attention
 
-
 # --- Vendored helpers from character-ai/Ovi (ovi/modules/model.py) ---
 
 
@@ -27,9 +26,7 @@ def sinusoidal_embedding_1d(dim, position):
     assert dim % 2 == 0
     half = dim // 2
     position = position.type(torch.float64)
-    sinusoid = torch.outer(
-        position, torch.pow(10000, -torch.arange(half).to(position).div(half))
-    )
+    sinusoid = torch.outer(position, torch.pow(10000, -torch.arange(half).to(position).div(half)))
     return torch.cat([torch.cos(sinusoid), torch.sin(sinusoid)], dim=1)
 
 
@@ -50,11 +47,9 @@ def rope_apply_1d(x, grid_sizes, freqs):
     assert c_rope <= c, "RoPE dimensions cannot exceed half of hidden size"
 
     output = []
-    for i, (l,) in enumerate(grid_sizes.tolist()):
+    for i, (l,) in enumerate(grid_sizes.tolist()):  # noqa: E741 — faithful to upstream Ovi ovi/modules/model.py
         seq_len = l
-        x_i = torch.view_as_complex(
-            x[i, :seq_len].to(torch.float64).reshape(seq_len, n, -1, 2)
-        )
+        x_i = torch.view_as_complex(x[i, :seq_len].to(torch.float64).reshape(seq_len, n, -1, 2))
         x_i_rope = x_i[:, :, :c_rope] * freqs[:seq_len, None, :]
         x_i_passthrough = x_i[:, :, c_rope:]
         x_i = torch.cat([x_i_rope, x_i_passthrough], dim=2)
@@ -72,9 +67,7 @@ def rope_apply_3d(x, grid_sizes, freqs):
     output = []
     for i, (f, h, w) in enumerate(grid_sizes.tolist()):
         seq_len = f * h * w
-        x_i = torch.view_as_complex(
-            x[i, :seq_len].to(torch.float64).reshape(seq_len, n, -1, 2)
-        )
+        x_i = torch.view_as_complex(x[i, :seq_len].to(torch.float64).reshape(seq_len, n, -1, 2))
         freqs_i = torch.cat(
             [
                 freqs[0][:f].view(f, 1, 1, -1).expand(f, h, w, -1),

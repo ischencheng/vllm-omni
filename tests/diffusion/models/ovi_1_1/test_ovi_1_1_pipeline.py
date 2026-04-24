@@ -56,14 +56,10 @@ def test_fusion_model_has_expected_block_count_and_fusion_modules() -> None:
     required = ("k_fusion", "v_fusion", "pre_attn_norm_fusion", "norm_k_fusion")
     for i, block in enumerate(model.video_model.blocks):
         for name in required:
-            assert hasattr(block.cross_attn, name), (
-                f"video block {i} cross_attn missing injected module {name!r}"
-            )
+            assert hasattr(block.cross_attn, name), f"video block {i} cross_attn missing injected module {name!r}"
     for i, block in enumerate(model.audio_model.blocks):
         for name in required:
-            assert hasattr(block.cross_attn, name), (
-                f"audio block {i} cross_attn missing injected module {name!r}"
-            )
+            assert hasattr(block.cross_attn, name), f"audio block {i} cross_attn missing injected module {name!r}"
 
 
 # ---------------------------------------------------------------------------
@@ -110,9 +106,7 @@ class _StubChildScheduler:
         self._return = return_tensor
 
     def step(self, noise_pred, t, latents, return_dict=False, generator=None):
-        self.calls.append(
-            {"noise_pred": noise_pred, "t": t, "latents": latents, "return_dict": return_dict}
-        )
+        self.calls.append({"noise_pred": noise_pred, "t": t, "latents": latents, "return_dict": return_dict})
         # Mirror the diffusers SchedulerOutput tuple shape.
         return (self._return,)
 

@@ -117,6 +117,7 @@ exclude = [
     "build",
     "dist",
     "vllm_omni.egg-info",
+    "**/_vendored/**",
 ]
 
 [tool.ruff.lint]

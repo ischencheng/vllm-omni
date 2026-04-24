@@ -3,7 +3,8 @@ from typing import Literal
 
 import torch
 import torch.nn as nn
-from librosa.filters import mel as librosa_mel_fn
+
+from vllm_omni.utils.audio import mel_filter_bank
 
 
 def dynamic_range_compression_torch(x, C=1, clip_val=1e-5, *, norm_fn):
@@ -39,12 +40,16 @@ class MelConverter(nn.Module):
         self.fmax = fmax
         self.norm_fn = norm_fn
 
-        mel = librosa_mel_fn(sr=self.sampling_rate,
-                             n_fft=self.n_fft,
-                             n_mels=self.num_mels,
-                             fmin=self.fmin,
-                             fmax=self.fmax)
-        mel_basis = torch.from_numpy(mel).float()
+        # Drop-in replacement for ``librosa.filters.mel`` — see
+        # ``vllm_omni.utils.audio.mel_filter_bank`` (same Slaney mel scale +
+        # Slaney norm). vllm-omni's ruff config bans direct ``librosa`` imports.
+        mel_basis = mel_filter_bank(
+            sr=self.sampling_rate,
+            n_fft=self.n_fft,
+            n_mels=self.num_mels,
+            fmin=self.fmin,
+            fmax=self.fmax,
+        ).float()
         hann_window = torch.hann_window(self.win_size)
 
         self.register_buffer('mel_basis', mel_basis)
