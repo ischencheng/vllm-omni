@@ -15,6 +15,7 @@ from typing import Any
 from vllm.logger import init_logger
 
 from vllm_omni.config.yaml_util import create_config, load_yaml_config, to_dict
+from vllm_omni.core.sched.async_omni_ar_scheduler import AsyncOmniARScheduler
 from vllm_omni.core.sched.omni_ar_scheduler import OmniARScheduler
 from vllm_omni.core.sched.omni_generation_scheduler import OmniGenerationScheduler
 
@@ -152,6 +153,20 @@ def _scheduler_path(cls: type | None) -> str | None:
     if cls is None:
         return None
     return f"{cls.__module__}.{cls.__qualname__}"
+
+
+def _resolve_scheduler_cls(execution_type: StageExecutionType, async_scheduling: bool | None) -> type | None:
+    """Pick the scheduler class for a stage, switching the LLM_AR mapping to
+    ``AsyncOmniARScheduler`` when ``async_scheduling=True`` so the scheduler's
+    ``num_output_placeholders`` bookkeeping aligns with vLLM's
+    ``step_with_batch_queue`` and the alternating empty-step pattern is
+    avoided. ``async_scheduling=None``/False keeps the synchronous
+    ``OmniARScheduler``.
+    """
+    base = _EXECUTION_TYPE_TO_SCHEDULER.get(execution_type)
+    if execution_type is StageExecutionType.LLM_AR and async_scheduling:
+        return AsyncOmniARScheduler
+    return base
 
 
 @dataclass(frozen=True)
@@ -811,7 +826,9 @@ def merge_pipeline_deploy(
                 final_output=ps.final_output,
                 final_output_type=ps.final_output_type,
                 worker_type=worker_type,
-                scheduler_cls=_scheduler_path(_EXECUTION_TYPE_TO_SCHEDULER.get(ps.execution_type)),
+                scheduler_cls=_scheduler_path(
+                    _resolve_scheduler_cls(ps.execution_type, engine_args.get("async_scheduling"))
+                ),
                 hf_config_name=ps.hf_config_name,
                 is_comprehension=ps.owns_tokenizer,
                 yaml_engine_args=engine_args,
