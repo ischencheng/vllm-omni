@@ -201,6 +201,14 @@ Stage configs ship with the chunked-streaming default. To use the uniproc execut
 
 To opt out of chunked streaming, pass `--no-async-chunk` instead — the pipeline auto-dispatches to the end-to-end codec processor.
 
+### Tuning stage 1 `max_num_seqs` for Base voice clone
+The bundled `qwen3_tts.yaml` ships stage 1 (Code2Wav) at `max_num_seqs: 1`, the TTFA-optimal default for CustomVoice / VoiceDesign. Base voice cloning has long stage-1 lifetimes; raising stage 1 admission to 10 lets multiple requests progress concurrently in the scheduler — ~2× TTFA p95 at c=4 / c=8 (1× H100, 1.7B-Base, seed-tts) at an 8–12 % audio-throughput cost.
+
+```bash
+vllm serve Qwen/Qwen3-TTS-12Hz-1.7B-Base --omni \
+    --stage-overrides '{"1": {"max_num_seqs": 10}}'
+```
+
 ### Sending requests
 ```bash
 # CustomVoice with a predefined speaker
