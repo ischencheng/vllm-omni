@@ -1448,7 +1448,14 @@ class Qwen3TTSTokenizerV2Decoder(Qwen3TTSTokenizerV2DecoderPreTrainedModel):
 
     @staticmethod
     def _batch_dynamic_caches(request_caches: list[DynamicCache]) -> DynamicCache:
-        batched_cache = copy.deepcopy(request_caches[0])
+        # Copy cache metadata without cloning KV tensors that torch.cat replaces below.
+        memo = {
+            id(tensor): tensor
+            for layer in request_caches[0].layers
+            for tensor in (layer.keys, layer.values)
+            if tensor is not None
+        }
+        batched_cache = copy.deepcopy(request_caches[0], memo)
         for batched_layer, request_layers in zip(
             batched_cache.layers,
             zip(*(cache.layers for cache in request_caches), strict=True),
