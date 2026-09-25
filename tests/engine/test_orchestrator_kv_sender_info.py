@@ -433,7 +433,12 @@ def test_forward_to_diffusion_uses_engine_input_source_for_kv_sender_info():
 
 
 def test_forward_to_diffusion_returns_terminal_error_for_empty_custom_inputs():
-    orchestrator = object.__new__(Orchestrator)
+    orchestrator = Orchestrator(
+        request_async_queue=asyncio.Queue(),
+        output_async_queue=asyncio.Queue(),
+        rpc_async_queue=asyncio.Queue(),
+        stage_pools=[],
+    )
     diffusion_stage = _DummyDiffusionStage(engine_input_source=[0])
     setattr(diffusion_stage, "custom_process_input_func", lambda *_args, **_kwargs: [])
     sender_pool = _build_sender_pool(0, {"host": "10.0.0.2", "zmq_port": 50151})

@@ -86,6 +86,13 @@ _EVENT_DRIVEN_ORCH_ENV = "VLLM_OMNI_EVENT_DRIVEN_ORCH"
 # `available_replica_ids()` (elastic membership, replica eviction) while idle.
 _ORCH_READER_RECONCILE_INTERVAL_S = 0.5
 
+# Keep unavailable stages from creating an unbounded set of admission tasks.
+_MAX_CONCURRENT_ADMISSIONS = 32
+_MAX_PENDING_ADMISSIONS = 1024
+AdmissionMessage = (
+    StageSubmissionMessage | AddCompanionRequestMessage | InteractionMessage | CollectiveRPCRequestMessage
+)
+
 
 def _event_driven_orch_enabled(*, default: bool = False) -> bool:
     value = os.environ.get(_EVENT_DRIVEN_ORCH_ENV)
@@ -352,6 +359,10 @@ class OrchestratorBase:
 
         self._shutdown_event = asyncio.Event()
         self._stages_shutdown = False
+        self._pending_admissions: list[tuple[str | None, AdmissionMessage]] = []
+        self._active_admissions: dict[str | None, tuple[AdmissionMessage, asyncio.Task[None]]] = {}
+        self._admission_wakeup = asyncio.Event()
+        self._admission_cleanup_counts: dict[str, int] = {}
         self._event_driven_orch = _event_driven_orch_enabled(default=event_driven_orch_default)
 
         # Distributed membership (optional, injected by DistStageRuntime)
@@ -447,7 +458,8 @@ class OrchestratorBase:
             )
             membership_watcher = self._membership.start()
 
-        tasks = [request_task, output_task]
+        admission_task = asyncio.create_task(self._admission_handler(), name="orchestrator-admission-handler")
+        tasks = [request_task, output_task, admission_task]
         for index, coro in enumerate(self._background_tasks()):
             tasks.append(asyncio.create_task(coro, name=f"orchestrator-background-{index}"))
         if membership_watcher is not None:
@@ -512,7 +524,7 @@ class OrchestratorBase:
             if msg_type == "abort":
                 await self._handle_abort(msg)
             elif msg_type == "collective_rpc":
-                await self._handle_collective_rpc(msg)
+                await self._enqueue_admission(None, msg)
             elif isinstance(msg, RegisterRemoteReplicaMessage):
                 if self._membership is not None:
                     await self._membership.handle_register(msg.stage_id, msg.replica_id)
@@ -523,6 +535,7 @@ class OrchestratorBase:
             elif isinstance(msg, ShutdownRequestMessage):
                 logger.info("[Orchestrator] Received shutdown signal")
                 self._shutdown_event.set()
+                self._admission_wakeup.set()
                 # Pre-mark stage clients as shutting down to prevent
                 # proc_monitor daemon threads from flagging normal
                 # process exit as EngineDeadError during teardown.
@@ -535,6 +548,118 @@ class OrchestratorBase:
                 break
             else:
                 logger.warning("[Orchestrator] Unknown message type: %s", msg_type)
+
+    def _admission_group(self, request_id: str) -> str:
+        parent_id = self._cfg_tracker.get_parent_id(request_id)
+        if parent_id is not None:
+            return parent_id
+        # Updates may arrive before a queued companion has registered itself.
+        messages = [msg for _, msg in self._pending_admissions]
+        messages.extend(msg for msg, _ in self._active_admissions.values())
+        for msg in messages:
+            if isinstance(msg, AddCompanionRequestMessage) and msg.companion_id == request_id:
+                return msg.parent_id
+        return request_id
+
+    async def _enqueue_admission(self, key: str | None, msg: AdmissionMessage) -> None:
+        # Administrative RPCs retain their execution/ACK contract even when
+        # data admission is full; they still run as ordered global fences.
+        if (
+            not isinstance(msg, CollectiveRPCRequestMessage)
+            and len(self._pending_admissions) >= _MAX_PENDING_ADMISSIONS
+        ):
+            request_id = msg.parent_id if isinstance(msg, AddCompanionRequestMessage) else msg.request_id
+            await self.output_async_queue.put(
+                ErrorMessage(
+                    request_id=request_id,
+                    error="Orchestrator admission queue is full",
+                    status_code=HTTPStatus.TOO_MANY_REQUESTS,
+                )
+            )
+            await self._cleanup_request_ids([request_id], abort=True)
+            if isinstance(msg, StageSubmissionMessage):
+                cleanup_request_artifact_dirs(msg.request_artifact_dirs or [])
+            return
+        self._pending_admissions.append((key, msg))
+        self._admission_wakeup.set()
+
+    async def _admission_handler(self) -> None:
+        """Dispatch independent requests while preserving request and RPC order."""
+        try:
+            while not self._shutdown_event.is_set():
+                self._admission_wakeup.clear()
+                for key, (_, task) in list(self._active_admissions.items()):
+                    if task.done():
+                        del self._active_admissions[key]
+                        if not task.cancelled():
+                            task.result()
+                index = 0
+                while index < len(self._pending_admissions):
+                    if None in self._active_admissions or len(self._active_admissions) >= _MAX_CONCURRENT_ADMISSIONS:
+                        break
+                    key, msg = self._pending_admissions[index]
+                    # Every collective RPC is a fence: prior admissions finish
+                    # first, and later admissions wait for the RPC to complete.
+                    if key is None and (self._active_admissions or index > 0):
+                        break
+                    if key in self._active_admissions or key in self._admission_cleanup_counts:
+                        index += 1
+                        continue
+                    self._pending_admissions.pop(index)
+                    task = asyncio.create_task(self._admit_request_group(key, msg), name=f"orchestrator-admit-{key}")
+                    self._active_admissions[key] = (msg, task)
+                    task.add_done_callback(lambda _: self._admission_wakeup.set())
+                await self._admission_wakeup.wait()
+        finally:
+            tasks = [task for _, task in self._active_admissions.values()]
+            for task in tasks:
+                task.cancel()
+            await asyncio.gather(*tasks, return_exceptions=True)
+            for _, msg in self._pending_admissions:
+                if isinstance(msg, StageSubmissionMessage):
+                    cleanup_request_artifact_dirs(msg.request_artifact_dirs or [])
+            self._pending_admissions.clear()
+            self._active_admissions.clear()
+
+    async def _admit_request_group(self, key: str | None, msg: AdmissionMessage) -> None:
+        while True:
+            await self._handle_admission(msg)
+            if key is None or key in self._admission_cleanup_counts:
+                return
+            # Drain already queued updates/companions without introducing an
+            # extra scheduling gap after their parent's physical submission.
+            for index, (next_key, next_msg) in enumerate(self._pending_admissions):
+                if next_key is None:
+                    return
+                if next_key == key:
+                    self._pending_admissions.pop(index)
+                    _, task = self._active_admissions[key]
+                    self._active_admissions[key] = (next_msg, task)
+                    msg = next_msg
+                    break
+            else:
+                return
+
+    async def _handle_admission(self, msg: AdmissionMessage) -> None:
+        if isinstance(msg, CollectiveRPCRequestMessage):
+            await self._handle_collective_rpc(msg)
+
+    async def _cancel_admissions(self, request_ids: set[str]) -> None:
+        pending = []
+        for key, msg in self._pending_admissions:
+            if key not in request_ids:
+                pending.append((key, msg))
+            elif isinstance(msg, StageSubmissionMessage):
+                cleanup_request_artifact_dirs(msg.request_artifact_dirs or [])
+        self._pending_admissions = pending
+        current = asyncio.current_task()
+        tasks = [
+            task for key, (_, task) in self._active_admissions.items() if key in request_ids and task is not current
+        ]
+        for task in tasks:
+            task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+        self._admission_wakeup.set()
 
     # ---- Template seams filled by the turn-based / duplex subclasses ----
 
@@ -1492,6 +1617,31 @@ class OrchestratorBase:
         abort: bool = False,
         release_owners: bool = False,
     ) -> list[OutputMessage]:
+        # Membership and output cleanup can run while the request consumer
+        # receives more messages. Keep their groups fenced until state removal,
+        # including when multiple cleanup callers overlap for the same group.
+        groups = set(request_ids)
+        groups.update(self._admission_group(rid) for rid in request_ids)
+        for group in groups:
+            self._admission_cleanup_counts[group] = self._admission_cleanup_counts.get(group, 0) + 1
+        try:
+            return await self._cleanup_request_ids_unguarded(request_ids, abort=abort, release_owners=release_owners)
+        finally:
+            for group in groups:
+                remaining = self._admission_cleanup_counts[group] - 1
+                if remaining:
+                    self._admission_cleanup_counts[group] = remaining
+                else:
+                    del self._admission_cleanup_counts[group]
+            self._admission_wakeup.set()
+
+    async def _cleanup_request_ids_unguarded(
+        self,
+        request_ids: list[str],
+        *,
+        abort: bool = False,
+        release_owners: bool = False,
+    ) -> list[OutputMessage]:
         """Release pool bindings and logical request state for the given ids.
 
         CFG-aware: cleaning a parent releases its tracker state and pulls its
@@ -1515,6 +1665,14 @@ class OrchestratorBase:
         cleanup_ids = list(dict.fromkeys(request_ids))
         batch = set(cleanup_ids)
         orphaned_parents: dict[str, str] = {}
+        # Companions can still be queued when their parent is canceled. Include
+        # them in cleanup before the normal CFG tracker has registered them.
+        admission_messages = [msg for _, msg in self._pending_admissions]
+        admission_messages.extend(msg for msg, _ in self._active_admissions.values())
+        pending_companions = [msg for msg in admission_messages if isinstance(msg, AddCompanionRequestMessage)]
+        for msg in pending_companions:
+            if msg.companion_id in batch and msg.parent_id not in batch:
+                orphaned_parents.setdefault(msg.parent_id, msg.companion_id)
         for rid in cleanup_ids:
             pid = self._cfg_tracker.get_parent_id(rid)
             if pid is not None and pid not in batch and not self._cfg_tracker.is_companion_done(rid):
@@ -1535,6 +1693,11 @@ class OrchestratorBase:
                 if cid not in batch:
                     batch.add(cid)
                     cleanup_ids.append(cid)
+        for msg in pending_companions:
+            if msg.parent_id in batch and msg.companion_id not in batch:
+                batch.add(msg.companion_id)
+                cleanup_ids.append(msg.companion_id)
+        await self._cancel_admissions(batch)
         abort_outputs: list[OutputMessage] = []
         if abort:
             abort_outputs = await self._abort_request_ids(cleanup_ids)
@@ -2782,6 +2945,15 @@ class Orchestrator(OrchestratorBase):
     """Turn-based orchestrator: admits ``add_request`` / streaming / companion / interaction messages."""
 
     async def _dispatch_message(self, msg: EngineQueueMessage) -> bool:
+        if isinstance(msg, (StageSubmissionMessage, AddCompanionRequestMessage, InteractionMessage)):
+            key = (
+                msg.parent_id if isinstance(msg, AddCompanionRequestMessage) else self._admission_group(msg.request_id)
+            )
+            await self._enqueue_admission(key, msg)
+            return True
+        return False
+
+    async def _handle_admission(self, msg: AdmissionMessage) -> None:
         msg_type = msg.type
         if msg_type == "add_request":
             await self._handle_add_request(msg)
@@ -2792,8 +2964,7 @@ class Orchestrator(OrchestratorBase):
         elif msg_type == "interaction":
             await self._handle_interaction(msg)
         else:
-            return False
-        return True
+            await super()._handle_admission(msg)
 
     async def _handle_add_request(self, msg: StageSubmissionMessage) -> None:
         """Handle an add_request message from the main thread."""

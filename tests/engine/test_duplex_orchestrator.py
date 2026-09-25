@@ -531,17 +531,16 @@ async def test_an_unrecognised_message_reaches_the_turn_based_handler() -> None:
     Without the fall-through, an ordinary add_request on a duplex engine is
     silently dropped and the chat request that sent it hangs forever.
     """
-    orchestrator, _clients, _rpc_q, _output_q = _build()
-    handled: list[str] = []
+    from tests.engine.test_orchestrator import _wait_for
+    from tests.engine.test_orchestrator_admission import request_handlers, submission
 
-    async def _turn_based(msg: object) -> None:
-        handled.append(getattr(msg, "type", ""))
-
-    orchestrator._handle_add_request = _turn_based  # type: ignore[method-assign]
-    msg = SimpleNamespace(type="add_request")
-
-    assert await orchestrator._dispatch_message(msg) is True
-    assert handled == ["add_request"], "an add_request must reach Orchestrator, not be dropped"
+    orchestrator, clients, _rpc_q, _output_q = _build()
+    msg = submission("ordinary-chat", [1, 2])
+    async with request_handlers(orchestrator):
+        assert await orchestrator._dispatch_message(msg) is True
+        await _wait_for(lambda: len(clients[0].add_request_calls) == 1)
+        assert clients[0].add_request_calls[0][0] is msg.prompt
+        assert msg.request_id in orchestrator.request_states
 
 
 @pytest.mark.asyncio

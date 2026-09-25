@@ -95,6 +95,20 @@ payload schemas, public protocol rendering, connector transport, or semantic
 error classification. Those responsibilities belong to the stage runtime,
 I/O, entrypoint, connector, and error contracts.
 
+## Request admission
+
+The request consumer queues stage submissions separately from abort, replica
+registration, and shutdown messages. At most 32 request groups run admission
+concurrently, with at most 1,024 additional stage-submission messages waiting.
+Each request's initial submission, streaming updates, interactions, and CFG
+companions run in queue order; companions share their parent's group. An overflowing submission
+fails that request with a 429 error and cancels its queued admission work.
+Collective RPCs remain accepted when data admission is full and fence earlier
+and later admissions, preserving pause, sleep, and cache-reset ordering. Abort
+and replica registration can still progress while an earlier admission or RPC
+is waiting. Cleanup cancels admission before
+aborting physical stage work and releasing request state.
+
 ## Candidate invariants
 
 These identifiers are proposals while the document is `draft`.
