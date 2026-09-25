@@ -411,6 +411,7 @@ class ZImagePipeline(nn.Module, DiffusionPipelineProfilerMixin, SupportsComponen
         return self._interrupt
 
     def forward(self, req: DiffusionRequestBatch) -> DiffusionOutput:
+        sampling = req.sampling_params_list[0]
         # TODO: In online mode, sometimes it receives [{"negative_prompt": None}, {...}], so cannot use .get("...", "")
         # TODO: May be some data formatting operations on the API side. Hack for now.
         prompt = [p if isinstance(p, str) else (p.get("prompt") or "") for p in req.prompts]
@@ -425,11 +426,6 @@ class ZImagePipeline(nn.Module, DiffusionPipelineProfilerMixin, SupportsComponen
 
         image = None
         if req.prompts:
-            if len(req.prompts) > 1:
-                logger.warning(
-                    "This model only supports a single prompt for img2img, not a batched request. "
-                    "Taking only the first image for now."
-                )
             first_prompt = req.prompts[0]
             if not isinstance(first_prompt, str):
                 raw_image = first_prompt.get("multi_modal_data", {}).get("image")
@@ -439,8 +435,8 @@ class ZImagePipeline(nn.Module, DiffusionPipelineProfilerMixin, SupportsComponen
                     else:
                         image = PIL.Image.open(raw_image) if isinstance(raw_image, str) else raw_image
 
-        explicit_strength = req.sampling_params.strength is not None
-        strength = req.sampling_params.strength if explicit_strength else 0.6
+        explicit_strength = sampling.strength is not None
+        strength = sampling.strength if explicit_strength else 0.6
         if explicit_strength and image is None:
             logger.warning(
                 "strength parameter (%.2f) is only applicable for image-to-image (I2I) generation. "
@@ -451,24 +447,25 @@ class ZImagePipeline(nn.Module, DiffusionPipelineProfilerMixin, SupportsComponen
         if image is not None and strength is not None and (strength < 0 or strength > 1):
             raise ValueError(f"The value of strength should be in [0.0, 1.0] but is {strength}")
 
-        height = req.sampling_params.height or 1024
-        width = req.sampling_params.width or 1024
-        num_inference_steps = req.sampling_params.num_inference_steps or 50
-        generator = req.sampling_params.generator
-        sigmas = req.sampling_params.sigmas
-        max_sequence_length = req.sampling_params.max_sequence_length or 512
-        guidance_scale = req.sampling_params.guidance_scale
-        num_images_per_prompt = (
-            req.sampling_params.num_outputs_per_prompt if req.sampling_params.num_outputs_per_prompt > 0 else 1
-        )
-        latents = req.sampling_params.latents
+        height = sampling.height or 1024
+        width = sampling.width or 1024
+        num_inference_steps = sampling.num_inference_steps or 50
+        sigmas = sampling.sigmas
+        max_sequence_length = sampling.max_sequence_length or 512
+        guidance_scale = sampling.guidance_scale
+        num_images_per_prompt = sampling.num_outputs_per_prompt if sampling.num_outputs_per_prompt > 0 else 1
+        generator = sampling.generator
+        latents = sampling.latents
+        if req.num_reqs > 1:
+            generator = req.collate_request_generators(num_images_per_prompt, generator)
+            latents = req.collate_request_tensors("latents", latents)
 
-        cfg_normalization = req.sampling_params.cfg_normalize
-        cfg_truncation = req.sampling_params.extra_args.get("cfg_truncation", 1.0)
+        cfg_normalization = sampling.cfg_normalize
+        cfg_truncation = sampling.extra_args.get("cfg_truncation", 1.0)
         joint_attention_kwargs: dict[str, Any] | None = None
         callback_on_step_end: Callable[[int, int, dict], None] | None = None
         callback_on_step_end_tensor_inputs = ["latents"]
-        output_type = req.sampling_params.output_type or "pil"
+        output_type = sampling.output_type or "pil"
 
         vae_scale = self.vae_scale_factor * 2
         if height % vae_scale != 0:

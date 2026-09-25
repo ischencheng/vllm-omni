@@ -32,9 +32,7 @@ class MingImageTransformer2DModel(ZImageTransformer2DModel):
             if context.ref_latent is not None:
                 ref_x = [item.to(device=x[0].device, dtype=x[0].dtype) for item in context.ref_latent.unbind(dim=0)]
             if context.direct_condition is not None:
-                cap_feats_2 = [
-                    item.to(device=x[0].device, dtype=x[0].dtype) for item in context.direct_condition.unbind(dim=0)
-                ]
+                cap_feats_2 = [item.to(device=x[0].device, dtype=x[0].dtype) for item in context.direct_condition]
 
         output, metadata = super().forward(
             x,

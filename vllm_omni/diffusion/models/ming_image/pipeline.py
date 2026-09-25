@@ -29,6 +29,13 @@ from vllm_omni.diffusion.forward_context import (
 from vllm_omni.diffusion.model_loader.diffusers_loader import DiffusersPipelineLoader
 from vllm_omni.diffusion.model_loader.hub_prefetch import from_pretrained_with_prefetch
 from vllm_omni.diffusion.models.ming_image.condition import MingImageConditioning
+from vllm_omni.diffusion.models.ming_image.request import (
+    get_ming_image_pre_process_func as get_ming_image_pre_process_func,
+)
+from vllm_omni.diffusion.models.ming_image.request import (
+    get_ming_image_prompt_extra,
+    resolve_ming_image_request,
+)
 from vllm_omni.diffusion.models.ming_image.transformer import MingImageTransformer2DModel
 from vllm_omni.diffusion.models.z_image.pipeline_z_image import ZImagePipeline
 from vllm_omni.diffusion.request import OmniDiffusionRequest
@@ -101,7 +108,7 @@ def _validate_variant_config(
 class MingImageDiffusionPipeline(ZImagePipeline):
     """Ming-Image component adapter around the canonical Z-Image loop."""
 
-    supports_request_batch = False
+    supports_request_batch = True
 
     _dit_modules: ClassVar[list[str]] = ["transformer"]
     _encoder_modules: ClassVar[list[str]] = ["conditioning"]
@@ -133,8 +140,6 @@ class MingImageDiffusionPipeline(ZImagePipeline):
             transformer_config,
         )
 
-        self.default_num_inference_steps = 12
-        self.default_guidance_scale = 2.0 if self.is_layer_decomposition else 1.0
         self._num_frames_per_prompt = 1
         self._pending_prompt_embeds: list[torch.Tensor] | None = None
         self._pending_negative_prompt_embeds: list[torch.Tensor] | None = None
@@ -244,17 +249,6 @@ class MingImageDiffusionPipeline(ZImagePipeline):
         latent = self.vae.encode(reference).latent_dist.mode()
         return (latent - self.vae.config.shift_factor) * self.vae.config.scaling_factor
 
-    @staticmethod
-    def _get_prompt_extra(req: DiffusionRequestBatch) -> dict[str, Any]:
-        if not req.prompts:
-            return {}
-        prompt = req.prompts[0]
-        if isinstance(prompt, dict):
-            return dict(prompt.get("extra") or {})
-        if hasattr(prompt, "_asdict"):
-            return dict(prompt._asdict().get("extra") or {})
-        return {}
-
     def _configure_output_frames(
         self,
         *,
@@ -274,90 +268,95 @@ class MingImageDiffusionPipeline(ZImagePipeline):
         self._num_frames_per_prompt = 1
 
     @torch.inference_mode()
-    def forward(self, req: DiffusionRequestBatch) -> DiffusionOutput:
-        sampling = req.sampling_params
-        if sampling.num_outputs_per_prompt != 1:
-            # TODO(yuanheng-zhao): enable after supporting batching
-            raise ValueError(
-                f"Ming-Image currently supports num_outputs_per_prompt=1 only, got {sampling.num_outputs_per_prompt}."
-            )
+    def forward(self, req: DiffusionRequestBatch) -> list[DiffusionOutput]:
+        if not req.requests:
+            raise ValueError("Ming-Image requires at least one request.")
+        for sampling in req.sampling_params_list:
+            if sampling.num_outputs_per_prompt != 1:
+                raise ValueError(
+                    "Ming-Image currently supports num_outputs_per_prompt=1 only, "
+                    f"got {sampling.num_outputs_per_prompt}."
+                )
+        if req.num_reqs > 1 and self.is_layer_decomposition:
+            raise ValueError("Ming-Image Design-Layer does not support request batching.")
 
-        extra = self._get_prompt_extra(req)
-        extra_args = sampling.extra_args or {}
-
-        is_dummy_run = req.is_dummy_run()
-        query_hidden = extra.get("query_hidden_states")
-        direct_hidden = extra.get("direct_hidden_states")
-        if query_hidden is None or direct_hidden is None:
-            if not is_dummy_run:
-                raise ValueError("Ming-Image requests require query and direct conditions.")
-            logger.warning("Ming-Image conditions are absent during warmup; using zero tensors.")
-            query_hidden = torch.zeros((256, 2048), device=self.device, dtype=self.od_config.dtype)
-            direct_hidden = torch.zeros((1, 6144), device=self.device, dtype=self.od_config.dtype)
-        if not isinstance(query_hidden, torch.Tensor) or not isinstance(direct_hidden, torch.Tensor):
-            raise TypeError("Ming-Image query and direct conditions must be tensors.")
-        if query_hidden.ndim == 2:
-            query_hidden = query_hidden.unsqueeze(0)
-        if direct_hidden.ndim == 2:
-            direct_hidden = direct_hidden.unsqueeze(0)
-        query_hidden = query_hidden.to(device=self.device, dtype=self.od_config.dtype)
-        direct_hidden = direct_hidden.to(device=self.device, dtype=self.od_config.dtype)
-        cap_feats, direct_condition = self.conditioning(query_hidden, direct_hidden)
-
-        reference = extra.get("reference_image")
-        num_layers = int(extra_args.get("num_layers", extra.get("num_layers", 1)))
+        settings = [
+            resolve_ming_image_request(request, is_layer_decomposition=self.is_layer_decomposition)
+            for request in req.requests
+        ]
+        first = settings[0]
+        if any(item != first for item in settings[1:]):
+            raise ValueError("Batched Ming-Image requests must use matching dimensions, steps, guidance and layers.")
+        extras = [get_ming_image_prompt_extra(request.prompt) for request in req.requests]
+        if req.num_reqs > 1 and any(extra.get("reference_image") is not None for extra in extras):
+            raise ValueError("Ming-Image reference-image requests do not support request batching.")
+        reference = extras[0].get("reference_image")
         self._configure_output_frames(
             reference=reference,
-            num_layers=num_layers,
-            is_dummy_run=is_dummy_run,
+            num_layers=first.num_layers,
+            is_dummy_run=req.is_dummy_run(),
         )
 
-        height = int(extra_args.get("height") or sampling.height or 1024)
-        width = int(extra_args.get("width") or sampling.width or 1024)
-        steps = int(extra_args.get("steps") or sampling.num_inference_steps or self.default_num_inference_steps)
-        cfg = float(
-            extra_args["cfg"]
-            if extra_args.get("cfg") is not None
-            else sampling.guidance_scale
-            if sampling.guidance_scale is not None
-            else self.default_guidance_scale
-        )
-        seed = extra_args.get("seed", sampling.seed)
-        generator = (
-            torch.Generator(device=self.device).manual_seed(int(seed)) if seed is not None else sampling.generator
-        )
+        positive = []
+        direct_conditions = []
+        inner_requests = []
+        for request, extra in zip(req.requests, extras):
+            sampling = request.sampling_params
+            query_hidden = extra.get("query_hidden_states")
+            direct_hidden = extra.get("direct_hidden_states")
+            if query_hidden is None or direct_hidden is None:
+                if not request.is_dummy_run():
+                    raise ValueError("Ming-Image requests require query and direct conditions.")
+                logger.warning("Ming-Image conditions are absent during warmup; using zero tensors.")
+                query_hidden = torch.zeros((256, 2048), device=self.device, dtype=self.od_config.dtype)
+                direct_hidden = torch.zeros((1, 6144), device=self.device, dtype=self.od_config.dtype)
+            if not isinstance(query_hidden, torch.Tensor) or not isinstance(direct_hidden, torch.Tensor):
+                raise TypeError("Ming-Image query and direct conditions must be tensors.")
+            if query_hidden.ndim == 2:
+                query_hidden = query_hidden.unsqueeze(0)
+            if direct_hidden.ndim == 2:
+                direct_hidden = direct_hidden.unsqueeze(0)
+            if query_hidden.ndim != 3 or direct_hidden.ndim != 3:
+                raise ValueError("Ming-Image conditions must have two or three dimensions.")
+            if query_hidden.shape[0] != 1 or direct_hidden.shape[0] != 1:
+                raise ValueError("Ming-Image conditions must contain exactly one request.")
+            cap_feats, direct_condition = self.conditioning(
+                query_hidden.to(device=self.device, dtype=self.od_config.dtype),
+                direct_hidden.to(device=self.device, dtype=self.od_config.dtype),
+            )
+            positive.append(cap_feats[0])
+            direct_conditions.append(direct_condition[0])
 
-        ref_latent = self._encode_reference(reference, height, width)
-        positive = [item for item in cap_feats]
-        negative = [torch.zeros_like(item) for item in positive]
-        self._pending_prompt_embeds = positive
-        self._pending_negative_prompt_embeds = negative
-
-        apply_cfg = cfg > 0
-        context_direct = (
-            torch.cat([direct_condition, torch.zeros_like(direct_condition)], dim=0) if apply_cfg else direct_condition
-        )
-        context_ref = ref_latent
-        if apply_cfg and context_ref is not None:
-            context_ref = context_ref.repeat(2, 1, 1, 1, 1)
-
-        inner_sampling = OmniDiffusionSamplingParams(
-            height=height,
-            width=width,
-            num_inference_steps=steps,
-            guidance_scale=cfg,
-            generator=generator,
-            output_type="latent",
-        )
-        inner_req = DiffusionRequestBatch(
-            requests=[
+            seed = (sampling.extra_args or {}).get("seed", sampling.seed)
+            generator = (
+                torch.Generator(device=self.device).manual_seed(int(seed)) if seed is not None else sampling.generator
+            )
+            inner_requests.append(
                 OmniDiffusionRequest(
                     prompt={"prompt": ""},
-                    sampling_params=inner_sampling,
-                    request_id=req.request_id or "ming-image",
+                    sampling_params=OmniDiffusionSamplingParams(
+                        height=first.height,
+                        width=first.width,
+                        num_inference_steps=first.steps,
+                        guidance_scale=first.cfg,
+                        generator=generator,
+                        output_type="latent",
+                    ),
+                    request_id=request.request_id,
                 )
-            ]
-        )
+            )
+
+        context_ref = self._encode_reference(reference, first.height, first.width)
+        apply_cfg = first.cfg > 0
+        context_direct = direct_conditions
+        if apply_cfg:
+            context_direct = direct_conditions + [torch.zeros_like(item) for item in direct_conditions]
+            if context_ref is not None:
+                context_ref = context_ref.repeat(2, 1, 1, 1, 1)
+
+        self._pending_prompt_embeds = positive
+        self._pending_negative_prompt_embeds = [torch.zeros_like(item) for item in positive]
+        inner_req = DiffusionRequestBatch(requests=inner_requests)
 
         set_forward_context_ref_latent(context_ref)
         set_forward_context_direct_condition(context_direct)
@@ -366,10 +365,8 @@ class MingImageDiffusionPipeline(ZImagePipeline):
             if not isinstance(latent_output.output, torch.Tensor):
                 raise TypeError("Ming-Image denoising must return latent tensors.")
             image = self._decode_latent_frames(latent_output.output)
-            return DiffusionOutput(
-                output=image,
-                stage_durations=latent_output.stage_durations,
-            )
+            images = [image] if req.num_reqs == 1 else list(image.split(1, dim=0))
+            return [DiffusionOutput(output=item, stage_durations=latent_output.stage_durations) for item in images]
         finally:
             set_forward_context_ref_latent(None)
             set_forward_context_direct_condition(None)

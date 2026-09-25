@@ -59,6 +59,25 @@ curl -s http://127.0.0.1:8091/v1/chat/completions \
   | base64 -d > ming_design_smoke.png
 ```
 
+## Request batching
+
+Design text-to-image requests can share a denoising wave while retaining their
+own prompt conditions and seeds. Each request returns one RGBA image. Requests
+must have matching height, width, inference steps, guidance and layer count;
+different prompt lengths and seeds can share a wave.
+
+To enable a two-request wave, copy `vllm_omni/deploy/ming_image.yaml` to a custom
+deployment file and set `max_num_seqs: 2` in both stages, `max_inflight: 2` on the
+stage edge, and `request_batch_max_wait_ms: 50` in Stage 1. Launch with
+`--deploy-config /path/to/ming_image_batch.yaml` and submit two concurrent
+text-to-image requests. The admission wait is an upper bound for coalescing
+arrivals; it does not guarantee that every wave contains two requests.
+
+Image editing and Design-Layer requests run individually, including when the
+configured concurrency is greater than one. Batching uses complete denoising
+waves; requests arriving during a wave wait for a later wave. Warm up each batch
+size as well as each image shape before measuring compiled execution.
+
 ## Image editing
 
 Pass one input image and an editing instruction:
@@ -134,7 +153,7 @@ jq -r '.choices[0].message.content[].image_url.url | split(",")[1]' response.jso
   The first request for each new image shape or layer count pays compilation
   and graph-capture cost; warm up every production shape before measuring or
   serving latency-sensitive traffic.
-- Only one reference image and one request at a time are currently supported.
+- Each image-editing or Design-Layer request accepts one reference image and runs individually.
 - Design-Layer requires a reference image except during warmup.
 - A non-empty `negative_prompt` is rejected; Ming-Image uses zero negative conditioning.
 - Height and width must be divisible by 16.
