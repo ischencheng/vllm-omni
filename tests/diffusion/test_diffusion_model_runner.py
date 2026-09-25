@@ -135,8 +135,9 @@ class _FinalOnlyStepPipeline:
         return DiffusionOutput(output=state.latents.clone())
 
 
-class _CompileTrackingModel:
+class _CompileTrackingModel(torch.nn.Module):
     def __init__(self):
+        super().__init__()
         self.compile_calls = []
 
     def compile(self, *args, **kwargs):
@@ -516,7 +517,7 @@ def test_compile_transformer_regionally_compiles_blocks(monkeypatch, use_hsdp):
         (
             runner.pipeline.transformer,
             (),
-            {"dynamic": True},
+            {"compiled_blocks": set(), "dynamic": True},
         )
     ]
 
@@ -537,7 +538,7 @@ def test_compile_transformer_uses_regional_dynamic_false_config(monkeypatch):
 
     DiffusionModelRunner._compile_transformer(runner, "transformer")
 
-    assert regional_calls == [(model, {"dynamic": False})]
+    assert regional_calls == [(model, {"compiled_blocks": set(), "dynamic": False})]
     assert model.compile_calls == []
     assert runner.pipeline.transformer is compiled_model
 
@@ -594,7 +595,7 @@ def test_compile_transformer_resolves_nested_path(monkeypatch, path, granularity
         assert getattr(parent, parts[-1]) is model
         assert runner.pipeline.transformer is model
     else:
-        assert regional_calls == [(model, {"dynamic": True})]
+        assert regional_calls == [(model, {"compiled_blocks": set(), "dynamic": True})]
         assert getattr(parent, parts[-1]) is compiled_model
 
 
@@ -609,6 +610,113 @@ def test_compile_transformer_skips_missing_nested_path(monkeypatch, path):
 
     monkeypatch.setattr(model_runner_module, "regionally_compile", unexpected_compile)
     DiffusionModelRunner._compile_transformer(runner, path)
+
+
+@pytest.mark.core_model
+@pytest.mark.cpu
+@pytest.mark.parametrize("reverse_order", [False, True])
+def test_compile_transformers_compiles_each_full_entrypoint_once_with_nested_aliases(reverse_order):
+    outer = _CompileTrackingModel()
+    outer.inner = _CompileTrackingModel()
+    other = _CompileTrackingModel()
+    runner = _make_compile_runner(outer, compile_granularity="full")
+    runner.pipeline.alias = outer.inner
+    runner.pipeline.other = other
+    paths = ["transformer.inner", "alias", "transformer", "other"]
+    runner.pipeline._dit_modules = paths[::-1] if reverse_order else paths
+
+    runner._compile_transformers()
+
+    assert outer.compile_calls == [((), {"dynamic": True})]
+    assert outer.inner.compile_calls == [((), {"dynamic": True})]
+    assert other.compile_calls == [((), {"dynamic": True})]
+    assert runner.pipeline.alias is outer.inner
+
+
+@pytest.mark.core_model
+@pytest.mark.cpu
+def test_compile_transformers_full_failure_still_attempts_declared_child(monkeypatch):
+    outer = _CompileTrackingModel()
+    outer.inner = _CompileTrackingModel()
+    runner = _make_compile_runner(outer, compile_granularity="full")
+    runner.pipeline._dit_modules = ["transformer", "transformer.inner"]
+
+    def fail_compile(**kwargs):
+        raise RuntimeError("compile setup failed")
+
+    monkeypatch.setattr(outer, "compile", fail_compile)
+
+    runner._compile_transformers()
+
+    assert outer.inner.compile_calls == [((), {"dynamic": True})]
+
+
+@pytest.mark.core_model
+@pytest.mark.cpu
+@pytest.mark.parametrize("declared_paths", [None, [], ["missing.path", "transformer", "transformer_2"]])
+def test_compile_transformers_deduplicates_full_aliases_and_preserves_fallback(declared_paths):
+    model = _CompileTrackingModel()
+    runner = _make_compile_runner(model, compile_granularity="full")
+    runner.pipeline._dit_modules = declared_paths
+    runner.pipeline.transformer_2 = model
+
+    runner._compile_transformers()
+
+    assert model.compile_calls == [((), {"dynamic": True})]
+
+
+@pytest.mark.core_model
+@pytest.mark.cpu
+@pytest.mark.parametrize("reverse_order", [False, True])
+def test_compile_transformers_regional_preserves_inner_block_declarations(monkeypatch, reverse_order):
+    class OuterBlock(torch.nn.Module):
+        def forward(self, x):
+            return x
+
+    class InnerBlock(torch.nn.Module):
+        def forward(self, x):
+            return x
+
+    outer = torch.nn.Module()
+    outer._repeated_blocks = ["OuterBlock"]
+    outer.inner = torch.nn.Module()
+    outer.inner._repeated_blocks = ["OuterBlock", "InnerBlock"]
+    outer.inner.shared_block = OuterBlock()
+    outer.inner.other_block = InnerBlock()
+    runner = _make_compile_runner(outer)
+    runner.pipeline.alias = outer.inner
+    paths = ["transformer", "transformer.inner", "alias"]
+    runner.pipeline._dit_modules = paths[::-1] if reverse_order else paths
+    calls = []
+
+    def compile_forward(fn, **kwargs):
+        calls.append(fn.__self__)
+        return lambda x: f"compiled:{fn(x)}"
+
+    monkeypatch.setattr(torch, "compile", compile_forward)
+
+    runner._compile_transformers()
+
+    assert calls.count(outer.inner.shared_block) == 1
+    assert calls.count(outer.inner.other_block) == 1
+    assert outer.inner.shared_block("ok") == "compiled:ok"
+    assert outer.inner.other_block("ok") == "compiled:ok"
+
+
+@pytest.mark.core_model
+@pytest.mark.cpu
+@pytest.mark.parametrize("repeated_blocks", [None, ["MissingBlock"]])
+def test_compile_transformer_does_not_report_skipped_regional_setup(monkeypatch, repeated_blocks):
+    model = _CompileTrackingModel()
+    model._repeated_blocks = repeated_blocks
+    runner = _make_compile_runner(model)
+    messages = []
+    monkeypatch.setattr(model_runner_module.logger, "info", lambda message, *args: messages.append(message))
+
+    runner._compile_transformer("transformer")
+
+    assert all("configured for lazy" not in message for message in messages)
+    assert runner.pipeline.transformer is model
 
 
 @pytest.mark.core_model

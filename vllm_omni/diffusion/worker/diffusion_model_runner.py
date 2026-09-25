@@ -239,7 +239,27 @@ class DiffusionModelRunner(DiffusionStagePayloadMixin):
                 f"Diffusion KV metadata request mismatch: expected={request_id!r}, got={metadata.request_id!r}"
             )
 
-    def _compile_transformer(self, attr_name: str) -> None:
+    def _compile_transformers(self) -> None:
+        transformer_attrs = getattr(self.pipeline, "_dit_modules", None)
+        if not transformer_attrs:
+            transformer_attrs = ("transformer", "transformer_2")
+
+        seen_models: set[int] = set()
+        compiled_blocks: set[int] = set()
+        for attr_name in transformer_attrs:
+            try:
+                model = attrgetter(attr_name)(self.pipeline)
+            except AttributeError:
+                continue
+            if not isinstance(model, torch.nn.Module) or id(model) in seen_models:
+                continue
+            seen_models.add(id(model))
+            # Nested roots can expose separate entrypoints or declare different
+            # repeated block classes. Deduplicate aliases and actual blocks,
+            # while preserving every distinct declared root.
+            self._compile_transformer(attr_name, compiled_blocks=compiled_blocks)
+
+    def _compile_transformer(self, attr_name: str, *, compiled_blocks: set[int] | None = None) -> None:
         """Compile a declared transformer path on the pipeline with torch.compile."""
         parent_path, _, name = attr_name.rpartition(".")
         try:
@@ -252,12 +272,15 @@ class DiffusionModelRunner(DiffusionStagePayloadMixin):
 
         compile_granularity = self.od_config.diffusion_compile_granularity
         compile_dynamic = self.od_config.diffusion_compile_dynamic
+        if compiled_blocks is None:
+            compiled_blocks = set()
+        previous_block_count = len(compiled_blocks)
         try:
             if compile_granularity == "full":
                 model.compile(dynamic=compile_dynamic)
                 compiled_model = model
             else:
-                compiled_model = regionally_compile(model, dynamic=compile_dynamic)
+                compiled_model = regionally_compile(model, compiled_blocks=compiled_blocks, dynamic=compile_dynamic)
             setattr(parent, name, compiled_model)
         except Exception as e:
             logger.warning(
@@ -268,6 +291,9 @@ class DiffusionModelRunner(DiffusionStagePayloadMixin):
                 attr_name,
                 e,
             )
+            return
+
+        if compile_granularity == "regional" and len(compiled_blocks) == previous_block_count:
             return
 
         logger.info(
@@ -399,11 +425,7 @@ class DiffusionModelRunner(DiffusionStagePayloadMixin):
                             exc,
                         )
                 else:
-                    transformer_attrs = getattr(self.pipeline, "_dit_modules", None)
-                    if not transformer_attrs:
-                        transformer_attrs = ("transformer", "transformer_2")
-                    for attr_name in transformer_attrs:
-                        self._compile_transformer(attr_name)
+                    self._compile_transformers()
             else:
                 logger.warning(
                     "Model runner: Platform %s does not support torch inductor, skipping torch.compile.",

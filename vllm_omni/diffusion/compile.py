@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-# SPDX-FileCopyrightText: Copyright contributors to the vLLM project
+# SPDX-FileCopyrightText: Copyright contributors to the vLLM-Omni project
 from typing import Any
 
 import torch
@@ -31,6 +31,7 @@ def _matches_repeated_block(
 def regionally_compile(
     model: nn.Module,
     *compile_args: Any,
+    compiled_blocks: set[int] | None = None,
     **compile_kwargs: Any,
 ) -> nn.Module:
     """
@@ -39,6 +40,8 @@ def regionally_compile(
     Args:
         model: The PyTorch model instance to compile
         *compile_args: Positional arguments forwarded to torch.compile
+        compiled_blocks: Block identities already compiled during this setup.
+            Updated only after all new block callables are prepared successfully.
         **compile_kwargs: Keyword arguments forwarded to torch.compile
 
     Returns:
@@ -61,9 +64,15 @@ def regionally_compile(
     # wrapper performs stream/event synchronization and storage rebinding, so
     # compiling it pulls offload control flow into the graph.  Compile the
     # original block compute instead and leave the wrapper outside the graph.
+    if compiled_blocks is None:
+        compiled_blocks = set()
+    found_repeated_blocks = False
     compiled_forwards: list[tuple[nn.Module, Any | None, Any]] = []
     for name, submod in model.named_modules():
         if _matches_repeated_block(name, submod, repeated_blocks, repeated_block_attrs):
+            found_repeated_blocks = True
+            if id(submod) in compiled_blocks:
+                continue
             # Compile the block compute while keeping nn.Module.__call__ hooks
             # outside the compiled graph. If a HookRegistry is already
             # installed, ``submod.forward`` is the hook dispatcher and the
@@ -82,9 +91,9 @@ def regionally_compile(
                 )
             )
 
-    if not compiled_forwards:
+    if not found_repeated_blocks:
         logger.warning(f"Regional compilation skipped because {repeated_blocks} classes are not found in the model.")
-    else:
+    elif compiled_forwards:
         for submod, original_forward, compiled_forward in compiled_forwards:
             if original_forward is None:
                 submod.forward = compiled_forward
@@ -100,6 +109,7 @@ def regionally_compile(
                 fn_ref = getattr(hook, "fn_ref", None)
                 if fn_ref is not None and fn_ref.original_forward is original_forward:
                     fn_ref.original_forward = compiled_forward
+        compiled_blocks.update(id(submod) for submod, _, _ in compiled_forwards)
         logger.info(
             "Regional compilation applied to %d module(s) for repeated blocks %s.",
             len(compiled_forwards),
