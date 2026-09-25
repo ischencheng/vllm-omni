@@ -79,10 +79,13 @@ stage edge, and `request_batch_max_wait_ms: 50` in Stage 1. Launch with
 text-to-image requests. The admission wait is an upper bound for coalescing
 arrivals; it does not guarantee that every wave contains two requests.
 
+Batching correctness was checked with eager execution. Set `enforce_eager: true`
+in Stage 1 to reproduce that mode; validate regional compilation separately.
+
 Image editing and Design-Layer requests run individually, including when the
 configured concurrency is greater than one. Batching uses complete denoising
 waves; requests arriving during a wave wait for a later wave. Warm up each batch
-size as well as each image shape before measuring compiled execution.
+size as well as each image shape before measuring performance.
 
 ## Image editing
 
