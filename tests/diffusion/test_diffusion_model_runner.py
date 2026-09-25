@@ -564,6 +564,55 @@ def test_compile_transformer_uses_full_granularity(monkeypatch):
 
 @pytest.mark.core_model
 @pytest.mark.cpu
+@pytest.mark.parametrize("path", ["language_model.model", "model.model.language_model"])
+@pytest.mark.parametrize("granularity", ["regional", "full"])
+def test_compile_transformer_resolves_nested_path(monkeypatch, path, granularity):
+    model = _CompileTrackingModel()
+    runner = _make_compile_runner(model, compile_granularity=granularity)
+    parent = runner.pipeline
+    parts = path.split(".")
+    for part in parts[:-1]:
+        child = SimpleNamespace()
+        setattr(parent, part, child)
+        parent = child
+    setattr(parent, parts[-1], model)
+    regional_calls = []
+    compiled_model = object()
+
+    def compile_regional(target, **kwargs):
+        regional_calls.append((target, kwargs))
+        return compiled_model
+
+    monkeypatch.setattr(model_runner_module, "regionally_compile", compile_regional)
+
+    DiffusionModelRunner._compile_transformer(runner, path)
+
+    assert not hasattr(runner.pipeline, path)
+    if granularity == "full":
+        assert model.compile_calls == [((), {"dynamic": True})]
+        assert regional_calls == []
+        assert getattr(parent, parts[-1]) is model
+        assert runner.pipeline.transformer is model
+    else:
+        assert regional_calls == [(model, {"dynamic": True})]
+        assert getattr(parent, parts[-1]) is compiled_model
+
+
+@pytest.mark.core_model
+@pytest.mark.cpu
+@pytest.mark.parametrize("path", ["missing.model", "transformer.missing"])
+def test_compile_transformer_skips_missing_nested_path(monkeypatch, path):
+    runner = _make_compile_runner()
+
+    def unexpected_compile(*args, **kwargs):
+        pytest.fail("missing modules must not be compiled")
+
+    monkeypatch.setattr(model_runner_module, "regionally_compile", unexpected_compile)
+    DiffusionModelRunner._compile_transformer(runner, path)
+
+
+@pytest.mark.core_model
+@pytest.mark.cpu
 def test_compile_transformer_falls_back_after_synchronous_setup_failure(monkeypatch):
     model = _CompileTrackingModel()
     runner = _make_compile_runner(model)

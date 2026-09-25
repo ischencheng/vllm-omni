@@ -15,6 +15,7 @@ import gc
 import time
 from collections.abc import Callable, Sequence
 from contextlib import AbstractContextManager, nullcontext
+from operator import attrgetter
 from typing import TYPE_CHECKING, Any, cast
 
 import torch
@@ -239,8 +240,13 @@ class DiffusionModelRunner(DiffusionStagePayloadMixin):
             )
 
     def _compile_transformer(self, attr_name: str) -> None:
-        """Compile a transformer attribute on the pipeline with torch.compile."""
-        model = getattr(self.pipeline, attr_name, None)
+        """Compile a declared transformer path on the pipeline with torch.compile."""
+        parent_path, _, name = attr_name.rpartition(".")
+        try:
+            parent = attrgetter(parent_path)(self.pipeline) if parent_path else self.pipeline
+            model = getattr(parent, name, None)
+        except AttributeError:
+            return
         if model is None:
             return
 
@@ -252,7 +258,7 @@ class DiffusionModelRunner(DiffusionStagePayloadMixin):
                 compiled_model = model
             else:
                 compiled_model = regionally_compile(model, dynamic=compile_dynamic)
-            setattr(self.pipeline, attr_name, compiled_model)
+            setattr(parent, name, compiled_model)
         except Exception as e:
             logger.warning(
                 "Model runner: %s torch.compile setup for %s failed before activation: %s. "
