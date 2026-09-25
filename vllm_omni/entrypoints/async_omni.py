@@ -154,6 +154,9 @@ class AsyncOmni(AsyncOmniBase, EngineClient):
                 Must have the same length as the number of stages.
                 If *None*, uses default sampling params for each stage.
             output_modalities: Optional list of output modalities.
+            tokenization_kwargs: Tokenization options for each stage-0 input.
+            priority: Stage-0 request priority when priority scheduling is enabled.
+            data_parallel_rank: Data-parallel rank within the selected stage-0 replica.
 
         Yields:
             OmniRequestOutput objects as they are produced by each stage.
@@ -276,6 +279,9 @@ class AsyncOmni(AsyncOmniBase, EngineClient):
                     final_output_stage_ids=final_output_stage_ids,
                     arrival_time=wall_start_ts,
                     lora_request=lora_request,
+                    tokenization_kwargs=tokenization_kwargs,
+                    priority=priority,
+                    data_parallel_rank=data_parallel_rank,
                     first_chunk_submitted=first_chunk_submitted,
                 )
                 await first_chunk_submitted
@@ -288,6 +294,9 @@ class AsyncOmni(AsyncOmniBase, EngineClient):
                     final_output_stage_ids=final_output_stage_ids,
                     arrival_time=wall_start_ts,
                     lora_request=lora_request,
+                    tokenization_kwargs=tokenization_kwargs,
+                    priority=priority,
+                    data_parallel_rank=data_parallel_rank,
                 )
             submit_ts = time.time()
             stage_first_ts = cast(list[float | None], req_state.metrics.stage_first_ts)
@@ -361,6 +370,9 @@ class AsyncOmni(AsyncOmniBase, EngineClient):
         arrival_time: float,
         lora_request: Any = None,
         first_chunk_submitted: asyncio.Future[None] | None = None,
+        tokenization_kwargs: dict[str, Any] | None = None,
+        priority: int = 0,
+        data_parallel_rank: int | None = None,
     ) -> asyncio.Task:
         """Submit a streaming input generator as incremental stage-0 updates."""
         if not sampling_params_list:
@@ -421,6 +433,9 @@ class AsyncOmni(AsyncOmniBase, EngineClient):
                                 final_output_stage_ids=final_output_stage_ids,
                                 arrival_time=arrival_time,
                                 lora_request=lora_request,
+                                tokenization_kwargs=tokenization_kwargs,
+                                priority=priority,
+                                data_parallel_rank=data_parallel_rank,
                                 resumable=True,
                             )
                         )
@@ -437,6 +452,9 @@ class AsyncOmni(AsyncOmniBase, EngineClient):
                                 final_output_stage_ids=final_output_stage_ids,
                                 arrival_time=arrival_time,
                                 lora_request=lora_request,
+                                tokenization_kwargs=tokenization_kwargs,
+                                priority=priority,
+                                data_parallel_rank=data_parallel_rank,
                                 resumable=True,
                             )
                         )
@@ -464,6 +482,9 @@ class AsyncOmni(AsyncOmniBase, EngineClient):
                                     final_output_stage_ids=final_output_stage_ids,
                                     arrival_time=arrival_time,
                                     lora_request=lora_request,
+                                    tokenization_kwargs=tokenization_kwargs,
+                                    priority=priority,
+                                    data_parallel_rank=data_parallel_rank,
                                     resumable=False,
                                 )
                             )
@@ -478,6 +499,9 @@ class AsyncOmni(AsyncOmniBase, EngineClient):
                                     final_output_stage_ids=final_output_stage_ids,
                                     arrival_time=arrival_time,
                                     lora_request=lora_request,
+                                    tokenization_kwargs=tokenization_kwargs,
+                                    priority=priority,
+                                    data_parallel_rank=data_parallel_rank,
                                     resumable=False,
                                 )
                             )

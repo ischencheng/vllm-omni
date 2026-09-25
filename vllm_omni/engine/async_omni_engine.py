@@ -630,6 +630,9 @@ class AsyncOmniEngine(OmniEngineBase):
         arrival_time: float | None = None,
         lora_request: Any = None,
         *,
+        tokenization_kwargs: dict[str, Any] | None = None,
+        priority: int = 0,
+        data_parallel_rank: int | None = None,
         resumable: bool = True,
     ) -> None:
         """Send an incremental streaming update for an existing request."""
@@ -642,6 +645,9 @@ class AsyncOmniEngine(OmniEngineBase):
             final_output_stage_ids=final_output_stage_ids,
             arrival_time=arrival_time,
             lora_request=lora_request,
+            tokenization_kwargs=tokenization_kwargs,
+            priority=priority,
+            data_parallel_rank=data_parallel_rank,
             resumable=resumable,
             message_type="streaming_update",
         )
@@ -658,6 +664,9 @@ class AsyncOmniEngine(OmniEngineBase):
         arrival_time: float | None = None,
         lora_request: Any = None,
         *,
+        tokenization_kwargs: dict[str, Any] | None = None,
+        priority: int = 0,
+        data_parallel_rank: int | None = None,
         resumable: bool = True,
     ) -> None:
         """Async wrapper for add_streaming_update()."""
@@ -670,6 +679,9 @@ class AsyncOmniEngine(OmniEngineBase):
             final_output_stage_ids=final_output_stage_ids,
             arrival_time=arrival_time,
             lora_request=lora_request,
+            tokenization_kwargs=tokenization_kwargs,
+            priority=priority,
+            data_parallel_rank=data_parallel_rank,
             resumable=resumable,
         )
 

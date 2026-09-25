@@ -10,10 +10,12 @@ import pytest
 from vllm.engine.protocol import StreamingInput
 from vllm.lora.request import LoRARequest
 from vllm.sampling_params import RequestOutputKind, SamplingParams
+from vllm.v1.engine import EngineCoreRequest
 
 from tests.helpers.mark import hardware_test
 from tests.helpers.stage_config import get_deploy_config_path
-from vllm_omni.engine.async_omni_engine import AsyncOmniEngine
+from vllm_omni.engine.async_omni_engine import AsyncOmniEngine, StageRuntimeInfo
+from vllm_omni.engine.messages import StageSubmissionMessage
 from vllm_omni.entrypoints import async_omni as async_omni_mod
 from vllm_omni.entrypoints.async_omni import AsyncOmni
 from vllm_omni.entrypoints.utils import coerce_param_message_types
@@ -134,6 +136,79 @@ def test_generate_forwards_lora_request_to_engine():
         assert len(submitted_ids) == 1
         assert len(submitted_loras) == 1
         assert submitted_loras[0] is lora
+
+    asyncio.run(run())
+
+
+@pytest.mark.cpu
+@pytest.mark.parametrize("stream_chunks", [None, 0, 2])
+def test_generate_preserves_stage0_request_options(mocker, stream_chunks):
+    async def run():
+        params = SamplingParams(output_kind=RequestOutputKind.DELTA)
+        submissions: list[StageSubmissionMessage] = []
+        engine = object.__new__(AsyncOmniEngine)
+        engine.stage_metadata = [StageRuntimeInfo(final_output=True, final_output_type="text", stage_type="llm")]
+        engine.stage_pools = []
+        engine.prompt_expand_func = None
+        engine.supported_tasks = ("generate",)
+        engine.request_queue = mocker.Mock()
+        engine.request_queue.sync_q.put.side_effect = submissions.append
+        engine.input_processor = mocker.Mock()
+        engine.input_processor.process_inputs.side_effect = lambda **kwargs: EngineCoreRequest(
+            request_id=kwargs["request_id"],
+            prompt_token_ids=[1],
+            mm_features=None,
+            sampling_params=kwargs["params"],
+            pooling_params=None,
+            arrival_time=kwargs["arrival_time"],
+            lora_request=kwargs["lora_request"],
+            cache_salt=None,
+            priority=kwargs["priority"],
+            data_parallel_rank=kwargs["data_parallel_rank"],
+            resumable=kwargs["resumable"],
+        )
+        omni = get_async_omni_instance(fake_add_request=engine.add_request_async)
+        omni.engine.add_streaming_update_async = engine.add_streaming_update_async
+        mocker.patch.object(async_omni_mod, "extract_prompt_components", return_value=("hello", None, None))
+
+        async def stream():
+            for _ in range(stream_chunks):
+                yield StreamingInput(prompt={"prompt": "hello"})
+
+        async def process_results(request_id, *args):
+            state = omni.request_states[request_id]
+            task = state.input_stream_task
+            if task is not None:
+                await task
+            assert state.queue.empty(), state.queue.get_nowait()
+            yield OmniRequestOutput(request_id=request_id, finished=True)
+
+        omni._process_orchestrator_results = process_results
+        kwargs = {"add_special_tokens": False, "truncate_prompt_tokens": 4}
+        async for _ in omni.generate(
+            prompt={"prompt": "hello"} if stream_chunks is None else stream(),
+            request_id="options",
+            sampling_params_list=[params],
+            tokenization_kwargs=kwargs,
+            priority=-7,
+            data_parallel_rank=1,
+            arrival_time=123.0,
+        ):
+            pass
+
+        expected_count = 1 if stream_chunks is None else stream_chunks + 1
+        assert len(submissions) == expected_count
+        request_id = submissions[0].request_id
+        assert request_id.startswith("options-")
+        for index, (message, call) in enumerate(zip(submissions, engine.input_processor.process_inputs.call_args_list)):
+            assert call.kwargs["tokenization_kwargs"] == kwargs
+            assert message.prompt.priority == -7
+            assert message.prompt.data_parallel_rank == 1
+            assert message.request_id == request_id
+            assert message.prompt.external_req_id == request_id
+            assert message.prompt.arrival_time == 123.0
+            assert message.type == ("add_request" if index == 0 else "streaming_update")
+        assert not submissions[-1].prompt.resumable
 
     asyncio.run(run())
 
