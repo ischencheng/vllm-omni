@@ -6,6 +6,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+import torch
+
 from vllm_omni.diffusion.data import OmniDiffusionConfig
 from vllm_omni.diffusion.request import OmniDiffusionRequest
 from vllm_omni.inputs.data import OmniPromptType
@@ -24,6 +26,24 @@ def get_ming_image_prompt_extra(prompt: OmniPromptType) -> dict[str, object]:
     if isinstance(prompt, dict):
         return dict(prompt.get("extra") or {})
     return {}
+
+
+def get_ming_image_padded_condition_length(request: OmniDiffusionRequest) -> int | None:
+    """Read the transformer caption length without materializing condition data."""
+    extra = get_ming_image_prompt_extra(request.prompt)
+    length = 0
+    for key in ("query_hidden_states", "direct_hidden_states"):
+        condition = extra.get(key)
+        if not isinstance(condition, torch.Tensor) or condition.ndim not in (2, 3):
+            return None
+        if condition.ndim == 3 and condition.shape[0] != 1:
+            return None
+        if condition.shape[-2] == 0:
+            return None
+        length += condition.shape[-2]
+    # Both condition projections preserve sequence length. The inherited
+    # Z-Image transformer pads their concatenation to a multiple of 32.
+    return length + (-length) % 32
 
 
 def resolve_ming_image_request(
@@ -60,10 +80,13 @@ def get_ming_image_pre_process_func(od_config: OmniDiffusionConfig):
     def pre_process_func(request: OmniDiffusionRequest) -> OmniDiffusionRequest:
         settings = resolve_ming_image_request(request, is_layer_decomposition=is_layer_decomposition)
         reference = get_ming_image_prompt_extra(request.prompt).get("reference_image")
-        # Design-Layer and reference-image requests retain their single-request
-        # path. A unique key prevents an otherwise compatible wave from
-        # reaching their unsupported multi-request forward path.
-        singleton_id = request.request_id if is_layer_decomposition or reference is not None else None
+        condition_length = get_ming_image_padded_condition_length(request)
+        # Missing conditions (including warmup), Design-Layer and reference
+        # inputs retain their single-request path. The transformer requires
+        # equal padded caption lengths to preserve each request's positions.
+        singleton_id = (
+            request.request_id if is_layer_decomposition or reference is not None or condition_length is None else None
+        )
         request.batch_compatibility_key = (
             "ming_image",
             settings.height,
@@ -71,6 +94,7 @@ def get_ming_image_pre_process_func(od_config: OmniDiffusionConfig):
             settings.steps,
             settings.cfg,
             settings.num_layers,
+            condition_length,
             reference is not None,
             singleton_id,
         )
@@ -81,6 +105,7 @@ def get_ming_image_pre_process_func(od_config: OmniDiffusionConfig):
 
 __all__ = [
     "MingImageRequestSettings",
+    "get_ming_image_padded_condition_length",
     "get_ming_image_pre_process_func",
     "get_ming_image_prompt_extra",
     "resolve_ming_image_request",

@@ -7,11 +7,12 @@ import torch
 from vllm_omni.diffusion.data import DiffusionOutput, OmniDiffusionConfig, TransformerConfig
 from vllm_omni.diffusion.models.ming_image.request import (
     MingImageRequestSettings,
+    get_ming_image_padded_condition_length,
     get_ming_image_pre_process_func,
     resolve_ming_image_request,
 )
 from vllm_omni.diffusion.registry import get_diffusion_pre_process_func
-from vllm_omni.diffusion.request import OmniDiffusionRequest
+from vllm_omni.diffusion.request import DUMMY_DIFFUSION_REQUEST_ID, OmniDiffusionRequest
 from vllm_omni.diffusion.sched import DiffusionRequestStatus, RequestScheduler
 from vllm_omni.diffusion.sched.request_scheduler import build_request_batch_sampling_params_key
 from vllm_omni.diffusion.worker.utils import BatchRunnerOutput, RunnerOutput
@@ -94,8 +95,8 @@ def test_request_settings_resolve_missing_values(layered, expected_cfg):
 
 
 def test_different_seeds_and_ragged_direct_conditions_share_a_wave():
-    first = _request("first", seed=11, direct_length=4, extra_args={"seed": 101})
-    second = _request("second", seed=22, direct_length=7, extra_args={"seed": 202})
+    first = _request("first", seed=11, direct_length=2, extra_args={"seed": 101})
+    second = _request("second", seed=22, direct_length=5, extra_args={"seed": 202})
     scheduler = _scheduler(_config(), first, second)
 
     scheduled = scheduler.schedule()
@@ -107,6 +108,44 @@ def test_different_seeds_and_ragged_direct_conditions_share_a_wave():
         11,
         22,
     ]
+
+
+def test_different_padded_condition_lengths_do_not_share_a_wave():
+    first = _request("first", direct_length=28)
+    second = _request("second", direct_length=39)
+    scheduler = _scheduler(_config(), first, second)
+
+    assert get_ming_image_padded_condition_length(first) == 288
+    assert get_ming_image_padded_condition_length(second) == 320
+    assert scheduler.schedule().scheduled_request_ids == ["first"]
+    assert scheduler.num_waiting_requests() == 1
+    assert build_request_batch_sampling_params_key(first) != build_request_batch_sampling_params_key(second)
+
+
+@pytest.mark.parametrize("batched", [False, True])
+def test_condition_length_uses_actual_shapes_without_materializing_tensors(batched):
+    request = _request("first")
+    prefix = (1,) if batched else ()
+    request.prompt["extra"] = {
+        "query_hidden_states": torch.empty((*prefix, 240, 2048), device="meta"),
+        "direct_hidden_states": torch.empty((*prefix, 39, 6144), device="meta"),
+    }
+
+    assert get_ming_image_padded_condition_length(request) == 288
+
+
+@pytest.mark.parametrize("dummy", [False, True])
+def test_missing_conditions_retain_single_request_admission(dummy):
+    prefix = f"{DUMMY_DIFFUSION_REQUEST_ID}/" if dummy else ""
+    first = _request(f"{prefix}first")
+    second = _request(f"{prefix}second")
+    first.prompt["extra"].pop("direct_hidden_states")
+    second.prompt["extra"].pop("direct_hidden_states")
+    scheduler = _scheduler(_config(), first, second)
+
+    assert get_ming_image_padded_condition_length(first) is None
+    assert scheduler.schedule().scheduled_request_ids == [first.request_id]
+    assert scheduler.num_waiting_requests() == 1
 
 
 @pytest.mark.parametrize(

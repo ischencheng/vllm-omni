@@ -64,7 +64,13 @@ curl -s http://127.0.0.1:8091/v1/chat/completions \
 Design text-to-image requests can share a denoising wave while retaining their
 own prompt conditions and seeds. Each request returns one RGBA image. Requests
 must have matching height, width, inference steps, guidance and layer count;
-different prompt lengths and seeds can share a wave.
+their combined query and direct condition length must also round up to the same
+multiple of 32. Different prompt lengths within that bucket and independent
+seeds can share a wave. For example, with 256 query tokens, direct conditions of
+28 and 31 tokens share a 288-token bucket; 39 direct tokens use a separate
+320-token bucket. This restriction preserves the transformer's single-request
+padding and rotary positions. Requests in different buckets run in separate
+waves.
 
 To enable a two-request wave, copy `vllm_omni/deploy/ming_image.yaml` to a custom
 deployment file and set `max_num_seqs: 2` in both stages, `max_inflight: 2` on the

@@ -30,11 +30,12 @@ from vllm_omni.diffusion.model_loader.diffusers_loader import DiffusersPipelineL
 from vllm_omni.diffusion.model_loader.hub_prefetch import from_pretrained_with_prefetch
 from vllm_omni.diffusion.models.ming_image.condition import MingImageConditioning
 from vllm_omni.diffusion.models.ming_image.request import (
-    get_ming_image_pre_process_func as get_ming_image_pre_process_func,
-)
-from vllm_omni.diffusion.models.ming_image.request import (
+    get_ming_image_padded_condition_length,
     get_ming_image_prompt_extra,
     resolve_ming_image_request,
+)
+from vllm_omni.diffusion.models.ming_image.request import (
+    get_ming_image_pre_process_func as get_ming_image_pre_process_func,
 )
 from vllm_omni.diffusion.models.ming_image.transformer import MingImageTransformer2DModel
 from vllm_omni.diffusion.models.z_image.pipeline_z_image import ZImagePipeline
@@ -290,6 +291,10 @@ class MingImageDiffusionPipeline(ZImagePipeline):
         extras = [get_ming_image_prompt_extra(request.prompt) for request in req.requests]
         if req.num_reqs > 1 and any(extra.get("reference_image") is not None for extra in extras):
             raise ValueError("Ming-Image reference-image requests do not support request batching.")
+        if req.num_reqs > 1:
+            condition_lengths = [get_ming_image_padded_condition_length(request) for request in req.requests]
+            if condition_lengths[0] is None or any(length != condition_lengths[0] for length in condition_lengths[1:]):
+                raise ValueError("Batched Ming-Image requests must use the same padded condition length.")
         reference = extras[0].get("reference_image")
         self._configure_output_frames(
             reference=reference,

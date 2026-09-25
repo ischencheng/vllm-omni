@@ -6,6 +6,7 @@ from threading import Lock
 
 import pytest
 import torch
+from torch.nn.utils.rnn import pad_sequence
 
 from vllm_omni.diffusion.data import OmniDiffusionConfig
 from vllm_omni.diffusion.forward_context import (
@@ -13,6 +14,7 @@ from vllm_omni.diffusion.forward_context import (
     override_forward_context,
 )
 from vllm_omni.diffusion.models.ming_image.pipeline import MingImageDiffusionPipeline
+from vllm_omni.diffusion.models.ming_image.request import get_ming_image_padded_condition_length
 from vllm_omni.diffusion.models.ming_image.transformer import MingImageTransformer2DModel
 from vllm_omni.diffusion.models.z_image.pipeline_z_image import ZImagePipeline
 from vllm_omni.diffusion.models.z_image.z_image_transformer import ZImageTransformer2DModel
@@ -96,7 +98,7 @@ def pipeline(monkeypatch):
     return pipeline, calls
 
 
-def _request(index, *, cfg=2.0, seed_source="sampling"):
+def _request(index, *, cfg=2.0, seed_source="sampling", direct_length=None):
     seed = 17 + index
     sampling = OmniDiffusionSamplingParams(
         height=8,
@@ -116,12 +118,85 @@ def _request(index, *, cfg=2.0, seed_source="sampling"):
             "prompt": f"design {index}",
             "extra": {
                 "query_hidden_states": torch.full((256, 2048), float(index + 1)),
-                "direct_hidden_states": torch.full((2 + index * 3, 6144), float(index + 11)),
+                "direct_hidden_states": torch.full(
+                    (2 + index * 3 if direct_length is None else direct_length, 6144), float(index + 11)
+                ),
             },
         },
         sampling_params=sampling,
         request_id=f"design-{index}",
     )
+
+
+@pytest.mark.parametrize("direct_length, padded_length", [(31, 288), (39, 320)])
+def test_design_caption_buckets_match_real_transformer_geometry(direct_length, padded_length):
+    """Admission must prevent per-row RoPE grids and outer padding from differing."""
+    transformer = ZImageTransformer2DModel.__new__(ZImageTransformer2DModel)
+    torch.nn.Module.__init__(transformer)
+    (
+        _,
+        primary,
+        _,
+        image_positions,
+        caption_positions,
+        _,
+        caption_padding,
+        direct,
+    ) = transformer.patchify_and_embed(
+        [torch.zeros(4, 1, 8, 16), torch.zeros(4, 1, 8, 16)],
+        [torch.ones(256, 2), torch.ones(256, 2)],
+        patch_size=2,
+        f_patch_size=1,
+        all_cap_feats_2=[torch.ones(28, 2), torch.ones(direct_length, 2)],
+    )
+
+    captions = [torch.cat([query, prefix]) for query, prefix in zip(primary, direct)]
+    assert [len(item) for item in captions] == [288, padded_length]
+    requests = [_request(0, direct_length=28), _request(1, direct_length=direct_length)]
+    assert [get_ming_image_padded_condition_length(request) for request in requests] == [len(item) for item in captions]
+    assert [len(item) for item in caption_positions] == [288, padded_length]
+    assert [item.sum().item() for item in caption_padding] == [4, padded_length - 256 - direct_length]
+    assert image_positions[0][0, 0].item() == 289
+    assert image_positions[1][0, 0].item() == padded_length + 1
+
+    if padded_length == 288:
+        # The shared rotary implementation may safely reuse the first row.
+        torch.testing.assert_close(image_positions[0], image_positions[1], rtol=0, atol=0)
+        torch.testing.assert_close(caption_positions[0], caption_positions[1], rtol=0, atol=0)
+    else:
+        assert not torch.equal(image_positions[0], image_positions[1])
+
+    # Z-Image attention ignores its mask. Only equal padded lengths avoid
+    # introducing additional keys that were absent in a singleton forward.
+    batched_captions = pad_sequence(captions, batch_first=True)
+    assert batched_captions.shape[1] - captions[0].shape[0] == padded_length - 288
+
+
+def test_design_batch_accepts_different_direct_lengths_in_same_caption_bucket(pipeline):
+    model, calls = pipeline
+    requests = [_request(0, direct_length=28), _request(1, direct_length=31)]
+
+    with override_forward_context(ForwardContext()):
+        outputs = model.forward(DiffusionRequestBatch(requests=requests))
+
+    assert len(outputs) == 2
+    assert [item.shape[0] for item in calls[0][2]] == [28, 31, 28, 31]
+
+
+@pytest.mark.parametrize("direct_lengths", [(28, 39), (39, 28)])
+def test_design_batch_rejects_incompatible_caption_buckets_before_denoising(pipeline, direct_lengths):
+    model, calls = pipeline
+    requests = [_request(index, direct_length=length) for index, length in enumerate(direct_lengths)]
+    context = ForwardContext()
+
+    with override_forward_context(context), pytest.raises(ValueError, match="same padded condition length"):
+        model.forward(DiffusionRequestBatch(requests=requests))
+
+    assert not calls
+    assert not model.vae.decode_batch_sizes
+    assert context.direct_condition is None
+    assert model._pending_prompt_embeds is None
+    assert model._pending_negative_prompt_embeds is None
 
 
 @pytest.mark.parametrize("cfg", [0.0, 2.0])
