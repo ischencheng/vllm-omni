@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-# SPDX-FileCopyrightText: Copyright contributors to the vLLM project
+# SPDX-FileCopyrightText: Copyright contributors to the vLLM-Omni project
 # Adopted from the fish-speech 0.1.0 PyPI release (Apache-2.0)
 # https://pypi.org/project/fish-speech/0.1.0/
 # Copyright (c) Fish Audio
@@ -163,6 +163,15 @@ class DownsampleResidualVectorQuantize(nn.Module):
         )
 
         return results
+
+    def encode(self, z: torch.Tensor, n_quantizers: int | None = None, **kwargs) -> torch.Tensor:
+        """Return codebook indices without reconstructing the quantized features."""
+        z = self.downsample(z)
+        z = self.pre_module(z)
+        semantic_z, semantic_codes, *_ = self.semantic_quantizer(z)
+        residual_z = z - semantic_z
+        _, codes, *_ = self.quantizer(residual_z, n_quantizers=n_quantizers)
+        return torch.cat([semantic_codes, codes], dim=1)
 
     def decode(self, indices: torch.Tensor):
         new_indices = torch.zeros_like(indices)
