@@ -1211,6 +1211,98 @@ async def test_reaper_reclaims_independent_sessions_while_cleanup_is_blocked() -
             await asyncio.wait_for(reaper, timeout=1.0)
 
 
+async def test_reaper_does_not_duplicate_a_blocked_explicit_close() -> None:
+    started = asyncio.Event()
+    release = asyncio.Event()
+    slow_request_id = stage0_request_id("sid-closing")
+
+    class SlowCloseStagePort(FakeStagePort):
+        async def cleanup(self, request_ids: list[str], *, abort: bool = False) -> None:
+            await super().cleanup(request_ids, abort=abort)
+            if slow_request_id in request_ids:
+                started.set()
+                await release.wait()
+
+    async with Harness.create(stage_port=SlowCloseStagePort(), max_sessions=2, idle_ttl_s=1.0) as harness:
+        await harness.open("sid-closing")
+        await harness.open("sid-expiring")
+        harness.events()
+        manager = harness.manager
+        manager.dispatch(CloseDuplexSessionMessage(control_id="slow-close", session_id="sid-closing"))
+        await asyncio.wait_for(started.wait(), timeout=1.0)
+        close_task = manager._session_control_tails["sid-closing"]
+        harness.clock.advance(2.0)
+
+        await asyncio.wait_for(manager.reap_expired(wait=False), timeout=1.0)
+        message = await asyncio.wait_for(harness.output_sink.get(), timeout=1.0)
+        assert message.session_id == "sid-expiring"
+        assert isinstance(message.event, SessionExpired)
+        assert manager._admission_count() == 1
+        await _settle()
+        for _ in range(10):
+            assert await manager.reap_expired(wait=False) == 0
+            await asyncio.sleep(0)
+        assert manager._session_control_tails == {"sid-closing": close_task}
+        assert manager._dispatched_control_tasks == {close_task}
+        assert sum(ids == [slow_request_id] for ids, _ in harness.stage_port.cleanup_calls) == 1
+
+        release.set()
+        result = await harness.result()
+        assert result.control_id == "slow-close" and result.ok
+        await asyncio.wait_for(close_task, timeout=1.0)
+        assert [type(event) for event in harness.events()] == [SessionClosed]
+        assert manager._admission_count() == 0
+
+
+async def test_shutdown_cancels_a_blocked_expiry_cleanup() -> None:
+    async with Harness.create(idle_ttl_s=1.0) as harness:
+        await harness.open("sid-expiring")
+        harness.stage_port.cleanup_gate = asyncio.Event()
+        harness.clock.advance(2.0)
+        manager = harness.manager
+        await manager.reap_expired(wait=False)
+        await asyncio.wait_for(harness.stage_port.cleanup_started.wait(), timeout=1.0)
+        cleanup_task = manager._session_control_tails["sid-expiring"]
+
+        await asyncio.wait_for(manager.shutdown(), timeout=1.0)
+
+        assert cleanup_task.cancelled()
+        assert manager._session_control_tails == {}
+        assert manager._dispatched_control_tasks == set()
+        assert manager._closing == {}
+        assert manager._session_snapshots == {}
+        assert manager._request_index == {}
+        assert not harness.stage_port.cleanup_gate.is_set()
+
+
+async def test_reaper_respects_a_queued_resume_before_expiring_its_lease() -> None:
+    async with Harness.create(disconnect_grace_s=1.0) as harness:
+        await harness.open("sid-resuming")
+        session = harness.session("sid-resuming")
+        await harness.touch("sid-resuming", DuplexLeaseActivity.DETACH.value)
+        harness.events()
+        harness.clock.advance(2.0)
+        manager = harness.manager
+        manager.dispatch(
+            ResumeDuplexSessionMessage(
+                control_id="queued-resume", session_id="sid-resuming", expected_lease_generation=0
+            )
+        )
+        resume_task = manager._session_control_tails["sid-resuming"]
+
+        assert await manager.reap_expired(wait=False) == 0
+        assert manager._session_control_tails["sid-resuming"] is resume_task
+        result = await harness.result()
+        assert result.control_id == "queued-resume" and result.ok
+        await resume_task
+        assert await manager.reap_expired() == 0
+        assert session.lease_generation == 1
+        assert session.lease.detached_at is None
+        assert manager.get("sid-resuming") is session
+        assert harness.stage_port.cleanup_calls == []
+        assert harness.events() == []
+
+
 # --------------------------------------------------------------------------- #
 # Request-triggered cleanup (orchestrator error paths)                        #
 # --------------------------------------------------------------------------- #
@@ -1293,6 +1385,85 @@ async def test_deferred_request_cleanup_is_retried_by_the_reaper() -> None:
         assert harness.stage_port.cleanup_calls == [([request_id], True)]
         assert session.resource_request_ids() == []
         assert (await harness.open("sid-replacement")).ok is True
+
+
+async def test_blocked_request_cleanup_leaves_other_expiries_live_and_stops_on_shutdown() -> None:
+    started = asyncio.Event()
+    release = asyncio.Event()
+    slow_request_id = stage0_request_id("sid-request")
+
+    class SlowRequestStagePort(FakeStagePort):
+        async def cleanup(self, request_ids: list[str], *, abort: bool = False) -> None:
+            await super().cleanup(request_ids, abort=abort)
+            if slow_request_id in request_ids:
+                started.set()
+                await release.wait()
+
+    async with Harness.create(stage_port=SlowRequestStagePort(), max_sessions=2, idle_ttl_s=1.0) as harness:
+        await harness.open("sid-request")
+        await harness.open("sid-expiring")
+        manager = harness.manager
+        manager.close_sessions_for_request_ids([slow_request_id], abort=True)
+        await _settle()
+        harness.events()
+        harness.clock.advance(2.0)
+
+        await asyncio.wait_for(manager.reap_expired(wait=False), timeout=1.0)
+        await asyncio.wait_for(started.wait(), timeout=1.0)
+        message = await asyncio.wait_for(harness.output_sink.get(), timeout=1.0)
+        assert message.session_id == "sid-expiring"
+        assert isinstance(message.event, SessionExpired)
+        assert manager._admission_count() == 1
+        await _settle()
+        reaper_task = manager._session_control_tails["sid-request"]
+        cleanup_tasks = set(manager._request_cleanup_tasks.values())
+        assert len(cleanup_tasks) == 1
+        for _ in range(10):
+            assert await manager.reap_expired(wait=False) == 0
+            await asyncio.sleep(0)
+        assert manager._dispatched_control_tasks == {reaper_task}
+        assert set(manager._request_cleanup_tasks.values()) == cleanup_tasks
+        assert sum(ids == [slow_request_id] for ids, _ in harness.stage_port.cleanup_calls) == 1
+
+        await asyncio.wait_for(manager.shutdown(), timeout=1.0)
+
+        assert reaper_task.cancelled()
+        assert all(task.cancelled() for task in cleanup_tasks)
+        assert manager._session_control_tails == {}
+        assert manager._dispatched_control_tasks == set()
+        assert manager._request_cleanup_tasks == {}
+        assert manager._closing == {}
+        assert manager._session_snapshots == {}
+        assert manager._request_index == {}
+        assert not release.is_set()
+
+
+async def test_scheduled_expiry_rechecks_orchestrator_cleanup_ownership() -> None:
+    async with Harness.create(max_sessions=1, idle_ttl_s=1.0) as harness:
+        await harness.open("sid-takeover")
+        harness.events()
+        harness.clock.advance(2.0)
+        manager = harness.manager
+        request_id = stage0_request_id("sid-takeover")
+        await manager.reap_expired(wait=False)
+        reaper_task = manager._session_control_tails["sid-takeover"]
+        # The orchestrator takes ownership before the scheduled task starts.
+        closed = manager.close_sessions_for_request_ids([request_id], abort=True, cleanup_in_progress=True)
+        assert closed == {"sid-takeover": [request_id]}
+
+        await asyncio.wait_for(reaper_task, timeout=1.0)
+        await _settle()
+
+        assert harness.stage_port.cleanup_calls == []
+        assert manager._admission_count() == 1
+        terminal = harness.events()
+        assert len(terminal) == 1 and isinstance(terminal[0], SessionExpired)
+        assert terminal[0].reason == "request_cleanup"
+        manager.finalize_closed_sessions(["sid-takeover"])
+        assert manager._admission_count() == 0
+        assert await manager.reap_expired() == 0
+        assert harness.stage_port.cleanup_calls == []
+        assert harness.events() == []
 
 
 async def test_request_cleanup_closes_the_owner_of_any_of_its_stage_requests() -> None:
