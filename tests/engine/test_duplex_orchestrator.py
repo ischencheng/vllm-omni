@@ -481,7 +481,7 @@ async def test_reaper_runs_as_a_background_task_and_survives_one_failure(monkeyp
     orchestrator, _, _, _ = _build(runtime_config=DuplexSessionRuntimeConfig(reaper_interval_s=0.01))
     calls = {"count": 0}
 
-    async def reap_expired(now: float | None = None) -> int:
+    async def reap_expired(now: float | None = None, *, wait: bool = True) -> int:
         calls["count"] += 1
         if calls["count"] == 1:
             raise RuntimeError("transient cleanup failure")

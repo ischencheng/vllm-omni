@@ -22,6 +22,7 @@ import concurrent.futures
 import time
 from collections.abc import Awaitable, Callable, Iterable
 from dataclasses import dataclass, replace
+from functools import partial
 from typing import TYPE_CHECKING
 
 from vllm.logger import init_logger
@@ -765,65 +766,89 @@ class DuplexSessionManager:
             # TimeoutError before Python 3.11, so catch both or the tick escapes the loop.
             except (TimeoutError, asyncio.TimeoutError):
                 try:
-                    await self.reap_expired()
+                    await self.reap_expired(wait=False)
                 except Exception:
                     logger.exception("[DuplexSessionManager] expiry cleanup failed; retrying on next tick")
 
-    async def reap_expired(self, now: float | None = None) -> int:
-        completed = 0
+    async def reap_expired(self, now: float | None = None, *, wait: bool = True) -> int:
+        """Schedule at most one cleanup operation per session.
+
+        The periodic reaper does not wait for cleanup. Direct callers can wait
+        for this sweep's work and receive its number of completed cleanups.
+        Sessions retain their admission slots until cleanup succeeds.
+        """
         effective_now = self._clock() if now is None else now
-        # Retry request cleanups recorded by the orchestrator error paths.
+        session_ids = dict.fromkeys(pending.session_id for pending in self._pending_request_cleanups.values())
+        session_ids.update(dict.fromkeys(self._closing))
+        session_ids.update(
+            dict.fromkeys(
+                session_id
+                for session_id, runner in self.runners.items()
+                if runner.session.lease.disconnect_grace_expired(effective_now)
+                or runner.session.lease.idle_expired(effective_now)
+            )
+        )
+        completed = 0
+
+        async def reap_session(session_id: str) -> None:
+            nonlocal completed
+            session_completed = await self._reap_session(session_id, effective_now)
+            completed += session_completed
+
+        tasks = []
+        for session_id in session_ids:
+            predecessor = self._session_control_tails.get(session_id)
+            if predecessor is not None and not predecessor.done():
+                # A slow cleanup or control operation owns this session already.
+                # Do not accumulate another task on every tick.
+                continue
+            tasks.append(self._run_control(session_id, f"duplex-reap-{session_id}", partial(reap_session, session_id)))
+        if wait and tasks:
+            await asyncio.gather(*(asyncio.shield(task) for task in tasks))
+        return completed
+
+    async def _reap_session(self, session_id: str, now: float) -> int:
+        completed = 0
+        # Read current ownership inside the ordered task: request cleanup can
+        # close/finalize a session between the sweep and this task starting.
         for key, request_cleanup in list(self._pending_request_cleanups.items()):
-            if key in self._request_cleanups_in_progress:
+            if key[0] != session_id or key in self._request_cleanups_in_progress:
                 continue
             try:
                 await self._complete_request_cleanup(key, request_cleanup)
             except Exception as exc:
-                logger.warning(
-                    "duplex request cleanup remains pending for session %s: %s",
-                    request_cleanup.session_id,
-                    exc,
-                )
+                logger.warning(f"duplex request cleanup remains pending for session {session_id}: {exc}")
                 continue
             completed += 1
-        # Retry closes/expiries whose stage cleanup failed.
-        for session_id, session_cleanup in list(self._closing.items()):
-            if session_id in self.runners:
-                continue
+        session_cleanup = self._closing.get(session_id)
+        if session_cleanup is not None and session_id not in self.runners:
             if session_cleanup.kind == "request_cleanup" and any(
                 key[0] == session_id for key in self._pending_request_cleanups
             ):
-                # The stage cleanup is owned by the request-cleanup path (orchestrator
-                # or the retry above); ``finalize_closed_sessions`` releases the slot.
-                continue
+                return completed
             try:
                 await self._finalize_pending_cleanup(session_cleanup, self._session_snapshots.get(session_id))
             except Exception as exc:
-                logger.warning(
-                    "duplex %s cleanup remains pending for session %s: %s",
-                    session_cleanup.kind,
-                    session_id,
-                    exc,
-                )
-                continue
+                logger.warning(f"duplex {session_cleanup.kind} cleanup remains pending for session {session_id}: {exc}")
+                return completed
             completed += 1
-        # Expire leases.
-        for session_id, runner in list(self.runners.items()):
-            lease = runner.session.lease
-            if lease.disconnect_grace_expired(effective_now):
-                reason = "disconnect_grace_expired"
-            elif lease.idle_expired(effective_now):
-                reason = "idle_ttl_expired"
-            else:
-                continue
-            self._session_snapshots[session_id] = runner.session
-            try:
-                await self._close_runner(runner, kind="expired", reason=reason)
-            except Exception as exc:
-                logger.warning("duplex expiry cleanup remains pending for session %s: %s", session_id, exc)
-                continue
-            completed += 1
-        return completed
+        runner = self.runners.get(session_id)
+        if runner is None:
+            return completed
+        lease = runner.session.lease
+        if lease.disconnect_grace_expired(now):
+            reason = "disconnect_grace_expired"
+        elif lease.idle_expired(now):
+            reason = "idle_ttl_expired"
+        else:
+            return completed
+        self._session_snapshots[session_id] = runner.session
+        try:
+            await self._close_runner(runner, kind="expired", reason=reason)
+        except Exception as exc:
+            logger.warning(f"duplex expiry cleanup remains pending for session {session_id}: {exc}")
+            return completed
+        return completed + 1
 
     # ------------------------------------------------------------------ #
     # Request-triggered cleanup (orchestrator error paths)               #

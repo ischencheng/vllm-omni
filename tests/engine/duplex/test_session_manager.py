@@ -1142,6 +1142,75 @@ async def test_expired_cleanup_failure_does_not_block_other_sessions() -> None:
         assert (await harness.open("sid-stuck")).error_code == "session_exists"
 
 
+async def test_reaper_counts_every_concurrent_cleanup_completion() -> None:
+    both_started = asyncio.Event()
+    release = asyncio.Event()
+
+    class GatedStagePort(FakeStagePort):
+        async def cleanup(self, request_ids: list[str], *, abort: bool = False) -> None:
+            await super().cleanup(request_ids, abort=abort)
+            if len(self.cleanup_calls) == 2:
+                both_started.set()
+            await release.wait()
+
+    async with Harness.create(stage_port=GatedStagePort(), idle_ttl_s=1.0) as harness:
+        await harness.open("sid-a")
+        await harness.open("sid-b")
+        harness.clock.advance(2.0)
+        reap_task = asyncio.create_task(harness.manager.reap_expired())
+        await asyncio.wait_for(both_started.wait(), timeout=1.0)
+
+        release.set()
+
+        assert await asyncio.wait_for(reap_task, timeout=1.0) == 2
+        assert harness.manager._admission_count() == 0
+
+
+async def test_reaper_reclaims_independent_sessions_while_cleanup_is_blocked() -> None:
+    gate = asyncio.Event()
+
+    class SlowSessionStagePort(FakeStagePort):
+        async def cleanup(self, request_ids: list[str], *, abort: bool = False) -> None:
+            await super().cleanup(request_ids, abort=abort)
+            if request_ids == [stage0_request_id("sid-slow")]:
+                await gate.wait()
+
+    async with Harness.create(
+        stage_port=SlowSessionStagePort(), max_sessions=2, idle_ttl_s=1.0, reaper_interval_s=0.01
+    ) as harness:
+        await harness.open("sid-slow")
+        await harness.open("sid-fast")
+        harness.events()
+        harness.clock.advance(2.0)
+        shutdown = asyncio.Event()
+        reaper = asyncio.create_task(harness.manager.reaper_loop(shutdown))
+        try:
+            await asyncio.wait_for(harness.stage_port.cleanup_started.wait(), timeout=1.0)
+            message = await asyncio.wait_for(harness.output_sink.get(), timeout=1.0)
+            assert message.session_id == "sid-fast"
+            assert isinstance(message.event, SessionExpired)
+            assert harness.manager._admission_count() == 1
+            assert (await harness.open("sid-next")).ok is True
+            assert (await harness.open("sid-overflow")).error_code == "resource_exhausted"
+            harness.events()
+            # A later sweep also makes progress while the first cleanup is blocked.
+            harness.clock.advance(2.0)
+            message = await asyncio.wait_for(harness.output_sink.get(), timeout=1.0)
+            assert message.session_id == "sid-next"
+            assert isinstance(message.event, SessionExpired)
+            assert sum(ids == [stage0_request_id("sid-slow")] for ids, _ in harness.stage_port.cleanup_calls) == 1
+            gate.set()
+            message = await asyncio.wait_for(harness.output_sink.get(), timeout=1.0)
+            assert message.session_id == "sid-slow"
+            assert isinstance(message.event, SessionExpired)
+            assert harness.manager._admission_count() == 0
+            assert harness.events() == []
+        finally:
+            gate.set()
+            shutdown.set()
+            await asyncio.wait_for(reaper, timeout=1.0)
+
+
 # --------------------------------------------------------------------------- #
 # Request-triggered cleanup (orchestrator error paths)                        #
 # --------------------------------------------------------------------------- #
@@ -1620,7 +1689,7 @@ async def test_reaper_loop_waits_between_ticks() -> None:
     manager = object.__new__(DuplexSessionManager)
     calls = 0
 
-    async def reap_expired(now: float | None = None) -> int:
+    async def reap_expired(now: float | None = None, *, wait: bool = True) -> int:
         nonlocal calls
         calls += 1
         return 0
@@ -1645,7 +1714,7 @@ async def test_reaper_loop_survives_one_cleanup_failure(first_cleanup_delay: flo
 
     manager = object.__new__(DuplexSessionManager)
 
-    async def reap_expired(now: float | None = None) -> int:
+    async def reap_expired(now: float | None = None, *, wait: bool = True) -> int:
         nonlocal calls
         calls += 1
         if calls == 1:
