@@ -87,6 +87,42 @@ def test_quantizer_encode_skips_reconstruction(quantizer, mocker):
     torch.testing.assert_close(decoded, result.z, rtol=1e-4, atol=1e-6)
 
 
+def test_quantizer_forward_preserves_outputs_and_gradients(quantizer):
+    z = torch.randn(2, 8, 9, generator=torch.Generator().manual_seed(5), requires_grad=True)
+
+    result = quantizer(z, n_quantizers=1)
+
+    assert result.z.shape == z.shape
+    assert result.codes.shape == (2, 2, 3)
+    assert result.codes.dtype == torch.long
+    assert result.latents.shape == (2, 8, 3)
+    assert result.semantic_distill_z is None
+    for loss in (result.commitment_loss, result.codebook_loss):
+        assert loss.ndim == 0
+        assert loss.requires_grad
+        assert torch.isfinite(loss)
+
+    loss = result.z.square().mean() + result.latents.square().mean() + result.commitment_loss + result.codebook_loss
+    loss.backward()
+
+    assert z.grad is not None
+    assert torch.isfinite(z.grad).all()
+    assert torch.count_nonzero(z.grad) > 0
+    for module in (
+        quantizer.downsample,
+        quantizer.pre_module,
+        quantizer.semantic_quantizer,
+        quantizer.quantizer.quantizers[0],
+        quantizer.post_module,
+        quantizer.upsample,
+    ):
+        gradients = [parameter.grad for parameter in module.parameters()]
+        assert all(gradient is not None and torch.isfinite(gradient).all() for gradient in gradients)
+        assert any(torch.count_nonzero(gradient) > 0 for gradient in gradients)
+    for module in quantizer.quantizer.quantizers[1:]:
+        assert all(parameter.grad is None for parameter in module.parameters())
+
+
 @pytest.mark.parametrize(
     "audio_shape,audio_lengths,expected_lengths",
     [
