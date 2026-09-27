@@ -175,4 +175,10 @@ DIFFUSION_TEST_SETTINGS = {
             [DiffusionAccs.CFG_PARALLEL, DiffusionAccs.TENSOR_PARALLEL, DiffusionAccs.CPU_OFFLOAD],
         ],
     ),
+    "Krea2Pipeline": DiffusionModelTestOpts(
+        model="krea/Krea-2-Turbo",
+        builder=diff_model_builders.tiny_krea2_builder,
+        supported_tasks=[DiffusionTasks.TEXT_TO_IMAGE],
+        model_type_marker=ModelTypeMarker.DIFFUSION,
+    ),
 }
