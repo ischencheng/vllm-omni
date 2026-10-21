@@ -215,5 +215,5 @@ def test_talker_prefill_without_marker_needs_hidden_states():
     merged = to_dict(_chunk0(embed, hidden, sampled, tts, (len(PROMPT),)))
     merged["meta"].pop("prefill_holds_accept_hidden")
     span = torch.zeros(len(PROMPT) + 1, TALKER_HIDDEN, dtype=torch.bfloat16)
-    with pytest.raises(KeyError), torch.no_grad():
+    with pytest.raises(ValueError, match="hidden_states.output"), torch.no_grad():
         _model().talker_preprocess_prefill(None, span, merged)

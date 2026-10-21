@@ -1129,7 +1129,10 @@ class Qwen3OmniMoeForConditionalGeneration(
             # rows already hold the accept-layer hidden state.
             thinker_hidden_states = thinker_sequence_embeds[: thinker_chatml_ids_cpu.shape[-1]]
         else:
-            thinker_hidden_states = to_device_nonblocking(hs["output"], talker_device).to(torch.bfloat16)  # [K,H]
+            hidden_output = hs.get("output")
+            thinker_hidden_states = None
+            if hidden_output is not None:
+                thinker_hidden_states = to_device_nonblocking(hidden_output, talker_device).to(torch.bfloat16)  # [K,H]
         thinker_sequences = (
             None if thinker_sequences_cpu is None else to_device_nonblocking(thinker_sequences_cpu, talker_device)
         )
