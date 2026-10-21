@@ -55,7 +55,7 @@ class _Manager:
         )
 
 
-def _request(output_token_ids):
+def _request(output_token_ids, *, resumable=False):
     return SimpleNamespace(
         external_req_id="r",
         prompt_token_ids=list(PROMPT),
@@ -63,7 +63,7 @@ def _request(output_token_ids):
         all_token_ids=[*PROMPT, *output_token_ids],
         output_token_count=len(output_token_ids),
         last_output_token_id=output_token_ids[-1] if output_token_ids else None,
-        resumable=False,
+        resumable=resumable,
         additional_information=None,
         sampling_params=SimpleNamespace(all_stop_token_ids={IM_END}, max_tokens=64),
     )
@@ -109,11 +109,30 @@ def test_chunk0_merges_placeholder_hidden_rows_into_prefill(prefill_chunks):
     payload = _chunk0(embed, hidden, sampled, tts, prefill_chunks)
 
     assert payload.hidden_states is None
+    assert payload.meta.prefill_holds_accept_hidden is True
     merged = payload.embed.prefill
     assert merged.shape == (len(PROMPT) + 1, THINKER_HIDDEN)
     assert torch.equal(merged[: len(PROMPT)][PLACEHOLDER], hidden[PLACEHOLDER])
     assert torch.equal(merged[: len(PROMPT)][~PLACEHOLDER], embed[~PLACEHOLDER])
     assert torch.equal(merged[len(PROMPT) :], sampled)
+
+
+def test_resumable_chunk0_keeps_both_tensors():
+    # Later segment chunks of a resumable session still carry
+    # hidden_states.output, so its chunk 0 must not switch layout.
+    embed, hidden, sampled, tts = _thinker_rows()
+    manager = _Manager()
+    output = {
+        "hidden_states": {"layers": {0: embed, ACCEPT: hidden}},
+        "embed": {"tts_bos": tts["bos"], "tts_eos": tts["eos"], "tts_pad": tts["pad"], "sampled": sampled},
+    }
+    assert q3.thinker2talker_async_chunk(manager, output, _request([FIRST_TOKEN], resumable=True)) is None
+    step = {"hidden_states": {"layers": {0: sampled, ACCEPT: sampled}}, "embed": {}}
+    payload = q3.thinker2talker_async_chunk(manager, step, _request([FIRST_TOKEN, 1001], resumable=True))
+
+    assert payload.meta.prefill_holds_accept_hidden is None
+    assert torch.equal(payload.embed.prefill, torch.cat((embed, sampled)))
+    assert torch.equal(payload.hidden_states.output, torch.cat((hidden, sampled)))
 
 
 class _Talker(nn.Module):
@@ -181,3 +200,20 @@ def test_talker_prefill_inputs_match_two_tensor_payload():
     assert torch.equal(embeds_a, embeds_b)
     assert torch.equal(update_a["hidden_states"]["trailing_text"], update_b["hidden_states"]["trailing_text"])
     assert torch.equal(update_a["embed"]["tts_pad_projected"], update_b["embed"]["tts_pad_projected"])
+
+    # The marker decides the layout, not a hidden_states.output that a later
+    # chunk may have left next to the merged prefill.
+    stray = {**merged, "hidden_states": {"output": hidden[:1]}}
+    with torch.no_grad():
+        ids_c, embeds_c, _ = model.talker_preprocess_prefill(None, span, stray)
+    assert torch.equal(ids_a, ids_c)
+    assert torch.equal(embeds_a, embeds_c)
+
+
+def test_talker_prefill_without_marker_needs_hidden_states():
+    embed, hidden, sampled, tts = _thinker_rows()
+    merged = to_dict(_chunk0(embed, hidden, sampled, tts, (len(PROMPT),)))
+    merged["meta"].pop("prefill_holds_accept_hidden")
+    span = torch.zeros(len(PROMPT) + 1, TALKER_HIDDEN, dtype=torch.bfloat16)
+    with pytest.raises(KeyError), torch.no_grad():
+        _model().talker_preprocess_prefill(None, span, merged)

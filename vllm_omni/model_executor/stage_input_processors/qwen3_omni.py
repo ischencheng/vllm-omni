@@ -572,6 +572,7 @@ def thinker2talker_async_chunk(
         )
         assert payload.embed is not None and payload.embed.prefill is not None
         assert payload.hidden_states is not None and payload.hidden_states.output is not None
+        assert payload.meta is not None
         save_payload = transfer_manager.request_payload.pop(request_id, None)
         if isinstance(save_payload, dict) and "embed" not in save_payload:
             # Handoff flags are not a withheld prefill. A new chunk 0 is a new
@@ -612,13 +613,17 @@ def thinker2talker_async_chunk(
         ):
             transfer_manager.request_payload[request_id] = to_dict(payload)
             return None
-        payload.embed.prefill = _merge_talker_prefill_rows(
-            payload.embed.prefill,
-            payload.hidden_states.output,
-            prompt_token_ids,
-            _get_hf_config(transfer_manager).thinker_config,
-        )
-        payload.hidden_states = None
+        # Resumable sessions keep both tensors: their later segment chunks
+        # still send hidden_states.output, which the Talker concatenates.
+        if not request.resumable:
+            payload.embed.prefill = _merge_talker_prefill_rows(
+                payload.embed.prefill,
+                payload.hidden_states.output,
+                prompt_token_ids,
+                _get_hf_config(transfer_manager).thinker_config,
+            )
+            payload.hidden_states = None
+            payload.meta.prefill_holds_accept_hidden = True
     else:
         if request.resumable:
             return _construct_thinker2talker_streaming_input_async_chunk(
