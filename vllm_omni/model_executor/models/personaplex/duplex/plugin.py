@@ -46,6 +46,7 @@ from vllm_omni.model_executor.models.personaplex.duplex.config import (
 )
 from vllm_omni.model_executor.models.personaplex.duplex.data_plane import PersonaPlexDataPlaneSession
 from vllm_omni.model_executor.models.personaplex.duplex.input import PersonaPlexPcmAppendBuffer
+from vllm_omni.model_executor.models.personaplex.duplex.policy import MOSHI_DEPFORMER_STEPS
 
 if TYPE_CHECKING:
     from vllm.config import ModelConfig
@@ -116,7 +117,8 @@ class PersonaPlexDuplexPlugin(DuplexModelPlugin):
         # voice bundle and tokenizer are read once per distinct triple.
         self._prefill_slots: dict[tuple[str, str, str], int] = {}
         self._prefill_lock = asyncio.Lock()
-        self._moshi_checkpoints: dict[str, bool] = {}
+        # Depformer steps per (model, revision); a checkpoint that can't be read yet isn't stored.
+        self._depformer_steps: dict[tuple[str, str | None], int] = {}
 
     # ---- engine policy (the resumable Stage 0 request) ----
 
@@ -224,7 +226,7 @@ class PersonaPlexDuplexPlugin(DuplexModelPlugin):
         model_path = getattr(model_config, "model", None)
         if not isinstance(model_path, str) or not model_path:
             raise DuplexRuntimeConfigError("PersonaPlex model path is unavailable", code="model_path_unavailable")
-        if await self._is_moshi(model_path):
+        if await self._is_moshi(model_path, getattr(model_config, "revision", None)):
             reject_prompt_fields(config)
             return {
                 "personaplex_model_path": model_path,
@@ -242,15 +244,17 @@ class PersonaPlexDuplexPlugin(DuplexModelPlugin):
             "personaplex_prefill_slots": prefill_slots,
         }
 
-    async def _is_moshi(self, model_path: str) -> bool:
-        cached = self._moshi_checkpoints.get(model_path)
-        if cached is None:
-            from vllm_omni.model_executor.models.personaplex.duplex.stage0 import is_moshi_checkpoint
+    async def _is_moshi(self, model_path: str, revision: str | None) -> bool:
+        key = (model_path, revision)
+        steps = self._depformer_steps.get(key)
+        if steps is None:
+            from vllm_omni.model_executor.models.personaplex.duplex.stage0 import checkpoint_depformer_steps
 
             # Reads the checkpoint header: off the orchestrator loop.
-            cached = await asyncio.to_thread(is_moshi_checkpoint, model_path)
-            self._moshi_checkpoints[model_path] = cached
-        return cached
+            steps = await asyncio.to_thread(checkpoint_depformer_steps, model_path, revision)
+            if steps is not None:
+                self._depformer_steps[key] = steps
+        return steps == MOSHI_DEPFORMER_STEPS
 
     async def _prefill_slots_for(self, model_path: str, voice: str, persona: str) -> int:
         key = (model_path, voice, persona)

@@ -24,7 +24,6 @@ from vllm_omni.model_executor.models.personaplex.duplex.config import (
 )
 from vllm_omni.model_executor.models.personaplex.duplex.policy import (
     AUDIO_SILENCE_FRAME_CNT,
-    INITIAL_AUDIO_TOKEN,
     MOSHI_DEPFORMER_STEPS,
     SILENCE_TOKENS,
     SINE_TOKENS,
@@ -202,20 +201,52 @@ def _cached_voice_embedding_rows(model_path: str, voice: str) -> int:
     return int(embeddings.shape[0])
 
 
-@lru_cache(maxsize=8)
-def checkpoint_depformer_steps(model_path: str) -> int | None:
-    """Depformer weight sets in the checkpoint's ``model.safetensors`` (header only); None without it."""
-    path = Path(model_path) / "model.safetensors"
-    if not path.is_file():
-        return None
-    from safetensors import safe_open
+_WEIGHTS_FILE = "model.safetensors"
 
-    with safe_open(str(path), framework="pt") as weights:
-        steps = {key.split(".")[1] for key in weights.keys() if key.startswith("linears.")}
+
+def checkpoint_depformer_steps(model_path: str, revision: str | None = None) -> int | None:
+    """Depformer weight sets in the checkpoint's ``model.safetensors`` (header only).
+
+    ``model_path`` is a local directory or a Hub repo id: ``vllm serve <repo id>``
+    keeps the id unless the Hub is offline. A repo id is read from the local Hub
+    cache, where the weights are once the engine has loaded them, else from the
+    header on the Hub. None when the header can't be read; nothing is cached
+    then, so a later call can still find it.
+    """
+    names = _checkpoint_weight_names(model_path, revision)
+    if names is None:
+        return None
+    steps = {name.split(".")[1] for name in names if name.startswith("linears.")}
     return len(steps) or None
 
 
-def is_moshi_checkpoint(model_path: str) -> bool:
+def _checkpoint_weight_names(model_path: str, revision: str | None) -> tuple[str, ...] | None:
+    local = Path(model_path)
+    if local.is_dir() or local.is_absolute():
+        path = local / _WEIGHTS_FILE
+        return _safetensors_names(str(path)) if path.is_file() else None
+    from vllm_omni.transformers_utils import repo_utils
+
+    cached = repo_utils.cached_repo_file(model_path, _WEIGHTS_FILE, revision)
+    if cached is not None:
+        return _safetensors_names(cached)
+    try:
+        metadata = repo_utils.hf_api().get_safetensors_metadata(model_path, revision=revision)
+    except Exception:
+        # Not a repo id, no network, or no access.
+        return None
+    return tuple(name for name, file in metadata.weight_map.items() if file == _WEIGHTS_FILE)
+
+
+@lru_cache(maxsize=8)
+def _safetensors_names(path: str) -> tuple[str, ...]:
+    from safetensors import safe_open
+
+    with safe_open(path, framework="pt") as weights:
+        return tuple(weights.keys())
+
+
+def is_moshi_checkpoint(model_path: str, revision: str | None = None) -> bool:
     """Whether ``model_path`` is a kyutai Moshi checkpoint (``kyutai/moshiko-pytorch-bf16``).
 
     Moshi's depformer predicts only its own 8 codebooks, so ``LMGen`` takes the
@@ -223,7 +254,7 @@ def is_moshi_checkpoint(model_path: str) -> bool:
     conversation starts from the initial-token frame with no voice or persona
     prompt. PersonaPlex checkpoints train 16 depformer steps (agent and user).
     """
-    return checkpoint_depformer_steps(model_path) == MOSHI_DEPFORMER_STEPS
+    return checkpoint_depformer_steps(model_path, revision) == MOSHI_DEPFORMER_STEPS
 
 
 def personaplex_prefill_slots(model_path: str, voice: str, persona: str) -> int:
@@ -266,11 +297,13 @@ class PersonaPlexStage0DuplexRuntime:
         voice_loader=None,
         codec_cuda_graphs: bool = False,
         moshi: bool | None = None,
+        revision: str | None = None,
     ) -> None:
         if max_sessions <= 0:
             raise ValueError("PersonaPlex Stage 0 max_sessions must be positive")
         self.stage_model = stage_model
         self.model_path = model_path
+        self.revision = revision
         self.device = device
         self.max_sessions = max_sessions
         self._codec_factory = codec_factory
@@ -279,7 +312,7 @@ class PersonaPlexStage0DuplexRuntime:
         self._free_slots: list[int] = list(reversed(range(max_sessions)))
         self._tokenizer = tokenizer
         self._voice_loader = voice_loader
-        self.moshi = is_moshi_checkpoint(model_path) if moshi is None else bool(moshi)
+        self.moshi = is_moshi_checkpoint(model_path, revision) if moshi is None else bool(moshi)
         self._initial_embed: Any | None = None
         self._voice_embeddings_cache: OrderedDict[tuple[Any, ...], Any] = OrderedDict()
         self._prefill_embeds_cache: OrderedDict[tuple[Any, ...], Any] = OrderedDict()
@@ -823,9 +856,13 @@ class PersonaPlexStage0DuplexRuntime:
         self._teacher_tokens = self._silence.repeat(rows, 2)
         self._teacher_provided = torch.zeros((rows, 16), dtype=torch.bool, device=device)
         self._live_provided = torch.tensor([False] * 8 + [True] * 8, dtype=torch.bool, device=device)
-        self._initial_audio = torch.full((8,), INITIAL_AUDIO_TOKEN, dtype=torch.long, device=device)
-        self._moshi_start_provided = torch.tensor([False] + [True] * 7 + [False] * 8, dtype=torch.bool, device=device)
         if self.moshi:
+            # The talker builds its initial frame from the same card.
+            initial = int(self.stage_model.config.audio_vocab_size)
+            self._initial_audio = torch.full((8,), initial, dtype=torch.long, device=device)
+            self._moshi_start_provided = torch.tensor(
+                [False] + [True] * 7 + [False] * 8, dtype=torch.bool, device=device
+            )
             self._user_history = self._initial_audio.repeat(rows, 3, 1)
         self._slot_device = device
         return device
@@ -869,14 +906,14 @@ class PersonaPlexStage0DuplexRuntime:
 
             from vllm_omni.model_executor.models.personaplex.personaplex_mimi import (
                 PersonaPlexMimiCodec,
+                model_mimi_checkpoint,
             )
 
-            checkpoint = Path(self.model_path) / "tokenizer-e351c8d8-checkpoint125.safetensors"
             # The encoder runs in fp32. vLLM loads weights with the model dtype
             # as the default, which would otherwise build it in bf16.
             with set_default_torch_dtype(torch.float32):
                 codec = PersonaPlexMimiCodec(
-                    checkpoint=str(checkpoint) if checkpoint.is_file() else None,
+                    checkpoint=model_mimi_checkpoint(self.model_path, self.revision),
                     device=self.device,
                 )
         # Stage 0 only encodes: no decoder rows (half of the codec's per-row state).

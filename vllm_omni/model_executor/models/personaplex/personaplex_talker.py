@@ -497,14 +497,16 @@ class PersonaPlexTalkerForConditionalGeneration(nn.Module):
             PersonaPlexStage0DuplexRuntime,
         )
 
-        model_path = str(getattr(self.vllm_config.model_config, "model", ""))
+        model_config = self.vllm_config.model_config
+        model_path = str(getattr(model_config, "model", ""))
         device = str(next(self.parameters()).device)
         runtime = PersonaPlexStage0DuplexRuntime(
             self,
             model_path=model_path,
             device=device,
-            max_sessions=int(getattr(self.vllm_config.model_config, "duplex_max_sessions", 1)),
+            max_sessions=int(getattr(model_config, "duplex_max_sessions", 1)),
             codec_cuda_graphs=bool(getattr(self.config, "mimi_cuda_graphs", False)),
+            revision=getattr(model_config, "revision", None),
         )
         self._personaplex_duplex_stage0_runtime = runtime
         return runtime

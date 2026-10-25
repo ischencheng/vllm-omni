@@ -165,9 +165,12 @@ following `moshi.server` and `LMGen` (moshi 0.2.13):
   whose user stream comes through the depformer.
 
 `stage0.is_moshi_checkpoint` counts the depformer sets in the
-`model.safetensors` header. The plugin uses the same check: a Moshi session
+`model.safetensors` header, from the model directory or, for a Hub repo id,
+from the Hub cache or the Hub. The plugin uses the same check: a Moshi session
 reserves one slot on its first append and refuses `voice` and `instructions`
-(`voice_unsupported`, `instructions_unsupported`).
+(`voice_unsupported`, `instructions_unsupported`). The initial token is the
+talker config's `audio_vocab_size`, the card the talker builds its initial
+frame from.
 
 **Epochs.** The framework identifies a Stage 0 request by
 `(session_id, epoch)`; `response.cancel` and `output_audio_buffer.clear`

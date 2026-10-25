@@ -259,16 +259,16 @@ async def test_prepare_runtime_config_reports_prefill_failures_as_runtime_config
 
 @pytest.mark.asyncio
 async def test_a_moshi_checkpoint_opens_sessions_without_a_prompt(monkeypatch) -> None:
-    checks: list[str] = []
+    checks: list[tuple[str, str | None]] = []
 
-    def fake_is_moshi(model_path: str) -> bool:
-        checks.append(model_path)
-        return True
+    def fake_steps(model_path: str, revision: str | None) -> int:
+        checks.append((model_path, revision))
+        return 8
 
     def no_prefill(*_args) -> int:
         raise AssertionError("Moshi has no voice or persona prefill")
 
-    monkeypatch.setattr(stage0, "is_moshi_checkpoint", fake_is_moshi)
+    monkeypatch.setattr(stage0, "checkpoint_depformer_steps", fake_steps)
     monkeypatch.setattr(stage0, "personaplex_prefill_slots", no_prefill)
     plugin = _plugin()
     model_config = SimpleNamespace(model="/models/moshiko")
@@ -286,7 +286,7 @@ async def test_a_moshi_checkpoint_opens_sessions_without_a_prompt(monkeypatch) -
             "personaplex_prefill_slots": 0,
         }
     )
-    assert checks == ["/models/moshiko"]
+    assert checks == [("/models/moshiko", None)]
     plan = plugin.plan_append(
         request_id="r",
         fence=DuplexFence(session_id="s", epoch=0),
@@ -302,6 +302,29 @@ async def test_a_moshi_checkpoint_opens_sessions_without_a_prompt(monkeypatch) -
     assert plan.prompt["prompt_token_ids"] == [0]
 
 
+@pytest.mark.asyncio
+async def test_a_checkpoint_that_cannot_be_read_yet_is_checked_again(monkeypatch) -> None:
+    results = iter([None, 8])
+    checks: list[tuple[str, str | None]] = []
+
+    def fake_steps(model_path: str, revision: str | None) -> int | None:
+        checks.append((model_path, revision))
+        return next(results)
+
+    monkeypatch.setattr(stage0, "checkpoint_depformer_steps", fake_steps)
+    monkeypatch.setattr(stage0, "personaplex_prefill_slots", lambda *_args: 3)
+    plugin = _plugin()
+    model_config = SimpleNamespace(model="kyutai/moshiko-pytorch-bf16", revision="abc123")
+
+    first = await plugin.prepare_runtime_config(DuplexSessionConfig(), model_config=model_config)
+    second = await plugin.prepare_runtime_config(DuplexSessionConfig(), model_config=model_config)
+    third = await plugin.prepare_runtime_config(DuplexSessionConfig(), model_config=model_config)
+
+    assert first["personaplex_prefill_slots"] == 3
+    assert second["personaplex_prefill_slots"] == third["personaplex_prefill_slots"] == 0
+    assert checks == [("kyutai/moshiko-pytorch-bf16", "abc123")] * 2
+
+
 @pytest.mark.parametrize(
     ("config", "code"),
     [
@@ -311,7 +334,7 @@ async def test_a_moshi_checkpoint_opens_sessions_without_a_prompt(monkeypatch) -
 )
 @pytest.mark.asyncio
 async def test_a_moshi_session_refuses_a_voice_or_instructions(monkeypatch, config, code) -> None:
-    monkeypatch.setattr(stage0, "is_moshi_checkpoint", lambda _path: True)
+    monkeypatch.setattr(stage0, "checkpoint_depformer_steps", lambda _path, _revision: 8)
     plugin = _plugin()
 
     with pytest.raises(DuplexRuntimeConfigError) as excinfo:
