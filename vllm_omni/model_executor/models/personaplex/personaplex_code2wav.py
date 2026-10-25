@@ -536,7 +536,10 @@ class PersonaPlexCode2Wav(nn.Module):
         )
 
         checkpoint = model_mimi_checkpoint(
-            self.model_path, getattr(self.vllm_config.model_config, "revision", None), self._mimi_name
+            self.model_path,
+            getattr(self.vllm_config.model_config, "revision", None),
+            self._mimi_name,
+            getattr(getattr(self.vllm_config, "load_config", None), "download_dir", None),
         )
         with set_default_torch_dtype(torch.float32):
             codec = PersonaPlexMimiCodec(checkpoint=checkpoint, device=str(device)).eval()

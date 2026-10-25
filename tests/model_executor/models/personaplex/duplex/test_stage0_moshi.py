@@ -229,3 +229,24 @@ def test_the_mimi_checkpoint_of_a_repo_id_comes_from_the_hub_cache(tmp_path: Pat
     assert model_mimi_checkpoint(str(local)) == str(local / MIMI_CHECKPOINT)
     assert model_mimi_checkpoint("kyutai/not-cached") is None
     assert model_mimi_checkpoint(str(tmp_path / "missing")) is None
+
+
+def test_a_download_dir_is_searched_as_the_hub_cache(tmp_path: Path, monkeypatch) -> None:
+    # vllm serve <repo id> --download-dir <dir>: the default cache stays empty.
+    monkeypatch.setattr(hf_constants, "HF_HUB_CACHE", str(tmp_path / "default"))
+    monkeypatch.setattr(repo_utils, "hf_api", lambda: _FakeHub(None))
+    download_dir = tmp_path / "download"
+    _cache_snapshot(download_dir, "kyutai/moshiko-pytorch-bf16", 8)
+    snapshot = download_dir / "models--kyutai--moshiko-pytorch-bf16" / "snapshots" / ("0" * 40)
+    (snapshot / MIMI_CHECKPOINT).write_bytes(b"")
+
+    assert checkpoint_depformer_steps("kyutai/moshiko-pytorch-bf16") is None
+    assert checkpoint_depformer_steps("kyutai/moshiko-pytorch-bf16", cache_dir=str(download_dir)) == 8
+    assert model_mimi_checkpoint("kyutai/moshiko-pytorch-bf16") is None
+    assert model_mimi_checkpoint("kyutai/moshiko-pytorch-bf16", cache_dir=str(download_dir)) == str(
+        snapshot / MIMI_CHECKPOINT
+    )
+    runtime = PersonaPlexStage0DuplexRuntime(
+        _FakeMoshiTalker(), model_path="kyutai/moshiko-pytorch-bf16", device="cpu", download_dir=str(download_dir)
+    )
+    assert runtime.moshi is True

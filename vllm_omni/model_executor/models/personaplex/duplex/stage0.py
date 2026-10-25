@@ -204,30 +204,32 @@ def _cached_voice_embedding_rows(model_path: str, voice: str) -> int:
 _WEIGHTS_FILE = "model.safetensors"
 
 
-def checkpoint_depformer_steps(model_path: str, revision: str | None = None) -> int | None:
+def checkpoint_depformer_steps(
+    model_path: str, revision: str | None = None, cache_dir: str | None = None
+) -> int | None:
     """Depformer weight sets in the checkpoint's ``model.safetensors`` (header only).
 
     ``model_path`` is a local directory or a Hub repo id: ``vllm serve <repo id>``
-    keeps the id unless the Hub is offline. A repo id is read from the local Hub
-    cache, where the weights are once the engine has loaded them, else from the
-    header on the Hub. None when the header can't be read; nothing is cached
-    then, so a later call can still find it.
+    keeps the id unless the Hub is offline. A repo id is read from the Hub cache
+    (``cache_dir`` for ``--download-dir``), where the weights are once the engine
+    has loaded them, else from the header on the Hub. None when the header can't
+    be read; nothing is cached then, so a later call can still find it.
     """
-    names = _checkpoint_weight_names(model_path, revision)
+    names = _checkpoint_weight_names(model_path, revision, cache_dir)
     if names is None:
         return None
     steps = {name.split(".")[1] for name in names if name.startswith("linears.")}
     return len(steps) or None
 
 
-def _checkpoint_weight_names(model_path: str, revision: str | None) -> tuple[str, ...] | None:
+def _checkpoint_weight_names(model_path: str, revision: str | None, cache_dir: str | None) -> tuple[str, ...] | None:
     local = Path(model_path)
     if local.is_dir() or local.is_absolute():
         path = local / _WEIGHTS_FILE
         return _safetensors_names(str(path)) if path.is_file() else None
     from vllm_omni.transformers_utils import repo_utils
 
-    cached = repo_utils.cached_repo_file(model_path, _WEIGHTS_FILE, revision)
+    cached = repo_utils.cached_repo_file(model_path, _WEIGHTS_FILE, revision, cache_dir)
     if cached is not None:
         return _safetensors_names(cached)
     try:
@@ -246,7 +248,7 @@ def _safetensors_names(path: str) -> tuple[str, ...]:
         return tuple(weights.keys())
 
 
-def is_moshi_checkpoint(model_path: str, revision: str | None = None) -> bool:
+def is_moshi_checkpoint(model_path: str, revision: str | None = None, cache_dir: str | None = None) -> bool:
     """Whether ``model_path`` is a kyutai Moshi checkpoint (``kyutai/moshiko-pytorch-bf16``).
 
     Moshi's depformer predicts only its own 8 codebooks, so ``LMGen`` takes the
@@ -254,7 +256,7 @@ def is_moshi_checkpoint(model_path: str, revision: str | None = None) -> bool:
     conversation starts from the initial-token frame with no voice or persona
     prompt. PersonaPlex checkpoints train 16 depformer steps (agent and user).
     """
-    return checkpoint_depformer_steps(model_path, revision) == MOSHI_DEPFORMER_STEPS
+    return checkpoint_depformer_steps(model_path, revision, cache_dir) == MOSHI_DEPFORMER_STEPS
 
 
 def personaplex_prefill_slots(model_path: str, voice: str, persona: str) -> int:
@@ -298,12 +300,14 @@ class PersonaPlexStage0DuplexRuntime:
         codec_cuda_graphs: bool = False,
         moshi: bool | None = None,
         revision: str | None = None,
+        download_dir: str | None = None,
     ) -> None:
         if max_sessions <= 0:
             raise ValueError("PersonaPlex Stage 0 max_sessions must be positive")
         self.stage_model = stage_model
         self.model_path = model_path
         self.revision = revision
+        self.download_dir = download_dir
         self.device = device
         self.max_sessions = max_sessions
         self._codec_factory = codec_factory
@@ -312,7 +316,7 @@ class PersonaPlexStage0DuplexRuntime:
         self._free_slots: list[int] = list(reversed(range(max_sessions)))
         self._tokenizer = tokenizer
         self._voice_loader = voice_loader
-        self.moshi = is_moshi_checkpoint(model_path, revision) if moshi is None else bool(moshi)
+        self.moshi = is_moshi_checkpoint(model_path, revision, download_dir) if moshi is None else bool(moshi)
         self._initial_embed: Any | None = None
         self._voice_embeddings_cache: OrderedDict[tuple[Any, ...], Any] = OrderedDict()
         self._prefill_embeds_cache: OrderedDict[tuple[Any, ...], Any] = OrderedDict()
@@ -913,7 +917,7 @@ class PersonaPlexStage0DuplexRuntime:
             # as the default, which would otherwise build it in bf16.
             with set_default_torch_dtype(torch.float32):
                 codec = PersonaPlexMimiCodec(
-                    checkpoint=model_mimi_checkpoint(self.model_path, self.revision),
+                    checkpoint=model_mimi_checkpoint(self.model_path, self.revision, cache_dir=self.download_dir),
                     device=self.device,
                 )
         # Stage 0 only encodes: no decoder rows (half of the codec's per-row state).

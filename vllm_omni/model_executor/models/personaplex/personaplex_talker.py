@@ -507,6 +507,7 @@ class PersonaPlexTalkerForConditionalGeneration(nn.Module):
             max_sessions=int(getattr(model_config, "duplex_max_sessions", 1)),
             codec_cuda_graphs=bool(getattr(self.config, "mimi_cuda_graphs", False)),
             revision=getattr(model_config, "revision", None),
+            download_dir=getattr(getattr(self.vllm_config, "load_config", None), "download_dir", None),
         )
         self._personaplex_duplex_stage0_runtime = runtime
         return runtime

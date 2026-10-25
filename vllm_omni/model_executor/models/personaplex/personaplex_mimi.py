@@ -58,11 +58,14 @@ CODEBOOKS = 8
 _GRAPH_WARMUP_ITERS = 2
 
 
-def model_mimi_checkpoint(model_path: str, revision: str | None = None, name: str | None = None) -> str | None:
+def model_mimi_checkpoint(
+    model_path: str, revision: str | None = None, name: str | None = None, cache_dir: str | None = None
+) -> str | None:
     """The Mimi checkpoint the model ships, or None.
 
     ``model_path`` is the model directory or a Hub repo id; a repo id is looked
-    up in the Hub cache, where vLLM put the model's ``.safetensors`` files.
+    up in the Hub cache vLLM downloaded the model's ``.safetensors`` files to
+    (``cache_dir`` for ``--download-dir``).
     """
     from vllm_omni.transformers_utils.repo_utils import cached_repo_file
 
@@ -72,7 +75,7 @@ def model_mimi_checkpoint(model_path: str, revision: str | None = None, name: st
         return str(local)
     if local.is_absolute():
         return None
-    return cached_repo_file(model_path, name, revision)
+    return cached_repo_file(model_path, name, revision, cache_dir)
 
 
 _GRAPH_STREAMS: dict[int, torch.cuda.Stream] = {}
