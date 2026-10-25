@@ -56,7 +56,7 @@ frame with no voice prompt or persona.
 - Python: 3.12
 - Driver / runtime: NVIDIA 610.57.04, CUDA 13.0
 - vLLM version: 0.32.0 (`vllm/vllm-openai:v0.32.0`)
-- vLLM-Omni version or commit: `df1c1b059` + the Moshi support PR
+- vLLM-Omni version or commit: `dc68e90b9` + the Moshi support PR (tested at `8bf25e889`)
 
 ## Command
 
@@ -94,15 +94,15 @@ multi-session load mode.
 
 ## Notes
 
-- Memory usage: with the overlay above, `nvidia-smi` shows 35,461 MiB from 1 to
-  16 sessions. Stage 0 logs `GPU KV cache size: 33,238 tokens` (one token per
+- Memory usage: with the overlay above, `nvidia-smi` shows at most 35,725 MiB
+  from 1 to 16 sessions. Stage 0 logs `GPU KV cache size: 33,238 tokens` (one token per
   frame), about 11 sessions at the full 3000-frame window; raise its
   `gpu_memory_utilization` for more long sessions.
-- Load: the driver's `--sessions 1` and `--sessions 4` pass all its checks,
-  including audio continuity. With 8 or 16 sessions in one driver process, the
-  driver reports `client_pacing_warning` (its own sends run 330-430 ms late),
-  which by itself fails the continuity check; that run does not tell whether
-  the server would keep up with a client that paces cleanly.
+- Load: the driver's `--sessions 1`, `4` and `8` pass all its checks,
+  including audio continuity. With 16 sessions in one driver process, the
+  driver reports `client_pacing_warning` (its own sends run up to about 350 ms
+  late), which by itself fails the continuity check; that run does not tell
+  whether the server would keep up with a client that paces cleanly.
 - Key flags: `max_num_seqs` of Stage 0 should be a CUDA graph capture size
   (1, 2, 4, then multiples of 8).
 - Known limitations: greedy decoding only (kyutai's reference samples by
@@ -114,8 +114,9 @@ multi-session load mode.
 | --- | --- |
 | Multi-session batching | Yes (see Notes) |
 | Depformer / Mimi CUDA graphs | Yes (deploy default) |
-| Model Runner V2 (Stage 1) | Runs, `personaplex_duplex_mrv2.yaml` (one session tested) |
+| Model Runner V2 (Stage 1) | Yes, `personaplex_duplex_mrv2.yaml`: same Stage 0 tokens and output audio as the default deploy (one session tested) |
 | `kyutai/moshika-pytorch-bf16` | Runs with the same commands (one session tested) |
+| Hub repo id or local path | Both (tested: a local snapshot path, and the repo id with the Hub online, with and without `--download-dir`) |
 | Voice prompt, persona | No (Moshi has none) |
 | Sampling | No |
 | TP / quantization | No |
