@@ -1,0 +1,5 @@
++ /usr/bin/python -m pytest -v -s -p no:cacheprovider --run-level=advanced_model --junitxml=/work/out/e2e.xml tests/e2e/online_serving/test_personaplex_duplex.py
+tests/e2e/online_serving/test_personaplex_duplex.py::test_personaplex_realtime_duplex_sessions[two-stage-single-gpu] SKIPPED
+PASSEDOmniServer stopping...
+============ 1 passed, 1 skipped, 31 warnings in 178.87s (0:02:58) =============
+rc=0

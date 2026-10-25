@@ -1,0 +1,4578 @@
+{
+  "schema_version": 1,
+  "mode": "paced_multi_session",
+  "model": "kyutai/moshiko-pytorch-bf16",
+  "requested_sessions": 1,
+  "passed_sessions": 1,
+  "ok": true,
+  "input": {
+    "path": "/work/out/input_24k.wav",
+    "sha256": "849422b25fd14093583c7e648ad36a79f5a7bc66b55839215ca7c0c8fc3709cc",
+    "tail_s": 2.0,
+    "load_frames": 1000
+  },
+  "frame_period_s": 0.08,
+  "drain_s": 2.0,
+  "cleanup_timeout_s": 5.0,
+  "client_pacing_warning_threshold_ms": 80.0,
+  "client_pacing_warning_sessions": [],
+  "max_client_rtf": null,
+  "acceptance": {
+    "max_frame_deficit": 4,
+    "min_voiced_frames": 5,
+    "minimum_audio_chunks": 2,
+    "voiced_frame_rms_threshold": 0.001
+  },
+  "shared_response_ids": [],
+  "sessions": [
+    {
+      "index": 0,
+      "session_id": "duplex-853a390da2bf4eae80104b516b639e6e",
+      "ok": true,
+      "error": null,
+      "acceptance_check": null,
+      "server_error_count": 0,
+      "server_error_codes": [],
+      "input_frames": 409,
+      "output_samples": 783360,
+      "frame_deficit": 1,
+      "response_ids": [
+        "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+      ],
+      "client_first_audio_after_stream_start_ms": 430.0485440000159,
+      "client_stream_rtf": 1.0007840092524511,
+      "client_audio_packet_interval_ms": {
+        "count": 407,
+        "median": 80.0536640000189,
+        "p99": 83.92678992000072,
+        "max": 86.05996500000401,
+        "argmax_index": 131
+      },
+      "client_send_lateness_ms": {
+        "count": 409,
+        "median": 1.4196750000223801,
+        "p99": 3.0281526000135277,
+        "max": 4.234803000002785,
+        "argmax_index": 210
+      },
+      "client_pacing_warning": false,
+      "audio_underrun_s": 0.0,
+      "audio_underrun_event_count": 0,
+      "audio_continuity_ok": true,
+      "input_timeline": [
+        {
+          "frame_index": 0,
+          "planned_at_s": 207.455049934,
+          "send_started_at_s": 207.455335537,
+          "send_completed_at_s": 207.45600942
+        },
+        {
+          "frame_index": 1,
+          "planned_at_s": 207.535049934,
+          "send_started_at_s": 207.537068328,
+          "send_completed_at_s": 207.537703386
+        },
+        {
+          "frame_index": 2,
+          "planned_at_s": 207.61504993399998,
+          "send_started_at_s": 207.616068398,
+          "send_completed_at_s": 207.61676158
+        },
+        {
+          "frame_index": 3,
+          "planned_at_s": 207.695049934,
+          "send_started_at_s": 207.696101691,
+          "send_completed_at_s": 207.696741533
+        },
+        {
+          "frame_index": 4,
+          "planned_at_s": 207.77504993399998,
+          "send_started_at_s": 207.77619675,
+          "send_completed_at_s": 207.77690842
+        },
+        {
+          "frame_index": 5,
+          "planned_at_s": 207.855049934,
+          "send_started_at_s": 207.856952234,
+          "send_completed_at_s": 207.85760581
+        },
+        {
+          "frame_index": 6,
+          "planned_at_s": 207.93504993399998,
+          "send_started_at_s": 207.935556062,
+          "send_completed_at_s": 207.936214406
+        },
+        {
+          "frame_index": 7,
+          "planned_at_s": 208.015049934,
+          "send_started_at_s": 208.015706331,
+          "send_completed_at_s": 208.016391229
+        },
+        {
+          "frame_index": 8,
+          "planned_at_s": 208.09504993399997,
+          "send_started_at_s": 208.095729564,
+          "send_completed_at_s": 208.096504283
+        },
+        {
+          "frame_index": 9,
+          "planned_at_s": 208.175049934,
+          "send_started_at_s": 208.176394189,
+          "send_completed_at_s": 208.177133137
+        },
+        {
+          "frame_index": 10,
+          "planned_at_s": 208.255049934,
+          "send_started_at_s": 208.256118907,
+          "send_completed_at_s": 208.25688854
+        },
+        {
+          "frame_index": 11,
+          "planned_at_s": 208.33504993399998,
+          "send_started_at_s": 208.336524518,
+          "send_completed_at_s": 208.33722597
+        },
+        {
+          "frame_index": 12,
+          "planned_at_s": 208.415049934,
+          "send_started_at_s": 208.415921541,
+          "send_completed_at_s": 208.416524756
+        },
+        {
+          "frame_index": 13,
+          "planned_at_s": 208.49504993399998,
+          "send_started_at_s": 208.496200464,
+          "send_completed_at_s": 208.496988446
+        },
+        {
+          "frame_index": 14,
+          "planned_at_s": 208.575049934,
+          "send_started_at_s": 208.575591264,
+          "send_completed_at_s": 208.576307454
+        },
+        {
+          "frame_index": 15,
+          "planned_at_s": 208.65504993399998,
+          "send_started_at_s": 208.655643424,
+          "send_completed_at_s": 208.656476375
+        },
+        {
+          "frame_index": 16,
+          "planned_at_s": 208.735049934,
+          "send_started_at_s": 208.735599353,
+          "send_completed_at_s": 208.73625859
+        },
+        {
+          "frame_index": 17,
+          "planned_at_s": 208.815049934,
+          "send_started_at_s": 208.815594911,
+          "send_completed_at_s": 208.816325461
+        },
+        {
+          "frame_index": 18,
+          "planned_at_s": 208.89504993399999,
+          "send_started_at_s": 208.896626672,
+          "send_completed_at_s": 208.89731109
+        },
+        {
+          "frame_index": 19,
+          "planned_at_s": 208.975049934,
+          "send_started_at_s": 208.976335989,
+          "send_completed_at_s": 208.977041775
+        },
+        {
+          "frame_index": 20,
+          "planned_at_s": 209.05504993399998,
+          "send_started_at_s": 209.056995978,
+          "send_completed_at_s": 209.05773473
+        },
+        {
+          "frame_index": 21,
+          "planned_at_s": 209.135049934,
+          "send_started_at_s": 209.136567637,
+          "send_completed_at_s": 209.137379148
+        },
+        {
+          "frame_index": 22,
+          "planned_at_s": 209.21504993399998,
+          "send_started_at_s": 209.216143401,
+          "send_completed_at_s": 209.216901755
+        },
+        {
+          "frame_index": 23,
+          "planned_at_s": 209.295049934,
+          "send_started_at_s": 209.296848947,
+          "send_completed_at_s": 209.297605601
+        },
+        {
+          "frame_index": 24,
+          "planned_at_s": 209.37504993399997,
+          "send_started_at_s": 209.376434426,
+          "send_completed_at_s": 209.37716038
+        },
+        {
+          "frame_index": 25,
+          "planned_at_s": 209.455049934,
+          "send_started_at_s": 209.457146731,
+          "send_completed_at_s": 209.457823181
+        },
+        {
+          "frame_index": 26,
+          "planned_at_s": 209.535049934,
+          "send_started_at_s": 209.537651938,
+          "send_completed_at_s": 209.538599386
+        },
+        {
+          "frame_index": 27,
+          "planned_at_s": 209.61504993399998,
+          "send_started_at_s": 209.616273281,
+          "send_completed_at_s": 209.617074539
+        },
+        {
+          "frame_index": 28,
+          "planned_at_s": 209.695049934,
+          "send_started_at_s": 209.695798862,
+          "send_completed_at_s": 209.696675935
+        },
+        {
+          "frame_index": 29,
+          "planned_at_s": 209.77504993399998,
+          "send_started_at_s": 209.776420819,
+          "send_completed_at_s": 209.777158767
+        },
+        {
+          "frame_index": 30,
+          "planned_at_s": 209.855049934,
+          "send_started_at_s": 209.857110812,
+          "send_completed_at_s": 209.857836307
+        },
+        {
+          "frame_index": 31,
+          "planned_at_s": 209.93504993399998,
+          "send_started_at_s": 209.93547435,
+          "send_completed_at_s": 209.936128785
+        },
+        {
+          "frame_index": 32,
+          "planned_at_s": 210.015049934,
+          "send_started_at_s": 210.016468545,
+          "send_completed_at_s": 210.017205158
+        },
+        {
+          "frame_index": 33,
+          "planned_at_s": 210.09504993399997,
+          "send_started_at_s": 210.09560739,
+          "send_completed_at_s": 210.096426565
+        },
+        {
+          "frame_index": 34,
+          "planned_at_s": 210.175049934,
+          "send_started_at_s": 210.176267977,
+          "send_completed_at_s": 210.17694519
+        },
+        {
+          "frame_index": 35,
+          "planned_at_s": 210.255049934,
+          "send_started_at_s": 210.2566501,
+          "send_completed_at_s": 210.25764215
+        },
+        {
+          "frame_index": 36,
+          "planned_at_s": 210.33504993399998,
+          "send_started_at_s": 210.336268792,
+          "send_completed_at_s": 210.336944954
+        },
+        {
+          "frame_index": 37,
+          "planned_at_s": 210.415049934,
+          "send_started_at_s": 210.415570229,
+          "send_completed_at_s": 210.416304032
+        },
+        {
+          "frame_index": 38,
+          "planned_at_s": 210.49504993399998,
+          "send_started_at_s": 210.496586412,
+          "send_completed_at_s": 210.497478617
+        },
+        {
+          "frame_index": 39,
+          "planned_at_s": 210.575049934,
+          "send_started_at_s": 210.578136384,
+          "send_completed_at_s": 210.57888521
+        },
+        {
+          "frame_index": 40,
+          "planned_at_s": 210.65504993399998,
+          "send_started_at_s": 210.656746323,
+          "send_completed_at_s": 210.65748934
+        },
+        {
+          "frame_index": 41,
+          "planned_at_s": 210.735049934,
+          "send_started_at_s": 210.737813808,
+          "send_completed_at_s": 210.73849482
+        },
+        {
+          "frame_index": 42,
+          "planned_at_s": 210.815049934,
+          "send_started_at_s": 210.816076042,
+          "send_completed_at_s": 210.816896295
+        },
+        {
+          "frame_index": 43,
+          "planned_at_s": 210.89504993399999,
+          "send_started_at_s": 210.896314503,
+          "send_completed_at_s": 210.897157086
+        },
+        {
+          "frame_index": 44,
+          "planned_at_s": 210.975049934,
+          "send_started_at_s": 210.97710355,
+          "send_completed_at_s": 210.977818151
+        },
+        {
+          "frame_index": 45,
+          "planned_at_s": 211.05504993399998,
+          "send_started_at_s": 211.056135204,
+          "send_completed_at_s": 211.056805945
+        },
+        {
+          "frame_index": 46,
+          "planned_at_s": 211.135049934,
+          "send_started_at_s": 211.137083679,
+          "send_completed_at_s": 211.13783349
+        },
+        {
+          "frame_index": 47,
+          "planned_at_s": 211.21504993399998,
+          "send_started_at_s": 211.216243891,
+          "send_completed_at_s": 211.216892582
+        },
+        {
+          "frame_index": 48,
+          "planned_at_s": 211.295049934,
+          "send_started_at_s": 211.296560784,
+          "send_completed_at_s": 211.297254835
+        },
+        {
+          "frame_index": 49,
+          "planned_at_s": 211.37504993399997,
+          "send_started_at_s": 211.376492728,
+          "send_completed_at_s": 211.377160167
+        },
+        {
+          "frame_index": 50,
+          "planned_at_s": 211.455049934,
+          "send_started_at_s": 211.45673971,
+          "send_completed_at_s": 211.457422296
+        },
+        {
+          "frame_index": 51,
+          "planned_at_s": 211.535049934,
+          "send_started_at_s": 211.536144782,
+          "send_completed_at_s": 211.536900718
+        },
+        {
+          "frame_index": 52,
+          "planned_at_s": 211.61504993399998,
+          "send_started_at_s": 211.617199182,
+          "send_completed_at_s": 211.617951695
+        },
+        {
+          "frame_index": 53,
+          "planned_at_s": 211.695049934,
+          "send_started_at_s": 211.695564642,
+          "send_completed_at_s": 211.696244238
+        },
+        {
+          "frame_index": 54,
+          "planned_at_s": 211.77504993399998,
+          "send_started_at_s": 211.777153077,
+          "send_completed_at_s": 211.777829243
+        },
+        {
+          "frame_index": 55,
+          "planned_at_s": 211.855049934,
+          "send_started_at_s": 211.857483797,
+          "send_completed_at_s": 211.858202443
+        },
+        {
+          "frame_index": 56,
+          "planned_at_s": 211.93504993399998,
+          "send_started_at_s": 211.936567092,
+          "send_completed_at_s": 211.937238962
+        },
+        {
+          "frame_index": 57,
+          "planned_at_s": 212.015049934,
+          "send_started_at_s": 212.017632975,
+          "send_completed_at_s": 212.018290932
+        },
+        {
+          "frame_index": 58,
+          "planned_at_s": 212.09504993399997,
+          "send_started_at_s": 212.095751539,
+          "send_completed_at_s": 212.096420339
+        },
+        {
+          "frame_index": 59,
+          "planned_at_s": 212.175049934,
+          "send_started_at_s": 212.176744627,
+          "send_completed_at_s": 212.177425391
+        },
+        {
+          "frame_index": 60,
+          "planned_at_s": 212.255049934,
+          "send_started_at_s": 212.255591411,
+          "send_completed_at_s": 212.256295199
+        },
+        {
+          "frame_index": 61,
+          "planned_at_s": 212.33504993399998,
+          "send_started_at_s": 212.336411105,
+          "send_completed_at_s": 212.337248292
+        },
+        {
+          "frame_index": 62,
+          "planned_at_s": 212.415049934,
+          "send_started_at_s": 212.416043967,
+          "send_completed_at_s": 212.416650593
+        },
+        {
+          "frame_index": 63,
+          "planned_at_s": 212.49504993399998,
+          "send_started_at_s": 212.496038413,
+          "send_completed_at_s": 212.496658532
+        },
+        {
+          "frame_index": 64,
+          "planned_at_s": 212.575049934,
+          "send_started_at_s": 212.576793358,
+          "send_completed_at_s": 212.577545054
+        },
+        {
+          "frame_index": 65,
+          "planned_at_s": 212.65504993399998,
+          "send_started_at_s": 212.658921008,
+          "send_completed_at_s": 212.659658355
+        },
+        {
+          "frame_index": 66,
+          "planned_at_s": 212.735049934,
+          "send_started_at_s": 212.736251261,
+          "send_completed_at_s": 212.736891859
+        },
+        {
+          "frame_index": 67,
+          "planned_at_s": 212.815049934,
+          "send_started_at_s": 212.816069989,
+          "send_completed_at_s": 212.816785562
+        },
+        {
+          "frame_index": 68,
+          "planned_at_s": 212.89504993399999,
+          "send_started_at_s": 212.896308766,
+          "send_completed_at_s": 212.896952185
+        },
+        {
+          "frame_index": 69,
+          "planned_at_s": 212.975049934,
+          "send_started_at_s": 212.977070258,
+          "send_completed_at_s": 212.977651535
+        },
+        {
+          "frame_index": 70,
+          "planned_at_s": 213.05504993399998,
+          "send_started_at_s": 213.056425816,
+          "send_completed_at_s": 213.057016865
+        },
+        {
+          "frame_index": 71,
+          "planned_at_s": 213.135049934,
+          "send_started_at_s": 213.137849826,
+          "send_completed_at_s": 213.138459045
+        },
+        {
+          "frame_index": 72,
+          "planned_at_s": 213.21504993399998,
+          "send_started_at_s": 213.215988384,
+          "send_completed_at_s": 213.216660363
+        },
+        {
+          "frame_index": 73,
+          "planned_at_s": 213.295049934,
+          "send_started_at_s": 213.295983034,
+          "send_completed_at_s": 213.296307483
+        },
+        {
+          "frame_index": 74,
+          "planned_at_s": 213.37504993399997,
+          "send_started_at_s": 213.376681043,
+          "send_completed_at_s": 213.3768963
+        },
+        {
+          "frame_index": 75,
+          "planned_at_s": 213.455049934,
+          "send_started_at_s": 213.456780559,
+          "send_completed_at_s": 213.456998905
+        },
+        {
+          "frame_index": 76,
+          "planned_at_s": 213.535049934,
+          "send_started_at_s": 213.53607103,
+          "send_completed_at_s": 213.53630208
+        },
+        {
+          "frame_index": 77,
+          "planned_at_s": 213.61504993399998,
+          "send_started_at_s": 213.616442989,
+          "send_completed_at_s": 213.616723453
+        },
+        {
+          "frame_index": 78,
+          "planned_at_s": 213.695049934,
+          "send_started_at_s": 213.697063711,
+          "send_completed_at_s": 213.697263661
+        },
+        {
+          "frame_index": 79,
+          "planned_at_s": 213.77504993399998,
+          "send_started_at_s": 213.776058012,
+          "send_completed_at_s": 213.776423846
+        },
+        {
+          "frame_index": 80,
+          "planned_at_s": 213.855049934,
+          "send_started_at_s": 213.857758441,
+          "send_completed_at_s": 213.858333049
+        },
+        {
+          "frame_index": 81,
+          "planned_at_s": 213.93504993399998,
+          "send_started_at_s": 213.936548624,
+          "send_completed_at_s": 213.937260485
+        },
+        {
+          "frame_index": 82,
+          "planned_at_s": 214.015049934,
+          "send_started_at_s": 214.015814363,
+          "send_completed_at_s": 214.016684127
+        },
+        {
+          "frame_index": 83,
+          "planned_at_s": 214.09504993399997,
+          "send_started_at_s": 214.095971079,
+          "send_completed_at_s": 214.096716908
+        },
+        {
+          "frame_index": 84,
+          "planned_at_s": 214.175049934,
+          "send_started_at_s": 214.176100676,
+          "send_completed_at_s": 214.176743168
+        },
+        {
+          "frame_index": 85,
+          "planned_at_s": 214.255049934,
+          "send_started_at_s": 214.255738415,
+          "send_completed_at_s": 214.256341836
+        },
+        {
+          "frame_index": 86,
+          "planned_at_s": 214.33504993399998,
+          "send_started_at_s": 214.337347083,
+          "send_completed_at_s": 214.338108478
+        },
+        {
+          "frame_index": 87,
+          "planned_at_s": 214.415049934,
+          "send_started_at_s": 214.415554493,
+          "send_completed_at_s": 214.416183137
+        },
+        {
+          "frame_index": 88,
+          "planned_at_s": 214.49504993399998,
+          "send_started_at_s": 214.496127662,
+          "send_completed_at_s": 214.496782007
+        },
+        {
+          "frame_index": 89,
+          "planned_at_s": 214.575049934,
+          "send_started_at_s": 214.576231785,
+          "send_completed_at_s": 214.576937591
+        },
+        {
+          "frame_index": 90,
+          "planned_at_s": 214.65504993399998,
+          "send_started_at_s": 214.656488451,
+          "send_completed_at_s": 214.657152234
+        },
+        {
+          "frame_index": 91,
+          "planned_at_s": 214.735049934,
+          "send_started_at_s": 214.736028756,
+          "send_completed_at_s": 214.736611342
+        },
+        {
+          "frame_index": 92,
+          "planned_at_s": 214.815049934,
+          "send_started_at_s": 214.816851967,
+          "send_completed_at_s": 214.817602492
+        },
+        {
+          "frame_index": 93,
+          "planned_at_s": 214.89504993399999,
+          "send_started_at_s": 214.897337886,
+          "send_completed_at_s": 214.897978593
+        },
+        {
+          "frame_index": 94,
+          "planned_at_s": 214.975049934,
+          "send_started_at_s": 214.976558815,
+          "send_completed_at_s": 214.977319354
+        },
+        {
+          "frame_index": 95,
+          "planned_at_s": 215.05504993399998,
+          "send_started_at_s": 215.055761183,
+          "send_completed_at_s": 215.056581095
+        },
+        {
+          "frame_index": 96,
+          "planned_at_s": 215.135049934,
+          "send_started_at_s": 215.135881068,
+          "send_completed_at_s": 215.136546942
+        },
+        {
+          "frame_index": 97,
+          "planned_at_s": 215.21504993399998,
+          "send_started_at_s": 215.215548049,
+          "send_completed_at_s": 215.216275744
+        },
+        {
+          "frame_index": 98,
+          "planned_at_s": 215.295049934,
+          "send_started_at_s": 215.29651058,
+          "send_completed_at_s": 215.297185356
+        },
+        {
+          "frame_index": 99,
+          "planned_at_s": 215.37504993399997,
+          "send_started_at_s": 215.376769505,
+          "send_completed_at_s": 215.377467997
+        },
+        {
+          "frame_index": 100,
+          "planned_at_s": 215.455049934,
+          "send_started_at_s": 215.457207551,
+          "send_completed_at_s": 215.45789475
+        },
+        {
+          "frame_index": 101,
+          "planned_at_s": 215.535049934,
+          "send_started_at_s": 215.537842626,
+          "send_completed_at_s": 215.538493014
+        },
+        {
+          "frame_index": 102,
+          "planned_at_s": 215.61504993399998,
+          "send_started_at_s": 215.617311222,
+          "send_completed_at_s": 215.617984057
+        },
+        {
+          "frame_index": 103,
+          "planned_at_s": 215.695049934,
+          "send_started_at_s": 215.696075818,
+          "send_completed_at_s": 215.696693711
+        },
+        {
+          "frame_index": 104,
+          "planned_at_s": 215.77504993399998,
+          "send_started_at_s": 215.775537994,
+          "send_completed_at_s": 215.776216803
+        },
+        {
+          "frame_index": 105,
+          "planned_at_s": 215.855049934,
+          "send_started_at_s": 215.856052639,
+          "send_completed_at_s": 215.856682916
+        },
+        {
+          "frame_index": 106,
+          "planned_at_s": 215.93504993399998,
+          "send_started_at_s": 215.935956629,
+          "send_completed_at_s": 215.93662175
+        },
+        {
+          "frame_index": 107,
+          "planned_at_s": 216.015049934,
+          "send_started_at_s": 216.015994217,
+          "send_completed_at_s": 216.016708196
+        },
+        {
+          "frame_index": 108,
+          "planned_at_s": 216.09504993399997,
+          "send_started_at_s": 216.09618071,
+          "send_completed_at_s": 216.096928161
+        },
+        {
+          "frame_index": 109,
+          "planned_at_s": 216.175049934,
+          "send_started_at_s": 216.175957739,
+          "send_completed_at_s": 216.176648839
+        },
+        {
+          "frame_index": 110,
+          "planned_at_s": 216.255049934,
+          "send_started_at_s": 216.255739618,
+          "send_completed_at_s": 216.256377296
+        },
+        {
+          "frame_index": 111,
+          "planned_at_s": 216.33504993399998,
+          "send_started_at_s": 216.337221325,
+          "send_completed_at_s": 216.338222244
+        },
+        {
+          "frame_index": 112,
+          "planned_at_s": 216.415049934,
+          "send_started_at_s": 216.41580052,
+          "send_completed_at_s": 216.416604367
+        },
+        {
+          "frame_index": 113,
+          "planned_at_s": 216.49504993399998,
+          "send_started_at_s": 216.496687122,
+          "send_completed_at_s": 216.497371753
+        },
+        {
+          "frame_index": 114,
+          "planned_at_s": 216.575049934,
+          "send_started_at_s": 216.576612687,
+          "send_completed_at_s": 216.577416116
+        },
+        {
+          "frame_index": 115,
+          "planned_at_s": 216.65504993399998,
+          "send_started_at_s": 216.655452504,
+          "send_completed_at_s": 216.656125949
+        },
+        {
+          "frame_index": 116,
+          "planned_at_s": 216.735049934,
+          "send_started_at_s": 216.736313863,
+          "send_completed_at_s": 216.737046479
+        },
+        {
+          "frame_index": 117,
+          "planned_at_s": 216.815049934,
+          "send_started_at_s": 216.816084604,
+          "send_completed_at_s": 216.816784692
+        },
+        {
+          "frame_index": 118,
+          "planned_at_s": 216.89504993399999,
+          "send_started_at_s": 216.89700997,
+          "send_completed_at_s": 216.897808219
+        },
+        {
+          "frame_index": 119,
+          "planned_at_s": 216.975049934,
+          "send_started_at_s": 216.976529001,
+          "send_completed_at_s": 216.977299292
+        },
+        {
+          "frame_index": 120,
+          "planned_at_s": 217.05504993399998,
+          "send_started_at_s": 217.057084465,
+          "send_completed_at_s": 217.057847788
+        },
+        {
+          "frame_index": 121,
+          "planned_at_s": 217.135049934,
+          "send_started_at_s": 217.137302051,
+          "send_completed_at_s": 217.138032993
+        },
+        {
+          "frame_index": 122,
+          "planned_at_s": 217.21504993399998,
+          "send_started_at_s": 217.216204661,
+          "send_completed_at_s": 217.216824797
+        },
+        {
+          "frame_index": 123,
+          "planned_at_s": 217.295049934,
+          "send_started_at_s": 217.295998109,
+          "send_completed_at_s": 217.296613918
+        },
+        {
+          "frame_index": 124,
+          "planned_at_s": 217.37504993399997,
+          "send_started_at_s": 217.375647412,
+          "send_completed_at_s": 217.376313225
+        },
+        {
+          "frame_index": 125,
+          "planned_at_s": 217.455049934,
+          "send_started_at_s": 217.456381658,
+          "send_completed_at_s": 217.45703321
+        },
+        {
+          "frame_index": 126,
+          "planned_at_s": 217.535049934,
+          "send_started_at_s": 217.536888375,
+          "send_completed_at_s": 217.53752155
+        },
+        {
+          "frame_index": 127,
+          "planned_at_s": 217.61504993399998,
+          "send_started_at_s": 217.616886487,
+          "send_completed_at_s": 217.617778892
+        },
+        {
+          "frame_index": 128,
+          "planned_at_s": 217.695049934,
+          "send_started_at_s": 217.696694632,
+          "send_completed_at_s": 217.697325396
+        },
+        {
+          "frame_index": 129,
+          "planned_at_s": 217.77504993399998,
+          "send_started_at_s": 217.776230451,
+          "send_completed_at_s": 217.776907263
+        },
+        {
+          "frame_index": 130,
+          "planned_at_s": 217.855049934,
+          "send_started_at_s": 217.856048492,
+          "send_completed_at_s": 217.8568378
+        },
+        {
+          "frame_index": 131,
+          "planned_at_s": 217.93504993399998,
+          "send_started_at_s": 217.936766884,
+          "send_completed_at_s": 217.93748933
+        },
+        {
+          "frame_index": 132,
+          "planned_at_s": 218.015049934,
+          "send_started_at_s": 218.016464949,
+          "send_completed_at_s": 218.017153772
+        },
+        {
+          "frame_index": 133,
+          "planned_at_s": 218.09504993399997,
+          "send_started_at_s": 218.097695463,
+          "send_completed_at_s": 218.098520905
+        },
+        {
+          "frame_index": 134,
+          "planned_at_s": 218.175049934,
+          "send_started_at_s": 218.176675793,
+          "send_completed_at_s": 218.177511271
+        },
+        {
+          "frame_index": 135,
+          "planned_at_s": 218.255049934,
+          "send_started_at_s": 218.257660095,
+          "send_completed_at_s": 218.258219694
+        },
+        {
+          "frame_index": 136,
+          "planned_at_s": 218.33504993399998,
+          "send_started_at_s": 218.336075494,
+          "send_completed_at_s": 218.336595966
+        },
+        {
+          "frame_index": 137,
+          "planned_at_s": 218.415049934,
+          "send_started_at_s": 218.416401076,
+          "send_completed_at_s": 218.416902083
+        },
+        {
+          "frame_index": 138,
+          "planned_at_s": 218.49504993399998,
+          "send_started_at_s": 218.496456353,
+          "send_completed_at_s": 218.496971698
+        },
+        {
+          "frame_index": 139,
+          "planned_at_s": 218.575049934,
+          "send_started_at_s": 218.576440531,
+          "send_completed_at_s": 218.576873517
+        },
+        {
+          "frame_index": 140,
+          "planned_at_s": 218.65504993399998,
+          "send_started_at_s": 218.656592059,
+          "send_completed_at_s": 218.656803245
+        },
+        {
+          "frame_index": 141,
+          "planned_at_s": 218.735049934,
+          "send_started_at_s": 218.736905454,
+          "send_completed_at_s": 218.737115399
+        },
+        {
+          "frame_index": 142,
+          "planned_at_s": 218.815049934,
+          "send_started_at_s": 218.816544511,
+          "send_completed_at_s": 218.816756421
+        },
+        {
+          "frame_index": 143,
+          "planned_at_s": 218.89504993399999,
+          "send_started_at_s": 218.896083195,
+          "send_completed_at_s": 218.8963127
+        },
+        {
+          "frame_index": 144,
+          "planned_at_s": 218.975049934,
+          "send_started_at_s": 218.975922847,
+          "send_completed_at_s": 218.976137801
+        },
+        {
+          "frame_index": 145,
+          "planned_at_s": 219.05504993399998,
+          "send_started_at_s": 219.056837941,
+          "send_completed_at_s": 219.057092149
+        },
+        {
+          "frame_index": 146,
+          "planned_at_s": 219.135049934,
+          "send_started_at_s": 219.136736782,
+          "send_completed_at_s": 219.137409735
+        },
+        {
+          "frame_index": 147,
+          "planned_at_s": 219.21504993399998,
+          "send_started_at_s": 219.217171614,
+          "send_completed_at_s": 219.21783376
+        },
+        {
+          "frame_index": 148,
+          "planned_at_s": 219.295049934,
+          "send_started_at_s": 219.296527141,
+          "send_completed_at_s": 219.297255841
+        },
+        {
+          "frame_index": 149,
+          "planned_at_s": 219.37504993399997,
+          "send_started_at_s": 219.375918069,
+          "send_completed_at_s": 219.376690425
+        },
+        {
+          "frame_index": 150,
+          "planned_at_s": 219.455049934,
+          "send_started_at_s": 219.456381159,
+          "send_completed_at_s": 219.457151354
+        },
+        {
+          "frame_index": 151,
+          "planned_at_s": 219.535049934,
+          "send_started_at_s": 219.535940435,
+          "send_completed_at_s": 219.536645708
+        },
+        {
+          "frame_index": 152,
+          "planned_at_s": 219.61504993399998,
+          "send_started_at_s": 219.615854954,
+          "send_completed_at_s": 219.616464128
+        },
+        {
+          "frame_index": 153,
+          "planned_at_s": 219.695049934,
+          "send_started_at_s": 219.696094307,
+          "send_completed_at_s": 219.696819489
+        },
+        {
+          "frame_index": 154,
+          "planned_at_s": 219.77504993399998,
+          "send_started_at_s": 219.776293634,
+          "send_completed_at_s": 219.776918748
+        },
+        {
+          "frame_index": 155,
+          "planned_at_s": 219.855049934,
+          "send_started_at_s": 219.85641434,
+          "send_completed_at_s": 219.857073035
+        },
+        {
+          "frame_index": 156,
+          "planned_at_s": 219.93504993399998,
+          "send_started_at_s": 219.937257803,
+          "send_completed_at_s": 219.937780862
+        },
+        {
+          "frame_index": 157,
+          "planned_at_s": 220.015049934,
+          "send_started_at_s": 220.016400528,
+          "send_completed_at_s": 220.017218798
+        },
+        {
+          "frame_index": 158,
+          "planned_at_s": 220.09504993399997,
+          "send_started_at_s": 220.096737543,
+          "send_completed_at_s": 220.097342983
+        },
+        {
+          "frame_index": 159,
+          "planned_at_s": 220.175049934,
+          "send_started_at_s": 220.175707607,
+          "send_completed_at_s": 220.176514046
+        },
+        {
+          "frame_index": 160,
+          "planned_at_s": 220.255049934,
+          "send_started_at_s": 220.257152113,
+          "send_completed_at_s": 220.257986282
+        },
+        {
+          "frame_index": 161,
+          "planned_at_s": 220.33504993399998,
+          "send_started_at_s": 220.336531013,
+          "send_completed_at_s": 220.337383993
+        },
+        {
+          "frame_index": 162,
+          "planned_at_s": 220.415049934,
+          "send_started_at_s": 220.417082827,
+          "send_completed_at_s": 220.418043047
+        },
+        {
+          "frame_index": 163,
+          "planned_at_s": 220.49504993399998,
+          "send_started_at_s": 220.496625387,
+          "send_completed_at_s": 220.497430175
+        },
+        {
+          "frame_index": 164,
+          "planned_at_s": 220.575049934,
+          "send_started_at_s": 220.577353066,
+          "send_completed_at_s": 220.57897309
+        },
+        {
+          "frame_index": 165,
+          "planned_at_s": 220.65504993399998,
+          "send_started_at_s": 220.656408973,
+          "send_completed_at_s": 220.657224033
+        },
+        {
+          "frame_index": 166,
+          "planned_at_s": 220.735049934,
+          "send_started_at_s": 220.736048895,
+          "send_completed_at_s": 220.736926408
+        },
+        {
+          "frame_index": 167,
+          "planned_at_s": 220.815049934,
+          "send_started_at_s": 220.816163856,
+          "send_completed_at_s": 220.817031141
+        },
+        {
+          "frame_index": 168,
+          "planned_at_s": 220.89504993399999,
+          "send_started_at_s": 220.896282791,
+          "send_completed_at_s": 220.897112413
+        },
+        {
+          "frame_index": 169,
+          "planned_at_s": 220.975049934,
+          "send_started_at_s": 220.976706278,
+          "send_completed_at_s": 220.977461344
+        },
+        {
+          "frame_index": 170,
+          "planned_at_s": 221.05504993399998,
+          "send_started_at_s": 221.056778279,
+          "send_completed_at_s": 221.057521354
+        },
+        {
+          "frame_index": 171,
+          "planned_at_s": 221.135049934,
+          "send_started_at_s": 221.136530176,
+          "send_completed_at_s": 221.137254646
+        },
+        {
+          "frame_index": 172,
+          "planned_at_s": 221.21504993399998,
+          "send_started_at_s": 221.216637607,
+          "send_completed_at_s": 221.217529615
+        },
+        {
+          "frame_index": 173,
+          "planned_at_s": 221.295049934,
+          "send_started_at_s": 221.295799886,
+          "send_completed_at_s": 221.296515707
+        },
+        {
+          "frame_index": 174,
+          "planned_at_s": 221.37504993399997,
+          "send_started_at_s": 221.377173323,
+          "send_completed_at_s": 221.377890699
+        },
+        {
+          "frame_index": 175,
+          "planned_at_s": 221.455049934,
+          "send_started_at_s": 221.455644559,
+          "send_completed_at_s": 221.456471629
+        },
+        {
+          "frame_index": 176,
+          "planned_at_s": 221.535049934,
+          "send_started_at_s": 221.537392361,
+          "send_completed_at_s": 221.538146762
+        },
+        {
+          "frame_index": 177,
+          "planned_at_s": 221.61504993399998,
+          "send_started_at_s": 221.617058591,
+          "send_completed_at_s": 221.617814414
+        },
+        {
+          "frame_index": 178,
+          "planned_at_s": 221.695049934,
+          "send_started_at_s": 221.696600214,
+          "send_completed_at_s": 221.697316154
+        },
+        {
+          "frame_index": 179,
+          "planned_at_s": 221.77504993399998,
+          "send_started_at_s": 221.77676137,
+          "send_completed_at_s": 221.777539177
+        },
+        {
+          "frame_index": 180,
+          "planned_at_s": 221.855049934,
+          "send_started_at_s": 221.856127186,
+          "send_completed_at_s": 221.856838949
+        },
+        {
+          "frame_index": 181,
+          "planned_at_s": 221.93504993399998,
+          "send_started_at_s": 221.936115619,
+          "send_completed_at_s": 221.936893051
+        },
+        {
+          "frame_index": 182,
+          "planned_at_s": 222.015049934,
+          "send_started_at_s": 222.016048421,
+          "send_completed_at_s": 222.016762441
+        },
+        {
+          "frame_index": 183,
+          "planned_at_s": 222.09504993399997,
+          "send_started_at_s": 222.096072661,
+          "send_completed_at_s": 222.096794341
+        },
+        {
+          "frame_index": 184,
+          "planned_at_s": 222.175049934,
+          "send_started_at_s": 222.17603718,
+          "send_completed_at_s": 222.176774275
+        },
+        {
+          "frame_index": 185,
+          "planned_at_s": 222.255049934,
+          "send_started_at_s": 222.257237893,
+          "send_completed_at_s": 222.258025402
+        },
+        {
+          "frame_index": 186,
+          "planned_at_s": 222.33504993399998,
+          "send_started_at_s": 222.337170664,
+          "send_completed_at_s": 222.33805921
+        },
+        {
+          "frame_index": 187,
+          "planned_at_s": 222.415049934,
+          "send_started_at_s": 222.415782632,
+          "send_completed_at_s": 222.416657888
+        },
+        {
+          "frame_index": 188,
+          "planned_at_s": 222.49504993399998,
+          "send_started_at_s": 222.498000561,
+          "send_completed_at_s": 222.498769417
+        },
+        {
+          "frame_index": 189,
+          "planned_at_s": 222.575049934,
+          "send_started_at_s": 222.57622465,
+          "send_completed_at_s": 222.576947412
+        },
+        {
+          "frame_index": 190,
+          "planned_at_s": 222.65504993399998,
+          "send_started_at_s": 222.656908949,
+          "send_completed_at_s": 222.657619409
+        },
+        {
+          "frame_index": 191,
+          "planned_at_s": 222.735049934,
+          "send_started_at_s": 222.736010988,
+          "send_completed_at_s": 222.736773345
+        },
+        {
+          "frame_index": 192,
+          "planned_at_s": 222.815049934,
+          "send_started_at_s": 222.817604331,
+          "send_completed_at_s": 222.818303893
+        },
+        {
+          "frame_index": 193,
+          "planned_at_s": 222.89504993399999,
+          "send_started_at_s": 222.897061669,
+          "send_completed_at_s": 222.897929429
+        },
+        {
+          "frame_index": 194,
+          "planned_at_s": 222.975049934,
+          "send_started_at_s": 222.976029087,
+          "send_completed_at_s": 222.976941273
+        },
+        {
+          "frame_index": 195,
+          "planned_at_s": 223.05504993399998,
+          "send_started_at_s": 223.055930936,
+          "send_completed_at_s": 223.056836009
+        },
+        {
+          "frame_index": 196,
+          "planned_at_s": 223.135049934,
+          "send_started_at_s": 223.137477553,
+          "send_completed_at_s": 223.138380281
+        },
+        {
+          "frame_index": 197,
+          "planned_at_s": 223.21504993399998,
+          "send_started_at_s": 223.216546317,
+          "send_completed_at_s": 223.217207045
+        },
+        {
+          "frame_index": 198,
+          "planned_at_s": 223.295049934,
+          "send_started_at_s": 223.295645045,
+          "send_completed_at_s": 223.296550921
+        },
+        {
+          "frame_index": 199,
+          "planned_at_s": 223.37504993399997,
+          "send_started_at_s": 223.37661838,
+          "send_completed_at_s": 223.377464193
+        },
+        {
+          "frame_index": 200,
+          "planned_at_s": 223.455049934,
+          "send_started_at_s": 223.457027909,
+          "send_completed_at_s": 223.458009544
+        },
+        {
+          "frame_index": 201,
+          "planned_at_s": 223.535049934,
+          "send_started_at_s": 223.536209956,
+          "send_completed_at_s": 223.536844099
+        },
+        {
+          "frame_index": 202,
+          "planned_at_s": 223.61504993399998,
+          "send_started_at_s": 223.617506856,
+          "send_completed_at_s": 223.618362707
+        },
+        {
+          "frame_index": 203,
+          "planned_at_s": 223.695049934,
+          "send_started_at_s": 223.697426893,
+          "send_completed_at_s": 223.698196626
+        },
+        {
+          "frame_index": 204,
+          "planned_at_s": 223.77504993399998,
+          "send_started_at_s": 223.776564189,
+          "send_completed_at_s": 223.777397814
+        },
+        {
+          "frame_index": 205,
+          "planned_at_s": 223.855049934,
+          "send_started_at_s": 223.856652559,
+          "send_completed_at_s": 223.857386423
+        },
+        {
+          "frame_index": 206,
+          "planned_at_s": 223.93504993399998,
+          "send_started_at_s": 223.937019365,
+          "send_completed_at_s": 223.937695003
+        },
+        {
+          "frame_index": 207,
+          "planned_at_s": 224.015049934,
+          "send_started_at_s": 224.016338591,
+          "send_completed_at_s": 224.017044083
+        },
+        {
+          "frame_index": 208,
+          "planned_at_s": 224.09504993399997,
+          "send_started_at_s": 224.096377108,
+          "send_completed_at_s": 224.097101057
+        },
+        {
+          "frame_index": 209,
+          "planned_at_s": 224.175049934,
+          "send_started_at_s": 224.176039672,
+          "send_completed_at_s": 224.176922277
+        },
+        {
+          "frame_index": 210,
+          "planned_at_s": 224.255049934,
+          "send_started_at_s": 224.259284737,
+          "send_completed_at_s": 224.260096259
+        },
+        {
+          "frame_index": 211,
+          "planned_at_s": 224.33504993399998,
+          "send_started_at_s": 224.335705581,
+          "send_completed_at_s": 224.336469582
+        },
+        {
+          "frame_index": 212,
+          "planned_at_s": 224.415049934,
+          "send_started_at_s": 224.416695224,
+          "send_completed_at_s": 224.417437062
+        },
+        {
+          "frame_index": 213,
+          "planned_at_s": 224.49504993399998,
+          "send_started_at_s": 224.496711142,
+          "send_completed_at_s": 224.497554128
+        },
+        {
+          "frame_index": 214,
+          "planned_at_s": 224.575049934,
+          "send_started_at_s": 224.576604579,
+          "send_completed_at_s": 224.577406653
+        },
+        {
+          "frame_index": 215,
+          "planned_at_s": 224.65504993399998,
+          "send_started_at_s": 224.656621104,
+          "send_completed_at_s": 224.657289339
+        },
+        {
+          "frame_index": 216,
+          "planned_at_s": 224.735049934,
+          "send_started_at_s": 224.736269858,
+          "send_completed_at_s": 224.736955649
+        },
+        {
+          "frame_index": 217,
+          "planned_at_s": 224.815049934,
+          "send_started_at_s": 224.81695173,
+          "send_completed_at_s": 224.817539256
+        },
+        {
+          "frame_index": 218,
+          "planned_at_s": 224.89504993399999,
+          "send_started_at_s": 224.896194385,
+          "send_completed_at_s": 224.896975053
+        },
+        {
+          "frame_index": 219,
+          "planned_at_s": 224.975049934,
+          "send_started_at_s": 224.976257202,
+          "send_completed_at_s": 224.977040415
+        },
+        {
+          "frame_index": 220,
+          "planned_at_s": 225.05504993399998,
+          "send_started_at_s": 225.056840475,
+          "send_completed_at_s": 225.057477293
+        },
+        {
+          "frame_index": 221,
+          "planned_at_s": 225.135049934,
+          "send_started_at_s": 225.136551028,
+          "send_completed_at_s": 225.13729598
+        },
+        {
+          "frame_index": 222,
+          "planned_at_s": 225.21504993399998,
+          "send_started_at_s": 225.216168544,
+          "send_completed_at_s": 225.216971818
+        },
+        {
+          "frame_index": 223,
+          "planned_at_s": 225.295049934,
+          "send_started_at_s": 225.296161677,
+          "send_completed_at_s": 225.2969803
+        },
+        {
+          "frame_index": 224,
+          "planned_at_s": 225.375049934,
+          "send_started_at_s": 225.376108178,
+          "send_completed_at_s": 225.376920763
+        },
+        {
+          "frame_index": 225,
+          "planned_at_s": 225.455049934,
+          "send_started_at_s": 225.456459231,
+          "send_completed_at_s": 225.457472372
+        },
+        {
+          "frame_index": 226,
+          "planned_at_s": 225.535049934,
+          "send_started_at_s": 225.536799554,
+          "send_completed_at_s": 225.537750282
+        },
+        {
+          "frame_index": 227,
+          "planned_at_s": 225.61504993399998,
+          "send_started_at_s": 225.616375102,
+          "send_completed_at_s": 225.617135461
+        },
+        {
+          "frame_index": 228,
+          "planned_at_s": 225.695049934,
+          "send_started_at_s": 225.695689641,
+          "send_completed_at_s": 225.696527617
+        },
+        {
+          "frame_index": 229,
+          "planned_at_s": 225.77504993399998,
+          "send_started_at_s": 225.77668871,
+          "send_completed_at_s": 225.777456451
+        },
+        {
+          "frame_index": 230,
+          "planned_at_s": 225.855049934,
+          "send_started_at_s": 225.856873128,
+          "send_completed_at_s": 225.857665083
+        },
+        {
+          "frame_index": 231,
+          "planned_at_s": 225.93504993399998,
+          "send_started_at_s": 225.936192144,
+          "send_completed_at_s": 225.936916945
+        },
+        {
+          "frame_index": 232,
+          "planned_at_s": 226.015049934,
+          "send_started_at_s": 226.017216708,
+          "send_completed_at_s": 226.0179927
+        },
+        {
+          "frame_index": 233,
+          "planned_at_s": 226.09504993399997,
+          "send_started_at_s": 226.097371967,
+          "send_completed_at_s": 226.098016861
+        },
+        {
+          "frame_index": 234,
+          "planned_at_s": 226.175049934,
+          "send_started_at_s": 226.177725471,
+          "send_completed_at_s": 226.1782887
+        },
+        {
+          "frame_index": 235,
+          "planned_at_s": 226.255049934,
+          "send_started_at_s": 226.255585372,
+          "send_completed_at_s": 226.25611525
+        },
+        {
+          "frame_index": 236,
+          "planned_at_s": 226.33504993399998,
+          "send_started_at_s": 226.336053912,
+          "send_completed_at_s": 226.336626178
+        },
+        {
+          "frame_index": 237,
+          "planned_at_s": 226.415049934,
+          "send_started_at_s": 226.417242197,
+          "send_completed_at_s": 226.418087159
+        },
+        {
+          "frame_index": 238,
+          "planned_at_s": 226.49504993399998,
+          "send_started_at_s": 226.496366752,
+          "send_completed_at_s": 226.497329119
+        },
+        {
+          "frame_index": 239,
+          "planned_at_s": 226.575049934,
+          "send_started_at_s": 226.576474669,
+          "send_completed_at_s": 226.577214988
+        },
+        {
+          "frame_index": 240,
+          "planned_at_s": 226.65504993399998,
+          "send_started_at_s": 226.656483542,
+          "send_completed_at_s": 226.657052109
+        },
+        {
+          "frame_index": 241,
+          "planned_at_s": 226.735049934,
+          "send_started_at_s": 226.735724335,
+          "send_completed_at_s": 226.736411303
+        },
+        {
+          "frame_index": 242,
+          "planned_at_s": 226.815049934,
+          "send_started_at_s": 226.816790502,
+          "send_completed_at_s": 226.817457511
+        },
+        {
+          "frame_index": 243,
+          "planned_at_s": 226.89504993399999,
+          "send_started_at_s": 226.895645498,
+          "send_completed_at_s": 226.896296586
+        },
+        {
+          "frame_index": 244,
+          "planned_at_s": 226.975049934,
+          "send_started_at_s": 226.976219905,
+          "send_completed_at_s": 226.976831011
+        },
+        {
+          "frame_index": 245,
+          "planned_at_s": 227.05504993399998,
+          "send_started_at_s": 227.05664818,
+          "send_completed_at_s": 227.057281393
+        },
+        {
+          "frame_index": 246,
+          "planned_at_s": 227.135049934,
+          "send_started_at_s": 227.136234368,
+          "send_completed_at_s": 227.13696999
+        },
+        {
+          "frame_index": 247,
+          "planned_at_s": 227.21504993399998,
+          "send_started_at_s": 227.216208381,
+          "send_completed_at_s": 227.216879361
+        },
+        {
+          "frame_index": 248,
+          "planned_at_s": 227.295049934,
+          "send_started_at_s": 227.296253199,
+          "send_completed_at_s": 227.296912457
+        },
+        {
+          "frame_index": 249,
+          "planned_at_s": 227.375049934,
+          "send_started_at_s": 227.376499385,
+          "send_completed_at_s": 227.377214027
+        },
+        {
+          "frame_index": 250,
+          "planned_at_s": 227.455049934,
+          "send_started_at_s": 227.456480464,
+          "send_completed_at_s": 227.457151469
+        },
+        {
+          "frame_index": 251,
+          "planned_at_s": 227.535049934,
+          "send_started_at_s": 227.536768621,
+          "send_completed_at_s": 227.53737095
+        },
+        {
+          "frame_index": 252,
+          "planned_at_s": 227.61504993399998,
+          "send_started_at_s": 227.616327091,
+          "send_completed_at_s": 227.616924556
+        },
+        {
+          "frame_index": 253,
+          "planned_at_s": 227.695049934,
+          "send_started_at_s": 227.697081713,
+          "send_completed_at_s": 227.697816932
+        },
+        {
+          "frame_index": 254,
+          "planned_at_s": 227.77504993399998,
+          "send_started_at_s": 227.776296956,
+          "send_completed_at_s": 227.777013749
+        },
+        {
+          "frame_index": 255,
+          "planned_at_s": 227.855049934,
+          "send_started_at_s": 227.855833654,
+          "send_completed_at_s": 227.856546
+        },
+        {
+          "frame_index": 256,
+          "planned_at_s": 227.93504993399998,
+          "send_started_at_s": 227.936605518,
+          "send_completed_at_s": 227.937664491
+        },
+        {
+          "frame_index": 257,
+          "planned_at_s": 228.015049934,
+          "send_started_at_s": 228.01702856,
+          "send_completed_at_s": 228.017819174
+        },
+        {
+          "frame_index": 258,
+          "planned_at_s": 228.09504993399997,
+          "send_started_at_s": 228.096025844,
+          "send_completed_at_s": 228.096800779
+        },
+        {
+          "frame_index": 259,
+          "planned_at_s": 228.175049934,
+          "send_started_at_s": 228.176075272,
+          "send_completed_at_s": 228.17676203
+        },
+        {
+          "frame_index": 260,
+          "planned_at_s": 228.255049934,
+          "send_started_at_s": 228.256620351,
+          "send_completed_at_s": 228.257253851
+        },
+        {
+          "frame_index": 261,
+          "planned_at_s": 228.33504993399998,
+          "send_started_at_s": 228.337485849,
+          "send_completed_at_s": 228.338262906
+        },
+        {
+          "frame_index": 262,
+          "planned_at_s": 228.415049934,
+          "send_started_at_s": 228.416384389,
+          "send_completed_at_s": 228.4171112
+        },
+        {
+          "frame_index": 263,
+          "planned_at_s": 228.49504993399998,
+          "send_started_at_s": 228.496855812,
+          "send_completed_at_s": 228.497495978
+        },
+        {
+          "frame_index": 264,
+          "planned_at_s": 228.575049934,
+          "send_started_at_s": 228.576281607,
+          "send_completed_at_s": 228.577033885
+        },
+        {
+          "frame_index": 265,
+          "planned_at_s": 228.65504993399998,
+          "send_started_at_s": 228.656503993,
+          "send_completed_at_s": 228.657231988
+        },
+        {
+          "frame_index": 266,
+          "planned_at_s": 228.735049934,
+          "send_started_at_s": 228.736404073,
+          "send_completed_at_s": 228.737061234
+        },
+        {
+          "frame_index": 267,
+          "planned_at_s": 228.815049934,
+          "send_started_at_s": 228.816021275,
+          "send_completed_at_s": 228.816712437
+        },
+        {
+          "frame_index": 268,
+          "planned_at_s": 228.89504993399999,
+          "send_started_at_s": 228.896020234,
+          "send_completed_at_s": 228.896631501
+        },
+        {
+          "frame_index": 269,
+          "planned_at_s": 228.975049934,
+          "send_started_at_s": 228.976485229,
+          "send_completed_at_s": 228.977136804
+        },
+        {
+          "frame_index": 270,
+          "planned_at_s": 229.05504993399998,
+          "send_started_at_s": 229.057732566,
+          "send_completed_at_s": 229.058535926
+        },
+        {
+          "frame_index": 271,
+          "planned_at_s": 229.135049934,
+          "send_started_at_s": 229.136332318,
+          "send_completed_at_s": 229.136995056
+        },
+        {
+          "frame_index": 272,
+          "planned_at_s": 229.21504993399998,
+          "send_started_at_s": 229.215879886,
+          "send_completed_at_s": 229.216651957
+        },
+        {
+          "frame_index": 273,
+          "planned_at_s": 229.295049934,
+          "send_started_at_s": 229.296140871,
+          "send_completed_at_s": 229.296836635
+        },
+        {
+          "frame_index": 274,
+          "planned_at_s": 229.375049934,
+          "send_started_at_s": 229.376642224,
+          "send_completed_at_s": 229.377284618
+        },
+        {
+          "frame_index": 275,
+          "planned_at_s": 229.455049934,
+          "send_started_at_s": 229.456197041,
+          "send_completed_at_s": 229.456855288
+        },
+        {
+          "frame_index": 276,
+          "planned_at_s": 229.535049934,
+          "send_started_at_s": 229.536195259,
+          "send_completed_at_s": 229.53682769
+        },
+        {
+          "frame_index": 277,
+          "planned_at_s": 229.61504993399998,
+          "send_started_at_s": 229.616179917,
+          "send_completed_at_s": 229.61690672
+        },
+        {
+          "frame_index": 278,
+          "planned_at_s": 229.695049934,
+          "send_started_at_s": 229.696610477,
+          "send_completed_at_s": 229.697313587
+        },
+        {
+          "frame_index": 279,
+          "planned_at_s": 229.77504993399998,
+          "send_started_at_s": 229.775805501,
+          "send_completed_at_s": 229.77647945
+        },
+        {
+          "frame_index": 280,
+          "planned_at_s": 229.855049934,
+          "send_started_at_s": 229.856927509,
+          "send_completed_at_s": 229.857640995
+        },
+        {
+          "frame_index": 281,
+          "planned_at_s": 229.93504993399998,
+          "send_started_at_s": 229.936611016,
+          "send_completed_at_s": 229.937361967
+        },
+        {
+          "frame_index": 282,
+          "planned_at_s": 230.015049934,
+          "send_started_at_s": 230.016551401,
+          "send_completed_at_s": 230.017276399
+        },
+        {
+          "frame_index": 283,
+          "planned_at_s": 230.09504993399997,
+          "send_started_at_s": 230.096620647,
+          "send_completed_at_s": 230.09731458
+        },
+        {
+          "frame_index": 284,
+          "planned_at_s": 230.175049934,
+          "send_started_at_s": 230.177085191,
+          "send_completed_at_s": 230.177753817
+        },
+        {
+          "frame_index": 285,
+          "planned_at_s": 230.255049934,
+          "send_started_at_s": 230.256925848,
+          "send_completed_at_s": 230.257571967
+        },
+        {
+          "frame_index": 286,
+          "planned_at_s": 230.33504993399998,
+          "send_started_at_s": 230.336275942,
+          "send_completed_at_s": 230.336907101
+        },
+        {
+          "frame_index": 287,
+          "planned_at_s": 230.415049934,
+          "send_started_at_s": 230.416254342,
+          "send_completed_at_s": 230.417083552
+        },
+        {
+          "frame_index": 288,
+          "planned_at_s": 230.49504993399998,
+          "send_started_at_s": 230.496540518,
+          "send_completed_at_s": 230.497252181
+        },
+        {
+          "frame_index": 289,
+          "planned_at_s": 230.575049934,
+          "send_started_at_s": 230.577699944,
+          "send_completed_at_s": 230.57836774
+        },
+        {
+          "frame_index": 290,
+          "planned_at_s": 230.65504993399998,
+          "send_started_at_s": 230.656397387,
+          "send_completed_at_s": 230.657076601
+        },
+        {
+          "frame_index": 291,
+          "planned_at_s": 230.735049934,
+          "send_started_at_s": 230.735719345,
+          "send_completed_at_s": 230.736348374
+        },
+        {
+          "frame_index": 292,
+          "planned_at_s": 230.815049934,
+          "send_started_at_s": 230.816549586,
+          "send_completed_at_s": 230.81715495
+        },
+        {
+          "frame_index": 293,
+          "planned_at_s": 230.89504993399999,
+          "send_started_at_s": 230.895642536,
+          "send_completed_at_s": 230.896345599
+        },
+        {
+          "frame_index": 294,
+          "planned_at_s": 230.975049934,
+          "send_started_at_s": 230.976505896,
+          "send_completed_at_s": 230.977406316
+        },
+        {
+          "frame_index": 295,
+          "planned_at_s": 231.05504993399998,
+          "send_started_at_s": 231.0575321,
+          "send_completed_at_s": 231.058396516
+        },
+        {
+          "frame_index": 296,
+          "planned_at_s": 231.135049934,
+          "send_started_at_s": 231.136845097,
+          "send_completed_at_s": 231.137519171
+        },
+        {
+          "frame_index": 297,
+          "planned_at_s": 231.21504993399998,
+          "send_started_at_s": 231.216839458,
+          "send_completed_at_s": 231.217401979
+        },
+        {
+          "frame_index": 298,
+          "planned_at_s": 231.295049934,
+          "send_started_at_s": 231.297394995,
+          "send_completed_at_s": 231.298084931
+        },
+        {
+          "frame_index": 299,
+          "planned_at_s": 231.375049934,
+          "send_started_at_s": 231.37659724,
+          "send_completed_at_s": 231.377166627
+        },
+        {
+          "frame_index": 300,
+          "planned_at_s": 231.455049934,
+          "send_started_at_s": 231.456460023,
+          "send_completed_at_s": 231.457293615
+        },
+        {
+          "frame_index": 301,
+          "planned_at_s": 231.535049934,
+          "send_started_at_s": 231.536880678,
+          "send_completed_at_s": 231.537588599
+        },
+        {
+          "frame_index": 302,
+          "planned_at_s": 231.61504993399998,
+          "send_started_at_s": 231.615928018,
+          "send_completed_at_s": 231.616169753
+        },
+        {
+          "frame_index": 303,
+          "planned_at_s": 231.695049934,
+          "send_started_at_s": 231.696320041,
+          "send_completed_at_s": 231.696532697
+        },
+        {
+          "frame_index": 304,
+          "planned_at_s": 231.77504993399998,
+          "send_started_at_s": 231.776782218,
+          "send_completed_at_s": 231.777016252
+        },
+        {
+          "frame_index": 305,
+          "planned_at_s": 231.855049934,
+          "send_started_at_s": 231.856372049,
+          "send_completed_at_s": 231.856564745
+        },
+        {
+          "frame_index": 306,
+          "planned_at_s": 231.93504993399998,
+          "send_started_at_s": 231.936907837,
+          "send_completed_at_s": 231.937105737
+        },
+        {
+          "frame_index": 307,
+          "planned_at_s": 232.015049934,
+          "send_started_at_s": 232.016894421,
+          "send_completed_at_s": 232.017227363
+        },
+        {
+          "frame_index": 308,
+          "planned_at_s": 232.09504993399997,
+          "send_started_at_s": 232.096474475,
+          "send_completed_at_s": 232.09668278
+        },
+        {
+          "frame_index": 309,
+          "planned_at_s": 232.175049934,
+          "send_started_at_s": 232.177109888,
+          "send_completed_at_s": 232.177433027
+        },
+        {
+          "frame_index": 310,
+          "planned_at_s": 232.255049934,
+          "send_started_at_s": 232.256458611,
+          "send_completed_at_s": 232.256727604
+        },
+        {
+          "frame_index": 311,
+          "planned_at_s": 232.33504993399998,
+          "send_started_at_s": 232.336914641,
+          "send_completed_at_s": 232.337168966
+        },
+        {
+          "frame_index": 312,
+          "planned_at_s": 232.415049934,
+          "send_started_at_s": 232.417403501,
+          "send_completed_at_s": 232.417609118
+        },
+        {
+          "frame_index": 313,
+          "planned_at_s": 232.49504993399998,
+          "send_started_at_s": 232.496376789,
+          "send_completed_at_s": 232.496597035
+        },
+        {
+          "frame_index": 314,
+          "planned_at_s": 232.575049934,
+          "send_started_at_s": 232.575639009,
+          "send_completed_at_s": 232.575845621
+        },
+        {
+          "frame_index": 315,
+          "planned_at_s": 232.65504993399998,
+          "send_started_at_s": 232.656910813,
+          "send_completed_at_s": 232.657164906
+        },
+        {
+          "frame_index": 316,
+          "planned_at_s": 232.735049934,
+          "send_started_at_s": 232.735965959,
+          "send_completed_at_s": 232.736189097
+        },
+        {
+          "frame_index": 317,
+          "planned_at_s": 232.815049934,
+          "send_started_at_s": 232.816018737,
+          "send_completed_at_s": 232.816254234
+        },
+        {
+          "frame_index": 318,
+          "planned_at_s": 232.89504993399999,
+          "send_started_at_s": 232.896821387,
+          "send_completed_at_s": 232.897063519
+        },
+        {
+          "frame_index": 319,
+          "planned_at_s": 232.975049934,
+          "send_started_at_s": 232.977010713,
+          "send_completed_at_s": 232.977214654
+        },
+        {
+          "frame_index": 320,
+          "planned_at_s": 233.05504993399998,
+          "send_started_at_s": 233.056267161,
+          "send_completed_at_s": 233.056478452
+        },
+        {
+          "frame_index": 321,
+          "planned_at_s": 233.135049934,
+          "send_started_at_s": 233.135995651,
+          "send_completed_at_s": 233.136206554
+        },
+        {
+          "frame_index": 322,
+          "planned_at_s": 233.21504993399998,
+          "send_started_at_s": 233.216125695,
+          "send_completed_at_s": 233.216352156
+        },
+        {
+          "frame_index": 323,
+          "planned_at_s": 233.295049934,
+          "send_started_at_s": 233.297127524,
+          "send_completed_at_s": 233.297336689
+        },
+        {
+          "frame_index": 324,
+          "planned_at_s": 233.375049934,
+          "send_started_at_s": 233.378285974,
+          "send_completed_at_s": 233.378497213
+        },
+        {
+          "frame_index": 325,
+          "planned_at_s": 233.455049934,
+          "send_started_at_s": 233.457387757,
+          "send_completed_at_s": 233.457583375
+        },
+        {
+          "frame_index": 326,
+          "planned_at_s": 233.535049934,
+          "send_started_at_s": 233.536967665,
+          "send_completed_at_s": 233.537166214
+        },
+        {
+          "frame_index": 327,
+          "planned_at_s": 233.61504993399998,
+          "send_started_at_s": 233.616978963,
+          "send_completed_at_s": 233.617202685
+        },
+        {
+          "frame_index": 328,
+          "planned_at_s": 233.695049934,
+          "send_started_at_s": 233.697388783,
+          "send_completed_at_s": 233.697665755
+        },
+        {
+          "frame_index": 329,
+          "planned_at_s": 233.77504993399998,
+          "send_started_at_s": 233.776170555,
+          "send_completed_at_s": 233.776409257
+        },
+        {
+          "frame_index": 330,
+          "planned_at_s": 233.855049934,
+          "send_started_at_s": 233.856507004,
+          "send_completed_at_s": 233.856734635
+        },
+        {
+          "frame_index": 331,
+          "planned_at_s": 233.93504993399998,
+          "send_started_at_s": 233.935589373,
+          "send_completed_at_s": 233.935800227
+        },
+        {
+          "frame_index": 332,
+          "planned_at_s": 234.015049934,
+          "send_started_at_s": 234.01650363,
+          "send_completed_at_s": 234.016730147
+        },
+        {
+          "frame_index": 333,
+          "planned_at_s": 234.09504993399997,
+          "send_started_at_s": 234.096006656,
+          "send_completed_at_s": 234.096236398
+        },
+        {
+          "frame_index": 334,
+          "planned_at_s": 234.175049934,
+          "send_started_at_s": 234.177106818,
+          "send_completed_at_s": 234.17729958
+        },
+        {
+          "frame_index": 335,
+          "planned_at_s": 234.255049934,
+          "send_started_at_s": 234.257128597,
+          "send_completed_at_s": 234.257347337
+        },
+        {
+          "frame_index": 336,
+          "planned_at_s": 234.33504993399998,
+          "send_started_at_s": 234.336105681,
+          "send_completed_at_s": 234.336335875
+        },
+        {
+          "frame_index": 337,
+          "planned_at_s": 234.415049934,
+          "send_started_at_s": 234.415770384,
+          "send_completed_at_s": 234.416026679
+        },
+        {
+          "frame_index": 338,
+          "planned_at_s": 234.49504993399998,
+          "send_started_at_s": 234.497720044,
+          "send_completed_at_s": 234.498022534
+        },
+        {
+          "frame_index": 339,
+          "planned_at_s": 234.575049934,
+          "send_started_at_s": 234.578064558,
+          "send_completed_at_s": 234.578322436
+        },
+        {
+          "frame_index": 340,
+          "planned_at_s": 234.65504993399998,
+          "send_started_at_s": 234.656412255,
+          "send_completed_at_s": 234.656642026
+        },
+        {
+          "frame_index": 341,
+          "planned_at_s": 234.735049934,
+          "send_started_at_s": 234.736601938,
+          "send_completed_at_s": 234.736812513
+        },
+        {
+          "frame_index": 342,
+          "planned_at_s": 234.815049934,
+          "send_started_at_s": 234.816758842,
+          "send_completed_at_s": 234.816978103
+        },
+        {
+          "frame_index": 343,
+          "planned_at_s": 234.89504993399999,
+          "send_started_at_s": 234.897169877,
+          "send_completed_at_s": 234.897396847
+        },
+        {
+          "frame_index": 344,
+          "planned_at_s": 234.975049934,
+          "send_started_at_s": 234.976525699,
+          "send_completed_at_s": 234.976723015
+        },
+        {
+          "frame_index": 345,
+          "planned_at_s": 235.05504993399998,
+          "send_started_at_s": 235.056469609,
+          "send_completed_at_s": 235.056671626
+        },
+        {
+          "frame_index": 346,
+          "planned_at_s": 235.135049934,
+          "send_started_at_s": 235.136588254,
+          "send_completed_at_s": 235.136793274
+        },
+        {
+          "frame_index": 347,
+          "planned_at_s": 235.21504993399998,
+          "send_started_at_s": 235.216098205,
+          "send_completed_at_s": 235.216307699
+        },
+        {
+          "frame_index": 348,
+          "planned_at_s": 235.295049934,
+          "send_started_at_s": 235.296880054,
+          "send_completed_at_s": 235.297061967
+        },
+        {
+          "frame_index": 349,
+          "planned_at_s": 235.375049934,
+          "send_started_at_s": 235.376180336,
+          "send_completed_at_s": 235.376356454
+        },
+        {
+          "frame_index": 350,
+          "planned_at_s": 235.455049934,
+          "send_started_at_s": 235.45654419,
+          "send_completed_at_s": 235.456731337
+        },
+        {
+          "frame_index": 351,
+          "planned_at_s": 235.535049934,
+          "send_started_at_s": 235.535976278,
+          "send_completed_at_s": 235.536188585
+        },
+        {
+          "frame_index": 352,
+          "planned_at_s": 235.61504993399998,
+          "send_started_at_s": 235.615729663,
+          "send_completed_at_s": 235.615924629
+        },
+        {
+          "frame_index": 353,
+          "planned_at_s": 235.695049934,
+          "send_started_at_s": 235.696640185,
+          "send_completed_at_s": 235.696846027
+        },
+        {
+          "frame_index": 354,
+          "planned_at_s": 235.77504993399998,
+          "send_started_at_s": 235.776457876,
+          "send_completed_at_s": 235.776684501
+        },
+        {
+          "frame_index": 355,
+          "planned_at_s": 235.855049934,
+          "send_started_at_s": 235.856653743,
+          "send_completed_at_s": 235.856999328
+        },
+        {
+          "frame_index": 356,
+          "planned_at_s": 235.93504993399998,
+          "send_started_at_s": 235.937145365,
+          "send_completed_at_s": 235.937444445
+        },
+        {
+          "frame_index": 357,
+          "planned_at_s": 236.015049934,
+          "send_started_at_s": 236.017311978,
+          "send_completed_at_s": 236.017569665
+        },
+        {
+          "frame_index": 358,
+          "planned_at_s": 236.09504993399997,
+          "send_started_at_s": 236.097236891,
+          "send_completed_at_s": 236.097470651
+        },
+        {
+          "frame_index": 359,
+          "planned_at_s": 236.175049934,
+          "send_started_at_s": 236.176466246,
+          "send_completed_at_s": 236.176690815
+        },
+        {
+          "frame_index": 360,
+          "planned_at_s": 236.255049934,
+          "send_started_at_s": 236.256569005,
+          "send_completed_at_s": 236.256757155
+        },
+        {
+          "frame_index": 361,
+          "planned_at_s": 236.33504993399998,
+          "send_started_at_s": 236.336919714,
+          "send_completed_at_s": 236.337132094
+        },
+        {
+          "frame_index": 362,
+          "planned_at_s": 236.415049934,
+          "send_started_at_s": 236.416714518,
+          "send_completed_at_s": 236.417052601
+        },
+        {
+          "frame_index": 363,
+          "planned_at_s": 236.49504993399998,
+          "send_started_at_s": 236.497056973,
+          "send_completed_at_s": 236.497276838
+        },
+        {
+          "frame_index": 364,
+          "planned_at_s": 236.575049934,
+          "send_started_at_s": 236.576824803,
+          "send_completed_at_s": 236.577069972
+        },
+        {
+          "frame_index": 365,
+          "planned_at_s": 236.65504993399998,
+          "send_started_at_s": 236.655596674,
+          "send_completed_at_s": 236.655799941
+        },
+        {
+          "frame_index": 366,
+          "planned_at_s": 236.735049934,
+          "send_started_at_s": 236.73643269,
+          "send_completed_at_s": 236.736752597
+        },
+        {
+          "frame_index": 367,
+          "planned_at_s": 236.815049934,
+          "send_started_at_s": 236.816749926,
+          "send_completed_at_s": 236.817002699
+        },
+        {
+          "frame_index": 368,
+          "planned_at_s": 236.89504993399999,
+          "send_started_at_s": 236.896568753,
+          "send_completed_at_s": 236.896760006
+        },
+        {
+          "frame_index": 369,
+          "planned_at_s": 236.975049934,
+          "send_started_at_s": 236.976692984,
+          "send_completed_at_s": 236.976920831
+        },
+        {
+          "frame_index": 370,
+          "planned_at_s": 237.05504993399998,
+          "send_started_at_s": 237.056100292,
+          "send_completed_at_s": 237.056327002
+        },
+        {
+          "frame_index": 371,
+          "planned_at_s": 237.135049934,
+          "send_started_at_s": 237.137170009,
+          "send_completed_at_s": 237.137370764
+        },
+        {
+          "frame_index": 372,
+          "planned_at_s": 237.21504993399998,
+          "send_started_at_s": 237.218079263,
+          "send_completed_at_s": 237.218294814
+        },
+        {
+          "frame_index": 373,
+          "planned_at_s": 237.295049934,
+          "send_started_at_s": 237.29590459,
+          "send_completed_at_s": 237.296096291
+        },
+        {
+          "frame_index": 374,
+          "planned_at_s": 237.375049934,
+          "send_started_at_s": 237.376926625,
+          "send_completed_at_s": 237.377124316
+        },
+        {
+          "frame_index": 375,
+          "planned_at_s": 237.455049934,
+          "send_started_at_s": 237.456838603,
+          "send_completed_at_s": 237.457045136
+        },
+        {
+          "frame_index": 376,
+          "planned_at_s": 237.535049934,
+          "send_started_at_s": 237.537128288,
+          "send_completed_at_s": 237.537350204
+        },
+        {
+          "frame_index": 377,
+          "planned_at_s": 237.61504993399998,
+          "send_started_at_s": 237.617125735,
+          "send_completed_at_s": 237.617329299
+        },
+        {
+          "frame_index": 378,
+          "planned_at_s": 237.695049934,
+          "send_started_at_s": 237.697942939,
+          "send_completed_at_s": 237.698141472
+        },
+        {
+          "frame_index": 379,
+          "planned_at_s": 237.77504993399998,
+          "send_started_at_s": 237.777220676,
+          "send_completed_at_s": 237.777492931
+        },
+        {
+          "frame_index": 380,
+          "planned_at_s": 237.855049934,
+          "send_started_at_s": 237.856462829,
+          "send_completed_at_s": 237.856715396
+        },
+        {
+          "frame_index": 381,
+          "planned_at_s": 237.93504993399998,
+          "send_started_at_s": 237.936628975,
+          "send_completed_at_s": 237.93689706
+        },
+        {
+          "frame_index": 382,
+          "planned_at_s": 238.015049934,
+          "send_started_at_s": 238.016825335,
+          "send_completed_at_s": 238.017054737
+        },
+        {
+          "frame_index": 383,
+          "planned_at_s": 238.09504993399997,
+          "send_started_at_s": 238.096336329,
+          "send_completed_at_s": 238.096539227
+        },
+        {
+          "frame_index": 384,
+          "planned_at_s": 238.175049934,
+          "send_started_at_s": 238.177463325,
+          "send_completed_at_s": 238.177722089
+        },
+        {
+          "frame_index": 385,
+          "planned_at_s": 238.255049934,
+          "send_started_at_s": 238.255809617,
+          "send_completed_at_s": 238.256045964
+        },
+        {
+          "frame_index": 386,
+          "planned_at_s": 238.33504993399998,
+          "send_started_at_s": 238.336229352,
+          "send_completed_at_s": 238.336452223
+        },
+        {
+          "frame_index": 387,
+          "planned_at_s": 238.415049934,
+          "send_started_at_s": 238.415835594,
+          "send_completed_at_s": 238.416079468
+        },
+        {
+          "frame_index": 388,
+          "planned_at_s": 238.49504993399998,
+          "send_started_at_s": 238.496364216,
+          "send_completed_at_s": 238.496553063
+        },
+        {
+          "frame_index": 389,
+          "planned_at_s": 238.575049934,
+          "send_started_at_s": 238.576130996,
+          "send_completed_at_s": 238.576348074
+        },
+        {
+          "frame_index": 390,
+          "planned_at_s": 238.65504993399998,
+          "send_started_at_s": 238.657561708,
+          "send_completed_at_s": 238.657743008
+        },
+        {
+          "frame_index": 391,
+          "planned_at_s": 238.735049934,
+          "send_started_at_s": 238.736043611,
+          "send_completed_at_s": 238.736241039
+        },
+        {
+          "frame_index": 392,
+          "planned_at_s": 238.815049934,
+          "send_started_at_s": 238.815996626,
+          "send_completed_at_s": 238.816190976
+        },
+        {
+          "frame_index": 393,
+          "planned_at_s": 238.89504993399999,
+          "send_started_at_s": 238.896463208,
+          "send_completed_at_s": 238.896652595
+        },
+        {
+          "frame_index": 394,
+          "planned_at_s": 238.975049934,
+          "send_started_at_s": 238.97665641,
+          "send_completed_at_s": 238.976847101
+        },
+        {
+          "frame_index": 395,
+          "planned_at_s": 239.05504993399998,
+          "send_started_at_s": 239.05618856,
+          "send_completed_at_s": 239.056422158
+        },
+        {
+          "frame_index": 396,
+          "planned_at_s": 239.135049934,
+          "send_started_at_s": 239.136448436,
+          "send_completed_at_s": 239.136680691
+        },
+        {
+          "frame_index": 397,
+          "planned_at_s": 239.21504993399998,
+          "send_started_at_s": 239.216601002,
+          "send_completed_at_s": 239.216914417
+        },
+        {
+          "frame_index": 398,
+          "planned_at_s": 239.295049934,
+          "send_started_at_s": 239.297339697,
+          "send_completed_at_s": 239.297571042
+        },
+        {
+          "frame_index": 399,
+          "planned_at_s": 239.375049934,
+          "send_started_at_s": 239.37600465,
+          "send_completed_at_s": 239.376248339
+        },
+        {
+          "frame_index": 400,
+          "planned_at_s": 239.455049934,
+          "send_started_at_s": 239.455910552,
+          "send_completed_at_s": 239.456129669
+        },
+        {
+          "frame_index": 401,
+          "planned_at_s": 239.53504993399997,
+          "send_started_at_s": 239.536406173,
+          "send_completed_at_s": 239.536606948
+        },
+        {
+          "frame_index": 402,
+          "planned_at_s": 239.61504993399998,
+          "send_started_at_s": 239.615643732,
+          "send_completed_at_s": 239.615850117
+        },
+        {
+          "frame_index": 403,
+          "planned_at_s": 239.695049934,
+          "send_started_at_s": 239.696319253,
+          "send_completed_at_s": 239.69651084
+        },
+        {
+          "frame_index": 404,
+          "planned_at_s": 239.77504993399998,
+          "send_started_at_s": 239.776174323,
+          "send_completed_at_s": 239.776364792
+        },
+        {
+          "frame_index": 405,
+          "planned_at_s": 239.855049934,
+          "send_started_at_s": 239.856129173,
+          "send_completed_at_s": 239.856369759
+        },
+        {
+          "frame_index": 406,
+          "planned_at_s": 239.935049934,
+          "send_started_at_s": 239.935917153,
+          "send_completed_at_s": 239.936132817
+        },
+        {
+          "frame_index": 407,
+          "planned_at_s": 240.015049934,
+          "send_started_at_s": 240.015998043,
+          "send_completed_at_s": 240.016221992
+        },
+        {
+          "frame_index": 408,
+          "planned_at_s": 240.09504993399997,
+          "send_started_at_s": 240.096699749,
+          "send_completed_at_s": 240.096919797
+        }
+      ],
+      "audio_packet_timeline": [
+        {
+          "received_at_s": 207.885384081,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 207.890245962,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 207.904309449,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 207.92065235,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 207.93217359,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 207.960333503,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.04141727,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.123080603,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.201773817,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.283243849,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.364562566,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.441773983,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.522155558,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.604280697,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.684054413,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.762244331,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.843082234,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 208.924958296,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.003461424,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.084801181,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.16680617,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.24349877,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.323099132,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.403471774,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.483969625,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.56589347,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.644362473,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.724935993,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.803726931,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.885118643,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 209.962957632,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.044224944,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.122786918,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.204343006,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.285810337,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.366027995,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.442456338,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.523937769,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.604671054,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.683929406,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.766490029,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.841578841,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 210.921845675,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.001755404,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.083665362,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.16448591,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.245570615,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.322203841,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.403451806,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.482784587,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.561902239,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.645246067,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.721742694,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.803333288,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.885391883,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 211.963514357,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.044085394,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.124652959,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.20624299,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.282616419,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.36240638,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.442080557,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.521844917,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.60391683,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.685534048,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.762716382,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.842577073,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 212.923052278,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.002758618,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.083704526,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.165344768,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.242237462,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.321401702,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.402829701,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.482666583,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.560439079,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.643498388,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.722675698,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.803550401,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.884171353,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 213.964303691,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.044354599,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.122749828,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.204075742,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.283534173,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.364070895,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.444262172,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.524546564,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.602472352,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.682634125,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.762793202,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.843617112,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 214.925945524,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.004375373,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.082490628,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.16209986,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.242725449,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.323345648,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.402901038,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.483851962,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.563046282,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.642462476,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.722069718,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.80155593,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.88238976,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 215.964483831,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.040889236,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.122052855,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.201021995,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.283303687,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.366374806,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.443146072,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.524259005,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.604158274,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.681511265,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.764190606,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.844827586,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 216.924576098,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.003441714,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.083324713,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.164160026,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.24256979,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.320232379,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.400984524,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.483265048,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.563452128,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.645817614,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.726154751,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.802423358,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.883343697,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 217.96555165,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.043341429,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.129401394,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.203913598,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.285646595,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.361292442,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.442502771,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.522563982,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.60195332,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.680839269,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.761294907,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.842534256,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 218.921577051,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.000642644,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.082622117,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.162913555,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.241778026,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.321499426,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.400398735,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.482593677,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.56058457,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.639759642,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.72118467,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.802749385,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.879912375,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 219.962178848,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.042617296,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.121155882,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.203619934,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.287661912,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.366005685,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.446932039,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.524837584,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.607789796,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.686391852,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.767322221,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.845132751,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 220.926906158,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.007459695,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.084935261,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.162847892,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.245105813,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.323248416,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.404130137,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.483311439,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.562790741,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.644549362,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.724309273,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.807034047,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.885542509,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 221.96403023,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.045590297,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.122499973,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.203781943,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.283161133,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.367024691,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.443719108,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.5257168,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.603446719,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.684030859,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.763581976,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.84495062,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 222.925157443,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.003973955,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.083633439,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.16589598,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.245099449,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.326801247,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.405509011,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.489308385,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.56378045,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.647938839,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.728513978,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.805616484,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.885793582,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 223.967651378,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.045803288,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.125236142,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.203148637,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.287079463,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.364453417,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.4446905,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.52589759,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.604557375,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.684741868,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.761708234,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.845459719,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 224.921697562,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.002537736,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.083021374,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.164553698,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.245605689,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.327313163,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.405179438,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.486770924,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.568821187,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.646075337,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.725159583,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.805385359,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.884693641,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 225.963202459,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.044931908,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.123560638,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.205154178,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.282197661,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.361838774,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.447821102,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.525847078,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.607162826,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.686053392,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.763397837,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.842239237,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 226.919766792,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.003290832,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.082702219,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.162668692,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.242495998,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.324235549,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.403636191,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.4829442,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.56268898,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.641806828,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.721873019,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.805209875,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.882647996,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 227.964569921,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.045075321,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.124388489,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.204792184,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.283880515,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.365616473,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.442869122,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.522756049,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.602797633,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.683011188,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.761671616,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.841276899,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 228.921942468,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.003354032,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.082900284,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.160430243,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.24258288,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.320817063,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.401726358,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.482725062,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.561584554,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.642434811,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.724290941,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.80307463,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.883221166,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 229.962691729,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.041358671,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.123277483,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.203277884,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.28275731,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.362640724,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.442816998,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.523886297,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.604754701,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.681259016,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.762450687,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.842227712,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 230.921078594,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.003318541,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.084376569,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.163367378,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.243464473,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.325927941,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.40442319,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.483140465,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.564125415,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.641640831,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.723226794,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.802120994,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.883533417,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 231.962901675,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.041812762,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.121636681,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.202180174,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.28307991,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.36395355,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.444952833,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.522258728,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.60319887,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.684470375,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.762050652,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.843113328,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 232.923523517,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.001144683,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.081615457,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.161507225,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.243408493,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.323904651,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.403742634,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.482756477,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.56349995,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.642770722,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.72437719,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.80003434,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.880129676,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 233.961013997,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.040094407,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.121004143,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.203673415,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.284619903,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.361242589,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.443947738,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.523820391,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.604660895,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.682895802,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.759972795,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.843377288,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 234.922667433,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.001532771,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.08149184,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.161306416,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.238920178,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.322779845,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.40042549,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.480428828,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.560122576,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.642489907,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.721390624,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.802712242,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.883394745,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 235.963104526,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.04315819,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.124955351,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.204642641,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.282826597,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.362930448,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.440917678,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.522646609,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.604144087,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.6803412,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.760985276,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.841986541,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 236.922740492,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.002659715,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.080912107,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.163984245,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.244550726,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.323166618,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.401961307,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.48334909,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.56319139,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.643968461,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.723240858,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.804915087,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.883054593,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 237.963224408,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.041583942,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.123217796,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.206060492,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.281435413,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.362407544,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.441775956,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.521434624,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.60371037,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.684096424,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.760664876,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.840584736,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 238.923058424,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.006038086,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.082982199,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.162240165,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.243343512,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.322362361,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.400286022,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.480119361,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.561998312,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.640567326,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.722051377,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.799719258,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.882149235,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 239.96217176,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 240.040924183,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        },
+        {
+          "received_at_s": 240.120925599,
+          "samples": 1920,
+          "response_id": "resp-duplex-853a390da2bf4eae80104b516b639e6e-0-4e3d617d"
+        }
+      ],
+      "invalid_audio_packets": [],
+      "audio_chunks": 408,
+      "audio_samples": 783360,
+      "audio_rms": 0.020785024389624596,
+      "output_frames": 408,
+      "voiced_frames": 70,
+      "silent_frames": 338,
+      "frame_coverage_ratio": 0.9975550122249389
+    }
+  ],
+  "reported_server": {
+    "revision": "8bf25e88930ca7cf9a08a61d33c2a20a9f9a0d4a",
+    "hardware": "1x H100 80GB"
+  },
+  "measurement_origin": "client monotonic clock; admission excluded; streaming and drain retained",
+  "interval_definition": "nonempty audio packet arrivals, not server ticks or per-frame inference latency"
+}
+
+--- stderr ---

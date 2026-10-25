@@ -1,0 +1,968 @@
+{
+  "vllm_omni_revision": "8bf25e88930ca7cf9a08a61d33c2a20a9f9a0d4a",
+  "checkpoints": {
+    "kyutai/moshiko-pytorch-bf16": "2bfc9ae6e89079a5cc7ed2a68436010d91a3d289",
+    "kyutai/moshika-pytorch-bf16": "a49141e28b3d9c947cf9aa5314431e1b11cbd2f5"
+  },
+  "input": "librispeech_asr_dummy clean/validation 1272-128104-0000..0002 at 24 kHz, 0.5 s gaps, 6 s tail",
+  "moshiko_ref_a_vs_ref_b": {
+    "steps": 382,
+    "text_match": 0.93717277486911,
+    "first_text_diff": 139,
+    "cb_match": [
+      0.746,
+      0.602,
+      0.581,
+      0.592,
+      0.618,
+      0.757,
+      0.757,
+      0.618
+    ],
+    "frame_match": 0.450261780104712,
+    "first_frame_diff": 71,
+    "a_nonpad_steps": [
+      4,
+      5,
+      6,
+      10,
+      13,
+      15,
+      16,
+      134,
+      135,
+      136,
+      137,
+      139,
+      140,
+      141,
+      143,
+      144,
+      154,
+      155,
+      156,
+      158,
+      159
+    ],
+    "b_nonpad_steps": [
+      4,
+      5,
+      6,
+      10,
+      13,
+      15,
+      16,
+      134,
+      135,
+      136,
+      137,
+      139,
+      140,
+      141,
+      143,
+      146,
+      149,
+      152,
+      156,
+      157,
+      164,
+      165,
+      166,
+      168,
+      170,
+      171
+    ]
+  },
+  "moshika_ref_a_vs_ref_b": {
+    "steps": 382,
+    "text_match": 0.9109947643979057,
+    "first_text_diff": 138,
+    "cb_match": [
+      0.657,
+      0.906,
+      0.901,
+      0.809,
+      0.772,
+      0.539,
+      0.675,
+      0.691
+    ],
+    "frame_match": 0.39528795811518325,
+    "first_frame_diff": 74,
+    "a_nonpad_steps": [
+      4,
+      5,
+      7,
+      11,
+      13,
+      14,
+      15,
+      134,
+      135,
+      136,
+      137,
+      150,
+      151,
+      152,
+      153,
+      155,
+      157,
+      160,
+      161,
+      169,
+      171,
+      172,
+      173,
+      174,
+      176,
+      178,
+      181,
+      182
+    ],
+    "b_nonpad_steps": [
+      4,
+      5,
+      7,
+      11,
+      13,
+      14,
+      15,
+      134,
+      135,
+      136,
+      137,
+      139,
+      140,
+      141,
+      146,
+      148,
+      151,
+      153,
+      157,
+      159,
+      160
+    ]
+  },
+  "arms": {
+    "eager": {
+      "client": {
+        "audio_s": 30.56,
+        "events": {
+          "session.updated": 1,
+          "response.created": 1,
+          "conversation.item.added": 1,
+          "conversation.item.created": 1,
+          "response.output_item.added": 1,
+          "response.content_part.added": 1,
+          "response.speak": 1,
+          "response.output_audio.delta": 382,
+          "response.output_audio_transcript.delta": 382,
+          "input_audio_buffer.speech_started": 1,
+          "session.heartbeat_ack": 1
+        }
+      },
+      "vs": {
+        "ref_a": {
+          "steps": 382,
+          "text_match": 0.9424083769633508,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.579,
+            0.283,
+            0.165,
+            0.304,
+            0.199,
+            0.448,
+            0.353,
+            0.188
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            144,
+            154,
+            155,
+            156,
+            158,
+            159
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        },
+        "ref_b": {
+          "steps": 382,
+          "text_match": 0.9162303664921466,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.573,
+            0.526,
+            0.332,
+            0.44,
+            0.411,
+            0.529,
+            0.351,
+            0.398
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            146,
+            149,
+            152,
+            156,
+            157,
+            164,
+            165,
+            166,
+            168,
+            170,
+            171
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        }
+      },
+      "stage0_runtimes": [
+        {
+          "moshi": true,
+          "model_path": "/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289"
+        }
+      ]
+    },
+    "graphs": {
+      "client": {
+        "audio_s": 30.56,
+        "events": {
+          "session.updated": 1,
+          "response.created": 1,
+          "conversation.item.added": 1,
+          "conversation.item.created": 1,
+          "response.output_item.added": 1,
+          "response.content_part.added": 1,
+          "response.speak": 1,
+          "response.output_audio.delta": 382,
+          "response.output_audio_transcript.delta": 382,
+          "input_audio_buffer.speech_started": 1,
+          "session.heartbeat_ack": 1
+        }
+      },
+      "vs": {
+        "ref_a": {
+          "steps": 382,
+          "text_match": 0.9424083769633508,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.579,
+            0.283,
+            0.165,
+            0.304,
+            0.199,
+            0.448,
+            0.353,
+            0.188
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            144,
+            154,
+            155,
+            156,
+            158,
+            159
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        },
+        "ref_b": {
+          "steps": 382,
+          "text_match": 0.9162303664921466,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.573,
+            0.526,
+            0.332,
+            0.44,
+            0.411,
+            0.529,
+            0.351,
+            0.398
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            146,
+            149,
+            152,
+            156,
+            157,
+            164,
+            165,
+            166,
+            168,
+            170,
+            171
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        }
+      },
+      "stage0_runtimes": [
+        {
+          "moshi": true,
+          "model_path": "/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289"
+        }
+      ]
+    },
+    "mrv2": {
+      "client": {
+        "audio_s": 30.56,
+        "events": {
+          "session.updated": 1,
+          "input_audio_buffer.speech_started": 1,
+          "response.created": 1,
+          "conversation.item.added": 1,
+          "conversation.item.created": 1,
+          "response.output_item.added": 1,
+          "response.content_part.added": 1,
+          "response.speak": 1,
+          "response.output_audio.delta": 382,
+          "response.output_audio_transcript.delta": 382,
+          "session.heartbeat_ack": 1
+        }
+      },
+      "vs": {
+        "ref_a": {
+          "steps": 382,
+          "text_match": 0.9424083769633508,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.579,
+            0.283,
+            0.165,
+            0.304,
+            0.199,
+            0.448,
+            0.353,
+            0.188
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            144,
+            154,
+            155,
+            156,
+            158,
+            159
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        },
+        "ref_b": {
+          "steps": 382,
+          "text_match": 0.9162303664921466,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.573,
+            0.526,
+            0.332,
+            0.44,
+            0.411,
+            0.529,
+            0.351,
+            0.398
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            146,
+            149,
+            152,
+            156,
+            157,
+            164,
+            165,
+            166,
+            168,
+            170,
+            171
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        }
+      },
+      "stage0_runtimes": [
+        {
+          "moshi": true,
+          "model_path": "/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289"
+        }
+      ]
+    },
+    "repo_online": {
+      "download_dir": null,
+      "client": {
+        "audio_s": 30.56,
+        "events": {
+          "session.updated": 1,
+          "response.created": 1,
+          "conversation.item.added": 1,
+          "conversation.item.created": 1,
+          "response.output_item.added": 1,
+          "response.content_part.added": 1,
+          "response.speak": 1,
+          "response.output_audio.delta": 382,
+          "response.output_audio_transcript.delta": 382,
+          "input_audio_buffer.speech_started": 1,
+          "session.heartbeat_ack": 1
+        },
+        "errors": []
+      },
+      "vs": {
+        "ref_a": {
+          "steps": 382,
+          "text_match": 0.9424083769633508,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.579,
+            0.283,
+            0.165,
+            0.304,
+            0.199,
+            0.448,
+            0.353,
+            0.188
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            144,
+            154,
+            155,
+            156,
+            158,
+            159
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        },
+        "ref_b": {
+          "steps": 382,
+          "text_match": 0.9162303664921466,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.573,
+            0.526,
+            0.332,
+            0.44,
+            0.411,
+            0.529,
+            0.351,
+            0.398
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            146,
+            149,
+            152,
+            156,
+            157,
+            164,
+            165,
+            166,
+            168,
+            170,
+            171
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        }
+      },
+      "stage0_runtimes": [
+        {
+          "moshi": true,
+          "model_path": "kyutai/moshiko-pytorch-bf16"
+        }
+      ],
+      "model_id_replaced_by_path": false,
+      "gated_repo_requests_in_log": 0
+    },
+    "repo_download_dir": {
+      "download_dir": "/cache/hf/hub",
+      "client": {
+        "audio_s": 30.56,
+        "events": {
+          "session.updated": 1,
+          "response.created": 1,
+          "conversation.item.added": 1,
+          "conversation.item.created": 1,
+          "response.output_item.added": 1,
+          "response.content_part.added": 1,
+          "response.speak": 1,
+          "response.output_audio.delta": 382,
+          "response.output_audio_transcript.delta": 382,
+          "input_audio_buffer.speech_started": 1,
+          "session.heartbeat_ack": 1
+        },
+        "errors": []
+      },
+      "vs": {
+        "ref_a": {
+          "steps": 382,
+          "text_match": 0.9424083769633508,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.579,
+            0.283,
+            0.165,
+            0.304,
+            0.199,
+            0.448,
+            0.353,
+            0.188
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            144,
+            154,
+            155,
+            156,
+            158,
+            159
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        },
+        "ref_b": {
+          "steps": 382,
+          "text_match": 0.9162303664921466,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.573,
+            0.526,
+            0.332,
+            0.44,
+            0.411,
+            0.529,
+            0.351,
+            0.398
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 10,
+          "a_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            143,
+            146,
+            149,
+            152,
+            156,
+            157,
+            164,
+            165,
+            166,
+            168,
+            170,
+            171
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            6,
+            10,
+            13,
+            15,
+            16,
+            192,
+            193
+          ]
+        }
+      },
+      "stage0_runtimes": [
+        {
+          "moshi": true,
+          "model_path": "kyutai/moshiko-pytorch-bf16"
+        }
+      ],
+      "model_id_replaced_by_path": false,
+      "gated_repo_requests_in_log": 0
+    },
+    "moshika": {
+      "client": {
+        "audio_s": 30.56,
+        "events": {
+          "session.updated": 1,
+          "response.created": 1,
+          "conversation.item.added": 1,
+          "conversation.item.created": 1,
+          "response.output_item.added": 1,
+          "response.content_part.added": 1,
+          "response.speak": 1,
+          "response.output_audio.delta": 382,
+          "response.output_audio_transcript.delta": 382,
+          "input_audio_buffer.speech_started": 1,
+          "session.heartbeat_ack": 1
+        }
+      },
+      "vs": {
+        "ref_a": {
+          "steps": 382,
+          "text_match": 0.9109947643979057,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.353,
+            0.136,
+            0.251,
+            0.094,
+            0.154,
+            0.186,
+            0.217,
+            0.175
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 19,
+          "a_nonpad_steps": [
+            4,
+            5,
+            7,
+            11,
+            13,
+            14,
+            15,
+            134,
+            135,
+            136,
+            137,
+            150,
+            151,
+            152,
+            153,
+            155,
+            157,
+            160,
+            161,
+            169,
+            171,
+            172,
+            173,
+            174,
+            176,
+            178,
+            181,
+            182
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            7,
+            11,
+            13,
+            14,
+            15,
+            261,
+            262
+          ]
+        },
+        "ref_b": {
+          "steps": 382,
+          "text_match": 0.9345549738219895,
+          "first_text_diff": 133,
+          "cb_match": [
+            0.348,
+            0.136,
+            0.249,
+            0.136,
+            0.144,
+            0.217,
+            0.17,
+            0.322
+          ],
+          "frame_match": 0.06806282722513089,
+          "first_frame_diff": 19,
+          "a_nonpad_steps": [
+            4,
+            5,
+            7,
+            11,
+            13,
+            14,
+            15,
+            134,
+            135,
+            136,
+            137,
+            139,
+            140,
+            141,
+            146,
+            148,
+            151,
+            153,
+            157,
+            159,
+            160
+          ],
+          "b_nonpad_steps": [
+            4,
+            5,
+            7,
+            11,
+            13,
+            14,
+            15,
+            261,
+            262
+          ]
+        }
+      },
+      "stage0_runtimes": [
+        {
+          "moshi": true,
+          "model_path": "/cache/hf/hub/models--kyutai--moshika-pytorch-bf16/snapshots/a49141e28b3d9c947cf9aa5314431e1b11cbd2f5"
+        }
+      ]
+    }
+  },
+  "asr": {
+    "ref_moshiko_a": " Hey, how are you doing? No, it's not. It's interesting. Thank you very much.",
+    "ref_moshiko_b": " Hey, how are you doing? No, he's not just an interesting man. He's a god. Thank you very much.",
+    "ref_moshika_a": " Hey, how are you doing? Well, I'm not sure about that, but I'm glad you like it Thank you very much.",
+    "ref_moshika_b": " Hey, how are you doing? Well, I'm not sure I agree with that Thank you very much.",
+    "vllm_eager": " Hey, how are you doing? Oh Thank you very much.",
+    "vllm_graphs": " Hey, how are you doing? Oh Thank you very much.",
+    "vllm_mrv2": " Hey, how are you doing? Oh Thank you very much.",
+    "vllm_repo_online": " Hey, how are you doing? Oh Thank you very much.",
+    "vllm_repo_download_dir": " Hey, how are you doing? Oh Thank you very much.",
+    "vllm_moshika": " Hey, how are you doing? Oh you"
+  }
+}

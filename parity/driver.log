@@ -1,0 +1,60 @@
++ nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+input 30.7s
+
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 782.61it/s]
+
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 771.15it/s]
++ /usr/bin/python /work/control/ref_moshi.py --repo kyutai/moshiko-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_moshiko_a --semantics server
+ref_moshiko_a: rc=0
++ /usr/bin/python /work/control/ref_moshi.py --repo kyutai/moshiko-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_moshiko_b --semantics server
+ref_moshiko_b: rc=0
+moshiko ref vs ref: {"steps": 382, "text_match": 0.93717277486911, "first_text_diff": 139, "cb_match": [0.746, 0.602, 0.581, 0.592, 0.618, 0.757, 0.757, 0.618], "frame_match": 0.450261780104712, "first_frame_diff": 71, "a_nonpad_steps": [4, 5, 6, 10, 13, 15, 16, 134, 135, 136, 137, 139, 140, 141, 143, 144, 154, 155, 156, 158, 159], "b_nonpad_steps": [4, 5, 6, 10, 13, 15, 16, 134, 135, 136, 137, 139, 140, 141, 143, 146, 149, 152, 156, 157, 164, 165, 166, 168, 170, 171]}
++ /usr/bin/python /work/control/ref_moshi.py --repo kyutai/moshika-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_moshika_a --semantics server
+ref_moshika_a: rc=0
++ /usr/bin/python /work/control/ref_moshi.py --repo kyutai/moshika-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_moshika_b --semantics server
+ref_moshika_b: rc=0
+moshika ref vs ref: {"steps": 382, "text_match": 0.9109947643979057, "first_text_diff": 138, "cb_match": [0.657, 0.906, 0.901, 0.809, 0.772, 0.539, 0.675, 0.691], "frame_match": 0.39528795811518325, "first_frame_diff": 74, "a_nonpad_steps": [4, 5, 7, 11, 13, 14, 15, 134, 135, 136, 137, 150, 151, 152, 153, 155, 157, 160, 161, 169, 171, 172, 173, 174, 176, 178, 181, 182], "b_nonpad_steps": [4, 5, 7, 11, 13, 14, 15, 134, 135, 136, 137, 139, 140, 141, 146, 148, 151, 153, 157, 159, 160]}
+eager: ready after 140s
+eager: 30.6s audio out, events {'session.updated': 1, 'response.created': 1, 'conversation.item.added': 1, 'conversation.item.created': 1, 'response.output_item.added': 1, 'response.content_part.added': 1, 'response.speak': 1, 'response.output_audio.delta': 382, 'response.output_audio_transcript.delta': 382, 'input_audio_buffer.speech_started': 1, 'session.heartbeat_ack': 1}
+runtime: {'ev': 'runtime', 'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289', 'pid': 659}
+eager: text/frame vs refs {'ref_a': (0.9424083769633508, 0.06806282722513089), 'ref_b': (0.9162303664921466, 0.06806282722513089)} runtimes [{'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289'}] error None
+graphs: ready after 105s
+graphs: 30.6s audio out, events {'session.updated': 1, 'response.created': 1, 'conversation.item.added': 1, 'conversation.item.created': 1, 'response.output_item.added': 1, 'response.content_part.added': 1, 'response.speak': 1, 'response.output_audio.delta': 382, 'response.output_audio_transcript.delta': 382, 'input_audio_buffer.speech_started': 1, 'session.heartbeat_ack': 1}
+runtime: {'ev': 'runtime', 'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289', 'pid': 1138}
+graphs: text/frame vs refs {'ref_a': (0.9424083769633508, 0.06806282722513089), 'ref_b': (0.9162303664921466, 0.06806282722513089)} runtimes [{'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289'}] error None
+mrv2: ready after 105s
+mrv2: 30.6s audio out, events {'session.updated': 1, 'input_audio_buffer.speech_started': 1, 'response.created': 1, 'conversation.item.added': 1, 'conversation.item.created': 1, 'response.output_item.added': 1, 'response.content_part.added': 1, 'response.speak': 1, 'response.output_audio.delta': 382, 'response.output_audio_transcript.delta': 382, 'session.heartbeat_ack': 1}
+runtime: {'ev': 'runtime', 'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289', 'pid': 1574}
+mrv2: text/frame vs refs {'ref_a': (0.9424083769633508, 0.06806282722513089), 'ref_b': (0.9162303664921466, 0.06806282722513089)} runtimes [{'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289'}] error None
+repo_online: ready after 110s
+runtime: {'ev': 'runtime', 'moshi': True, 'model_path': 'kyutai/moshiko-pytorch-bf16', 'pid': 2025}
+repo_online: text/frame vs refs {'ref_a': (0.9424083769633508, 0.06806282722513089), 'ref_b': (0.9162303664921466, 0.06806282722513089)} runtimes [{'moshi': True, 'model_path': 'kyutai/moshiko-pytorch-bf16'}] error None
+repo_download_dir: ready after 165s
+runtime: {'ev': 'runtime', 'moshi': True, 'model_path': 'kyutai/moshiko-pytorch-bf16', 'pid': 2595}
+repo_download_dir: text/frame vs refs {'ref_a': (0.9424083769633508, 0.06806282722513089), 'ref_b': (0.9162303664921466, 0.06806282722513089)} runtimes [{'moshi': True, 'model_path': 'kyutai/moshiko-pytorch-bf16'}] error None
+moshika: ready after 110s
+moshika: 30.6s audio out, events {'session.updated': 1, 'response.created': 1, 'conversation.item.added': 1, 'conversation.item.created': 1, 'response.output_item.added': 1, 'response.content_part.added': 1, 'response.speak': 1, 'response.output_audio.delta': 382, 'response.output_audio_transcript.delta': 382, 'input_audio_buffer.speech_started': 1, 'session.heartbeat_ack': 1}
+runtime: {'ev': 'runtime', 'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshika-pytorch-bf16/snapshots/a49141e28b3d9c947cf9aa5314431e1b11cbd2f5', 'pid': 3037}
+moshika: text/frame vs refs {'ref_a': (0.9109947643979057, 0.06806282722513089), 'ref_b': (0.9345549738219895, 0.06806282722513089)} runtimes [{'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshika-pytorch-bf16/snapshots/a49141e28b3d9c947cf9aa5314431e1b11cbd2f5'}] error None
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:  10%|▉         | 47/479 [00:00<00:02, 148.23it/s]
+Loading weights:  35%|███▍      | 166/479 [00:00<00:00, 463.84it/s]
+Loading weights:  64%|██████▍   | 308/479 [00:00<00:00, 753.42it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 790.02it/s]
+[transformers] Using custom `forced_decoder_ids` from the (generation) config. This is deprecated in favor of the `task` and `language` flags/config options.
+[transformers] Passing `generation_config` together with generation-related arguments=({'suppress_tokens', 'begin_suppress_tokens'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+asr ref_moshiko_a:  Hey, how are you doing? No, it's not. It's interesting. Thank you very much.
+asr ref_moshiko_b:  Hey, how are you doing? No, he's not just an interesting man. He's a god. Thank you very much.
+asr ref_moshika_a:  Hey, how are you doing? Well, I'm not sure about that, but I'm glad you like it Thank you very much.
+asr ref_moshika_b:  Hey, how are you doing? Well, I'm not sure I agree with that Thank you very much.
+asr vllm_eager:  Hey, how are you doing? Oh Thank you very much.
+asr vllm_graphs:  Hey, how are you doing? Oh Thank you very much.
+asr vllm_mrv2:  Hey, how are you doing? Oh Thank you very much.
+asr vllm_repo_online:  Hey, how are you doing? Oh Thank you very much.
+asr vllm_repo_download_dir:  Hey, how are you doing? Oh Thank you very much.
+asr vllm_moshika:  Hey, how are you doing? Oh you

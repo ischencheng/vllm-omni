@@ -1,0 +1,1154 @@
+{"ev": "patched", "module": "vllm_omni.worker.gpu_ar_model_runner", "pid": 2025}
+{"ev": "patched", "module": "vllm_omni.model_executor.models.personaplex.personaplex_talker", "pid": 2025}
+{"ev": "patched", "module": "vllm_omni.model_executor.models.personaplex.duplex.stage0", "pid": 2025}
+{"ev": "runtime", "moshi": true, "model_path": "kyutai/moshiko-pytorch-bf16", "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899171.7652218, "dur_ms": 4.354958000021725, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899171.7699797, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1049, 243, 260, 16, 846, 2025, 1986, 520]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899171.769748, "dur_ms": 9.46059599993987, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.0499926, "dur_ms": 4.94115399999373, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.0552914, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[127, 1700, 1626, 546, 306, 1443, 1871, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.055083, "dur_ms": 9.296610999967925, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.064874, "dur_ms": 3.8891819999662403, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.0690541, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1880, 243, 457, 290, 481, 555, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.0688806, "dur_ms": 9.466668000072787, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.07879, "dur_ms": 4.307640000092761, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.083369, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [0], "codes": [[972, 91, 783, 1477, 1335, 165, 192, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.0832126, "dur_ms": 10.701918999984628, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.0943377, "dur_ms": 3.805489999990641, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.098421, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [11510], "codes": [[2035, 91, 783, 390, 1335, 1443, 1234, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.0982528, "dur_ms": 13.714391000007708, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.1637912, "dur_ms": 2.8303709999590865, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.1668942, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [261], "codes": [[915, 1686, 1761, 1083, 185, 1991, 996, 1271]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.1667423, "dur_ms": 10.007294000047295, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.2438405, "dur_ms": 3.1033879999995406, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.2472026, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [452], "codes": [[1828, 1775, 72, 1537, 387, 1305, 1069, 1634]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.2470503, "dur_ms": 9.842647000027682, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.324443, "dur_ms": 2.9713899999705973, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.327719, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[281, 1308, 1210, 297, 53, 399, 185, 1080]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.3275335, "dur_ms": 10.11057100004109, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.4049442, "dur_ms": 2.9268019999335593, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.408135, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[21, 810, 1948, 1950, 80, 259, 1481, 1396]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.4079847, "dur_ms": 9.947327000077166, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.485421, "dur_ms": 2.895532000025014, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.4885833, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [0], "codes": [[15, 1458, 660, 1088, 388, 871, 1469, 1267]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.4884267, "dur_ms": 10.017956000069717, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.564309, "dur_ms": 3.275984000083554, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.5679035, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [298], "codes": [[658, 760, 684, 287, 1540, 699, 970, 1272]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.5677302, "dur_ms": 9.77428399994551, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.6442442, "dur_ms": 2.8231930000401917, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.6473289, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[420, 887, 373, 1225, 1406, 1445, 1806, 583]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.6471772, "dur_ms": 10.039966999897842, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.7241058, "dur_ms": 2.7674479999859614, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.7271302, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [0], "codes": [[1848, 367, 1969, 1303, 1411, 822, 272, 641]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.7269807, "dur_ms": 10.060178999992786, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.804347, "dur_ms": 3.0170689999522438, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.80766, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [304], "codes": [[1408, 21, 935, 34, 1227, 1507, 594, 1412]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.8074765, "dur_ms": 10.03647799996088, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.8842478, "dur_ms": 3.1184740000753663, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.8876445, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [0], "codes": [[557, 1695, 1092, 76, 387, 1117, 122, 543]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.887474, "dur_ms": 9.693450000099801, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899172.963494, "dur_ms": 2.5987639999129897, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899172.9663393, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [1260], "codes": [[1874, 50, 900, 118, 1026, 448, 561, 688]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899172.9661982, "dur_ms": 10.09612100006052, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.0442889, "dur_ms": 2.9199030000199855, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.047496, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [330], "codes": [[170, 535, 794, 1790, 337, 1301, 1312, 1619]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.047335, "dur_ms": 9.965893999947184, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.123921, "dur_ms": 2.9407220000621237, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.127139, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[54, 467, 893, 562, 1289, 842, 653, 674]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.1269777, "dur_ms": 9.929781999971965, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.204336, "dur_ms": 2.9960580000079062, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.2075884, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1832, 1249, 491, 1292, 1824, 1653, 1437, 1220]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.2074409, "dur_ms": 9.879404000002978, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.284042, "dur_ms": 2.9774949999819, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.2872872, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[851, 60, 260, 2017, 1393, 1291, 1009, 1237]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.2871294, "dur_ms": 9.944527000016024, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.3635948, "dur_ms": 2.9096739999658894, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.3668158, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1772, 416, 1696, 1083, 184, 980, 1432, 1552]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.366616, "dur_ms": 10.020386000064718, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.4454443, "dur_ms": 3.0767120000518844, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.4488282, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[186, 33, 889, 1520, 353, 1571, 102, 114]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.4486592, "dur_ms": 9.92107299998679, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.5241635, "dur_ms": 3.2267620000538955, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.5276766, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1987, 520, 1335, 1369, 1489, 1441, 302, 396]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.5274982, "dur_ms": 9.657979000053274, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.604866, "dur_ms": 2.737621999926887, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.6078892, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[729, 477, 373, 922, 44, 714, 1433, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.607729, "dur_ms": 10.097088999941661, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.684129, "dur_ms": 2.65171899991401, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.6870244, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[729, 1056, 457, 290, 1736, 347, 192, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.6868815, "dur_ms": 10.086687000011807, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.7650506, "dur_ms": 2.9367690000299262, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.7682395, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[396, 1056, 457, 142, 1335, 602, 1234, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.7680912, "dur_ms": 9.955254999908902, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.8446803, "dur_ms": 2.8117499999780193, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.8477747, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[396, 1056, 457, 142, 481, 347, 192, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.8475976, "dur_ms": 10.0949220000075, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899173.9239748, "dur_ms": 2.6171060000024227, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899173.9268618, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[404, 1056, 457, 290, 1736, 1030, 1234, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899173.9267118, "dur_ms": 10.237097999947764, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.0040038, "dur_ms": 2.7358070000218504, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.0069993, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[404, 1056, 457, 290, 1736, 347, 192, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.006846, "dur_ms": 10.090359999935572, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.0845559, "dur_ms": 2.762629000017114, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.0875947, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 457, 290, 1736, 1030, 1234, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.087439, "dur_ms": 10.071666000044388, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.1641207, "dur_ms": 2.7579159999504554, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.1671379, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 457, 290, 1736, 1030, 1234, 1665]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.1669853, "dur_ms": 10.06073100006688, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.2444112, "dur_ms": 2.6960440000038943, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.247356, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 457, 164, 267, 1030, 1234, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.2472105, "dur_ms": 10.07322500004193, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.3244357, "dur_ms": 2.5628270000197517, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.3272386, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 457, 164, 267, 1030, 1234, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.327099, "dur_ms": 10.118241999975908, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.4040446, "dur_ms": 2.546888999972907, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.4068675, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 457, 164, 267, 1030, 1234, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.4067075, "dur_ms": 10.154596999996102, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.4835718, "dur_ms": 2.8230329999132664, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.4866793, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 457, 164, 267, 1030, 1234, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.4865065, "dur_ms": 9.847778999983348, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.5642955, "dur_ms": 2.784648999977435, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.567335, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 457, 164, 267, 1030, 1234, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.567186, "dur_ms": 10.027428000057625, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.6442356, "dur_ms": 2.9761800000187577, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.6475, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 457, 164, 481, 1030, 666, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.6473255, "dur_ms": 9.956251999938104, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.7236676, "dur_ms": 2.7778019999686876, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.7267299, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.7265527, "dur_ms": 10.037741000019196, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.8045537, "dur_ms": 2.696979999996074, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.8075025, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.8073559, "dur_ms": 10.091300999988562, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.8848372, "dur_ms": 2.92279799998596, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.8880243, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.8878675, "dur_ms": 10.05156500002613, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899174.9655547, "dur_ms": 3.2449430000269786, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899174.969079, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899174.968912, "dur_ms": 10.056233000000248, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.0441573, "dur_ms": 2.7307419999260674, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.047142, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.046995, "dur_ms": 10.11025000002519, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.1241329, "dur_ms": 2.863992000015969, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.1272564, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.127106, "dur_ms": 10.030550000010408, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.2040575, "dur_ms": 2.9186519999484517, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.207643, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.207086, "dur_ms": 10.150553000016771, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.2844, "dur_ms": 4.091056000106619, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.2888682, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.288659, "dur_ms": 9.506929999929525, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.3644645, "dur_ms": 3.8363789999493747, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.368623, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.3684368, "dur_ms": 9.648610999988705, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.4452639, "dur_ms": 2.9963790000238077, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.44872, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.4483836, "dur_ms": 9.99358600006417, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.526293, "dur_ms": 2.9406720000224595, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.5294957, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.5293431, "dur_ms": 9.981879999941157, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.6037607, "dur_ms": 3.383723999945687, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.6074216, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.6072588, "dur_ms": 9.69527199993081, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.6838753, "dur_ms": 2.775842999994893, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.6869273, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.686768, "dur_ms": 10.083867000048485, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.7640927, "dur_ms": 2.913540000008652, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.7672734, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.7671158, "dur_ms": 9.950494999998227, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.8438559, "dur_ms": 3.1217040000228735, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.8472404, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.847085, "dur_ms": 9.797436999974707, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899175.9246476, "dur_ms": 2.8720000000248547, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899175.927812, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899175.9276485, "dur_ms": 10.026851000020542, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.004043, "dur_ms": 2.798569999981737, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.0071075, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.0069513, "dur_ms": 10.084041000027355, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.084615, "dur_ms": 4.351509999992231, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.089363, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.0891442, "dur_ms": 9.474964000105501, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.1657476, "dur_ms": 3.5673560000759608, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.1696622, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.1694438, "dur_ms": 9.638703000064197, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.24434, "dur_ms": 2.937731999963944, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.2475448, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.2473876, "dur_ms": 9.99521700009609, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.3249905, "dur_ms": 3.013094999914756, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.32826, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.3281088, "dur_ms": 9.970546999966245, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.4043438, "dur_ms": 2.781820000109292, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.407386, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.4072354, "dur_ms": 10.062791999985166, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.4851403, "dur_ms": 2.713989999961086, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.4881048, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.4879582, "dur_ms": 10.091923000004499, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.5647008, "dur_ms": 3.010850999999093, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.567995, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.567829, "dur_ms": 10.064039999974739, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.6450002, "dur_ms": 3.2679329999609763, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.6485598, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.648382, "dur_ms": 9.659228000032272, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.7244024, "dur_ms": 2.9711460000498846, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.727696, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.7275026, "dur_ms": 9.998471000017162, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.8046832, "dur_ms": 4.129372999955194, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.8092034, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.80897, "dur_ms": 9.476136999978735, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.8866632, "dur_ms": 2.9503670000394777, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.8899186, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.8897488, "dur_ms": 10.024100999999064, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899176.9636536, "dur_ms": 2.692869999918912, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899176.9665987, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899176.9664528, "dur_ms": 10.093508000068141, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.0442584, "dur_ms": 3.043894000029468, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.0476027, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[395, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.0474317, "dur_ms": 9.884145000000899, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.1250384, "dur_ms": 3.0170859999998356, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.1283417, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1559, 142, 1736, 347, 825, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.1281788, "dur_ms": 9.959153000068, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.2065594, "dur_ms": 3.908056000000215, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.2108734, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.2106466, "dur_ms": 9.661593000032553, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.28573, "dur_ms": 3.7581199999294768, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.2898684, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.2896569, "dur_ms": 9.635847000026843, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.3654327, "dur_ms": 3.2305429999723856, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.3689587, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.3687866, "dur_ms": 9.874498000044696, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.4437094, "dur_ms": 3.2597019999229815, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.4472432, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.4470809, "dur_ms": 9.591751000016302, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.524142, "dur_ms": 3.070690999948056, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.5275052, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.5273278, "dur_ms": 9.861322999995537, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.6040132, "dur_ms": 2.8751730000067255, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.6071646, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.6070042, "dur_ms": 9.99860299998545, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.6850903, "dur_ms": 3.022910999902706, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.6883748, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.6882153, "dur_ms": 9.946848000026876, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.7640402, "dur_ms": 2.6797969999279303, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.7669902, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.7668357, "dur_ms": 10.113347000014983, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.845119, "dur_ms": 3.005001000019547, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.8484075, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.8482375, "dur_ms": 9.93628699995952, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899177.9237924, "dur_ms": 2.9506759999549104, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899177.9270234, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899177.9268584, "dur_ms": 9.982232000083968, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.0037668, "dur_ms": 3.1076000000211934, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.0071354, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.006982, "dur_ms": 9.73556600001757, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.0847409, "dur_ms": 2.5689349999993283, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.0875487, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.087412, "dur_ms": 10.121443000002728, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.164933, "dur_ms": 3.9802699999427205, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.1692793, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.169069, "dur_ms": 9.640852999950766, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.2452097, "dur_ms": 3.7136280000140687, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.249263, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.2490635, "dur_ms": 9.64306299999862, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.3248675, "dur_ms": 3.1298339999921154, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.3282845, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.328119, "dur_ms": 9.913980000078482, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.4041374, "dur_ms": 3.002141000024494, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.4074147, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.4072576, "dur_ms": 9.912944999996398, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.4847057, "dur_ms": 2.833399999985886, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.4878328, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.4876692, "dur_ms": 10.008373999994546, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.564592, "dur_ms": 2.84137800008466, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.5677123, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.5675333, "dur_ms": 10.101294000037342, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.6450205, "dur_ms": 3.0013299999609444, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.6482959, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.6481297, "dur_ms": 9.924266999973952, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.724949, "dur_ms": 2.7658069999461077, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.727981, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.727824, "dur_ms": 10.070515000052183, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.8042488, "dur_ms": 2.8291730000091775, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.807364, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.8071902, "dur_ms": 10.004512000023169, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.8840935, "dur_ms": 6.421812999974463, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.8909235, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.8907068, "dur_ms": 9.454089000087151, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899178.9642491, "dur_ms": 3.840840000066237, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899178.9684212, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899178.9682252, "dur_ms": 9.596674000022176, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.0437565, "dur_ms": 3.0080279999538106, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.0470567, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.0468874, "dur_ms": 9.951224000019465, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.1245148, "dur_ms": 3.314412000008815, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.1281111, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.1279476, "dur_ms": 9.726380000074641, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.2041156, "dur_ms": 2.9039979999652132, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.2072933, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.2071345, "dur_ms": 9.963032000086969, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.2837198, "dur_ms": 2.9780549999713912, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.286978, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.2868133, "dur_ms": 9.916778000047088, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.3644867, "dur_ms": 3.090499999984786, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.3678837, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.3677142, "dur_ms": 10.057329000005666, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.4444644, "dur_ms": 2.754256000002897, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.44787, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.4474409, "dur_ms": 10.148946999947839, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.5240161, "dur_ms": 2.6698030000034123, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.5269575, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 1736, 1030, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.526798, "dur_ms": 10.155223999959162, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.6042883, "dur_ms": 2.7332979999528106, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.6072822, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 1736, 1030, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.6071315, "dur_ms": 10.044152999967082, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.6854925, "dur_ms": 3.806802999974934, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.6897101, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 1736, 1030, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.6894588, "dur_ms": 9.252347000028749, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.7652385, "dur_ms": 2.870568000048479, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.7683916, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.768225, "dur_ms": 10.003019000009772, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.8447225, "dur_ms": 2.7718080000340706, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.8477805, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 1736, 1030, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.8476021, "dur_ms": 10.003588000017771, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899179.9253829, "dur_ms": 3.053883000006863, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899179.9287145, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899179.9285424, "dur_ms": 10.30103899995538, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.0046163, "dur_ms": 2.930632000015976, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.0078685, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.0076838, "dur_ms": 9.974575000001096, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.084567, "dur_ms": 2.936892999969132, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.0878098, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.0876203, "dur_ms": 9.984967999912442, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.1645474, "dur_ms": 3.7498440000263145, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.1686978, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 1736, 1030, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.1684551, "dur_ms": 9.314128000028177, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.2441819, "dur_ms": 3.073122000046169, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.2475824, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.2473855, "dur_ms": 9.898300000031668, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.3244772, "dur_ms": 2.8579559999570847, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.327661, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 1736, 1030, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.327466, "dur_ms": 10.04201099999591, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.4043372, "dur_ms": 3.737516000001051, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.4084458, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 1056, 1178, 142, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.408227, "dur_ms": 9.264450000046054, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.4845188, "dur_ms": 3.052076000017223, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.4878933, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 97, 1736, 1572, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.4877167, "dur_ms": 9.93197999991935, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.5639997, "dur_ms": 3.207891999977619, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.5675104, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 546, 1736, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.5673356, "dur_ms": 9.822052000004078, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.6440916, "dur_ms": 4.11606699992717, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.648606, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.6483724, "dur_ms": 9.317508999970414, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.7244308, "dur_ms": 3.094162999900618, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.7279043, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 164, 267, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.7276733, "dur_ms": 9.832719999963047, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.8045704, "dur_ms": 2.9074920000766724, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.8077831, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.8075957, "dur_ms": 10.001227999964613, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.8841963, "dur_ms": 2.7136279999240287, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.8871794, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.8870215, "dur_ms": 10.05739499998981, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899180.964463, "dur_ms": 2.951975999962997, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899180.9677024, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899180.9675238, "dur_ms": 10.024461000057272, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.0446393, "dur_ms": 2.876338000078249, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.0478203, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.0476518, "dur_ms": 10.030132999986563, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.1261024, "dur_ms": 3.979071000003387, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.1304488, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.130234, "dur_ms": 9.541955000031521, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.2046645, "dur_ms": 3.089203999934398, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.2080715, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.2078924, "dur_ms": 9.967628000026707, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.2844808, "dur_ms": 2.7486650000128066, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.2875032, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.2873397, "dur_ms": 10.193777000040427, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.3653932, "dur_ms": 2.9183610000700355, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.3685684, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.3684201, "dur_ms": 9.96061999990161, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.4446714, "dur_ms": 2.9827079999904527, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.4479458, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.447773, "dur_ms": 10.008481999989272, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.5246086, "dur_ms": 3.7574610000774555, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.5287895, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1559, 546, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.5285301, "dur_ms": 9.227201999919998, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.605804, "dur_ms": 3.4477929999638945, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.609594, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.609402, "dur_ms": 9.766032000015912, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.6861458, "dur_ms": 3.78494699998555, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.6902962, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 97, 1736, 1572, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.6900847, "dur_ms": 9.813335999979245, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.764976, "dur_ms": 3.320682000094166, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.7686179, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.7684367, "dur_ms": 9.783770000012737, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.8445086, "dur_ms": 3.1370909999850483, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.8479464, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 97, 1736, 1572, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.8477583, "dur_ms": 9.83465799993155, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899181.9240882, "dur_ms": 2.8361219999624154, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899181.9271913, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 164, 340, 347, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899181.9270349, "dur_ms": 10.03097099999195, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.0043209, "dur_ms": 3.0920169999717473, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.0076993, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.0075219, "dur_ms": 10.11688900007357, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.0842528, "dur_ms": 2.8224389999422783, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.087331, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 481, 1443, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.0871818, "dur_ms": 10.065094999959001, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.1643333, "dur_ms": 2.7334640000162835, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.1673498, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.1671855, "dur_ms": 10.060077000048295, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.2439792, "dur_ms": 3.3387089999905584, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.2476437, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.2474482, "dur_ms": 9.849764000023242, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.3247173, "dur_ms": 2.9628119999642877, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.3279462, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[581, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.3277824, "dur_ms": 9.958420999964801, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.4039168, "dur_ms": 3.0766399999038185, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.4072742, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.4071097, "dur_ms": 9.914269999967473, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.4844892, "dur_ms": 2.921920000062528, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.48771, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.4875252, "dur_ms": 10.109067000030336, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.563885, "dur_ms": 2.9665790000308334, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.5671272, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.5669632, "dur_ms": 9.995734000085577, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.6436653, "dur_ms": 3.2797469999650275, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.6472158, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.647056, "dur_ms": 9.646531000043979, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.72414, "dur_ms": 2.9153929999665706, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.727322, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.7271652, "dur_ms": 10.020581000048878, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.8044615, "dur_ms": 2.931525999997575, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.8076863, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.8075054, "dur_ms": 10.006492000002254, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.8845208, "dur_ms": 2.9728899999099667, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.8877864, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.887601, "dur_ms": 9.990713999968648, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899182.963359, "dur_ms": 2.971774999991794, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899182.9666076, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899182.9664447, "dur_ms": 9.989990999997644, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.0435987, "dur_ms": 2.9091510000398557, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.0468082, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.0466197, "dur_ms": 10.002330000020265, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.1234875, "dur_ms": 3.0908769999768992, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.1268685, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[318, 91, 1029, 164, 1736, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.1267076, "dur_ms": 9.76194800000485, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.2033374, "dur_ms": 2.7307579999842346, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.2063203, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[318, 91, 1029, 164, 1736, 1443, 666, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.2061713, "dur_ms": 10.073528000020815, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.2845113, "dur_ms": 2.606633000027614, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.2873607, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[318, 91, 1029, 164, 1736, 1443, 666, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.2872171, "dur_ms": 10.14061099999708, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.363796, "dur_ms": 2.7549900000849448, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.3668551, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[318, 91, 1178, 290, 481, 1443, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.3666804, "dur_ms": 10.011696999981723, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.4446673, "dur_ms": 2.815842000018165, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.4477787, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[768, 91, 1178, 290, 481, 1443, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.4475882, "dur_ms": 10.075667000023714, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.524132, "dur_ms": 2.7807559999928344, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.527176, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[768, 91, 1178, 290, 481, 1443, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.5270216, "dur_ms": 10.075196000002506, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.603905, "dur_ms": 2.828618000080496, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.6070058, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[768, 91, 783, 290, 481, 1443, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.6068473, "dur_ms": 10.071840000023258, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.6847122, "dur_ms": 2.7128920000905055, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.6877036, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[163, 91, 783, 290, 481, 1443, 825, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.6875298, "dur_ms": 10.061592000056407, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.7651453, "dur_ms": 2.768524000089201, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.7681642, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[163, 91, 783, 290, 481, 1443, 1978, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.7680187, "dur_ms": 10.047204999978021, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.84441, "dur_ms": 2.577938000058566, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.8472285, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[768, 91, 783, 164, 1335, 347, 976, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.8470886, "dur_ms": 10.162056000012853, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899183.9236467, "dur_ms": 2.794558000005054, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899183.926793, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 976, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899183.9265425, "dur_ms": 10.218217999977242, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.004615, "dur_ms": 2.7218010000069626, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.0075877, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.0074418, "dur_ms": 10.17349500000364, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.0843496, "dur_ms": 2.646025999979429, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.0872383, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.087097, "dur_ms": 10.1369970000178, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.1642811, "dur_ms": 3.1361430000060864, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.167705, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.1675217, "dur_ms": 9.684039999910965, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.2446907, "dur_ms": 2.757395000003271, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.2477517, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.2475705, "dur_ms": 10.122302000013406, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.3241627, "dur_ms": 2.726671000004899, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.3271518, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.3269951, "dur_ms": 10.139297000023362, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.4040744, "dur_ms": 2.9211370000439274, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.407238, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.4070957, "dur_ms": 9.874467000031473, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.4837084, "dur_ms": 2.6682730000402444, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.4866595, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.4864845, "dur_ms": 10.126184000000649, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.5646894, "dur_ms": 3.05348300003061, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.5680358, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.567863, "dur_ms": 9.993742999995447, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.644472, "dur_ms": 2.859578000084184, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.647612, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.6474545, "dur_ms": 10.112987000070461, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.7245193, "dur_ms": 3.2072850000304243, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.728005, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.7278461, "dur_ms": 9.678357999973741, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.8050208, "dur_ms": 2.9728270000077828, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.8082592, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.808108, "dur_ms": 9.97882199999367, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.8849905, "dur_ms": 3.091272000006029, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.8883884, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.888201, "dur_ms": 9.909575999927256, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899184.965259, "dur_ms": 3.443236000066463, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899184.9690313, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899184.9688284, "dur_ms": 9.832320999976218, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.0446544, "dur_ms": 3.6061750000726533, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.0485785, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.0483859, "dur_ms": 9.579865000091559, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.1245842, "dur_ms": 3.1954610000184402, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.1281025, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.1279154, "dur_ms": 9.996741999998449, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.2055683, "dur_ms": 3.5190739999961806, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.2094295, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 267, 1030, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.2092311, "dur_ms": 9.852590999912536, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.2865713, "dur_ms": 3.5308259999737857, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.2904382, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.2902365, "dur_ms": 9.78697799996553, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.365462, "dur_ms": 3.6058619999721486, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.3694031, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.369215, "dur_ms": 9.847143999991204, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.4446049, "dur_ms": 3.0771519999461816, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.4479814, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.447801, "dur_ms": 10.023483000054512, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.5245183, "dur_ms": 2.8851470000290647, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.5276933, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.5275126, "dur_ms": 10.09183500002564, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.6038046, "dur_ms": 2.9828579999957583, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.607045, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.6068923, "dur_ms": 10.049396999988858, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.6843667, "dur_ms": 2.769421000039074, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.6873927, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.6872423, "dur_ms": 10.108412000022327, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.7644374, "dur_ms": 3.125533999991603, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.767903, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.7677195, "dur_ms": 9.900111000092693, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.8444393, "dur_ms": 2.6397709999628205, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.8473213, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.847182, "dur_ms": 10.186208999925839, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899185.924052, "dur_ms": 2.8508589999773903, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899185.9271553, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1030, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899185.9270077, "dur_ms": 10.042733999966913, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.0046651, "dur_ms": 2.6461569999582935, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.0077028, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1030, 666, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.007415, "dur_ms": 10.193946000072174, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.084699, "dur_ms": 3.0056880000302044, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.088, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.0878289, "dur_ms": 10.00221699996473, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.1641283, "dur_ms": 3.048702000000958, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.1674635, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.1672935, "dur_ms": 9.945495000010851, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.2449198, "dur_ms": 2.8338249999251275, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.2480435, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.247877, "dur_ms": 10.106000000064341, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.324987, "dur_ms": 2.8766490000862177, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.3281353, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.3279774, "dur_ms": 10.062312999934875, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.4042609, "dur_ms": 2.919534000056956, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.4074612, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1744]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.4072874, "dur_ms": 10.024536999935663, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.4848788, "dur_ms": 2.9693909999650714, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.4881074, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.4879546, "dur_ms": 9.967354999957934, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.5644467, "dur_ms": 2.8540170000042053, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.5675917, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.5674255, "dur_ms": 10.120551999989402, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.6440306, "dur_ms": 2.865112999984376, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.647167, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.6470094, "dur_ms": 10.040494000008948, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.7243474, "dur_ms": 3.137863999995716, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.7277696, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.7275925, "dur_ms": 9.727575999932014, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.8038678, "dur_ms": 2.6833390001002044, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.806835, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.8066752, "dur_ms": 10.096465000060562, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.8835611, "dur_ms": 2.617932000021028, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.886437, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.8862824, "dur_ms": 10.151633999953447, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899186.964392, "dur_ms": 3.309986000090248, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899186.9679837, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899186.9678214, "dur_ms": 9.991613000011057, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.0449953, "dur_ms": 2.933263000045372, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.04821, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [0], "codes": [[1316, 1211, 1697, 142, 1736, 1443, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.0480545, "dur_ms": 9.995254000045861, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.1246004, "dur_ms": 2.771275999975842, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.1276414, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [4596], "codes": [[1208, 1211, 1697, 142, 1736, 1572, 1978, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.1274805, "dur_ms": 10.17073800005619, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.2049358, "dur_ms": 3.28813999999511, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.2085392, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [261], "codes": [[1913, 1114, 1314, 610, 395, 781, 275, 1049]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.2083626, "dur_ms": 9.985015999973257, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.2845287, "dur_ms": 3.2629060000317622, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.2880676, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1693, 878, 1139, 396, 1001, 268, 1145, 1966]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.2879014, "dur_ms": 9.865372000035677, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.3639743, "dur_ms": 3.179538999916076, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.367467, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1693, 707, 1453, 2041, 1496, 641, 140, 1092]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.3672786, "dur_ms": 9.912794000001668, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.445707, "dur_ms": 3.0558249999330656, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.4490433, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1957, 1626, 1978, 694, 446, 46, 1297, 85]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.4488783, "dur_ms": 10.038917999963815, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.5242336, "dur_ms": 3.043101999992359, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.527549, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[141, 2005, 373, 156, 17, 1335, 2015, 1466]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.5273914, "dur_ms": 10.045585000057144, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.6043715, "dur_ms": 2.8934619999745337, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.6077006, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1557, 1056, 373, 164, 915, 1443, 1433, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.6073902, "dur_ms": 10.09318700005224, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.6848285, "dur_ms": 3.0408640000132436, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.6881368, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1557, 91, 457, 164, 1335, 555, 192, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.687983, "dur_ms": 9.958505999975387, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.7652879, "dur_ms": 3.062399999976151, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.7686207, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[222, 91, 457, 164, 1335, 555, 192, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.768468, "dur_ms": 9.914441999967494, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.844193, "dur_ms": 2.8573890000416213, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.8472996, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[222, 91, 783, 290, 1335, 347, 1433, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.8471541, "dur_ms": 10.049180999999408, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899187.9243255, "dur_ms": 2.818672999978844, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899187.927417, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[222, 91, 783, 290, 1335, 347, 1234, 2008]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899187.9272497, "dur_ms": 10.070751000057498, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.0045424, "dur_ms": 2.60901699994065, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.007393, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[222, 91, 783, 290, 1335, 347, 192, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.0072525, "dur_ms": 10.21670099999028, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.0840745, "dur_ms": 2.88729900000817, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.0872178, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[222, 91, 783, 290, 1335, 347, 192, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.087069, "dur_ms": 10.087145999932545, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.164172, "dur_ms": 2.684244000079161, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.1671076, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[222, 91, 783, 290, 1335, 347, 192, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.1669607, "dur_ms": 10.076738999941881, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.2445424, "dur_ms": 2.8962069999352025, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.2477336, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.2475495, "dur_ms": 10.050276999891139, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.3239696, "dur_ms": 2.893333999963943, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.3271403, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.3269775, "dur_ms": 9.978900999954021, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.4041188, "dur_ms": 2.705920999915179, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.407078, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.4069304, "dur_ms": 10.090996999906565, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.4849792, "dur_ms": 2.6047820000485444, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.4878533, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.4877012, "dur_ms": 10.332163000043693, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.5641634, "dur_ms": 3.0136050000919568, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.567461, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.5672958, "dur_ms": 9.926456000016515, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.6443968, "dur_ms": 3.262127999960285, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.6479502, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1736, 347, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.6477723, "dur_ms": 9.922142999926109, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.7244933, "dur_ms": 2.925498000081461, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.7277164, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1736, 347, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.727531, "dur_ms": 10.055225999963113, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.8047626, "dur_ms": 2.738027999953374, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.8077903, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1736, 347, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.807609, "dur_ms": 10.17586599994047, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.884316, "dur_ms": 3.061300000013034, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.8876524, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.8874784, "dur_ms": 9.924915999931727, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899188.964414, "dur_ms": 2.786711999988256, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899188.967476, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899188.9673207, "dur_ms": 10.123173000010866, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.0442524, "dur_ms": 2.662530000065999, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.0471683, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.04702, "dur_ms": 10.131193999995958, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.1243205, "dur_ms": 3.1273690000261922, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.127742, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.1275616, "dur_ms": 9.992879999913384, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.204369, "dur_ms": 2.9684049999332274, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.2076104, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.2074513, "dur_ms": 9.989350000068953, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.2852142, "dur_ms": 2.891383000019232, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.28837, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.2882166, "dur_ms": 10.038995000059003, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.3640807, "dur_ms": 2.8685730000006515, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.3672147, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.3670604, "dur_ms": 10.049929000047086, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.4443026, "dur_ms": 3.2483319999982996, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.4478571, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.447685, "dur_ms": 9.993998999902942, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.5239727, "dur_ms": 2.799808000077064, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.5270507, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.5268931, "dur_ms": 10.10677699991902, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.6043856, "dur_ms": 2.823022000029596, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.6074646, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.6073177, "dur_ms": 10.040742000001046, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.6837876, "dur_ms": 3.0641449999393444, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.6871023, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.6869543, "dur_ms": 9.845077000022684, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.7641587, "dur_ms": 2.751131000081841, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.7671657, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.7670155, "dur_ms": 10.069715999975415, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.8446183, "dur_ms": 2.9055889999654028, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.847838, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.847669, "dur_ms": 10.018053999942822, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899189.9243205, "dur_ms": 2.767128999948909, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899189.9273365, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899189.9271915, "dur_ms": 10.09707800005799, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.0045502, "dur_ms": 2.7631689999907394, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.0075896, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.007435, "dur_ms": 10.140427999999702, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.0848472, "dur_ms": 2.803330000006099, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.087929, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.0877588, "dur_ms": 10.115802999962398, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.1639926, "dur_ms": 2.7591499999743974, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.1670413, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.1668756, "dur_ms": 10.067315000014787, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.2445877, "dur_ms": 2.719877999993514, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.2475874, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.2474282, "dur_ms": 10.119485000018358, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.3239315, "dur_ms": 2.654617000075632, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.326876, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 825, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.3267117, "dur_ms": 10.134994000054576, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.4048522, "dur_ms": 3.0050720000645015, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.4081216, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.4079697, "dur_ms": 9.967247000076895, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.483659, "dur_ms": 2.7446289999488727, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.4866862, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 825, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.4865117, "dur_ms": 10.067294999998921, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.564307, "dur_ms": 2.9675050000150804, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.5675488, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.567391, "dur_ms": 9.940658999994412, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.644992, "dur_ms": 2.9597410000405944, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.6482148, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.6480613, "dur_ms": 9.989160000031916, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.7237217, "dur_ms": 3.1461600000284307, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.7271526, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.726982, "dur_ms": 9.77178499999809, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.803929, "dur_ms": 2.942084999972394, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.8071437, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.8069847, "dur_ms": 9.990517000005639, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.8851886, "dur_ms": 3.0201170000054844, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.8884847, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.8883286, "dur_ms": 9.972589000085463, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899190.9642842, "dur_ms": 3.318450000051598, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899190.9679081, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899190.9677413, "dur_ms": 9.970404000000599, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.044296, "dur_ms": 2.8749739999511803, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.047433, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.0472813, "dur_ms": 10.075823999954991, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.124252, "dur_ms": 2.817090000007738, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.1273315, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 825, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.1271799, "dur_ms": 10.070513000073333, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.20412, "dur_ms": 3.154687999995076, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.2075307, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.2073805, "dur_ms": 9.794954999961192, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.2844641, "dur_ms": 2.8922429999056476, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.287622, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.2874684, "dur_ms": 10.003422999943723, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.3638191, "dur_ms": 2.7649410000094576, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.366884, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.366712, "dur_ms": 10.135762999993858, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.444966, "dur_ms": 3.0629809999709323, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.4482982, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.4481354, "dur_ms": 10.087829999974929, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.524421, "dur_ms": 2.8922579999743903, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.5275724, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.5274222, "dur_ms": 10.137482999994063, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.6042156, "dur_ms": 2.736649999974361, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.6072042, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.607057, "dur_ms": 10.130547000017032, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.6847317, "dur_ms": 2.983029999995779, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.6880026, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 1178, 546, 1335, 347, 825, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.6878355, "dur_ms": 9.976714999993419, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.7642932, "dur_ms": 2.8075690000832765, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.7673674, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 142, 1335, 347, 825, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.7672052, "dur_ms": 10.02649500003372, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.844485, "dur_ms": 2.720939000028011, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.8474548, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.8473089, "dur_ms": 10.084881000011592, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899191.9245179, "dur_ms": 2.9438850000360617, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899191.927765, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899191.9275694, "dur_ms": 10.08713099997749, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.0043104, "dur_ms": 2.968211000052179, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.0075295, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.0073843, "dur_ms": 10.118595999983881, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.0836823, "dur_ms": 2.6253920000272046, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.0865695, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.0864222, "dur_ms": 10.178958000096827, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.1640015, "dur_ms": 2.6657949999844277, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.1669104, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.1667662, "dur_ms": 10.176451999996061, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.2437057, "dur_ms": 2.6872570000477936, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.2466676, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.2464998, "dur_ms": 10.145444000045245, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.3241198, "dur_ms": 2.656510000065282, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.327044, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.3268929, "dur_ms": 10.137592999967637, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.403929, "dur_ms": 2.668944999982159, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.406873, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.4067214, "dur_ms": 10.135156999922401, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.4840362, "dur_ms": 2.7832399999851987, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.4870715, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.4869227, "dur_ms": 10.240813999985221, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.5635808, "dur_ms": 2.832788999967306, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.5667062, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.5665247, "dur_ms": 10.062325000035344, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.643971, "dur_ms": 2.7224910000995806, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.6469808, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.6468205, "dur_ms": 10.097688999962884, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.7242248, "dur_ms": 2.8911819999848376, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.727375, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.7272227, "dur_ms": 9.983068999986244, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.8045406, "dur_ms": 2.7814269999453245, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.8075852, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.807432, "dur_ms": 10.135689999970054, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.8840084, "dur_ms": 3.2333309999330595, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.8875253, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.887361, "dur_ms": 9.694525999975667, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899192.9641886, "dur_ms": 2.8049449999798526, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899192.967254, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899192.9671004, "dur_ms": 10.065979000046354, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.0448294, "dur_ms": 3.1581149999055924, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.0482562, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.0481, "dur_ms": 9.76686499996049, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.1249022, "dur_ms": 3.384671000048911, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.1286054, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.1284223, "dur_ms": 9.810843999957797, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.2039082, "dur_ms": 3.1880720000572182, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.2074099, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.2072206, "dur_ms": 9.925005000013698, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.2847698, "dur_ms": 2.8840369999443283, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.287936, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.287773, "dur_ms": 10.086397000009129, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.3643527, "dur_ms": 2.9681010000786046, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.3675892, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 783, 164, 1335, 347, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.367427, "dur_ms": 9.919536999973388, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.4444282, "dur_ms": 2.652346999980182, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.4473312, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1572, 825, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.447184, "dur_ms": 10.183765000078893, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.524005, "dur_ms": 2.795953999907397, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.5270748, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.526918, "dur_ms": 10.121945000037158, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.6044488, "dur_ms": 3.051773000038338, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.6078, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 152]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.607606, "dur_ms": 9.969230000024254, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.6844392, "dur_ms": 2.7910860000019966, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.687494, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.68734, "dur_ms": 10.096280000084334, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.764054, "dur_ms": 2.8182020000713237, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.767136, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.7669818, "dur_ms": 10.05917899999531, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.8444974, "dur_ms": 3.1069579999893904, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.8479016, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.8477306, "dur_ms": 10.075988999915353, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899193.9244967, "dur_ms": 2.7227850000599574, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899193.92747, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899193.9273257, "dur_ms": 10.085684000046058, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.0040486, "dur_ms": 2.640788999997312, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.0069382, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.0067928, "dur_ms": 10.18182399991474, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.0837193, "dur_ms": 2.571246999991672, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.0865395, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 478, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.086393, "dur_ms": 10.179631000028166, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.1641243, "dur_ms": 2.743249999980435, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.167132, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.1669781, "dur_ms": 10.075424000092426, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.2449243, "dur_ms": 2.675328999998783, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.2478876, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.247723, "dur_ms": 10.15210200000638, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.3242958, "dur_ms": 2.8523429999722794, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.3274374, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.3272707, "dur_ms": 10.009980999939216, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.4042146, "dur_ms": 2.8055650000169408, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.4072666, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.4071214, "dur_ms": 10.073417000057816, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.4843988, "dur_ms": 2.666262999923674, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.4873006, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.4871633, "dur_ms": 10.104886000021907, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.5644135, "dur_ms": 2.8910480000376992, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.5675902, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.567429, "dur_ms": 10.128452999992987, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.6440883, "dur_ms": 2.86002199993618, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.647214, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.6470544, "dur_ms": 10.027405999949224, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.7237153, "dur_ms": 3.0538140000544445, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.727048, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.7268713, "dur_ms": 9.824225999977898, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.8042948, "dur_ms": 3.0722039999773187, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.8076813, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.807485, "dur_ms": 9.914484000091761, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.885261, "dur_ms": 3.145344000017758, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.8887143, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.8885207, "dur_ms": 9.905496999977004, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899194.9652846, "dur_ms": 3.080748999991556, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899194.968661, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899194.9684787, "dur_ms": 9.93640100000448, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.044062, "dur_ms": 2.803426000014042, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.0471234, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.0469728, "dur_ms": 10.074164000002384, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.1252651, "dur_ms": 3.0463240000244696, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.1285837, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.1284277, "dur_ms": 10.156531000006908, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.2059324, "dur_ms": 3.0074659999854703, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.2092218, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1443, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.2090554, "dur_ms": 10.027350999962437, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.2859921, "dur_ms": 4.332820000058746, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.2907028, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.2904778, "dur_ms": 9.42457700000432, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.36507, "dur_ms": 4.212411000025895, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.3697047, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.369457, "dur_ms": 9.678123000071537, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.444941, "dur_ms": 3.4859589999314267, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.448797, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[509, 91, 457, 164, 1335, 1030, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.4485826, "dur_ms": 9.829760999991777, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.5249443, "dur_ms": 2.880636000099912, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.528094, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 457, 164, 1335, 478, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.5279353, "dur_ms": 10.096612999973331, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.6040692, "dur_ms": 2.8080020000516015, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.6071372, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.6069822, "dur_ms": 10.111757000004218, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.684405, "dur_ms": 2.61208799997803, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.6872592, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.6871176, "dur_ms": 10.165723000000071, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.7643974, "dur_ms": 2.747747000057643, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.7674153, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.7672505, "dur_ms": 10.115562999999383, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.844424, "dur_ms": 2.973182999994606, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.8476915, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.8475068, "dur_ms": 10.038626999971711, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899195.9237878, "dur_ms": 2.9559429999608255, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899195.9270196, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899195.9268553, "dur_ms": 10.009000000081869, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.0027747, "dur_ms": 2.742489000070236, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.0057983, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.005641, "dur_ms": 10.11118099995656, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.0834877, "dur_ms": 2.6138950000813566, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.0863414, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.086202, "dur_ms": 10.166838999907668, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.164204, "dur_ms": 3.0807619999677627, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.1675725, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.167406, "dur_ms": 9.896946000026219, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.2434068, "dur_ms": 2.7440759999990405, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.24642, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.246256, "dur_ms": 10.159203999933197, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.323975, "dur_ms": 2.797586000042429, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.3270204, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.3268762, "dur_ms": 10.106551000035324, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.4037507, "dur_ms": 2.7200890000358413, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.406743, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.406575, "dur_ms": 10.141014000055293, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.4836648, "dur_ms": 2.863603000037074, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.4868343, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.486659, "dur_ms": 10.015052999960972, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.5636988, "dur_ms": 2.9131060000509024, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.5669112, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.5667443, "dur_ms": 10.065173999919352, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.644424, "dur_ms": 3.0297719999907713, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.6477768, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.6475801, "dur_ms": 10.023407000062434, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.7241883, "dur_ms": 2.946605000033742, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.727432, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.727253, "dur_ms": 10.001489999922342, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.803834, "dur_ms": 3.018840999970962, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.80713, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.8069658, "dur_ms": 9.968216999936885, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.883773, "dur_ms": 3.0637170000318292, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.887107, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.8869493, "dur_ms": 9.962599999994382, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899196.963429, "dur_ms": 2.905338000005031, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899196.9666092, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899196.9664452, "dur_ms": 10.048658999949112, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.0440986, "dur_ms": 2.981054999963817, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.0473604, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.0471902, "dur_ms": 10.04248499998539, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.1243184, "dur_ms": 2.7542329999050708, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.1273391, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.1271787, "dur_ms": 10.100469000008161, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.2037268, "dur_ms": 3.328180000039538, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.2073324, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 290, 1335, 347, 976, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.2071717, "dur_ms": 9.90853899998001, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.2837892, "dur_ms": 3.0072530000779807, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.2870843, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.2869139, "dur_ms": 9.962739999991754, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.3643012, "dur_ms": 2.7892130000282123, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.3673546, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.3671937, "dur_ms": 10.046296999917104, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.444799, "dur_ms": 2.9421829999591864, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.4480038, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 825, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.4478502, "dur_ms": 9.93148400004884, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.523752, "dur_ms": 2.8346469999860346, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.5268939, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.5267148, "dur_ms": 10.078989000021465, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.6038601, "dur_ms": 2.714257000093312, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.606858, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.6066978, "dur_ms": 10.132322999993448, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.6838675, "dur_ms": 2.8259649999426983, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.6869578, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.6868014, "dur_ms": 10.158682999986013, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.7635713, "dur_ms": 2.775066000026527, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.7666085, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.7664561, "dur_ms": 10.05558499991821, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.8432462, "dur_ms": 2.809619999993629, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.8463175, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.8461661, "dur_ms": 10.084053000014137, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899197.9241395, "dur_ms": 2.7395139999271123, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899197.9271307, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899197.9269843, "dur_ms": 10.108103999982632, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.004344, "dur_ms": 2.942123999901014, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.0075557, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.0073988, "dur_ms": 9.96141300004183, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.0833323, "dur_ms": 2.919045999988157, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.086707, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.0863767, "dur_ms": 10.046704000046702, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.1637788, "dur_ms": 2.927925999983927, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.1669896, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.1668198, "dur_ms": 10.014117999958216, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.244125, "dur_ms": 2.9364900000246053, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.2473474, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.2471874, "dur_ms": 9.968673999992461, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.3246117, "dur_ms": 2.859882000052494, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.3277774, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.3275812, "dur_ms": 10.091482999996515, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.4039843, "dur_ms": 2.9804110000668516, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.4072363, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.4070733, "dur_ms": 9.970938000037677, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.483177, "dur_ms": 2.952649000008023, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.4864068, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.4862363, "dur_ms": 10.025228000017705, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.564161, "dur_ms": 2.939147999995839, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.5673685, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.5672126, "dur_ms": 10.006624999959968, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.6431317, "dur_ms": 2.7605970000195157, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.6461487, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.6459992, "dur_ms": 10.061379000035231, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.7230368, "dur_ms": 2.9161129999693003, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.726223, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.7260647, "dur_ms": 10.024520000001758, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.8042145, "dur_ms": 2.7276069999970787, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.8071988, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.807048, "dur_ms": 10.121129999902223, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.8837464, "dur_ms": 2.698972000075628, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.8867214, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.88655, "dur_ms": 10.16490100005285, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899198.9641771, "dur_ms": 3.0517499999405118, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899198.967528, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899198.9673557, "dur_ms": 9.988848000034523, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.0431468, "dur_ms": 2.766065999935563, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.0461674, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.046018, "dur_ms": 10.128414000064367, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.123507, "dur_ms": 2.91217599999527, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.1267164, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.1265316, "dur_ms": 10.04359299997759, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.2033372, "dur_ms": 2.8573189999860915, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.2064745, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.2063015, "dur_ms": 10.082609999926717, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.284249, "dur_ms": 3.1817630000432473, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.2877448, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.2875535, "dur_ms": 9.902151000005688, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.364319, "dur_ms": 3.1214159999990443, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.367757, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.3675642, "dur_ms": 9.948757000074693, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.4438474, "dur_ms": 3.150708000021041, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.4472919, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.4471226, "dur_ms": 9.937107999917316, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.5238945, "dur_ms": 3.02947700004097, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.5272067, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.5270412, "dur_ms": 9.931627999890225, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.603537, "dur_ms": 2.998947000037333, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.606824, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.6066582, "dur_ms": 10.011489999897094, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.6847644, "dur_ms": 2.9470430000628767, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.6879878, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.687824, "dur_ms": 10.033838000026662, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.7639465, "dur_ms": 2.9455769999913173, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.7671618, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.7670035, "dur_ms": 9.999587000038446, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.8444123, "dur_ms": 2.9221660000757765, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.8476117, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.8474495, "dur_ms": 9.966626000050383, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899199.9234428, "dur_ms": 2.739233000056629, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899199.9264529, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899199.9262986, "dur_ms": 10.110916000030556, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.002909, "dur_ms": 2.6985949999698278, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.0058832, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.0057292, "dur_ms": 10.144742000079532, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.0839598, "dur_ms": 2.8784279999172213, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.0870976, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.0869446, "dur_ms": 10.084306999942783, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.1635113, "dur_ms": 2.794586999925741, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.1665745, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.166416, "dur_ms": 10.099357999934, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.2442849, "dur_ms": 2.9109750000770873, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.2474768, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.247307, "dur_ms": 9.987238000007892, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.3236053, "dur_ms": 2.7613670000619095, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.32664, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.3264728, "dur_ms": 10.109499999998661, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.403389, "dur_ms": 2.859943999965253, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.4065008, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.4063506, "dur_ms": 9.980158999951527, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.4835782, "dur_ms": 2.867494000042825, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.4867375, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.4865549, "dur_ms": 10.091981999948985, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.5643687, "dur_ms": 3.0687940000007075, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.567752, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.5675611, "dur_ms": 9.983876999967833, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.6439993, "dur_ms": 3.374915999984296, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.647695, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.6474943, "dur_ms": 9.776243000032991, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.724244, "dur_ms": 3.145700000004581, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.7277076, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.7275121, "dur_ms": 9.960255000009965, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.8046193, "dur_ms": 3.072994000035578, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.80799, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.8078163, "dur_ms": 10.068314000022838, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.8838625, "dur_ms": 3.4711989999323123, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.8876872, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.887473, "dur_ms": 9.792149999952926, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899200.9635875, "dur_ms": 3.1595670000115206, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899200.9670234, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899200.9668581, "dur_ms": 10.064618999990671, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.0439348, "dur_ms": 2.9118749999952342, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.047141, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.0469766, "dur_ms": 10.022149999940666, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.1247668, "dur_ms": 3.0619109999179273, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.1281154, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.1279554, "dur_ms": 9.996679999972002, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.2048323, "dur_ms": 2.934567000011157, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.20805, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.207886, "dur_ms": 10.024411000017608, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.283502, "dur_ms": 3.401647000032426, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.2871828, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.287018, "dur_ms": 9.60240300003079, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.3650458, "dur_ms": 3.8259689999904367, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.3692176, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.3690157, "dur_ms": 9.747081000000435, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.4454615, "dur_ms": 3.796004000037101, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.4496477, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.4494243, "dur_ms": 9.688237999966987, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.5258846, "dur_ms": 3.620850000061182, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.5298846, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.5296695, "dur_ms": 9.718761000044651, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.604307, "dur_ms": 3.234689000009894, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.607865, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.6076758, "dur_ms": 9.729179000032673, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.6839635, "dur_ms": 3.1867779999856793, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.687432, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.6872644, "dur_ms": 9.990613000013582, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.7640998, "dur_ms": 2.8141839999307194, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.7671797, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.7670238, "dur_ms": 10.079633000032118, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.8438356, "dur_ms": 3.125911999973141, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.8472335, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.8470736, "dur_ms": 9.96828600000299, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899201.9240518, "dur_ms": 2.89175599993996, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899201.9272072, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899201.927053, "dur_ms": 10.03233000005821, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899202.0036705, "dur_ms": 2.929174000087187, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899202.0069244, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899202.006737, "dur_ms": 10.052162000079079, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899202.0846078, "dur_ms": 2.8432799999791314, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899202.087738, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899202.0875585, "dur_ms": 10.103641999990032, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899202.1632147, "dur_ms": 2.743473000009544, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899202.1662111, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899202.166063, "dur_ms": 10.159846999954425, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899202.2437139, "dur_ms": 2.8114130000176374, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899202.2468238, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899202.246654, "dur_ms": 10.042336000083196, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899202.3238246, "dur_ms": 3.0723459999535407, "nreq": 1, "pid": 2025}
+{"ev": "post_sample", "t": 1792899202.3271892, "req_ids": ["duplex-s.ZHVwbGV4LThiMTUwMjQxNzVmYTRkMDRiODQ3OWIxNDk3NWY0OTc2.e.0.r.stage0"], "text": [3], "codes": [[1316, 91, 783, 164, 1335, 347, 666, 1648]], "graphs": true, "pid": 2025}
+{"ev": "step", "m": "sample_tokens", "t": 1792899202.327018, "dur_ms": 10.021288000075401, "nreq": null, "pid": 2025}
+{"ev": "step", "m": "execute_model", "t": 1792899205.4269416, "dur_ms": 1.9680980000202908, "nreq": 0, "pid": 2025}

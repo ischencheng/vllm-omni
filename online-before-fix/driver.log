@@ -1,0 +1,16 @@
++ nvidia-smi --query-gpu=name,driver_version --format=csv
+
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 789.65it/s]
+moshiko at /cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289: 355 keys
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+input 30.7s
+Traceback (most recent call last):
+  File "/work/control/repo_online.py", line 119, in <module>
+    main()
+  File "/work/control/repo_online.py", line 98, in main
+    proc, log = serve_online()
+                ^^^^^^^^^^^^^^
+  File "/work/control/repo_online.py", line 41, in serve_online
+    raise RuntimeError(f"{tag}: server exited with {proc.returncode}")
+RuntimeError: repo_online: server exited with 1

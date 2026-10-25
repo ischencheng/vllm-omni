@@ -1,0 +1,479 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+[0;36m(MainProcess pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[logo.py:52][0m        [97m█     █     █▄   ▄█[0m    [34m   ▄▀▀[38;5;208m▀▀▄ [0m[97m█▄   ▄█ █▄    █ ▀█▀ [0m
+[0;36m(MainProcess pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[logo.py:52][0m  [38;5;208m▄▄[0m [34m▄█[0m [97m█     █     █ ▀▄▀ █[0m[97m  ▄▄▄ [0m[34m █    [38;5;208m█ [0m[97m█ ▀▄▀ █ █ ▀▄  █  █  [0m
+[0;36m(MainProcess pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[logo.py:52][0m   [38;5;208m█[0m[34m▄█▀[0m [97m█     █     █     █[0m[97m      [0m[34m █    [38;5;208m█ [0m[97m█     █ █   ▀▄█  █  [0m
+[0;36m(MainProcess pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[logo.py:52][0m    [34m▀▀[0m  [97m▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀[0m      [35m  ▀▀▀▀  [0m[97m▀     ▀ ▀     ▀ ▀▀▀ [0m
+[0;36m(MainProcess pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[logo.py:52][0m 
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[api_utils.py:347][0m vLLM server version 0.32.0, serving model kyutai/moshiko-pytorch-bf16
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[api_utils.py:286][0m non-default args: {'model_tag': 'kyutai/moshiko-pytorch-bf16', 'port': 8099, 'model': 'kyutai/moshiko-pytorch-bf16'}
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[weight_utils.py:58][0m Using model weights format ['*']
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[omni_base.py:211][0m [DuplexOmni] Initializing with model kyutai/moshiko-pytorch-bf16
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[omni_engine_base.py:166][0m [OmniEngine] Initializing with model kyutai/moshiko-pytorch-bf16
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[omni_engine_base.py:316][0m [OmniEngine] Launching Orchestrator thread with 2 stages
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:52[0m [90m[initialization.py:443][0m Loaded OmniTransferConfig with 1 connector configurations
+[0;36m(APIServer pid=76)[0;0m [33mWARNING[0m [90m10-25 02:52:52[0m [90m[utils.py:250][0m Dropping unknown OmniEngineArgs field 'enable_broadcast_weight_load' (not declared on the dataclass)
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:53[0m [90m[arg_utils.py:421][0m Patched empty HF config with model_type=personaplex at /tmp/omni_hf_config_aurtcqyu
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:53[0m [90m[configuration_personaplex.py:245][0m temporal_config is None. Initializing Helium backbone with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:53[0m [90m[configuration_personaplex.py:248][0m depformer_config is None. Initializing depformer with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:53[0m [90m[configuration_personaplex.py:251][0m mimi_config is None. Initializing Mimi codec config with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:53[0m [90m[configuration_personaplex.py:245][0m temporal_config is None. Initializing Helium backbone with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:53[0m [90m[configuration_personaplex.py:248][0m depformer_config is None. Initializing depformer with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:52:53[0m [90m[configuration_personaplex.py:251][0m mimi_config is None. Initializing Mimi codec config with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[model.py:733][0m Resolved architecture: PersonaPlexTalkerForConditionalGeneration
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[model.py:2152][0m Using max model len 3000
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[scheduler.py:307][0m Chunked prefill is enabled with max_num_batched_tokens=512.
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[kernel.py:467][0m Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+[0;36m(APIServer pid=76)[0;0m [33mWARNING[0m [90m10-25 02:53:10[0m [90m[utils.py:250][0m Dropping unknown OmniEngineArgs field 'enable_broadcast_weight_load' (not declared on the dataclass)
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[arg_utils.py:421][0m Patched empty HF config with model_type=personaplex at /tmp/omni_hf_config_h1c7c8wm
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[configuration_personaplex.py:245][0m temporal_config is None. Initializing Helium backbone with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[configuration_personaplex.py:248][0m depformer_config is None. Initializing depformer with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[configuration_personaplex.py:251][0m mimi_config is None. Initializing Mimi codec config with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[configuration_personaplex.py:245][0m temporal_config is None. Initializing Helium backbone with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[configuration_personaplex.py:248][0m depformer_config is None. Initializing depformer with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:10[0m [90m[configuration_personaplex.py:251][0m mimi_config is None. Initializing Mimi codec config with default values
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:28[0m [90m[model.py:733][0m Resolved architecture: PersonaPlexCode2Wav
+[0;36m(APIServer pid=76)[0;0m [33mWARNING[0m [90m10-25 02:53:28[0m [90m[model.py:2660][0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=3000.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error.
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:28[0m [90m[model.py:2152][0m Using max model len 65536
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:28[0m [90m[scheduler.py:307][0m Chunked prefill is enabled with max_num_batched_tokens=65536.
+[0;36m(APIServer pid=76)[0;0m [33mWARNING[0m [90m10-25 02:53:28[0m [90m[vllm.py:1703][0m Enforce eager set, disabling torch.compile, CUDAGraphs, and JIT kernel warmup. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none and --kernel_config.enable_jit_warmup=False
+[0;36m(APIServer pid=76)[0;0m [33mWARNING[0m [90m10-25 02:53:28[0m [90m[vllm.py:1727][0m Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:28[0m [90m[kernel.py:467][0m Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native'])
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:28[0m [90m[vllm.py:1929][0m Cudagraph is disabled under eager mode
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:53:28[0m [90m[compilation.py:317][0m Enabled custom fusions: norm_quant, act_quant
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:53[0m [90m[core.py:133][0m Initializing a V1 LLM engine (v0.32.0) with config: model='kyutai/moshiko-pytorch-bf16', speculative_config=None, tokenizer='kyutai/moshiko-pytorch-bf16', skip_tokenizer_init=True, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=3000, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=kyutai/moshiko-pytorch-bf16, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::qwen4_exp_qsa_prepare_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [512], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 16, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:53[0m [90m[parallel_state.py:1906][0m world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_3322df54936e4bb1815e53c429992923 backend=nccl
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:53[0m [90m[parallel_state.py:2350][0m rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:55[0m [90m[topk_topp_sampler.py:124][0m Using FlashInfer for top-p & top-k sampling.
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:55[0m [90m[factory.py:46][0m Created connector: SharedMemoryConnector
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [33mWARNING[0m [90m10-25 02:53:55[0m [90m[base.py:338][0m [LLM Worker 0] Sleep Mode DISABLED.
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [33mWARNING[0m [90m10-25 02:53:55[0m [90m[base.py:338][0m [LLM Worker 0] Sleep Mode DISABLED.
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:55[0m [90m[gpu_model_runner.py:5039][0m Starting to load model kyutai/moshiko-pytorch-bf16...
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:56[0m [90m[cuda.py:506][0m Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:56[0m [90m[flash_attn.py:1117][0m Using FlashAttention version 2
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:56[0m [90m[base_loader.py:82][0m Initializing model took 0.547213 seconds
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:56[0m [90m[weight_utils.py:577][0m No model.safetensors.index.json found in remote.
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:56[0m [90m[weight_utils.py:1108][0m Filesystem type for checkpoints: 9P. Checkpoint size: 14.68 GiB. Available RAM: 328.21 GiB.
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [32mINFO[0m [90m10-25 02:53:56[0m [90m[weight_utils.py:1131][0m Auto-prefetch is disabled because the filesystem (9P) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.36s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:02<00:00,  1.06s/it]
+
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:02<00:00,  1.25s/it]
+
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m StageEngineCoreProc failed to start.
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://huggingface.co/nvidia/personaplex-7b-v1/resolve/main/tokenizer-e351c8d8-checkpoint125.safetensors'
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m 
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m The above exception was the direct cause of the following exception:
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m 
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m Traceback (most recent call last):
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_engine_core_proc.py", line 284, in run_stage_core
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     engine_core = StageEngineCoreProc(
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m                   ^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_engine_core_proc.py", line 144, in __init__
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     super().__init__(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return func(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1194, in __init__
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     super().__init__(
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 144, in __init__
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     self.model_executor = executor_class(vllm_config)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return func(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 126, in __init__
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     self._init_executor()
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/uniproc_executor.py", line 74, in _init_executor
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     self.driver_worker.load_model()
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/worker/base.py", line 92, in load_model
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     res = super().load_model(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 594, in load_model
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     self.model_runner.load_model(load_dummy_weights=load_dummy_weights)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/worker/gpu_ar_model_runner.py", line 409, in load_model
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     super().load_model(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return func(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/worker/gpu_model_runner.py", line 170, in load_model
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     super().load_model(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return func(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 5057, in load_model
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     self.model = model or model_loader.load_model(
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m                           ^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return func(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/base_loader.py", line 88, in load_model
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     self.load_weights(model, model_config)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return func(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/default_loader.py", line 498, in load_weights
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     loaded_weights = model.load_weights(self.get_all_weights(model_config, model))
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/model_executor/models/personaplex/personaplex_talker.py", line 719, in load_weights
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     runtime.load_encoder(cuda_graph=bool(getattr(self.config, "mimi_cuda_graphs", False)))
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/model_executor/models/personaplex/duplex/stage0.py", line 855, in load_encoder
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     codec = self._shared_codec()
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m             ^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/model_executor/models/personaplex/duplex/stage0.py", line 878, in _shared_codec
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     codec = PersonaPlexMimiCodec(
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m             ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/model_executor/models/personaplex/personaplex_mimi.py", line 422, in __init__
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     checkpoint = hf_api().hf_hub_download(
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return fn(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/hf_api.py", line 6688, in hf_hub_download
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return hf_hub_download(
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return fn(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return fn(*args, **kwargs)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     return _hf_hub_download_to_cache_dir(
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/file_download.py", line 1194, in _hf_hub_download_to_cache_dir
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m   File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/file_download.py", line 1953, in _raise_on_head_call_error
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m     raise head_call_error
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m huggingface_hub.errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-6add6f4c-7054b5242f8cd26f70ae2d34;8ff38704-4c41-4d1a-872a-57d765757e66)
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m 
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m Cannot access gated repo for url https://huggingface.co/nvidia/personaplex-7b-v1/resolve/main/tokenizer-e351c8d8-checkpoint125.safetensors.
+[0;36m(StageEngineCoreProc_stage0_replica0 pid=238)[0;0m [31mERROR[0m [90m10-25 02:54:05[0m [90m[stage_engine_core_proc.py:333][0m Access to model nvidia/personaplex-7b-v1 is restricted. You must have access to it and be authenticated to access it. Please log in.
+Process StageEngineCoreProc_stage0_replica0:
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://huggingface.co/nvidia/personaplex-7b-v1/resolve/main/tokenizer-e351c8d8-checkpoint125.safetensors'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_engine_core_proc.py", line 284, in run_stage_core
+    engine_core = StageEngineCoreProc(
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_engine_core_proc.py", line 144, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 1194, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 144, in __init__
+    self.model_executor = executor_class(vllm_config)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 126, in __init__
+    self._init_executor()
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/uniproc_executor.py", line 74, in _init_executor
+    self.driver_worker.load_model()
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/worker/base.py", line 92, in load_model
+    res = super().load_model(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 594, in load_model
+    self.model_runner.load_model(load_dummy_weights=load_dummy_weights)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/worker/gpu_ar_model_runner.py", line 409, in load_model
+    super().load_model(*args, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/worker/gpu_model_runner.py", line 170, in load_model
+    super().load_model(*args, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 5057, in load_model
+    self.model = model or model_loader.load_model(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/base_loader.py", line 88, in load_model
+    self.load_weights(model, model_config)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/model_loader/default_loader.py", line 498, in load_weights
+    loaded_weights = model.load_weights(self.get_all_weights(model_config, model))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/model_executor/models/personaplex/personaplex_talker.py", line 719, in load_weights
+    runtime.load_encoder(cuda_graph=bool(getattr(self.config, "mimi_cuda_graphs", False)))
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/model_executor/models/personaplex/duplex/stage0.py", line 855, in load_encoder
+    codec = self._shared_codec()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/model_executor/models/personaplex/duplex/stage0.py", line 878, in _shared_codec
+    codec = PersonaPlexMimiCodec(
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/model_executor/models/personaplex/personaplex_mimi.py", line 422, in __init__
+    checkpoint = hf_api().hf_hub_download(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/hf_api.py", line 6688, in hf_hub_download
+    return hf_hub_download(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/file_download.py", line 1047, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/file_download.py", line 1194, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/usr/local/lib/python3.12/dist-packages/huggingface_hub/file_download.py", line 1953, in _raise_on_head_call_error
+    raise head_call_error
+huggingface_hub.errors.GatedRepoError: 401 Client Error. (Request ID: Root=1-6add6f4c-7054b5242f8cd26f70ae2d34;8ff38704-4c41-4d1a-872a-57d765757e66)
+
+Cannot access gated repo for url https://huggingface.co/nvidia/personaplex-7b-v1/resolve/main/tokenizer-e351c8d8-checkpoint125.safetensors.
+Access to model nvidia/personaplex-7b-v1 is restricted. You must have access to it and be authenticated to access it. Please log in.
+[rank0]:[W1025 02:54:06.883323078 ProcessGroupNCCL.cpp:1624] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:54:07[0m [90m[utils.py:628][0m [shutdown] Process manager: send sigterm to process StageEngineCoreProc_stage0_replica0
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m [StageRuntime] Stage initialization failed; shutting down 0 initialized client(s)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m Traceback (most recent call last):
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 307, in initialize
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1070, in _initialize_stage_replicas
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     raise primary_exc
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1031, in _init_group
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     client = self._initialize_replica(
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1261, in _initialize_replica
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     return self._initialize_local_llm_replica(plan, stage_init_timeout)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1304, in _initialize_local_llm_replica
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     with self.launch_stage_engines(
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     return next(self.gen)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m            ^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 479, in launch_stage_engines
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     launch_context.__exit__(None, None, None)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     next(self.gen)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_engine_startup.py", line 1244, in launch_stage_replica
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     wait_for_engine_startup_with_deadline(
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_init_deadline.py", line 70, in wait_for_engine_startup_with_deadline
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1431, in wait_for_engine_startup
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m     raise RuntimeError(
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[stage_runtime.py:320][0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m [OmniEngine] Orchestrator thread crashed
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m Traceback (most recent call last):
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 491, in _bootstrap_orchestrator
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     loop.run_until_complete(_run_orchestrator())
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     return future.result()
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m            ^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 464, in _run_orchestrator
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     self._initialize_stages(stage_init_timeout)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 407, in _initialize_stages
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     self._runtime.initialize()
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 326, in initialize
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     raise exc
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 307, in initialize
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1070, in _initialize_stage_replicas
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     raise primary_exc
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1031, in _init_group
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     client = self._initialize_replica(
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1261, in _initialize_replica
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     return self._initialize_local_llm_replica(plan, stage_init_timeout)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1304, in _initialize_local_llm_replica
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     with self.launch_stage_engines(
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     return next(self.gen)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m            ^^^^^^^^^^^^^^
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 479, in launch_stage_engines
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     launch_context.__exit__(None, None, None)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     next(self.gen)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_engine_startup.py", line 1244, in launch_stage_replica
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     wait_for_engine_startup_with_deadline(
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_init_deadline.py", line 70, in wait_for_engine_startup_with_deadline
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1431, in wait_for_engine_startup
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m     raise RuntimeError(
+[0;36m(APIServer pid=76)[0;0m [31mERROR[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:497][0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[0;36m(APIServer pid=76)[0;0m [32mINFO[0m [90m10-25 02:54:07[0m [90m[omni_engine_base.py:925][0m [OmniEngine] Shutting down Orchestrator
+Exception in thread orchestrator:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 491, in _bootstrap_orchestrator
+    loop.run_until_complete(_run_orchestrator())
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 464, in _run_orchestrator
+    self._initialize_stages(stage_init_timeout)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 407, in _initialize_stages
+    self._runtime.initialize()
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 326, in initialize
+    raise exc
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 307, in initialize
+    initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1070, in _initialize_stage_replicas
+    raise primary_exc
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1031, in _init_group
+    client = self._initialize_replica(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1261, in _initialize_replica
+    return self._initialize_local_llm_replica(plan, stage_init_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1304, in _initialize_local_llm_replica
+    with self.launch_stage_engines(
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 479, in launch_stage_engines
+    launch_context.__exit__(None, None, None)
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_engine_startup.py", line 1244, in launch_stage_replica
+    wait_for_engine_startup_with_deadline(
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_init_deadline.py", line 70, in wait_for_engine_startup_with_deadline
+    wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1431, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 491, in _bootstrap_orchestrator
+    loop.run_until_complete(_run_orchestrator())
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 464, in _run_orchestrator
+    self._initialize_stages(stage_init_timeout)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 407, in _initialize_stages
+    self._runtime.initialize()
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 326, in initialize
+    raise exc
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 307, in initialize
+    initialized_clients = self._initialize_stage_replicas(stage_plans, self._stage_init_timeout)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1070, in _initialize_stage_replicas
+    raise primary_exc
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1031, in _init_group
+    client = self._initialize_replica(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1261, in _initialize_replica
+    return self._initialize_local_llm_replica(plan, stage_init_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 1304, in _initialize_local_llm_replica
+    with self.launch_stage_engines(
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_runtime.py", line 479, in launch_stage_engines
+    launch_context.__exit__(None, None, None)
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_engine_startup.py", line 1244, in launch_stage_replica
+    wait_for_engine_startup_with_deadline(
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/stage_init_deadline.py", line 70, in wait_for_engine_startup_with_deadline
+    wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)
+  File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 1431, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/vllm", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 40, in main
+    if maybe_run_omni():
+       ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 34, in maybe_run_omni
+    omni_main()
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 77, in main
+    args.dispatch_function(args)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/serve.py", line 178, in cmd
+    uvloop.run(omni_run_server(args))
+  File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+    return __asyncio.run(
+           ^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 256, in omni_run_server
+    await omni_run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 382, in omni_run_server_worker
+    async with build_async_omni(
+  File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 590, in build_async_omni
+    async with build_async_omni_from_stage_config(
+  File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 698, in build_async_omni_from_stage_config
+    async_omni = DuplexOmni(model=model, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/duplex_omni.py", line 326, in __init__
+    super().__init__(model, *args, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 91, in __init__
+    AsyncOmniBase.__init__(self, *args, model=model, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni_base.py", line 109, in __init__
+    OmniBase.__init__(self, model=model, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/omni_base.py", line 218, in __init__
+    self.engine = self._create_engine(
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/duplex_omni.py", line 323, in _create_engine
+    return DuplexOmniEngine(duplex_audio_encoder=encode_audio, **engine_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/duplex_omni_engine.py", line 74, in __init__
+    super().__init__(model, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 331, in __init__
+    self._wait_for_orchestrator_init(startup_future, startup_timeout)
+  File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 549, in _wait_for_orchestrator_init
+    startup_future.result(
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+RuntimeError: Orchestrator initialization failed: Engine core initialization failed. See root cause above. Failed core proc(s): {}
