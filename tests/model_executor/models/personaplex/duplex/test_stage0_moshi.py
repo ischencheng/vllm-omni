@@ -15,12 +15,15 @@ from tests.model_executor.models.personaplex.duplex.test_stage0_runtime import (
     _FakeCodec,
     _FakeTalker,
 )
+from vllm_omni.model_executor.models.personaplex.duplex import stage0
 from vllm_omni.model_executor.models.personaplex.duplex.stage0 import (
     PersonaPlexStage0DuplexRuntime,
     checkpoint_depformer_steps,
+    depformer_steps,
     is_moshi_checkpoint,
 )
 from vllm_omni.model_executor.models.personaplex.personaplex_mimi import MIMI_CHECKPOINT, model_mimi_checkpoint
+from vllm_omni.model_executor.models.personaplex.personaplex_talker import PersonaPlexTalkerForConditionalGeneration
 from vllm_omni.transformers_utils import repo_utils
 
 pytestmark = [pytest.mark.core_model, pytest.mark.cpu]
@@ -250,3 +253,27 @@ def test_a_download_dir_is_searched_as_the_hub_cache(tmp_path: Path, monkeypatch
         _FakeMoshiTalker(), model_path="kyutai/moshiko-pytorch-bf16", device="cpu", download_dir=str(download_dir)
     )
     assert runtime.moshi is True
+
+
+def _loaded_talker(steps: int | None) -> SimpleNamespace:
+    return SimpleNamespace(
+        vllm_config=SimpleNamespace(
+            model_config=SimpleNamespace(model="kyutai/moshiko-pytorch-bf16", revision=None),
+            load_config=SimpleNamespace(download_dir=None),
+        ),
+        config=SimpleNamespace(audio_vocab_size=2048),
+        parameters=lambda: iter([torch.zeros(1)]),
+        _checkpoint_depformer_steps=steps,
+    )
+
+
+def test_stage0_takes_moshi_from_the_weights_the_talker_loaded(monkeypatch) -> None:
+    # The checkpoint lookup misses (a --download-dir copy with no Hub, say); the
+    # weights the talker just loaded still decide.
+    monkeypatch.setattr(stage0, "checkpoint_depformer_steps", lambda *_args, **_kwargs: None)
+    runtime_for = PersonaPlexTalkerForConditionalGeneration._duplex_stage0_runtime
+
+    assert runtime_for(_loaded_talker(depformer_steps(f"linears.{i}.weight" for i in range(8)))).moshi is True
+    assert runtime_for(_loaded_talker(depformer_steps(f"linears.{i}.weight" for i in range(16)))).moshi is False
+    # No weights seen (e.g. a dummy load): fall back to the checkpoint lookup.
+    assert runtime_for(_loaded_talker(None)).moshi is False

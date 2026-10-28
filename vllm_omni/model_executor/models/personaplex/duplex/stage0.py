@@ -6,7 +6,7 @@ from __future__ import annotations
 import io
 import tarfile
 from collections import OrderedDict
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
 from functools import lru_cache
 from pathlib import Path
@@ -216,9 +216,12 @@ def checkpoint_depformer_steps(
     be read; nothing is cached then, so a later call can still find it.
     """
     names = _checkpoint_weight_names(model_path, revision, cache_dir)
-    if names is None:
-        return None
-    steps = {name.split(".")[1] for name in names if name.startswith("linears.")}
+    return None if names is None else depformer_steps(names)
+
+
+def depformer_steps(weight_names: Iterable[str]) -> int | None:
+    """Depformer weight sets (``linears.<step>.*``) among checkpoint weight names."""
+    steps = {name.split(".")[1] for name in weight_names if name.startswith("linears.")}
     return len(steps) or None
 
 
@@ -1079,6 +1082,7 @@ __all__ = [
     "PersonaPlexStage0PreparedAppend",
     "PersonaPlexStage0SessionState",
     "checkpoint_depformer_steps",
+    "depformer_steps",
     "is_moshi_checkpoint",
     "load_personaplex_tokenizer",
     "load_personaplex_voice_state",
