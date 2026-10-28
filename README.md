@@ -27,3 +27,26 @@ Volume paths in the logs are rewritten to `/cache`.
 - `e2e/e2e.log`: `1 passed, 1 skipped` (the PersonaPlex case needs `PERSONAPLEX_MODEL_PATH`).
 - `unit/unit.log`: `339 passed, 1 skipped`.
 - `online-before-fix/server_repo_online.log`: the 401 on `nvidia/personaplex-7b-v1/resolve/main/tokenizer-e351c8d8-checkpoint125.safetensors`.
+
+## 2026-10-27 additions, on `3202166a7`
+
+`3202166a7` makes Stage 0 decide Moshi from the weight names the talker loads; the commits after it only edit the recipe.
+
+| dir | what | hardware | script |
+| --- | --- | --- | --- |
+| `numerics/` | kyutai's reference with only its numerics changed (bf16 twice, bf16 with cuBLAS reduced-precision reduction off, fp32) and one realtime session of this PR (deploy default), all in one container, same input as `parity/`. `ref_b2`/`ref_b4` (batch 2 and 4) failed in the script's decode step and have no results. | 1x H100 80GB | `scripts/sensitivity.py`, `scripts/ref_variant.py` |
+| `unit-3202166a7/` | `pytest -m cpu` over the PersonaPlex tests: `340 passed, 1 skipped` | CPU | `scripts/unit.py` |
+| `unit-3202166a7-old-talker/` | the same with `personaplex_talker.py` from `62d28ef0a`: `test_stage0_takes_moshi_from_the_weights_the_talker_loaded` fails | CPU | `scripts/unit.py` |
+| `e2e-3202166a7/` | the online e2e: `1 passed, 1 skipped` | 1x H100 80GB | `scripts/e2e.py --online` |
+
+Second reply in `numerics/` (first non-pad text step after step 40, from `sensitivity.json` and the `.npz` files):
+
+| run | second reply starts at step | non-pad text tokens after step 40 |
+| --- | --- | --- |
+| reference bf16, run a | 134 | 19 |
+| reference bf16, run b | 134 | 9 |
+| reference bf16, reduced-precision reduction off | 134 | 13 |
+| reference fp32 | 192 | 2 |
+| this PR (bf16) | 192 | 2 |
+
+Text agreement: this PR vs the fp32 reference 99.7% (first difference at step 192); bf16 run a vs run b 92.9%; fp32 vs bf16 run a 91.6%.

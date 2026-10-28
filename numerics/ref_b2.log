@@ -1,0 +1,35 @@
+
+--- stderr ---
+/usr/local/lib/python3.12/dist-packages/moshi/models/loaders.py:204: UserWarning: Repository kyutai/moshiko-pytorch-bf16 contains no config.json. Assuming this is a Moshi 7B. Support for such repository might be removed in the future.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/work/control/ref_variant.py", line 93, in <module>
+    main()
+  File "/work/control/ref_variant.py", line 80, in main
+    pcms.append(mimi.decode(tokens[:1, 1:]).cpu().numpy()[0, 0])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/moshi/models/compression.py", line 417, in decode
+    emb = self._to_encoder_framerate(emb)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/moshi/models/compression.py", line 291, in _to_encoder_framerate
+    return self.upsample(x)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/moshi/modules/resample.py", line 113, in forward
+    y = self.convtr(x)
+        ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/moshi/modules/conv.py", line 352, in forward
+    y[..., :PT] += state.partial
+RuntimeError: output with shape [1, 512, 2] doesn't match the broadcast shape [2, 512, 2]

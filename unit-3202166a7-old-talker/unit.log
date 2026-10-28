@@ -1,0 +1,43 @@
+Running 341 items in this shard
+..............................................................F......... [ 21%]
+........................................................................ [ 42%]
+........................................................................ [ 63%]
+........................................................................ [ 84%]
+...................s.................................                    [100%]
+=================================== FAILURES ===================================
+__________ test_stage0_takes_moshi_from_the_weights_the_talker_loaded __________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2af2d352aed0>
+
+    def test_stage0_takes_moshi_from_the_weights_the_talker_loaded(monkeypatch) -> None:
+        # The checkpoint lookup misses (a --download-dir copy with no Hub, say); the
+        # weights the talker just loaded still decide.
+        monkeypatch.setattr(stage0, "checkpoint_depformer_steps", lambda *_args, **_kwargs: None)
+        runtime_for = PersonaPlexTalkerForConditionalGeneration._duplex_stage0_runtime
+    
+>       assert runtime_for(_loaded_talker(depformer_steps(f"linears.{i}.weight" for i in range(8)))).moshi is True
+E       AssertionError: assert False is True
+E        +  where False = <vllm_omni.model_executor.models.personaplex.duplex.stage0.PersonaPlexStage0DuplexRuntime object at 0x2af2d3220530>.moshi
+E        +    where <vllm_omni.model_executor.models.personaplex.duplex.stage0.PersonaPlexStage0DuplexRuntime object at 0x2af2d3220530> = <function PersonaPlexTalkerForConditionalGeneration._duplex_stage0_runtime at 0x2af2d0e64720>(namespace(vllm_config=namespace(model_config=namespace(model='kyutai/moshiko-pytorch-bf16', revision=None), load_confi...me=<vllm_omni.model_executor.models.personaplex.duplex.stage0.PersonaPlexStage0DuplexRuntime object at 0x2af2d3220530>))
+E        +      where namespace(vllm_config=namespace(model_config=namespace(model='kyutai/moshiko-pytorch-bf16', revision=None), load_confi...me=<vllm_omni.model_executor.models.personaplex.duplex.stage0.PersonaPlexStage0DuplexRuntime object at 0x2af2d3220530>) = _loaded_talker(8)
+E        +        where 8 = depformer_steps(<generator object test_stage0_takes_moshi_from_the_weights_the_talker_loaded.<locals>.<genexpr> at 0x2af2d365b9f0>)
+
+tests/model_executor/models/personaplex/duplex/test_stage0_moshi.py:276: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_stage0_takes_moshi_from_the_weights_the_talker_loaded
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+vllm_omni/protocol/realtime/audio.py:17
+  /opt/vllm-omni/vllm_omni/protocol/realtime/audio.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    from audioop import alaw2lin, lin2alaw, lin2ulaw, ulaw2lin
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/model_executor/models/personaplex/duplex/test_stage0_moshi.py::test_stage0_takes_moshi_from_the_weights_the_talker_loaded
+1 failed, 339 passed, 1 skipped, 163 deselected, 15 warnings in 74.57s (0:01:14)
+
+--- stderr ---

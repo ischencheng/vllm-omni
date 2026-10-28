@@ -1,0 +1,20 @@
++ /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/model_executor/models/personaplex tests/model_executor/stage_input_processors/test_personaplex.py tests/engine/duplex/test_session_runner_personaplex.py tests/config/test_personaplex_duplex_mrv2_deploy.py
+Running 341 items in this shard
+........................................................................ [ 21%]
+........................................................................ [ 42%]
+........................................................................ [ 63%]
+........................................................................ [ 84%]
+...................s.................................                    [100%]
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+vllm_omni/protocol/realtime/audio.py:17
+  /opt/vllm-omni/vllm_omni/protocol/realtime/audio.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    from audioop import alaw2lin, lin2alaw, lin2ulaw, ulaw2lin
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+340 passed, 1 skipped, 163 deselected, 15 warnings in 95.74s (0:01:35)
+rc=0

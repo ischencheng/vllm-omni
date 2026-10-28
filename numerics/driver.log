@@ -1,0 +1,28 @@
++ nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+input 30.7s
+
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 833.96it/s]
++ /usr/bin/python /work/control/ref_variant.py --repo kyutai/moshiko-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_bf16_a --semantics server 
+ref_bf16_a: rc=0
++ /usr/bin/python /work/control/ref_variant.py --repo kyutai/moshiko-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_bf16_b --semantics server 
+ref_bf16_b: rc=0
++ /usr/bin/python /work/control/ref_variant.py --repo kyutai/moshiko-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_noreduced --semantics server --no-reduced-bf16
+ref_noreduced: rc=0
++ /usr/bin/python /work/control/ref_variant.py --repo kyutai/moshiko-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_b2 --semantics server --batch 2
+ref_b2: rc=1
+ref_b2: FileNotFoundError(2, 'No such file or directory')
++ /usr/bin/python /work/control/ref_variant.py --repo kyutai/moshiko-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_b4 --semantics server --batch 4
+ref_b4: rc=1
+ref_b4: FileNotFoundError(2, 'No such file or directory')
++ /usr/bin/python /work/control/ref_variant.py --repo kyutai/moshiko-pytorch-bf16 --input /work/out/input_24k.wav --out-dir /work/out/ref_fp32 --semantics server --dtype fp32
+ref_fp32: rc=0
+graphs: ready after 130s
+graphs: 30.6s audio out, events {'session.updated': 1, 'response.created': 1, 'conversation.item.added': 1, 'conversation.item.created': 1, 'response.output_item.added': 1, 'response.content_part.added': 1, 'response.speak': 1, 'response.output_audio.delta': 382, 'response.output_audio_transcript.delta': 382, 'input_audio_buffer.speech_started': 1, 'session.heartbeat_ack': 1}
+runtime: {'ev': 'runtime', 'moshi': True, 'model_path': '/cache/hf/hub/models--kyutai--moshiko-pytorch-bf16/snapshots/2bfc9ae6e89079a5cc7ed2a68436010d91a3d289', 'pid': 946}
+ref_bf16_a: {"first_reply_steps": [4, 5, 6, 10, 13, 15, 16], "second_reply_start": 134, "second_reply_tokens": 19}
+ref_bf16_b: {"first_reply_steps": [4, 5, 6, 10, 13, 15, 16], "second_reply_start": 134, "second_reply_tokens": 9, "steps": 382, "text_match": 0.9293193717277487, "first_text_diff": 138, "frame_match": 0.34554973821989526, "first_frame_diff": 111}
+ref_noreduced: {"first_reply_steps": [4, 5, 6, 10, 13, 15, 16], "second_reply_start": 134, "second_reply_tokens": 13, "steps": 382, "text_match": 0.9738219895287958, "first_text_diff": 157, "frame_match": 0.6361256544502618, "first_frame_diff": 71}
+ref_fp32: {"first_reply_steps": [4, 5, 6, 10, 13, 15, 16], "second_reply_start": 192, "second_reply_tokens": 2, "steps": 382, "text_match": 0.9162303664921466, "first_text_diff": 133, "frame_match": 0.31675392670157065, "first_frame_diff": 10}
+vllm_graphs: {"first_reply_steps": [4, 5, 6, 10, 13, 15, 16], "second_reply_start": 192, "second_reply_tokens": 2, "steps": 382, "text_match": 0.9162303664921466, "first_text_diff": 133, "frame_match": 0.06806282722513089, "first_frame_diff": 10}

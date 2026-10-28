@@ -1,0 +1,11 @@
+{
+  "frames_in": 383,
+  "steps_out": 382,
+  "ms_per_step": 41.5516823374164,
+  "text": " Hey, how are you doing? \"'No, he's not just an interesting man, he's a god.\""
+}
+
+--- stderr ---
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/usr/local/lib/python3.12/dist-packages/moshi/models/loaders.py:204: UserWarning: Repository kyutai/moshiko-pytorch-bf16 contains no config.json. Assuming this is a Moshi 7B. Support for such repository might be removed in the future.
+  warnings.warn(
