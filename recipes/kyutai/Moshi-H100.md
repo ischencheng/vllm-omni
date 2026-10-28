@@ -107,6 +107,11 @@ multi-session load mode.
   (1, 2, 4, then multiples of 8).
 - Known limitations: greedy decoding only (kyutai's reference samples by
   default); the first 80 ms of each session is not read, as in `moshi.server`.
+- Not bit-matched to `moshi.server`: greedy decoding follows small numeric
+  differences here. On the tested input the first reply lands on the same
+  frames as kyutai's bf16 reference, which starts its second reply at step 134;
+  this deploy starts it at step 192 and says less. kyutai's reference run in
+  fp32 does the same as this deploy (step 192, 99.7% text-token agreement).
 
 ## Supported features
 
