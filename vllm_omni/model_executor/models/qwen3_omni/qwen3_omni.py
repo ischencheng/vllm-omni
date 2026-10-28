@@ -62,6 +62,7 @@ from vllm_omni.model_executor.models.qwen3_omni.qwen3_omni_moe_thinker import (
     Qwen3OmniMoeThinkerMultiModalProcessor,
     Qwen3OmniMoeThinkerProcessingInfo,
 )
+from vllm_omni.model_executor.models.qwen3_omni.talker_rows import talker_placeholder_token_ids
 from vllm_omni.model_executor.models.qwen3_omni.tool_speech import spoken_span_end
 from vllm_omni.model_executor.models.utils import add_prefix_to_loaded_weights, safe_tensor_reshape
 from vllm_omni.model_executor.stage_input_processors.chunk_size_utils import parse_chunk_ramp, ramp_decode_windows
@@ -1278,10 +1279,12 @@ class Qwen3OmniMoeForConditionalGeneration(
         result_ids = thinker_result_ids_cpu if thinker_result_ids_cpu is not None else thinker_result_ids
         im_start_indexes = torch.nonzero(parse_ids[0] == self.config.im_start_token_id).flatten().tolist()
         im_start_indexes.append(target_len)
+        # Same placeholder set as the merged chunk-0 prefill (talker_rows.py).
+        audio_token_id, image_token_id, video_token_id = talker_placeholder_token_ids(self.thinker_config)
         multimodal_mask = (
-            (result_ids == self.thinker_config.audio_token_id) |
-            (result_ids == self.thinker_config.image_token_id) |
-            (result_ids == self.thinker_config.video_token_id)
+            (result_ids == audio_token_id) |
+            (result_ids == image_token_id) |
+            (result_ids == video_token_id)
         )  # [t] # fmt: skip
         role_tokens = parse_ids[0].tolist()
 

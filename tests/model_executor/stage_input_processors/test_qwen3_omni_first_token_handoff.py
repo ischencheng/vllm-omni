@@ -30,6 +30,8 @@ class _Manager:
         self._pending_streaming_prefills: dict[str, dict] = {}
         self.config = SimpleNamespace(
             hf_config=SimpleNamespace(
+                im_start_token_id=151644,
+                user_token_id=872,
                 talker_config=SimpleNamespace(accept_hidden_layer=ACCEPT),
                 thinker_config=SimpleNamespace(audio_token_id=151675, image_token_id=151655, video_token_id=151656),
             )

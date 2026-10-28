@@ -24,6 +24,7 @@ from vllm_omni.data_entry_keys import (
 )
 from vllm_omni.engine import OmniEngineCoreRequest
 from vllm_omni.inputs.data import OmniTokensPrompt
+from vllm_omni.model_executor.models.qwen3_omni.talker_rows import talker_hidden_state_rows
 from vllm_omni.model_executor.models.qwen3_omni.tool_speech import TOOL_CALL_START_TOKEN_ID
 from vllm_omni.model_executor.stage_input_processors.chunk_size_utils import compute_ramp_emit, parse_chunk_ramp
 from vllm_omni.model_executor.stage_input_processors.tts_utils import (
@@ -87,24 +88,20 @@ def _merge_talker_prefill_rows(
     embed: torch.Tensor,
     hidden: torch.Tensor,
     prompt_token_ids: list[int],
-    thinker_config: PretrainedConfig,
+    hf_config: PretrainedConfig,
 ) -> torch.Tensor:
     """Keep, for each prompt row, the one Thinker tensor the Talker reads there.
 
-    The Talker projects the accept-layer hidden state at audio, image and video
-    placeholders and the word embedding at every other row, so sending both
-    [P, H] tensors doubles the chunk-0 handoff. Rows past the prompt (the first
+    The Talker projects the accept-layer hidden state at placeholders in user
+    turns and the word embedding at every other row, so sending both [P, H]
+    tensors doubles the chunk-0 handoff. Rows past the prompt (the first
     sampled token) stay embeddings.
     """
-    placeholder_ids = torch.tensor(
-        [thinker_config.audio_token_id, thinker_config.image_token_id, thinker_config.video_token_id],
-        device=embed.device,
-    )
     rows = min(embed.shape[0], hidden.shape[0], len(prompt_token_ids))
-    is_placeholder = torch.isin(torch.tensor(prompt_token_ids[:rows], device=embed.device), placeholder_ids)
+    reads_hidden = talker_hidden_state_rows(prompt_token_ids, hf_config)[:rows].to(embed.device)
     # One pass into a new buffer: the embedding may be the runner's snapshot.
     merged = torch.empty_like(embed)
-    torch.where(is_placeholder.unsqueeze(-1), hidden[:rows], embed[:rows], out=merged[:rows])
+    torch.where(reads_hidden.unsqueeze(-1), hidden[:rows], embed[:rows], out=merged[:rows])
     merged[rows:] = embed[rows:]
     return merged
 
@@ -620,7 +617,7 @@ def thinker2talker_async_chunk(
                 payload.embed.prefill,
                 payload.hidden_states.output,
                 prompt_token_ids,
-                _get_hf_config(transfer_manager).thinker_config,
+                _get_hf_config(transfer_manager),
             )
             payload.hidden_states = None
             payload.meta.prefill_holds_accept_hidden = True
