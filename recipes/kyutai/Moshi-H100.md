@@ -107,6 +107,12 @@ multi-session load mode.
   (1, 2, 4, then multiples of 8).
 - Known limitations: greedy decoding only (kyutai's reference samples by
   default); the first 80 ms of each session is not read, as in `moshi.server`.
+- Repo id with `--download-dir`: the duplex plugin reads the checkpoint from
+  the default Hub cache, else from the Hub, and remembers it once read. Until
+  then, a session that opens while the Hub is unreachable is refused
+  (`prefill_unavailable`), and the next open checks again. To avoid that, set
+  `HF_HUB_CACHE` to that directory in place of `--download-dir`, or serve the
+  local snapshot path.
 - Not bit-matched to `moshi.server`: greedy decoding follows small numeric
   differences here. On the tested input the first reply lands on the same
   frames as kyutai's bf16 reference, which starts its second reply at step 134;
