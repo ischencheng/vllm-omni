@@ -75,9 +75,8 @@ vllm serve jdopensource/JoyAI-VL-Interaction-Preview --omni \
 
 JoyAI's action is still parsed whole before TTS. The Talker then streams codec chunks
 to Code2Wav, and each decoded chunk reaches the client as a `response.output_audio.delta`
-while the rest of the answer is synthesized. On 1x H100 with four 10-15 s spoken
-answers, the first audio delta arrived 0.33-0.44 s after the commit, compared with
-1.63-1.87 s on the default profile in the same container.
+while the rest of the answer is synthesized. The first chunks grow from 4 to 25 codec
+frames (`codec_chunk_ramp`), so later chunks arrive before the earlier ones finish playing.
 These bounds provide a small working context, with summary memory planned in
 [RFC #8803](https://github.com/vllm-project/vllm-omni/issues/8803).
 

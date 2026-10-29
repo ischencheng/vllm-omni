@@ -326,6 +326,10 @@ def test_streaming_profile_streams_only_talker_to_code2wav():
     streaming = load_deploy_config(get_deploy_config_path("joyai_vl_interaction_duplex_streaming.yaml"))
     assert streaming.session_mode == "duplex"
     assert streaming.duplex_session == duplex.duplex_session
+    extra = streaming.connectors["connector_of_shared_memory"]["extra"]
+    base_extra = duplex.connectors["connector_of_shared_memory"]["extra"]
+    assert extra["codec_chunk_ramp"] == [4, 4, 8, 16, 25]
+    assert {key: value for key, value in extra.items() if key != "codec_chunk_ramp"} == base_extra
     stages = merge_pipeline_deploy(JOYAI_VL_INTERACTION_PIPELINE, streaming)
     # JoyAI's action is parsed before TTS: only Talker -> Code2Wav streams.
     assert [stage.yaml_engine_args["async_chunk"] for stage in stages] == [False, True, True]

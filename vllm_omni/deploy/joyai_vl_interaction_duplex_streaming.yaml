@@ -3,6 +3,13 @@
 base_config: joyai_vl_interaction_duplex.yaml
 async_chunk: true
 
+connectors:
+  connector_of_shared_memory:
+    extra:
+      # Grow the first chunks so the 25-frame steady chunk arrives before the
+      # first ones finish playing; ramp replaces initial_codec_chunk_frames.
+      codec_chunk_ramp: [4, 4, 8, 16, 25]
+
 stages:
   - stage_id: 0
     async_chunk: false
