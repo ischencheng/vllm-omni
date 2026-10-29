@@ -1,0 +1,8 @@
+# Duplex text/video observations with streamed speech output. JoyAI's action
+# is parsed before TTS, so stage 0 stays sync; only Talker -> Code2Wav streams.
+base_config: joyai_vl_interaction_duplex.yaml
+async_chunk: true
+
+stages:
+  - stage_id: 0
+    async_chunk: false

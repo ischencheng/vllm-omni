@@ -274,7 +274,11 @@ class JoyAIDuplexPlugin(DuplexModelPlugin):
         for index, params in enumerate(defaults):
             if isinstance(params, SamplingParams):
                 params = params.clone()
-                params.output_kind = RequestOutputKind.FINAL_ONLY
+                # The action is parsed once, from JoyAI's complete output. Code2Wav
+                # audio is projected chunk by chunk (one chunk when it is all-sync).
+                params.output_kind = (
+                    RequestOutputKind.DELTA if index == self.audio_stage_id else RequestOutputKind.FINAL_ONLY
+                )
                 if index == self.joyai_stage_id:
                     params.detokenize = True
                     params.skip_special_tokens = False

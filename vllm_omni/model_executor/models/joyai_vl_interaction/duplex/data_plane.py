@@ -112,6 +112,7 @@ class Observation:
     chunk_id: str | None = None
     text_sent: bool = False
     call_sent: bool = False
+    audio_samples: int = 0
     response_text: str = ""
     query_reference: QueryReference | None = None
     response_frame_id: int = -1
@@ -269,13 +270,15 @@ class JoyAIDataPlane(DuplexDataPlane):
                     for chunk in chunks
                 ]
                 samples = np.concatenate(arrays) if arrays else np.empty(0, dtype=np.float32)
-                if output.finished and not samples.size:
+                # Streamed Code2Wav can finish on an output with no new samples.
+                observation.audio_samples += samples.size
+                if output.finished and not observation.audio_samples:
                     event.update(
                         error_code="missing_audio", error="JoyAI Code2Wav completed without audio", end_of_turn=True
                     )
                     yield event
                     continue
-                if output.finished and samples.size and observation.state is not None:
+                if output.finished and observation.state is not None:
                     observation.state.last_response_text = observation.response_text
                 event.update(
                     audio_data=self.encode_audio(samples, rate, context.response_format, context.speed)

@@ -11,7 +11,7 @@ from types import SimpleNamespace
 
 import pytest
 from PIL import Image
-from vllm.sampling_params import SamplingParams
+from vllm.sampling_params import RequestOutputKind, SamplingParams
 from vllm.v1.serial_utils import MsgpackDecoder, MsgpackEncoder
 
 from tests.engine.duplex.test_session_runner import (
@@ -318,6 +318,18 @@ def test_opt_in_profile_preserves_turn_pipeline():
     stages = merge_pipeline_deploy(JOYAI_VL_INTERACTION_PIPELINE, duplex)
     assert len(stages) == 3
     assert all(stage.session_mode == "duplex" for stage in stages)
+    assert [stage.yaml_engine_args["async_chunk"] for stage in stages] == [False, False, False]
+
+
+def test_streaming_profile_streams_only_talker_to_code2wav():
+    duplex = load_deploy_config(get_deploy_config_path("joyai_vl_interaction_duplex.yaml"))
+    streaming = load_deploy_config(get_deploy_config_path("joyai_vl_interaction_duplex_streaming.yaml"))
+    assert streaming.session_mode == "duplex"
+    assert streaming.duplex_session == duplex.duplex_session
+    stages = merge_pipeline_deploy(JOYAI_VL_INTERACTION_PIPELINE, streaming)
+    # JoyAI's action is parsed before TTS: only Talker -> Code2Wav streams.
+    assert [stage.yaml_engine_args["async_chunk"] for stage in stages] == [False, True, True]
+    assert stages[1].yaml_engine_args["custom_process_next_stage_input_func"].endswith(".talker2code2wav_async_chunk")
 
 
 @pytest.mark.asyncio
@@ -517,6 +529,8 @@ def test_asr_profile_and_sampling_keep_joyai_ownership():
     )
     assert params[0].max_tokens == 256 and params[0].temperature == 0.0
     assert params[1].max_tokens == 80 and params[1].temperature == 0.2
+    final_only = RequestOutputKind.FINAL_ONLY
+    assert [p.output_kind for p in params] == [final_only, final_only, final_only, RequestOutputKind.DELTA]
     assert plugin.user_transcript(stage_id=0, output=SimpleNamespace(outputs=[]), prompt={}, finished=True) is None
     output = SimpleNamespace(outputs=[SimpleNamespace(text="language English<asr_text>Watch the pot.")])
     assert plugin.user_transcript(stage_id=0, output=output, prompt={}, finished=True) == "Watch the pot."
@@ -1401,6 +1415,42 @@ async def test_spoken_action_forwards_once_and_audio_completes_response():
         assert any(e.get("delta") == "The pot is smoking." for e in events)
         assert any(e["type"] == "response.output_audio.delta" for e in events)
         assert h.port.cleanups[-1][0] == [request_id]
+    finally:
+        await h.manager.shutdown()
+
+
+@pytest.mark.asyncio
+async def test_streamed_audio_chunks_reach_the_client_before_code2wav_finishes():
+    h = await open_joyai()
+    try:
+        request_id = await observe(h)
+        response_id = h.session.active_response_id
+        await h.deliver_and_settle(
+            tts_output(request_id, text="</response> The pot is smoking.", finished=True),
+            stage_id=0,
+            segment_finished=True,
+        )
+
+        def audio_deltas():
+            return [
+                e for e in (event.to_realtime() for event in h.events) if e["type"] == "response.output_audio.delta"
+            ]
+
+        await h.deliver_and_settle(tts_output(request_id, samples=4800), stage_id=2)
+        assert len(audio_deltas()) == 1
+        await h.deliver_and_settle(tts_output(request_id, samples=4800), stage_id=2)
+        # Streamed Code2Wav can finish on an output without new samples.
+        last = tts_output(request_id, finished=True)
+        last.multimodal_output = {"audio": [], "sr": 24000}
+        await h.deliver_and_settle(last, stage_id=2, segment_finished=True)
+        assert len(audio_deltas()) == 2
+        events = [event.to_realtime() for event in h.events]
+        assert not any(e["type"] == "error" for e in events)
+        await h.run(AckPlayback(response_id=response_id, played_ms=400))
+        assert h.session.active_response_id is None
+        assert h.runner.model_state.last_response_text == "The pot is smoking."
+        done = [e for e in (event.to_realtime() for event in h.events) if e["type"] == "response.done"]
+        assert done and done[-1]["response"]["status"] == "completed"
     finally:
         await h.manager.shutdown()
 

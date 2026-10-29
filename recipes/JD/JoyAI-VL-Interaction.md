@@ -64,6 +64,20 @@ frames (thumbnail size at most 448×448) and eight recent text messages. Older
 history/frames are evicted when the expanded visual-token count plus the generation
 budget would exceed the configured JoyAI-stage context limit. The active instruction
 and newest frame are retained; an oversized instruction is reported as an error.
+
+To stream the speech, serve the streaming overlay instead:
+
+```bash
+vllm serve jdopensource/JoyAI-VL-Interaction-Preview --omni \
+  --deploy-config vllm_omni/deploy/joyai_vl_interaction_duplex_streaming.yaml \
+  --port 8099
+```
+
+JoyAI's action is still parsed whole before TTS. The Talker then streams codec chunks
+to Code2Wav, and each decoded chunk reaches the client as a `response.output_audio.delta`
+while the rest of the answer is synthesized. On 1x H100 with four 10-15 s spoken
+answers, the first audio delta arrived 0.33-0.44 s after the commit, compared with
+1.63-1.87 s on the default profile in the same container.
 These bounds provide a small working context, with summary memory planned in
 [RFC #8803](https://github.com/vllm-project/vllm-omni/issues/8803).
 
