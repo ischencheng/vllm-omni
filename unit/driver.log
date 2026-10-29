@@ -1,0 +1,24 @@
++ /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/model_executor/models/joyai_vl_interaction tests/model_executor/stage_input_processors/test_joyai_vl_interaction.py tests/config/test_config_merge.py
+Running 322 items in this shard
+........................................................................ [ 22%]
+........................................................................ [ 44%]
+........................................................................ [ 67%]
+........................................................................ [ 89%]
+..................................                                       [100%]
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+vllm_omni/protocol/realtime/audio.py:17
+  /opt/vllm-omni/vllm_omni/protocol/realtime/audio.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    from audioop import alaw2lin, lin2alaw, lin2ulaw, ulaw2lin
+
+tests/model_executor/models/joyai_vl_interaction/test_duplex_plugin.py::test_full_tts_waveform_fits_joyai_deployment_output_budget[False]
+  /usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py:24: DeprecationWarning: `vllm.entrypoints.openai.api_server` is deprecated and will likely beunsupported in a future version. Use the corresponding function from `vllm.entrypoints.launchers` instead.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+322 passed, 16 warnings in 195.30s (0:03:15)
+rc=0

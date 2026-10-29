@@ -1,0 +1,31 @@
+[02:55:53] start joyai_duplex vllm serve jdopensource/JoyAI-VL-Interaction-Preview --omni --deploy-config /opt/vllm-omni/vllm_omni/deploy/joyai_vl_interaction_duplex.yaml --port 8099
+[03:02:23] ready joyai_duplex
+[03:02:50] A {"image": "warmup_red", "response_id": "resp-duplex-7968f24f01c3494bafc9efc6fe82c4fb-0-bd151b85", "status": "completed", "created_ms": 5.4, "first_transcript_ms": 11473.1, "first_audio_ms": 14168.9, "done_ms": 14169.5, "audio_delta_events": 1, "audio_s": 12.16, "text": "The screen displays a solid red background with no visible objects or text. It appears to be a uniform color field without any additional elements present."}
+[03:02:52] A {"image": "stop_sign", "response_id": "resp-duplex-7968f24f01c3494bafc9efc6fe82c4fb-0-35fa7493", "status": "completed", "created_ms": 7.8, "first_transcript_ms": 416.2, "first_audio_ms": 2104.9, "done_ms": 2105.5, "audio_delta_events": 1, "audio_s": 16.0, "text": "A black SUV drives past a stop sign and traditional Chinese gate entrance. White lion statues flank the archway while storefronts line both sides of the street."}
+[03:02:53] A {"image": "cherry_blossom", "response_id": "resp-duplex-7968f24f01c3494bafc9efc6fe82c4fb-0-3b351e7b", "status": "completed", "created_ms": 11.1, "first_transcript_ms": 388.4, "first_audio_ms": 1623.4, "done_ms": 1624.0, "audio_delta_events": 1, "audio_s": 11.84, "text": "Pink cherry blossoms frame a tall white tower against a clear blue sky. The branches create an intricate pattern around the structure's spire."}
+[03:02:55] A {"image": "drawn_house", "response_id": "resp-duplex-7968f24f01c3494bafc9efc6fe82c4fb-0-7e0f9c38", "status": "completed", "created_ms": 5.2, "first_transcript_ms": 340.7, "first_audio_ms": 1489.2, "done_ms": 1490.0, "audio_delta_events": 1, "audio_s": 10.96, "text": "A simple cartoon house sits on green grass under a bright yellow sun. The building features a brown roof and door against a light blue sky backdrop."}
+[03:02:57] A {"image": "drawn_whiteboard", "response_id": "resp-duplex-7968f24f01c3494bafc9efc6fe82c4fb-0-816a6741", "status": "completed", "created_ms": 5.0, "first_transcript_ms": 372.8, "first_audio_ms": 1579.3, "done_ms": 1580.0, "audio_delta_events": 1, "audio_s": 11.52, "text": "This slide announces a team meeting scheduled for Thursday at 3 PM in Room 204. Attendees are reminded to bring the CQ3 report along with them."}
+[03:02:58] stopped joyai_duplex
+[03:03:08] start tts_stream_v1 vllm serve Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice --omni --deploy-config /opt/vllm-omni/vllm_omni/deploy/qwen3_tts_v1_measure.yaml --port 8091
+[03:06:38] ready tts_stream_v1
+[03:06:42] B {"arm": "tts_stream_v1", "text_index": 0, "rep": 0, "first_byte_ms": 29.0, "last_byte_ms": 988.8, "reads": 19, "audio_s": 11.68}
+[03:06:43] B {"arm": "tts_stream_v1", "text_index": 0, "rep": 1, "first_byte_ms": 31.6, "last_byte_ms": 1084.6, "reads": 21, "audio_s": 12.8}
+[03:06:44] B {"arm": "tts_stream_v1", "text_index": 1, "rep": 0, "first_byte_ms": 29.1, "last_byte_ms": 1019.6, "reads": 19, "audio_s": 12.08}
+[03:06:45] B {"arm": "tts_stream_v1", "text_index": 1, "rep": 1, "first_byte_ms": 28.6, "last_byte_ms": 911.2, "reads": 18, "audio_s": 10.72}
+[03:06:46] B {"arm": "tts_stream_v1", "text_index": 2, "rep": 0, "first_byte_ms": 29.2, "last_byte_ms": 962.2, "reads": 18, "audio_s": 11.36}
+[03:06:47] B {"arm": "tts_stream_v1", "text_index": 2, "rep": 1, "first_byte_ms": 28.3, "last_byte_ms": 1209.8, "reads": 24, "audio_s": 14.32}
+[03:06:49] B {"arm": "tts_stream_v1", "text_index": 3, "rep": 0, "first_byte_ms": 28.8, "last_byte_ms": 1569.4, "reads": 30, "audio_s": 18.72}
+[03:06:50] B {"arm": "tts_stream_v1", "text_index": 3, "rep": 1, "first_byte_ms": 26.3, "last_byte_ms": 1245.8, "reads": 24, "audio_s": 14.8}
+[03:06:51] stopped tts_stream_v1
+[03:07:01] start tts_stream_default vllm serve Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice --omni --deploy-config /opt/vllm-omni/vllm_omni/deploy/qwen3_tts.yaml --port 8091
+[03:09:56] ready tts_stream_default
+[03:10:03] B {"arm": "tts_stream_default", "text_index": 0, "rep": 0, "first_byte_ms": 21.1, "last_byte_ms": 1090.0, "reads": 22, "audio_s": 13.76}
+[03:10:04] B {"arm": "tts_stream_default", "text_index": 0, "rep": 1, "first_byte_ms": 18.2, "last_byte_ms": 978.4, "reads": 21, "audio_s": 12.32}
+[03:10:05] B {"arm": "tts_stream_default", "text_index": 1, "rep": 0, "first_byte_ms": 18.7, "last_byte_ms": 1003.8, "reads": 21, "audio_s": 12.64}
+[03:10:06] B {"arm": "tts_stream_default", "text_index": 1, "rep": 1, "first_byte_ms": 18.2, "last_byte_ms": 1045.2, "reads": 21, "audio_s": 13.2}
+[03:10:07] B {"arm": "tts_stream_default", "text_index": 2, "rep": 0, "first_byte_ms": 18.1, "last_byte_ms": 1044.2, "reads": 21, "audio_s": 13.2}
+[03:10:08] B {"arm": "tts_stream_default", "text_index": 2, "rep": 1, "first_byte_ms": 17.1, "last_byte_ms": 1132.0, "reads": 23, "audio_s": 14.16}
+[03:10:10] B {"arm": "tts_stream_default", "text_index": 3, "rep": 0, "first_byte_ms": 18.4, "last_byte_ms": 1349.5, "reads": 27, "audio_s": 17.12}
+[03:10:10] B {"arm": "tts_stream_default", "text_index": 3, "rep": 1, "first_byte_ms": 17.9, "last_byte_ms": 800.6, "reads": 16, "audio_s": 10.08}
+[03:10:11] stopped tts_stream_default
+[03:10:21] done

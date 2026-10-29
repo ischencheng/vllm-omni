@@ -1,0 +1,704 @@
+[
+ {
+  "type": "session.updated",
+  "event_id": "event_e7fc10f7e2ae4b0581f679cb4eaef2c5",
+  "session": {
+   "id": "duplex-7d9f6d6a78bf4601a4a41323fb2cd345",
+   "state": "open",
+   "turn_state": "idle",
+   "epoch": 0,
+   "turn_id": 0,
+   "active_request_id": null,
+   "active_response_id": null,
+   "active_response_turn_id": null,
+   "model": "jdopensource/JoyAI-VL-Interaction-Preview",
+   "modalities": [
+    "audio",
+    "text"
+   ],
+   "instructions": "Only speak if you see fire or smoke. Otherwise stay silent.",
+   "voice": null,
+   "response_format": "pcm",
+   "temperature": 0.0,
+   "max_tokens": null,
+   "speed": null,
+   "idle_timeout_s": 300.0,
+   "overlap_policy": "listen_only",
+   "overlap_short_ack_ms": 700,
+   "overlap_barge_in_ms": 1200,
+   "overlap_silence_rms": 0.003,
+   "playback_commit_policy": "ack_only",
+   "watermarking": true,
+   "playback": {
+    "generated_ms": 0,
+    "sent_ms": 0,
+    "played_ms": 0,
+    "committed_ms": 0
+   },
+   "capabilities": {
+    "supports_session_adapter": true,
+    "supports_model_native_turn_policy": false,
+    "supports_external_turn_signal": true,
+    "supports_client_commit": true,
+    "supports_barge_in": true,
+    "supports_playback_ack": true,
+    "supports_input_append": true,
+    "supports_replace_latest_chunk": false,
+    "supports_reencode_context": true,
+    "supports_rollback_to_checkpoint": false,
+    "supports_turn_commit_only": true,
+    "supports_kv_lease": false,
+    "supports_core_kv_lease": false,
+    "supports_model_internal_state": false,
+    "supports_stage_resumption": false,
+    "supports_scheduler_native_append": false,
+    "supports_core_resumable_request": false,
+    "supports_concurrent_turn_requests": false,
+    "required_input_modalities": [],
+    "optional_input_modalities": [
+     "video"
+    ],
+    "supports_stage_connector_handoff": false,
+    "supports_independent_io_streams": true,
+    "supports_realtime_endpoint": true,
+    "supports_multi_session": false,
+    "supports_multi_session_same_replica": false,
+    "supports_session_lease": true,
+    "supports_session_resume": true,
+    "session_admission_mode": "engine_managed",
+    "supports_audio_truncate": false,
+    "supports_image_input": true,
+    "supports_text_only_turn": true,
+    "requires_model_runner_kv": false,
+    "requires_native_stage_role": false,
+    "implementation_level": "turn_based_duplex",
+    "adapter_patterns": [
+     "turn_commit"
+    ],
+    "input_modes": [
+     "append_audio_chunk"
+    ],
+    "signal_sources": [
+     "client_event",
+     "server_policy"
+    ],
+    "stage_handoff_transport": "stage_connector",
+    "chunk_period_ms": 1000,
+    "target_barge_in_latency_ms": null
+   },
+   "audio": {
+    "input": {
+     "sample_rate_hz": 16000
+    },
+    "output": {
+     "sample_rate_hz": 24000
+    }
+   },
+   "input_audio_format": "pcm16",
+   "output_audio_format": "pcm16",
+   "sample_rate_hz": 16000,
+   "turn_detection": null,
+   "object": "realtime.session",
+   "type": "realtime",
+   "output_modalities": [
+    "audio",
+    "text"
+   ],
+   "input_audio_transcription": null,
+   "tracing": null
+  },
+  "server_event_seq": 1,
+  "_client_received_at_s": 831.498491318
+ },
+ {
+  "type": "conversation.item.added",
+  "event_id": "event_dab72844a38b41089989fe3537a4d8dc",
+  "previous_item_id": null,
+  "item": {
+   "id": "item_6dc93c08f28743b8a5e70f9b14c77531",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "user",
+   "status": "completed",
+   "content": [
+    {
+     "type": "input_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 2,
+  "_client_received_at_s": 831.508797568
+ },
+ {
+  "type": "conversation.item.created",
+  "event_id": "event_3330fcd1bd8544d989724d53663146d3",
+  "previous_item_id": null,
+  "item": {
+   "id": "item_6dc93c08f28743b8a5e70f9b14c77531",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "user",
+   "status": "completed",
+   "content": [
+    {
+     "type": "input_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 3,
+  "_client_received_at_s": 831.508803606
+ },
+ {
+  "type": "input_audio_buffer.committed",
+  "event_id": "event_8830d0a748aa4c0cb10b2387f4882f90",
+  "previous_item_id": null,
+  "item_id": "item_6dc93c08f28743b8a5e70f9b14c77531",
+  "event": {
+   "type": "input.committed",
+   "session_id": "duplex-7d9f6d6a78bf4601a4a41323fb2cd345",
+   "turn_id": 0,
+   "epoch": 0,
+   "history_len": 1,
+   "native_audio": true,
+   "message": {
+    "role": "user",
+    "content": [
+     {
+      "type": "audio_url",
+      "audio_url": {
+       "url": "native-duplex:input-audio"
+      }
+     }
+    ]
+   },
+   "realtime_item_id": "item_6dc93c08f28743b8a5e70f9b14c77531"
+  },
+  "server_event_seq": 4,
+  "_client_received_at_s": 831.508806005
+ },
+ {
+  "type": "conversation.item.done",
+  "event_id": "event_74c7660ef7d94fd5861a1453c9d84e2f",
+  "previous_item_id": null,
+  "item": {
+   "id": "item_6dc93c08f28743b8a5e70f9b14c77531",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "user",
+   "status": "completed",
+   "content": [
+    {
+     "type": "input_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 5,
+  "_client_received_at_s": 831.508808039
+ },
+ {
+  "type": "response.created",
+  "event_id": "event_29807648df794ced9221783ce4ec1131",
+  "response": {
+   "id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+   "object": "realtime.response",
+   "status": "in_progress",
+   "status_details": null,
+   "output": [],
+   "modalities": [
+    "audio",
+    "text"
+   ],
+   "metadata": {
+    "duplex_event": {
+     "type": "response.created",
+     "session_id": "duplex-7d9f6d6a78bf4601a4a41323fb2cd345",
+     "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+     "epoch": 0,
+     "modalities": [
+      "audio",
+      "text"
+     ]
+    }
+   }
+  },
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "server_event_seq": 6,
+  "_client_received_at_s": 831.50881031
+ },
+ {
+  "type": "conversation.item.added",
+  "event_id": "event_102534408084414085c9b522f3a2c639",
+  "previous_item_id": "item_6dc93c08f28743b8a5e70f9b14c77531",
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "in_progress",
+   "content": []
+  },
+  "server_event_seq": 7,
+  "_client_received_at_s": 831.508813835
+ },
+ {
+  "type": "conversation.item.created",
+  "event_id": "event_b3b3d422bea34864b7ddc2bc178218ad",
+  "previous_item_id": "item_6dc93c08f28743b8a5e70f9b14c77531",
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "in_progress",
+   "content": []
+  },
+  "server_event_seq": 8,
+  "_client_received_at_s": 831.508815743
+ },
+ {
+  "type": "response.output_item.added",
+  "event_id": "event_d70662fcc8aa4fed86fcd614df20803d",
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "output_index": 0,
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "in_progress",
+   "content": []
+  },
+  "server_event_seq": 9,
+  "_client_received_at_s": 831.508817962
+ },
+ {
+  "type": "response.content_part.added",
+  "event_id": "event_2f77845ba7c64c4fa57f0e7c67e297a6",
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "item_id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "output_index": 0,
+  "content_index": 0,
+  "part": {
+   "type": "audio",
+   "transcript": ""
+  },
+  "server_event_seq": 10,
+  "_client_received_at_s": 831.508819946
+ },
+ {
+  "type": "response.content_part.done",
+  "event_id": "event_6b9f66b09eca4ea4aba1606e73ad913b",
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "item_id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "output_index": 0,
+  "content_index": 0,
+  "part": {
+   "type": "audio",
+   "transcript": ""
+  },
+  "server_event_seq": 11,
+  "_client_received_at_s": 831.656701713
+ },
+ {
+  "type": "response.output_item.done",
+  "event_id": "event_d33c64b3d4974bf298f67f585e1ea379",
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "output_index": 0,
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "completed",
+   "content": [
+    {
+     "type": "output_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 12,
+  "_client_received_at_s": 831.656708593
+ },
+ {
+  "type": "conversation.item.done",
+  "event_id": "event_f1a665c1484a48e0a527e2470899d924",
+  "previous_item_id": "item_6dc93c08f28743b8a5e70f9b14c77531",
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "completed",
+   "content": [
+    {
+     "type": "output_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 13,
+  "_client_received_at_s": 831.65705959
+ },
+ {
+  "type": "response.done",
+  "event_id": "event_62f2ef23b0194a5a9e7f88ba42c5c68e",
+  "response": {
+   "id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+   "object": "realtime.response",
+   "status": "completed",
+   "status_details": {
+    "type": "completed",
+    "reason": "stop"
+   },
+   "output": [
+    {
+     "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+     "object": "realtime.item",
+     "type": "message",
+     "role": "assistant",
+     "status": "completed",
+     "content": [
+      {
+       "type": "output_audio",
+       "transcript": ""
+      }
+     ]
+    }
+   ],
+   "metadata": {
+    "type": "response.output_audio.delta",
+    "session_id": "duplex-7d9f6d6a78bf4601a4a41323fb2cd345",
+    "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+    "epoch": 0,
+    "text": "",
+    "format": "pcm",
+    "end_of_turn": true,
+    "model_speak": true,
+    "playback": {
+     "generated_ms": 0,
+     "sent_ms": 0,
+     "played_ms": 0,
+     "committed_ms": 0
+    },
+    "vllm_omni": {
+     "model_turn_id": 0,
+     "stage_metrics": {}
+    }
+   }
+  },
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "server_event_seq": 14,
+  "_client_received_at_s": 831.657071415
+ },
+ {
+  "type": "rate_limits.updated",
+  "event_id": "event_1314208327c54a13b1308895fce2caec",
+  "rate_limits": [],
+  "server_event_seq": 15,
+  "_client_received_at_s": 831.657077396
+ },
+ {
+  "type": "conversation.item.added",
+  "event_id": "event_5b6217ed15b445ef9fc7c6bc0714c0ff",
+  "previous_item_id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "item": {
+   "id": "item_f8055404516f4fc9a800905212db2b05",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "user",
+   "status": "completed",
+   "content": [
+    {
+     "type": "input_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 16,
+  "_client_received_at_s": 831.661994574
+ },
+ {
+  "type": "conversation.item.created",
+  "event_id": "event_4c67ca6b7c814279b31de78574a3ac06",
+  "previous_item_id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "item": {
+   "id": "item_f8055404516f4fc9a800905212db2b05",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "user",
+   "status": "completed",
+   "content": [
+    {
+     "type": "input_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 17,
+  "_client_received_at_s": 831.662122373
+ },
+ {
+  "type": "input_audio_buffer.committed",
+  "event_id": "event_ef5a37b374e6448594397f835644d425",
+  "previous_item_id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "item_id": "item_f8055404516f4fc9a800905212db2b05",
+  "event": {
+   "type": "input.committed",
+   "session_id": "duplex-7d9f6d6a78bf4601a4a41323fb2cd345",
+   "turn_id": 1,
+   "epoch": 0,
+   "history_len": 2,
+   "native_audio": true,
+   "message": {
+    "role": "user",
+    "content": [
+     {
+      "type": "audio_url",
+      "audio_url": {
+       "url": "native-duplex:input-audio"
+      }
+     }
+    ]
+   },
+   "realtime_item_id": "item_f8055404516f4fc9a800905212db2b05"
+  },
+  "server_event_seq": 18,
+  "_client_received_at_s": 831.66247446
+ },
+ {
+  "type": "conversation.item.done",
+  "event_id": "event_4258c685271a4a4ba0604e0abaf718ee",
+  "previous_item_id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-dc9d20b3",
+  "item": {
+   "id": "item_f8055404516f4fc9a800905212db2b05",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "user",
+   "status": "completed",
+   "content": [
+    {
+     "type": "input_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 19,
+  "_client_received_at_s": 831.662848241
+ },
+ {
+  "type": "response.created",
+  "event_id": "event_a2f3433a71f742d2ac59203c38f2eb83",
+  "response": {
+   "id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+   "object": "realtime.response",
+   "status": "in_progress",
+   "status_details": null,
+   "output": [],
+   "modalities": [
+    "audio",
+    "text"
+   ],
+   "metadata": {
+    "duplex_event": {
+     "type": "response.created",
+     "session_id": "duplex-7d9f6d6a78bf4601a4a41323fb2cd345",
+     "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+     "epoch": 0,
+     "modalities": [
+      "audio",
+      "text"
+     ]
+    }
+   }
+  },
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+  "server_event_seq": 20,
+  "_client_received_at_s": 831.662853991
+ },
+ {
+  "type": "conversation.item.added",
+  "event_id": "event_bb81afb39bb2478dbfb95eb786c5b59a",
+  "previous_item_id": "item_f8055404516f4fc9a800905212db2b05",
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "in_progress",
+   "content": []
+  },
+  "server_event_seq": 21,
+  "_client_received_at_s": 831.663364738
+ },
+ {
+  "type": "conversation.item.created",
+  "event_id": "event_69233e5f19124007bd2456462ae08e1a",
+  "previous_item_id": "item_f8055404516f4fc9a800905212db2b05",
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "in_progress",
+   "content": []
+  },
+  "server_event_seq": 22,
+  "_client_received_at_s": 831.663572608
+ },
+ {
+  "type": "response.output_item.added",
+  "event_id": "event_4df6140cb66a480a86d5cf54ae976f54",
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+  "output_index": 0,
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "in_progress",
+   "content": []
+  },
+  "server_event_seq": 23,
+  "_client_received_at_s": 831.663576205
+ },
+ {
+  "type": "response.content_part.added",
+  "event_id": "event_911cf73ee79e45cfb5806b82b8bcc857",
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+  "item_id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+  "output_index": 0,
+  "content_index": 0,
+  "part": {
+   "type": "audio",
+   "transcript": ""
+  },
+  "server_event_seq": 24,
+  "_client_received_at_s": 831.663689577
+ },
+ {
+  "type": "response.content_part.done",
+  "event_id": "event_495bd85fa2394b9b900ba82c38383e3b",
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+  "item_id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+  "output_index": 0,
+  "content_index": 0,
+  "part": {
+   "type": "audio",
+   "transcript": ""
+  },
+  "server_event_seq": 25,
+  "_client_received_at_s": 831.730111575
+ },
+ {
+  "type": "response.output_item.done",
+  "event_id": "event_cf9c85abc5564e1ca0939a2f47bb1592",
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+  "output_index": 0,
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "completed",
+   "content": [
+    {
+     "type": "output_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 26,
+  "_client_received_at_s": 831.730277878
+ },
+ {
+  "type": "conversation.item.done",
+  "event_id": "event_bd5dd8d3b37347c18e5394436c0e6db2",
+  "previous_item_id": "item_f8055404516f4fc9a800905212db2b05",
+  "item": {
+   "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+   "object": "realtime.item",
+   "type": "message",
+   "role": "assistant",
+   "status": "completed",
+   "content": [
+    {
+     "type": "output_audio",
+     "transcript": ""
+    }
+   ]
+  },
+  "server_event_seq": 27,
+  "_client_received_at_s": 831.730281438
+ },
+ {
+  "type": "response.done",
+  "event_id": "event_a918798d723846738f7706d4c61c7556",
+  "response": {
+   "id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+   "object": "realtime.response",
+   "status": "completed",
+   "status_details": {
+    "type": "completed",
+    "reason": "stop"
+   },
+   "output": [
+    {
+     "id": "item_resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+     "object": "realtime.item",
+     "type": "message",
+     "role": "assistant",
+     "status": "completed",
+     "content": [
+      {
+       "type": "output_audio",
+       "transcript": ""
+      }
+     ]
+    }
+   ],
+   "metadata": {
+    "type": "response.output_audio.delta",
+    "session_id": "duplex-7d9f6d6a78bf4601a4a41323fb2cd345",
+    "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+    "epoch": 0,
+    "text": "",
+    "format": "pcm",
+    "end_of_turn": true,
+    "model_speak": true,
+    "playback": {
+     "generated_ms": 0,
+     "sent_ms": 0,
+     "played_ms": 0,
+     "committed_ms": 0
+    },
+    "vllm_omni": {
+     "model_turn_id": 1,
+     "stage_metrics": {}
+    }
+   }
+  },
+  "response_id": "resp-duplex-7d9f6d6a78bf4601a4a41323fb2cd345-0-40cf3aca",
+  "server_event_seq": 28,
+  "_client_received_at_s": 831.730443471
+ },
+ {
+  "type": "rate_limits.updated",
+  "event_id": "event_4e061b3ec86743268fc3aea7672464ea",
+  "rate_limits": [],
+  "server_event_seq": 29,
+  "_client_received_at_s": 831.730883705
+ },
+ {
+  "type": "session.closed",
+  "event_id": "event_d7d66504284343148e942efafd86773e",
+  "session_id": "duplex-7d9f6d6a78bf4601a4a41323fb2cd345",
+  "reason": "client_close",
+  "event": {},
+  "server_event_seq": 30,
+  "_client_received_at_s": 831.732284017
+ }
+]
