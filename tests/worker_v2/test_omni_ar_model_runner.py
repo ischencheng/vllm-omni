@@ -497,6 +497,41 @@ def test_async_output_slices_request_payloads_with_graph_padding(
                 assert "hidden" not in payload
 
 
+@pytest.mark.parametrize("async_chunk", [False, True])
+def test_async_output_drops_rejected_draft_rows(monkeypatch, mocker, async_chunk):
+    """Only rows of accepted tokens reach the next stage after draft verification."""
+    from vllm.v1.worker.gpu.input_batch import InputBatch
+
+    monkeypatch.setattr(torch.cuda, "set_stream", lambda _stream: None)
+    # Each request verified three drafts: [last sampled, d1, d2, d3].
+    hidden = torch.arange(8 * 4, dtype=torch.float32).reshape(8, 4)
+    ids = torch.arange(8).reshape(8, 1)
+    batch = mocker.Mock(spec=InputBatch)
+    batch.query_start_loc_np = np.array([0, 4, 8])
+    batch.num_scheduled_tokens = np.array([4, 4])
+    batch.num_reqs = 2
+    batch.num_tokens_after_padding = 8
+    output = _async_output(
+        req_ids=["req-0", "req-1"],
+        sampler_output=SamplerOutput(
+            torch.ones(2, 4, dtype=torch.long), None, None, torch.tensor([3, 1]), torch.tensor([1, 3])
+        ),
+        num_sampled_tokens=torch.tensor([3, 1]),
+        num_rejected_tokens=torch.tensor([1, 3]),
+        text_hidden=hidden,
+        multimodal_outputs={"latent_input_ids": ids},
+        input_batch=batch,
+        async_chunk=async_chunk,
+    ).get_output()
+
+    payloads = output.inter_stage_outputs
+    torch.testing.assert_close(payloads[0]["latent_input_ids"], ids[0:3])
+    torch.testing.assert_close(payloads[1]["latent_input_ids"], ids[4:5])
+    if not async_chunk:
+        torch.testing.assert_close(payloads[0]["hidden"], hidden[0:3])
+        torch.testing.assert_close(payloads[1]["hidden"], hidden[4:5])
+
+
 def test_finalized_full_payload_latent_ledger_is_accumulated_once(monkeypatch):
     from tests.engine.test_output_processor_mrv2_text import (
         _Detokenizer,

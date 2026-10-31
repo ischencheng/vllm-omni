@@ -78,6 +78,21 @@ def test_plain_chat_handoff_owns_talker_prompt_contract() -> None:
     assert info["meta"]["next_stage_prompt_len"] == 4
 
 
+def test_plain_chat_handoff_drops_rows_past_a_length_stop() -> None:
+    """Accepted drafts past max_tokens leave Thinker rows with no output token."""
+    prompt_ids = [101, 102]
+    output_ids = [11, 12]
+    latent = torch.arange(24, dtype=torch.float32).reshape(6, 4)
+
+    info = llm2tts(
+        [_output(prompt_ids=prompt_ids, output_ids=output_ids, latent=latent)],
+        prompt=[{}],
+    )[0]["model_intermediate_buffer"]
+
+    assert info["ids"]["tts"] == output_ids
+    assert torch.equal(torch.as_tensor(unpack_handoff_tensor(info["hidden_states"]["tts"])), latent[2:4])
+
+
 def test_llm2tts_carries_request_ref_audio() -> None:
     latent = torch.arange(20, dtype=torch.float32).reshape(5, 4)
     source = _output(

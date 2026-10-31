@@ -1037,7 +1037,11 @@ def llm2tts(
         native_segment_end = False
         if not is_native_duplex_handoff:
             if tts_bos_idx is not None and thinker_hidden_states.shape[0] > tts_bos_idx:
-                end_idx = tts_eos_idx if tts_eos_idx is not None else thinker_hidden_states.shape[0]
+                # With speculative decoding the Thinker also forwards accepted
+                # drafts past a length stop, so rows can outnumber the tokens.
+                end_idx = (
+                    tts_eos_idx if tts_eos_idx is not None else min(thinker_hidden_states.shape[0], len(full_token_ids))
+                )
                 tts_token_ids_slice = torch.tensor(full_token_ids[tts_bos_idx:end_idx], dtype=torch.long)
                 tts_hidden_slice = thinker_hidden_states[tts_bos_idx:end_idx].to(torch.float32).contiguous()
         else:
