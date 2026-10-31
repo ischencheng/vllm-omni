@@ -1,0 +1,172 @@
+{
+  "runs": [
+    {
+      "arm": "dspark",
+      "round": 0,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_dspark.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 294.16504549980164,
+      "ready": true,
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=64)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 20:56:53\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 5.682033746999991,
+        "requests": 6,
+        "ok": 6,
+        "req_per_s": 1.0559599374375221,
+        "audio_s_per_s": 15.81827986281408
+      }
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_off.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 192.10732674598694,
+      "ready": true,
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=1126)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 21:01:23\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 8.181630449000068,
+        "requests": 6,
+        "ok": 6,
+        "req_per_s": 0.7333501601423834,
+        "audio_s_per_s": 10.985585398932903
+      }
+    }
+  ],
+  "asr": [
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 7.16
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 16.64
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 7.52
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 3,
+      "wer": 1.0,
+      "audio_s": 13.84
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 4,
+      "wer": 0.038461538461538464,
+      "audio_s": 20.56
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 5,
+      "wer": 0.03636363636363636,
+      "audio_s": 24.16
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 7.16
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 16.64
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 7.52
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 3,
+      "wer": 1.0,
+      "audio_s": 13.84
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 4,
+      "wer": 0.038461538461538464,
+      "audio_s": 20.56
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 5,
+      "wer": 0.03636363636363636,
+      "audio_s": 24.16
+    }
+  ]
+}

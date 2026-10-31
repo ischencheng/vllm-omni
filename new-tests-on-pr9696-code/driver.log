@@ -1,0 +1,42 @@
++ /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+>       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'MiniCPMO45OmniForConditionalGeneration' object has no attribute 'model'
+
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py:1967: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_talker_stage_hands_drafter_hooks_to_the_talker
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_mrv2_output_marks_each_draft_row
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[3-cpu]
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[3-cuda]
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[14-cpu]
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[14-cuda]
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cpu]
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cuda]
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_forces_codec_eos_per_row
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_verifies_drafts_with_its_codec_sampler
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_drafter_loading_finds_the_codec_table_and_head
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-turn-True]
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-duplex-False]
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_drafter_layers_need_turn_sessions_on_mrv2[False-turn-False]
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_talker_stage_hands_drafter_hooks_to_the_talker
+14 failed, 50 passed, 14 warnings in 7.93s
+rc=1

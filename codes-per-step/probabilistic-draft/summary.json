@@ -1,0 +1,436 @@
+{
+  "runs": [
+    {
+      "arm": "dspark",
+      "round": 0,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_dspark.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 366.22430419921875,
+      "ready": true,
+      "specacc_marks": {
+        "c1": 149,
+        "c16": 2872
+      },
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=64)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 21:30:11\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 21.261411796999994,
+        "requests": 16,
+        "ok": 16,
+        "req_per_s": 0.7525370447063923,
+        "audio_s_per_s": 12.279523226996554
+      },
+      "c16": {
+        "wall_s": 9.46080224100001,
+        "requests": 32,
+        "ok": 32,
+        "req_per_s": 3.382377010410651,
+        "audio_s_per_s": 50.37627759880363
+      }
+    }
+  ],
+  "asr": [
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 8.88
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 1,
+      "wer": 0.025,
+      "audio_s": 15.6
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 6.8
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 3,
+      "wer": 1.7692307692307692,
+      "audio_s": 12.48
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 4,
+      "wer": 0.04081632653061224,
+      "audio_s": 23.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 5,
+      "wer": 0.01818181818181818,
+      "audio_s": 25.28
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 6,
+      "wer": 0.10810810810810811,
+      "audio_s": 25.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 7,
+      "wer": 0.0,
+      "audio_s": 8.52
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 24.76
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 10,
+      "wer": 0.0,
+      "audio_s": 16.72
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.04
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 12,
+      "wer": 0.0,
+      "audio_s": 15.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 13,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.8
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 14,
+      "wer": 0.1282051282051282,
+      "audio_s": 26.44
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 10.12
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 8.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 16.96
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 7.4
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 3,
+      "wer": 1.0769230769230769,
+      "audio_s": 9.16
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 4,
+      "wer": 0.0,
+      "audio_s": 18.84
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 5,
+      "wer": 0.0,
+      "audio_s": 25.84
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 6,
+      "wer": 0.10810810810810811,
+      "audio_s": 21.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 7,
+      "wer": 0.06060606060606061,
+      "audio_s": 12.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 22.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.2
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 10,
+      "wer": 0.0,
+      "audio_s": 9.88
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 15.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 12,
+      "wer": 0.022727272727272728,
+      "audio_s": 14.84
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 13,
+      "wer": 0.03333333333333333,
+      "audio_s": 22.44
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 14,
+      "wer": 0.0,
+      "audio_s": 13.48
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 8.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 16,
+      "wer": 0.0,
+      "audio_s": 9.48
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 17,
+      "wer": 0.0,
+      "audio_s": 16.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 18,
+      "wer": 0.0,
+      "audio_s": 7.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 19,
+      "wer": 0.6153846153846154,
+      "audio_s": 10.16
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 20,
+      "wer": 0.0,
+      "audio_s": 20.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 21,
+      "wer": 0.03636363636363636,
+      "audio_s": 27.28
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 22,
+      "wer": 0.08108108108108109,
+      "audio_s": 22.68
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 23,
+      "wer": 0.0,
+      "audio_s": 8.28
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 24,
+      "wer": 0.0,
+      "audio_s": 21.12
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 25,
+      "wer": 0.0,
+      "audio_s": 3.16
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 26,
+      "wer": 0.0,
+      "audio_s": 15.8
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 27,
+      "wer": 0.0,
+      "audio_s": 14.44
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 28,
+      "wer": 0.0,
+      "audio_s": 12.92
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 29,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.56
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 30,
+      "wer": 0.0,
+      "audio_s": 22.96
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 31,
+      "wer": 0.0,
+      "audio_s": 10.48
+    }
+  ]
+}

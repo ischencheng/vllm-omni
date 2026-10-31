@@ -1,0 +1,139 @@
+{
+  "arm": "off",
+  "round": 0,
+  "cmd": [
+    "/usr/bin/python",
+    "-m",
+    "vllm_omni.entrypoints.cli.main",
+    "serve",
+    "openbmb/MiniCPM-o-4_5",
+    "--omni",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8091",
+    "--deploy-config",
+    "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_off.yaml",
+    "--trust-remote-code",
+    "--chat-template",
+    "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+    "--chat-template-content-format",
+    "openai"
+  ],
+  "startup_s": 192.10732674598694,
+  "ready": true,
+  "c1": {
+    "wall_s": 8.181630449000068,
+    "requests": 6,
+    "ok": 6,
+    "req_per_s": 0.7333501601423834,
+    "audio_s_per_s": 10.985585398932903,
+    "rows": [
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "ttft_s": 0.20565124899997045,
+        "ttfa_s": 0.31697817099995973,
+        "audio_chunks": 8,
+        "latency_s": 0.7370103590000099,
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "ids": [
+          "chatcmpl-a9dfd6cd7bdaa62e"
+        ],
+        "rate": 24000,
+        "audio_s": 7.16,
+        "audio_file": "c1_00.wav",
+        "asr": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 60 words.",
+        "status": 200,
+        "ttft_s": 0.3610280949999378,
+        "ttfa_s": 0.47304040299991357,
+        "audio_chunks": 17,
+        "latency_s": 1.5017242709999437,
+        "text": "A hash map handles collisions using methods like chaining (linked lists) or open addressing (probing). Chaining stores colliding elements in a list at the hash index. Open addressing finds another open slot using probing techniques like linear, quadratic, or double hashing.",
+        "ids": [
+          "chatcmpl-8a02a79636b96d9e"
+        ],
+        "rate": 24000,
+        "audio_s": 16.64,
+        "audio_file": "c1_01.wav",
+        "asr": "A hash map handles collisions using methods like chaining, linked lists, or open addressing, probing. Chaining stores colliding elements in a list at the hash index. Open addressing finds another open slot using probing techniques like linear, quadratic, or double hashing.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun.",
+        "status": 200,
+        "ttft_s": 0.13277285599997413,
+        "ttfa_s": 0.23775448799995047,
+        "audio_chunks": 8,
+        "latency_s": 0.6781473019999567,
+        "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+        "ids": [
+          "chatcmpl-89799eaae778167a"
+        ],
+        "rate": 24000,
+        "audio_s": 7.52,
+        "audio_file": "c1_02.wav",
+        "asr": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours. What is its average speed?",
+        "status": 200,
+        "ttft_s": 0.17894931000000724,
+        "ttfa_s": 0.2878726290000486,
+        "audio_chunks": 14,
+        "latency_s": 1.1520339869999816,
+        "text": "verage speed = Total distance / Total time = 180 km / 2 hours = 90 km/h",
+        "ids": [
+          "chatcmpl-ab86e3a360119de3"
+        ],
+        "rate": 24000,
+        "audio_s": 13.84,
+        "audio_file": "c1_03.wav",
+        "asr": "Wench speed, dung yu, total distance, sink, total time, dung yu, 180 kilometer, one-timered hours, dung yu, 90 kilometer janes.",
+        "wer": 1.0
+      },
+      {
+        "prompt": "Write a short story of about 50 words about a robot that learns to paint.",
+        "status": 200,
+        "ttft_s": 0.45914338600005067,
+        "ttfa_s": 0.5852734989999817,
+        "audio_chunks": 21,
+        "latency_s": 1.9407282110000779,
+        "text": "Zeta, a factory robot, discovered a paintbrush in the scrapyard. Curious, it dipped the brush in vibrant paint and began to stroke the canvas. Colors danced across the surface. Zeta realized it wasn’t just moving parts—it was creating. For the first time, the robot felt alive, expressing emotions through art.",
+        "ids": [
+          "chatcmpl-97e1a032c7ce0a99"
+        ],
+        "rate": 24000,
+        "audio_s": 20.56,
+        "audio_file": "c1_04.wav",
+        "asr": "Zeta, a factory robot, discovered a paintbrush in the scrapyard. Curious, it dipped the brush in vibrant paint and began to stroke the canvas. Colors danced across the surface. Zeta realized it wasn't just moving parts. It was creating. For the first time, the robot felt alive, expressing emotions through art.",
+        "wer": 0.038461538461538464
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.46127854700000626,
+        "ttfa_s": 0.5777479900000344,
+        "audio_chunks": 25,
+        "latency_s": 2.1685113959999853,
+        "text": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data, while UDP is a connectionless protocol that provides faster transmission but without guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP does not, making it suitable for applications where speed is prioritized over reliability.",
+        "ids": [
+          "chatcmpl-bffe80f0265d75c5"
+        ],
+        "rate": 24000,
+        "audio_s": 24.16,
+        "audio_file": "c1_05.wav",
+        "asr": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-check delivery of data, while UDP is a connectionless protocol that provides faster transmission, but without guarantees of delivery or order. TCP uses acknowledgements and retransmissions for reliability, whereas UDP does not, making it suitable for applications where speed is prioritized over reliability.",
+        "wer": 0.03636363636363636
+      }
+    ]
+  },
+  "error_tail": [
+    "\u001b[0;36m(APIServer pid=1126)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 21:01:23\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+}

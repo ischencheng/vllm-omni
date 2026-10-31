@@ -1,0 +1,1128 @@
+{
+  "arm": "off",
+  "round": 0,
+  "cmd": [
+    "/usr/bin/python",
+    "-m",
+    "vllm_omni.entrypoints.cli.main",
+    "serve",
+    "openbmb/MiniCPM-o-4_5",
+    "--omni",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8091",
+    "--deploy-config",
+    "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_off.yaml",
+    "--trust-remote-code",
+    "--chat-template",
+    "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+    "--chat-template-content-format",
+    "openai"
+  ],
+  "startup_s": 198.11350011825562,
+  "ready": true,
+  "specacc_marks": {
+    "c16": 0
+  },
+  "c16": {
+    "wall_s": 19.642486414000018,
+    "requests": 64,
+    "ok": 64,
+    "req_per_s": 3.258243312536265,
+    "audio_s_per_s": 47.03681502060165,
+    "rows": [
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "ttft_s": 0.2846939809999185,
+        "ttfa_s": 0.5908934599999611,
+        "audio_chunks": 8,
+        "latency_s": 1.6769894569999906,
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "ids": [
+          "chatcmpl-9df154172cdc5de5"
+        ],
+        "rate": 24000,
+        "audio_s": 7.36,
+        "audio_file": "c16_00.wav",
+        "asr": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 60 words.",
+        "status": 200,
+        "ttft_s": 0.4758502930000077,
+        "ttfa_s": 1.4307107849999738,
+        "audio_chunks": 18,
+        "latency_s": 5.362140533999991,
+        "text": "A hash map handles collisions using methods like chaining (linked lists) or open addressing (probing). Chaining stores colliding elements in a list at the hash index. Open addressing finds another open slot using probing techniques like linear, quadratic, or double hashing.",
+        "ids": [
+          "chatcmpl-b855c3de611961e1"
+        ],
+        "rate": 24000,
+        "audio_s": 17.44,
+        "audio_file": "c16_01.wav",
+        "asr": "A hash map handles collisions using methods like chaining, linked lists, or open addressing, probing. Chaining stores colliding elements in a list at the hash index. Open addressing finds another open slot using probing techniques like linear, quadratic, or double hashing.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun.",
+        "status": 200,
+        "ttft_s": 0.21012547899999845,
+        "ttfa_s": 0.501492497000072,
+        "audio_chunks": 7,
+        "latency_s": 1.426275024000006,
+        "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+        "ids": [
+          "chatcmpl-ae1354f0ca611c6a"
+        ],
+        "rate": 24000,
+        "audio_s": 6.92,
+        "audio_file": "c16_02.wav",
+        "asr": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours. What is its average speed?",
+        "status": 200,
+        "ttft_s": 0.2605970970000726,
+        "ttfa_s": 0.590741769000033,
+        "audio_chunks": 8,
+        "latency_s": 1.6780712300000005,
+        "text": "verage speed = Total distance / Total time = 180 km / 2 hours = 90 km/h",
+        "ids": [
+          "chatcmpl-99a170e7d13aaf55"
+        ],
+        "rate": 24000,
+        "audio_s": 7.92,
+        "audio_file": "c16_03.wav",
+        "asr": "Federal speed, don't use total distance, total time, don't use 180 km, torque hours, don't use 90 km gens.",
+        "wer": 0.6923076923076923
+      },
+      {
+        "prompt": "Write a short story of about 50 words about a robot that learns to paint.",
+        "status": 200,
+        "ttft_s": 0.561017209000056,
+        "ttfa_s": 1.9497914340000762,
+        "audio_chunks": 22,
+        "latency_s": 7.517037445000028,
+        "text": "In a quiet lab, a robot named Zeta observed human artists. Curious, it picked up a brush. Strokes began clumsy, then bold. Colors swirled, blending joyfully. Zeta discovered art’s magic. No longer just code, it felt alive, creating beauty where none existed before.",
+        "ids": [
+          "chatcmpl-9707801b69d94f9c"
+        ],
+        "rate": 24000,
+        "audio_s": 21.16,
+        "audio_file": "c16_04.wav",
+        "asr": "In a quiet lab, a robot named Zeta observed human artists. Curious, it picked up a brush. Strokes began, clumsy, then bold. Color swirled, blending joyfully. Zeta discovered art's magic, no longer just code. It felt alive, creating beauty where none existed before.",
+        "wer": 0.06818181818181818
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.6278936200000089,
+        "ttfa_s": 2.3106118800000104,
+        "audio_chunks": 29,
+        "latency_s": 11.179440800999942,
+        "text": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data, while UDP is a connectionless protocol that offers faster transmission but without guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP prioritizes speed and simplicity, making it suitable for applications where speed is more critical than data integrity.",
+        "ids": [
+          "chatcmpl-9fc4b80b08fd0c12"
+        ],
+        "rate": 24000,
+        "audio_s": 29.04,
+        "audio_file": "c16_05.wav",
+        "asr": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data, while UDP is a connectionless protocol that offers faster transmission but without guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP prioritizes speed and simplicity, making it suitable for applications where speed is more critical than data integrity.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs in three short steps.",
+        "status": 200,
+        "ttft_s": 0.8082825699999603,
+        "ttfa_s": 2.5847677010000325,
+        "audio_chunks": 23,
+        "latency_s": 9.02064524299999,
+        "text": "Sure! Here’s a quick recipe for scrambled eggs in three short steps:\n\n1. Crack 2–3 eggs into a bowl, add a splash of milk or cream, and whisk until well mixed.\n2. Heat a non-stick pan over medium heat, add a bit of butter or oil, and pour in the egg mixture.\n3. Stir gently with a spatula until the eggs are just set and fluffy, then remove from heat. Enjoy!",
+        "ids": [
+          "chatcmpl-873b686f69fd9489"
+        ],
+        "rate": 24000,
+        "audio_s": 23.04,
+        "audio_file": "c16_06.wav",
+        "asr": "Sure, here's a quick recipe for scrambled eggs in three short steps. Sense to one, crack two to three eggs into a bowl, add a splash of milk or cream, and whisk until well mixed. Two, heat a non-stick pan over medium heat, add a bit of butter or oil, and pour in the egg mixture. Three, stir gently with a spatula until the eggs are just set and fluffy, then remove from heat. Enjoy!",
+        "wer": 0.13513513513513514
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in two sentences.",
+        "status": 200,
+        "ttft_s": 0.3930815129999701,
+        "ttfa_s": 0.7796498499999416,
+        "audio_chunks": 12,
+        "latency_s": 2.8155365779999784,
+        "text": "Romeo and Juliet are young lovers from feuding families in Verona, and their secret marriage leads to a tragic series of events. Ultimately, their deaths reunite their families and end the longstanding feud.",
+        "ids": [
+          "chatcmpl-92dd82c6e6fc7a20"
+        ],
+        "rate": 24000,
+        "audio_s": 11.52,
+        "audio_file": "c16_07.wav",
+        "asr": "Romeo and Juliet are young lovers from feuding families in Verona, and their secret marriage leads to a tragic series of events. Ultimately, their deaths reunite their families and end the long-standing feud.",
+        "wer": 0.06060606060606061
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning in two sentences.",
+        "status": 200,
+        "ttft_s": 0.5864172889999963,
+        "ttfa_s": 2.0632178149999163,
+        "audio_chunks": 21,
+        "latency_s": 7.309951167999998,
+        "text": "Supervised learning uses labeled data to train a model to make predictions or decisions, while unsupervised learning uses unlabeled data to find patterns or groupings in the data. In supervised learning, the model is trained on input-output pairs, while in unsupervised learning, the model is not given any specific output to predict.",
+        "ids": [
+          "chatcmpl-9c688fa2c8ddecaf"
+        ],
+        "rate": 24000,
+        "audio_s": 20.52,
+        "audio_file": "c16_08.wav",
+        "asr": "supervised learning uses labeled data to train a model to make predictions or decisions, while unsupervised learning uses unlabeled data to find patterns or groupings in the data. In supervised learning, the model is trained on input-output pairs, while in unsupervised learning, the model is not given any specific output to predict.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "What is 17 multiplied by 23?",
+        "status": 200,
+        "ttft_s": 0.17580883000005088,
+        "ttfa_s": 0.41210076899994874,
+        "audio_chunks": 4,
+        "latency_s": 1.0104963009999892,
+        "text": "17 multiplied by 23 is 391.",
+        "ids": [
+          "chatcmpl-ae7cc0c766f0e034"
+        ],
+        "rate": 24000,
+        "audio_s": 3.88,
+        "audio_file": "c16_09.wav",
+        "asr": "70 multiplied by 23 is 391.",
+        "wer": 0.16666666666666666
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms, in two sentences.",
+        "status": 200,
+        "ttft_s": 0.43803526700003204,
+        "ttfa_s": 0.8931797720000532,
+        "audio_chunks": 16,
+        "latency_s": 3.880953825000006,
+        "text": "The water cycle is the process by which water moves through the Earth's atmosphere, evaporates from bodies of water, forms clouds, and eventually returns to the ground as precipitation. This continuous cycle helps sustain life by distributing water across the planet.",
+        "ids": [
+          "chatcmpl-ba4aff414d777f9e"
+        ],
+        "rate": 24000,
+        "audio_s": 15.52,
+        "audio_file": "c16_10.wav",
+        "asr": "The water cycle is the process by which water moves through the Earth's atmosphere, evaporates from bodies of water, forms clouds, and eventually returns to the ground as precipitation. This continuous cycle helps sustain life by distributing water across the planet.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Why is the sky blue? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.4384052180000708,
+        "ttfa_s": 1.3096103310000444,
+        "audio_chunks": 15,
+        "latency_s": 4.305280581000034,
+        "text": "The sky appears blue because of Rayleigh scattering, where shorter blue wavelengths of sunlight are scattered more by the molecules and particles in the atmosphere. This scattered blue light reaches our eyes from all directions, making the sky look blue during the day.",
+        "ids": [
+          "chatcmpl-92fca2679179c74f"
+        ],
+        "rate": 24000,
+        "audio_s": 14.28,
+        "audio_file": "c16_11.wav",
+        "asr": "The sky appears blue because of Rayleigh scattering, where shorter blue wavelengths of sunlight are scattered more by the molecules and particles in the atmosphere. This scattered blue light reaches our eyes from all directions, making the sky look blue during the day.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Tell me a fun fact about octopuses.",
+        "status": 200,
+        "ttft_s": 0.4127718819999018,
+        "ttfa_s": 0.7818828219999432,
+        "audio_chunks": 14,
+        "latency_s": 3.2799123769999596,
+        "text": "Octopuses have three hearts! Two pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, the heart that delivers blood to the body stops beating when the octopus swims.",
+        "ids": [
+          "chatcmpl-a319a1cdf4eb33ea"
+        ],
+        "rate": 24000,
+        "audio_s": 13.28,
+        "audio_file": "c16_12.wav",
+        "asr": "Octopuses have three hearts. Two pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, the heart that delivers blood to the body stops beating when the octopus swims.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "How do vaccines work? Keep it short.",
+        "status": 200,
+        "ttft_s": 0.5069397890000573,
+        "ttfa_s": 1.703229532000023,
+        "audio_chunks": 25,
+        "latency_s": 7.304579634999982,
+        "text": "Vaccines work by training the immune system to recognize and fight specific pathogens (like viruses or bacteria) without causing the disease. They contain harmless parts of the pathogen (or a weakened/modified version), which trigger an immune response, creating memory cells that protect against future infections.",
+        "ids": [
+          "chatcmpl-b7af39ceefd27e7b"
+        ],
+        "rate": 24000,
+        "audio_s": 24.44,
+        "audio_file": "c16_13.wav",
+        "asr": "Vasines work by training the immune system to recognize and fight specific pathogens like viruses or bacteria without causing the disease. They contain harmless parts of the pathogen or a weakened modified version which trigger an immune response creating memory cells that protect against future infections.",
+        "wer": 0.021739130434782608
+      },
+      {
+        "prompt": "What should I pack for a weekend hiking trip?",
+        "status": 200,
+        "ttft_s": 0.3404228230000399,
+        "ttfa_s": 0.7827066590000413,
+        "audio_chunks": 9,
+        "latency_s": 2.0508412210000415,
+        "text": "For a weekend hiking trip, you should pack a tent, sleeping bag, and sleeping pad. You should also pack a first aid kit, food, water, and a map.",
+        "ids": [
+          "chatcmpl-958bb642d0f6750e"
+        ],
+        "rate": 24000,
+        "audio_s": 8.88,
+        "audio_file": "c16_14.wav",
+        "asr": "For a weekend hiking trip, you should pack a tent, sleeping bag, and sleeping pad. You should also pack a first aid kit, food, water, and a map.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Recommend a good habit for better sleep and explain why in one sentence.",
+        "status": 200,
+        "ttft_s": 0.36278242699995644,
+        "ttfa_s": 0.7787805179999623,
+        "audio_chunks": 11,
+        "latency_s": 2.529196060000004,
+        "text": "Establishing a consistent sleep schedule is a good habit for better sleep because it helps regulate your body's internal clock, making it easier to fall asleep and wake up at the same time every day.",
+        "ids": [
+          "chatcmpl-a6cf7a46b2932765"
+        ],
+        "rate": 24000,
+        "audio_s": 10.76,
+        "audio_file": "c16_15.wav",
+        "asr": "Establishing a consistent sleep schedule is a good habit for better sleep because it helps regulate your body's internal clock, making it easier to fall asleep and wake up at the same time every day.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "ttft_s": 0.2787024609999662,
+        "ttfa_s": 2.0454650039999933,
+        "audio_chunks": 9,
+        "latency_s": 4.341610763999938,
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "ids": [
+          "chatcmpl-82916e8b66174c0e"
+        ],
+        "rate": 24000,
+        "audio_s": 8.2,
+        "audio_file": "c16_16.wav",
+        "asr": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 60 words.",
+        "status": 200,
+        "ttft_s": 0.48127838400000655,
+        "ttfa_s": 2.3663884179999286,
+        "audio_chunks": 18,
+        "latency_s": 6.453091954999991,
+        "text": "A hash map handles collisions using methods like chaining (linked lists) or open addressing (probing). Chaining stores colliding elements in a list at the hash index, while open addressing finds the next available slot, ensuring efficient data retrieval despite collisions.",
+        "ids": [
+          "chatcmpl-9d10c7a0fbb33949"
+        ],
+        "rate": 24000,
+        "audio_s": 17.68,
+        "audio_file": "c16_17.wav",
+        "asr": "A hash map handles collisions using methods like chaining, linked lists, or open addressing, probing. Chaining stores colliding elements in a list at the hash index, while open addressing finds the next available slot, ensuring efficient data retrieval despite collisions.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun.",
+        "status": 200,
+        "ttft_s": 0.2094826990000911,
+        "ttfa_s": 1.6621739460000526,
+        "audio_chunks": 7,
+        "latency_s": 2.841640709000103,
+        "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+        "ids": [
+          "chatcmpl-ae335d43b1c8483a"
+        ],
+        "rate": 24000,
+        "audio_s": 6.16,
+        "audio_file": "c16_18.wav",
+        "asr": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours. What is its average speed?",
+        "status": 200,
+        "ttft_s": 0.25757841400002235,
+        "ttfa_s": 2.4067997390000073,
+        "audio_chunks": 9,
+        "latency_s": 4.821551818999978,
+        "text": "verage speed = Total distance / Total time = 180 km / 2 hours = 90 km/h",
+        "ids": [
+          "chatcmpl-94a739d8e3c591a7"
+        ],
+        "rate": 24000,
+        "audio_s": 8.12,
+        "audio_file": "c16_19.wav",
+        "asr": "watch speed, the new total distance, SAS total time, the new 180 km.",
+        "wer": 0.7692307692307693
+      },
+      {
+        "prompt": "Write a short story of about 50 words about a robot that learns to paint.",
+        "status": 200,
+        "ttft_s": 0.5980628500000194,
+        "ttfa_s": 2.026012559000037,
+        "audio_chunks": 23,
+        "latency_s": 7.332883472000049,
+        "text": "Zeta, a factory robot, discovered a paintbrush in the scrapyard. Curious, it dipped the brush in vibrant paint and began to stroke the canvas. Colors danced across the surface. Zeta realized it wasn’t just moving parts—it was creating. For the first time, the robot felt alive, expressing emotions through art.",
+        "ids": [
+          "chatcmpl-b64a45c66ed59b37"
+        ],
+        "rate": 24000,
+        "audio_s": 22.12,
+        "audio_file": "c16_20.wav",
+        "asr": "Zeta, a factory robot, discovered a paintbrush in the scrapyard. Curious, it dipped the brush in vibrant paint and began to stroke the canvas. Colors danced across the surface. Zeta realized it wasn't just moving parts, it was creating. For the first time, the robot felt alive, expressing emotions through art.",
+        "wer": 0.038461538461538464
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.6071057540000311,
+        "ttfa_s": 2.2181285180000714,
+        "audio_chunks": 23,
+        "latency_s": 8.44010791300002,
+        "text": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data, while UDP is a connectionless protocol that provides faster transmission but without guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP does not, making it suitable for applications where speed is prioritized over reliability.",
+        "ids": [
+          "chatcmpl-a385b78468fc2bf1"
+        ],
+        "rate": 24000,
+        "audio_s": 23.08,
+        "audio_file": "c16_21.wav",
+        "asr": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data, while UDP is a connectionless protocol that provides faster transmission but without guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP does not, making it suitable for applications where speed is prioritized over reliability.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs in three short steps.",
+        "status": 200,
+        "ttft_s": 0.8387995489999867,
+        "ttfa_s": 2.1667428219999465,
+        "audio_chunks": 22,
+        "latency_s": 8.738662800999919,
+        "text": "Sure! Here’s a quick recipe for scrambled eggs in three short steps:\n\n1. Crack 2–3 eggs into a bowl, add a splash of milk or cream, and whisk until well mixed.\n2. Heat a non-stick pan over medium heat, add a bit of butter or oil, and pour in the egg mixture.\n3. Stir gently with a spatula until the eggs are just set but still creamy, then remove from heat. Enjoy!",
+        "ids": [
+          "chatcmpl-bec33800292a1ef1"
+        ],
+        "rate": 24000,
+        "audio_s": 21.4,
+        "audio_file": "c16_22.wav",
+        "asr": "Sure! Here's a quick recipe for scrambled eggs in three short steps. Nong pea. Crack two to three eggs into a bowl. Add a splash of milk or cream and whisk until well mixed. Two. Heat a non-stick pan over medium heat. Add a bit of butter or oil and pour in the egg mixture. Three. Stir gently with a spatula until the eggs are just set but still creamy. Then remove from heat. Enjoy!",
+        "wer": 0.12
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in two sentences.",
+        "status": 200,
+        "ttft_s": 0.2670556079999642,
+        "ttfa_s": 1.6999410519999856,
+        "audio_chunks": 9,
+        "latency_s": 3.1903829879998966,
+        "text": "Romeo and Juliet, from feuding families, fall in love and secretly marry. Their tragic deaths ultimately reconcile their families.",
+        "ids": [
+          "chatcmpl-b514154f7e6efd63"
+        ],
+        "rate": 24000,
+        "audio_s": 8.16,
+        "audio_file": "c16_23.wav",
+        "asr": "Romeo and Juliet, from feuding families, fall in love and secretly marry. Their tragic deaths ultimately reconcile their families.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning in two sentences.",
+        "status": 200,
+        "ttft_s": 0.6334369769999739,
+        "ttfa_s": 1.630934787000001,
+        "audio_chunks": 21,
+        "latency_s": 6.77350679999995,
+        "text": "Supervised learning uses labeled data to train a model to make predictions or decisions, while unsupervised learning uses unlabeled data to find patterns or groupings in the data. In supervised learning, the model is trained on input-output pairs, while in unsupervised learning, the model is given only input data and must find structure within it.",
+        "ids": [
+          "chatcmpl-9d328643c6a3ca8c"
+        ],
+        "rate": 24000,
+        "audio_s": 20.92,
+        "audio_file": "c16_24.wav",
+        "asr": "Supervised learning uses labeled data to train a model to make predictions or decisions, while unsupervised learning uses unlabeled data to find patterns or groupings in the data. In supervised learning, the model is trained on input-output pairs while in unsupervised learning, the model is given only input data and must find structure within it.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "What is 17 multiplied by 23?",
+        "status": 200,
+        "ttft_s": 0.14681988300003468,
+        "ttfa_s": 0.8482568030000266,
+        "audio_chunks": 4,
+        "latency_s": 1.7768807740000057,
+        "text": "17 multiplied by 23 is 391.",
+        "ids": [
+          "chatcmpl-a3404c9349c238ef"
+        ],
+        "rate": 24000,
+        "audio_s": 3.76,
+        "audio_file": "c16_25.wav",
+        "asr": "CB&T multiplied by 23 is 391.",
+        "wer": 0.3333333333333333
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms, in two sentences.",
+        "status": 200,
+        "ttft_s": 0.4432780649999586,
+        "ttfa_s": 1.2829231639999534,
+        "audio_chunks": 13,
+        "latency_s": 3.9690210800000614,
+        "text": "The water cycle is the continuous movement of water on, above, and below the surface of the Earth. Water evaporates from oceans, lakes, and rivers, forms clouds, and eventually falls back to the Earth as rain or snow.",
+        "ids": [
+          "chatcmpl-b64875b736346dcc"
+        ],
+        "rate": 24000,
+        "audio_s": 12.96,
+        "audio_file": "c16_26.wav",
+        "asr": "The water cycle is the continuous movement of water on, above, and below the surface of the Earth. Water evaporates from oceans, lakes, and rivers, forms clouds, and eventually falls back to the Earth as rain or snow.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Why is the sky blue? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.44513150399995993,
+        "ttfa_s": 0.6259155039999769,
+        "audio_chunks": 16,
+        "latency_s": 5.107520829999999,
+        "text": "The sky appears blue because of Rayleigh scattering, where shorter blue wavelengths of sunlight are scattered more by the molecules and particles in the atmosphere. This scattered blue light reaches our eyes from all directions, making the sky look blue during the day.",
+        "ids": [
+          "chatcmpl-a3d95369db1db3ff"
+        ],
+        "rate": 24000,
+        "audio_s": 15.16,
+        "audio_file": "c16_27.wav",
+        "asr": "the sky appears blue because of Rayleigh scattering, where shorter blue wavelengths of sunlight are scattered more by the molecules and particles in the atmosphere. This scattered blue light reaches our eyes from all directions, making the sky look blue during the day.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Tell me a fun fact about octopuses.",
+        "status": 200,
+        "ttft_s": 0.4269946639999489,
+        "ttfa_s": 0.625287606000029,
+        "audio_chunks": 13,
+        "latency_s": 4.30631285100003,
+        "text": "Octopuses have three hearts! Two pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, the heart that delivers blood to the body stops beating when the octopus swims.",
+        "ids": [
+          "chatcmpl-9e94ea8cc2cebc67"
+        ],
+        "rate": 24000,
+        "audio_s": 12.4,
+        "audio_file": "c16_28.wav",
+        "asr": "Octopuses have three hearts. Two pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, the heart that delivers blood to the body stops beating when the octopus swims.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "How do vaccines work? Keep it short.",
+        "status": 200,
+        "ttft_s": 0.5222482839999429,
+        "ttfa_s": 0.8125256839999793,
+        "audio_chunks": 21,
+        "latency_s": 6.698383177999972,
+        "text": "Vaccines work by training the immune system to recognize and fight specific pathogens, like viruses or bacteria, without causing the disease. They contain harmless pieces of the pathogen (like proteins or inactivated forms), which trigger an immune response, creating memory cells that protect against future infections.",
+        "ids": [
+          "chatcmpl-98a45cbd6bf0131f"
+        ],
+        "rate": 24000,
+        "audio_s": 20.36,
+        "audio_file": "c16_29.wav",
+        "asr": "vaccines work by training the immune system to recognize and fight specific pathogens, like viruses or bacteria, without causing the disease. They contain harmless pieces of the pathogen, like proteins or inactivated forms, which trigger an immune response, creating memory cells that protect against future infections.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "What should I pack for a weekend hiking trip?",
+        "status": 200,
+        "ttft_s": 0.48010019900004863,
+        "ttfa_s": 0.84812724599999,
+        "audio_chunks": 11,
+        "latency_s": 3.9863127050000458,
+        "text": "For a weekend hiking trip, you should pack a tent, sleeping bag, and sleeping pad. You should also pack a first aid kit, a map, and a compass. You should also pack plenty of water, snacks, and a flashlight.",
+        "ids": [
+          "chatcmpl-9321c4bde59bde0e"
+        ],
+        "rate": 24000,
+        "audio_s": 11.04,
+        "audio_file": "c16_30.wav",
+        "asr": "For a weekend hiking trip, you should pack a tent, sleeping bag, and sleeping pad. You should also pack a first aid kit, a map, and a compass. You should also pack plenty of water, snacks, and a flashlight.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Recommend a good habit for better sleep and explain why in one sentence.",
+        "status": 200,
+        "ttft_s": 0.26557686900002864,
+        "ttfa_s": 0.5436194280000564,
+        "audio_chunks": 8,
+        "latency_s": 2.3041862350000883,
+        "text": "Establishing a consistent sleep schedule helps regulate your body's internal clock, making it easier to fall asleep and wake up naturally.",
+        "ids": [
+          "chatcmpl-b5e5b782403979b1"
+        ],
+        "rate": 24000,
+        "audio_s": 7.44,
+        "audio_file": "c16_31.wav",
+        "asr": "Establishing a consistent sleep schedule helps regulate your body's internal clock, making it easier to fall asleep and wake up naturally.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "ttft_s": 0.2902990300000283,
+        "ttfa_s": 0.5629944660000774,
+        "audio_chunks": 8,
+        "latency_s": 2.645874291000041,
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "ids": [
+          "chatcmpl-9f57cae2594c2d8f"
+        ],
+        "rate": 24000,
+        "audio_s": 7.44,
+        "audio_file": "c16_32.wav",
+        "asr": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 60 words.",
+        "status": 200,
+        "ttft_s": 0.501771223999981,
+        "ttfa_s": 0.8084811979999813,
+        "audio_chunks": 16,
+        "latency_s": 5.050779339999963,
+        "text": "A hash map handles collisions using methods like chaining (linked lists) or open addressing (probing). Chaining stores colliding elements in a list at the hash index. Open addressing finds another open slot using probing techniques like linear, quadratic, or double hashing.",
+        "ids": [
+          "chatcmpl-99c33c61113fd51c"
+        ],
+        "rate": 24000,
+        "audio_s": 15.52,
+        "audio_file": "c16_33.wav",
+        "asr": "A hash map handles collisions using methods like chaining, linked lists, or open addressing. Probing. Chaining stores colliding elements in a list at the hash index. Open addressing finds another open slot using probing techniques like linear, quadratic, or double hashing.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun.",
+        "status": 200,
+        "ttft_s": 0.18510891199991875,
+        "ttfa_s": 0.6039719589999777,
+        "audio_chunks": 8,
+        "latency_s": 2.424879644999919,
+        "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+        "ids": [
+          "chatcmpl-a0629b05fc202aa0"
+        ],
+        "rate": 24000,
+        "audio_s": 7.24,
+        "audio_file": "c16_34.wav",
+        "asr": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours. What is its average speed?",
+        "status": 200,
+        "ttft_s": 0.22850578899999618,
+        "ttfa_s": 0.4198485450000362,
+        "audio_chunks": 17,
+        "latency_s": 5.85541798099996,
+        "text": "verage speed = Total distance / Total time = 180 km / 2 hours = 90 km/h",
+        "ids": [
+          "chatcmpl-be94279c02817564"
+        ],
+        "rate": 24000,
+        "audio_s": 16.88,
+        "audio_file": "c16_35.wav",
+        "asr": "Watch as Pete, Danu, total distance, Soi, total time, Danu, 180, Kia, Ki, Ti, 2 hours, Danu, 90, Ki, Ki, Ki, and 8, Ti.",
+        "wer": 1.2307692307692308
+      },
+      {
+        "prompt": "Write a short story of about 50 words about a robot that learns to paint.",
+        "status": 200,
+        "ttft_s": 0.6153338159999748,
+        "ttfa_s": 0.9529464889999417,
+        "audio_chunks": 21,
+        "latency_s": 7.417973167000014,
+        "text": "Zeta, a factory robot, discovered a paintbrush in the scrapyard. Curious, it dipped the brush in vibrant paint and began to stroke the canvas. Colors danced across the surface. Zeta realized it wasn’t just moving parts—it was creating. For the first time, the robot felt alive, expressing emotions through art.",
+        "ids": [
+          "chatcmpl-8412213db40c123b"
+        ],
+        "rate": 24000,
+        "audio_s": 20.48,
+        "audio_file": "c16_36.wav",
+        "asr": "Zeta, a factory robot, discovered a paintbrush in the scrapyard. Curious, it dipped the brush in vibrant paint and began to stroke the canvas. Colors danced across the surface. Zeta realized it wasn't just moving parts. It was creating. For the first time, the robot felt alive, expressing emotions through art.",
+        "wer": 0.038461538461538464
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.6420221629999787,
+        "ttfa_s": 0.9113869039999827,
+        "audio_chunks": 27,
+        "latency_s": 8.442011591999972,
+        "text": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data, while UDP is a connectionless protocol that provides faster transmission with no guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP prioritizes speed and simplicity, making it suitable for applications where speed is more critical than reliability.",
+        "ids": [
+          "chatcmpl-89dd66540cc1657b"
+        ],
+        "rate": 24000,
+        "audio_s": 26.32,
+        "audio_file": "c16_37.wav",
+        "asr": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-check delivery of data, while UDP is a connectionless protocol that provides faster transmission with no guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP prioritizes speed and simplicity, making it suitable for applications where speed is more critical than reliability.",
+        "wer": 0.017241379310344827
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs in three short steps.",
+        "status": 200,
+        "ttft_s": 0.8285279110000374,
+        "ttfa_s": 1.2439725010000302,
+        "audio_chunks": 24,
+        "latency_s": 7.912452244000065,
+        "text": "Sure! Here’s a quick recipe for scrambled eggs in three short steps:\n\n1. Crack 2–3 eggs into a bowl, add a splash of milk or cream, and whisk until well mixed.\n2. Heat a non-stick pan over medium heat, add a bit of butter or oil, and pour in the egg mixture.\n3. Stir gently with a spatula until the eggs are just set but still creamy, then remove from heat. Enjoy!",
+        "ids": [
+          "chatcmpl-b352f61583e4360e"
+        ],
+        "rate": 24000,
+        "audio_s": 23.44,
+        "audio_file": "c16_38.wav",
+        "asr": "Sure, here's a quick recipe for scrambled eggs in three short steps. Crack two to three eggs into a bowl, add a splash of milk or cream, and whisk until well mixed. Two, heat a non-stick pan over medium heat. Add a bit of butter or oil, and pour in the egg mixture. Three, stir gently with a spatula until the eggs are just set but still creamy, then remove from heat. Enjoy!",
+        "wer": 0.10666666666666667
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in two sentences.",
+        "status": 200,
+        "ttft_s": 0.26160766700002114,
+        "ttfa_s": 0.6021439980000878,
+        "audio_chunks": 8,
+        "latency_s": 3.211806038000077,
+        "text": "Romeo and Juliet, from feuding families, fall in love and secretly marry. Their tragic deaths ultimately reconcile their families.",
+        "ids": [
+          "chatcmpl-9489ba8877166bd8"
+        ],
+        "rate": 24000,
+        "audio_s": 7.28,
+        "audio_file": "c16_39.wav",
+        "asr": "Romeo and Juliet, from feuding families, fall in love and secretly marry. Their tragic deaths ultimately reconcile their families.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning in two sentences.",
+        "status": 200,
+        "ttft_s": 0.6604219700000158,
+        "ttfa_s": 1.0651755740000226,
+        "audio_chunks": 23,
+        "latency_s": 7.861114119000035,
+        "text": "Supervised learning uses labeled data to train a model to make predictions or decisions, while unsupervised learning uses unlabeled data to find patterns or groupings in the data. In supervised learning, the model is trained on input-output pairs, while in unsupervised learning, the model is not given any output and must find structure in the data on its own.",
+        "ids": [
+          "chatcmpl-83db2fb038c1586a"
+        ],
+        "rate": 24000,
+        "audio_s": 22.76,
+        "audio_file": "c16_40.wav",
+        "asr": "supervised learning uses labeled data to train a model to make predictions or decisions, while unsupervised learning uses unlabeled data to find patterns or groupings in the data. In supervised learning, the model is trained on input-output pairs, while in unsupervised learning, the model is not given any output and must find structure in the data on its own.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "What is 17 multiplied by 23?",
+        "status": 200,
+        "ttft_s": 0.15964479900003425,
+        "ttfa_s": 0.5260691840001073,
+        "audio_chunks": 5,
+        "latency_s": 2.040481280000108,
+        "text": "17 multiplied by 23 is 391.",
+        "ids": [
+          "chatcmpl-b9ec2a4c9530a01d"
+        ],
+        "rate": 24000,
+        "audio_s": 4.16,
+        "audio_file": "c16_41.wav",
+        "asr": "Cp multiplied by 23 is 391.",
+        "wer": 0.16666666666666666
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms, in two sentences.",
+        "status": 200,
+        "ttft_s": 0.43462948799992773,
+        "ttfa_s": 0.770525914000018,
+        "audio_chunks": 14,
+        "latency_s": 4.731953407999981,
+        "text": "The water cycle is the continuous movement of water on, above, and below the surface of the Earth. Water evaporates from oceans, lakes, and rivers, forms clouds, and eventually falls back to the Earth as rain or snow.",
+        "ids": [
+          "chatcmpl-9814633734760b06"
+        ],
+        "rate": 24000,
+        "audio_s": 13.6,
+        "audio_file": "c16_42.wav",
+        "asr": "The water cycle is the continuous movement of water on, above, and below the surface of the Earth. Water evaporates from oceans, lakes, and rivers, forms clouds, and eventually falls back to the Earth as rain or snow.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Why is the sky blue? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.4656013310000162,
+        "ttfa_s": 0.7784627700000328,
+        "audio_chunks": 15,
+        "latency_s": 5.276799168000025,
+        "text": "The sky appears blue because of Rayleigh scattering, where shorter blue wavelengths of sunlight are scattered more by the molecules and particles in the atmosphere. This scattered blue light reaches our eyes from all directions, making the sky look blue during the day.",
+        "ids": [
+          "chatcmpl-914acf8954af4e41"
+        ],
+        "rate": 24000,
+        "audio_s": 15.04,
+        "audio_file": "c16_43.wav",
+        "asr": "The sky appears blue because of Rayleigh scattering, where shorter blue wavelengths of sunlight are scattered more by the molecules and particles in the atmosphere. This scattered blue light reaches our eyes from all directions, making the sky look blue during the day.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Tell me a fun fact about octopuses.",
+        "status": 200,
+        "ttft_s": 0.42923142400002234,
+        "ttfa_s": 0.7753883430000315,
+        "audio_chunks": 13,
+        "latency_s": 4.723053313000037,
+        "text": "Octopuses have three hearts! Two pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, the heart that delivers blood to the body stops beating when the octopus swims.",
+        "ids": [
+          "chatcmpl-b15904e6440c5537"
+        ],
+        "rate": 24000,
+        "audio_s": 12.76,
+        "audio_file": "c16_44.wav",
+        "asr": "Otopuses have three hearts. Two pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, the heart that delivers blood to the body stops beating when the octopus swims.",
+        "wer": 0.027777777777777776
+      },
+      {
+        "prompt": "How do vaccines work? Keep it short.",
+        "status": 200,
+        "ttft_s": 0.5924117920000072,
+        "ttfa_s": 0.8885928329999615,
+        "audio_chunks": 21,
+        "latency_s": 6.569804752999971,
+        "text": "Vaccines work by training the immune system to recognize and fight specific pathogens, like viruses or bacteria, without causing the disease. They contain harmless pieces of the pathogen (like proteins or inactivated forms), which trigger an immune response, creating memory cells that protect the body if exposed to the real pathogen later.",
+        "ids": [
+          "chatcmpl-b2b1ba77321483cb"
+        ],
+        "rate": 24000,
+        "audio_s": 20.88,
+        "audio_file": "c16_45.wav",
+        "asr": "Fatines work by training the immune system to recognize and fight specific pathogens, like viruses or bacteria, without causing the disease. They contain harmless pieces of the pathogen, like proteins or inactivated forms, which trigger an immune response, creating memory cells that protect the body if exposed to the real pathogen later.",
+        "wer": 0.019230769230769232
+      },
+      {
+        "prompt": "What should I pack for a weekend hiking trip?",
+        "status": 200,
+        "ttft_s": 0.4838941180000802,
+        "ttfa_s": 1.4626681360000475,
+        "audio_chunks": 13,
+        "latency_s": 5.210565588999998,
+        "text": "For a weekend hiking trip, you should pack a tent, sleeping bag, and sleeping pad. You should also pack a first aid kit, a map, a compass, and plenty of water. You should also pack some snacks and a small stove for cooking.",
+        "ids": [
+          "chatcmpl-9200ea1abc510c90"
+        ],
+        "rate": 24000,
+        "audio_s": 13.0,
+        "audio_file": "c16_46.wav",
+        "asr": "For weekend hiking trip, you should pack a tent, sleeping bag, and sleeping pad. You should also pack a first aid kit, a map, a compass, and plenty of water. You should also pack some snacks, and a small stove for cooking.",
+        "wer": 0.023255813953488372
+      },
+      {
+        "prompt": "Recommend a good habit for better sleep and explain why in one sentence.",
+        "status": 200,
+        "ttft_s": 0.2642974810000851,
+        "ttfa_s": 0.8105995630000962,
+        "audio_chunks": 9,
+        "latency_s": 2.550742231000072,
+        "text": "Establishing a consistent sleep schedule helps regulate your body's internal clock, making it easier to fall asleep and wake up naturally.",
+        "ids": [
+          "chatcmpl-bbd990cb422253ec"
+        ],
+        "rate": 24000,
+        "audio_s": 8.2,
+        "audio_file": "c16_47.wav",
+        "asr": "Establishing a consistent sleep schedule helps regulate your body's internal clock, making it easier to fall asleep and wake up naturally.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "ttft_s": 0.2760173600000826,
+        "ttfa_s": 1.2821838940000134,
+        "audio_chunks": 9,
+        "latency_s": 3.487990527000079,
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "ids": [
+          "chatcmpl-bff81316f0507cec"
+        ],
+        "rate": 24000,
+        "audio_s": 8.24,
+        "audio_file": "c16_48.wav",
+        "asr": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 60 words.",
+        "status": 200,
+        "ttft_s": 0.48010763100000986,
+        "ttfa_s": 1.321809902000041,
+        "audio_chunks": 17,
+        "latency_s": 5.611888487000101,
+        "text": "A hash map handles collisions using methods like chaining (linked lists) or open addressing (probing). Chaining stores colliding elements in a list at the hash index. Open addressing finds another open slot using probing techniques like linear, quadratic, or double hashing.",
+        "ids": [
+          "chatcmpl-b4c2cc08a032b4ec"
+        ],
+        "rate": 24000,
+        "audio_s": 16.2,
+        "audio_file": "c16_49.wav",
+        "asr": "A hash map handles collisions using methods like chaining, linked lists, or open addressing, probing. Chaining stores colliding elements in a list at the hash index. Open addressing finds another open slot using probing techniques like linear, quadratic, or double hashing.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun.",
+        "status": 200,
+        "ttft_s": 0.18603038899993862,
+        "ttfa_s": 0.9329457649999995,
+        "audio_chunks": 7,
+        "latency_s": 2.671709688999954,
+        "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+        "ids": [
+          "chatcmpl-923cc47736283b3c"
+        ],
+        "rate": 24000,
+        "audio_s": 7.04,
+        "audio_file": "c16_50.wav",
+        "asr": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours. What is its average speed?",
+        "status": 200,
+        "ttft_s": 0.23805191400003878,
+        "ttfa_s": 0.6837687610000103,
+        "audio_chunks": 11,
+        "latency_s": 4.793357051000044,
+        "text": "verage speed = Total distance / Total time = 180 km / 2 hours = 90 km/h",
+        "ids": [
+          "chatcmpl-8c8289c091555d00"
+        ],
+        "rate": 24000,
+        "audio_s": 10.72,
+        "audio_file": "c16_51.wav",
+        "asr": "Federal Speed, DOLU, Total Distance Sign, Total Time, DOLU, 180km Port Hours, DOLU, 90km Janes.",
+        "wer": 0.6923076923076923
+      },
+      {
+        "prompt": "Write a short story of about 50 words about a robot that learns to paint.",
+        "status": 200,
+        "ttft_s": 0.6153085969999665,
+        "ttfa_s": 0.8278344699999707,
+        "audio_chunks": 22,
+        "latency_s": 5.588230478000014,
+        "text": "Zeta, a factory robot, discovered a paintbrush in the scrapyard. Curious, it dipped the brush in vibrant paint and began to stroke the canvas. Colors danced across the surface. Zeta realized it wasn’t just moving parts—it was creating. For the first time, the robot felt alive, expressing emotions through art.",
+        "ids": [
+          "chatcmpl-a24eec70956cfeef"
+        ],
+        "rate": 24000,
+        "audio_s": 21.72,
+        "audio_file": "c16_52.wav",
+        "asr": "Zeta, a factory robot, discovered a paintbrush in the scrapyard. Curious, it dipped the brush in vibrant paint and began to stroke the canvas. Colors danced across the surface. Zeta realized it wasn't just moving parts. It was creating. For the first time, the robot felt alive, expressing emotions through art.",
+        "wer": 0.038461538461538464
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.6232252349999499,
+        "ttfa_s": 0.8667967459999772,
+        "audio_chunks": 27,
+        "latency_s": 5.189605046999986,
+        "text": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-checked delivery of data, while UDP is a connectionless protocol that provides faster transmission but without guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP does not, making it suitable for applications where speed is prioritized over accuracy.",
+        "ids": [
+          "chatcmpl-a19792361434447d"
+        ],
+        "rate": 24000,
+        "audio_s": 26.68,
+        "audio_file": "c16_53.wav",
+        "asr": "TCP is a connection-oriented protocol that ensures reliable, ordered, and error-check delivery of data, while UDP is a connectionless protocol that provides faster transmission but without guarantees of delivery or order. TCP uses acknowledgments and retransmissions for reliability, whereas UDP does not, making it suitable for applications where speed is prioritized over accuracy.",
+        "wer": 0.01818181818181818
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs in three short steps.",
+        "status": 200,
+        "ttft_s": 0.841770356999973,
+        "ttfa_s": 1.1582890399999997,
+        "audio_chunks": 24,
+        "latency_s": 5.072086793999915,
+        "text": "Sure! Here’s a quick recipe for scrambled eggs in three short steps:\n\n1. Crack 2–3 eggs into a bowl, add a splash of milk or cream, and whisk until well mixed.\n2. Heat a non-stick pan over medium heat, add a bit of butter or oil, and pour in the egg mixture.\n3. Stir gently with a spatula until the eggs are just set and fluffy, then remove from heat. Enjoy!",
+        "ids": [
+          "chatcmpl-afded3118f0f610e"
+        ],
+        "rate": 24000,
+        "audio_s": 23.44,
+        "audio_file": "c16_54.wav",
+        "asr": "Sure, here's a quick recipe for scrambled eggs in 3 short steps. Crack 2 to 3 eggs into a bowl, add a splash of milk or cream, and whisk until well mixed. 2. Heat a non-stick pan over medium heat, add a bit of butter or oil, and pour in the egg mixture. 3. Stir gently with a spatula until the eggs are just set and fluffy, then remove from heat. Enjoy!",
+        "wer": 0.06756756756756757
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in two sentences.",
+        "status": 200,
+        "ttft_s": 0.2399604370000361,
+        "ttfa_s": 0.5276506550000022,
+        "audio_chunks": 8,
+        "latency_s": 3.0009898929999963,
+        "text": "Romeo and Juliet, from feuding families, fall in love and secretly marry. Their tragic deaths ultimately reconcile their families.",
+        "ids": [
+          "chatcmpl-84a27345559ac540"
+        ],
+        "rate": 24000,
+        "audio_s": 7.64,
+        "audio_file": "c16_55.wav",
+        "asr": "Romeo and Juliet, from feuding families, fall in love and secretly marry. Their tragic deaths ultimately reconcile their families.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning in two sentences.",
+        "status": 200,
+        "ttft_s": 0.6647857380000914,
+        "ttfa_s": 0.9122544740000649,
+        "audio_chunks": 20,
+        "latency_s": 3.6806353350000336,
+        "text": "Supervised learning uses labeled data to train a model to make predictions or decisions, while unsupervised learning uses unlabeled data to find patterns or groupings in the data. In supervised learning, the model is trained on input-output pairs, while in unsupervised learning, the model is not given any output and must find structure in the data on its own.",
+        "ids": [
+          "chatcmpl-abee64d11f95e00b"
+        ],
+        "rate": 24000,
+        "audio_s": 19.44,
+        "audio_file": "c16_56.wav",
+        "asr": "supervised learning uses labeled data to train the model to make predictions or decisions, while unsupervised learning uses unlabeled data to find patterns or groupings in the data. In supervised learning, the model is trained on input-output pairs, while in unsupervised learning, the model is not given any output and must find structure in the data on its own.",
+        "wer": 0.016666666666666666
+      },
+      {
+        "prompt": "What is 17 multiplied by 23?",
+        "status": 200,
+        "ttft_s": 0.15282863099992028,
+        "ttfa_s": 0.455814528000019,
+        "audio_chunks": 4,
+        "latency_s": 1.344666502999985,
+        "text": "17 multiplied by 23 is 391.",
+        "ids": [
+          "chatcmpl-b4b8fdea581a7e12"
+        ],
+        "rate": 24000,
+        "audio_s": 3.48,
+        "audio_file": "c16_57.wav",
+        "asr": "17 multiplied by 23 is 391.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms, in two sentences.",
+        "status": 200,
+        "ttft_s": 0.43246038500001305,
+        "ttfa_s": 0.7713258740000128,
+        "audio_chunks": 14,
+        "latency_s": 3.1017804180000894,
+        "text": "The water cycle is the continuous movement of water on, above, and below the surface of the Earth. Water evaporates from oceans, lakes, and rivers, forms clouds, and eventually falls back to the Earth as rain or snow.",
+        "ids": [
+          "chatcmpl-bdf55a09166f2409"
+        ],
+        "rate": 24000,
+        "audio_s": 14.04,
+        "audio_file": "c16_58.wav",
+        "asr": "The water cycle is the continuous movement of water on, above, and below the surface of the Earth. Water evaporates from oceans, lakes, and rivers, forms clouds, and eventually falls back to the Earth as rain or snow.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Why is the sky blue? Answer in two sentences.",
+        "status": 200,
+        "ttft_s": 0.44414401300002737,
+        "ttfa_s": 0.7007019200000286,
+        "audio_chunks": 14,
+        "latency_s": 2.8519935289999694,
+        "text": "The sky appears blue because of Rayleigh scattering, where shorter blue wavelengths of sunlight are scattered more by the molecules and particles in the atmosphere. This scattered blue light reaches our eyes from all directions, making the sky look blue during the day.",
+        "ids": [
+          "chatcmpl-b4e56dc93321125d"
+        ],
+        "rate": 24000,
+        "audio_s": 13.96,
+        "audio_file": "c16_59.wav",
+        "asr": "The sky appears blue because of Rayleigh scattering, where shorter blue wavelengths of sunlight are scattered more by the molecules and particles in the atmosphere. This scattered blue light reaches our eyes from all directions, making the sky look blue during the day.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "Tell me a fun fact about octopuses.",
+        "status": 200,
+        "ttft_s": 0.41816070100003344,
+        "ttfa_s": 0.8018721849999793,
+        "audio_chunks": 12,
+        "latency_s": 2.557304070999976,
+        "text": "Octopuses have three hearts! Two pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, the heart that delivers blood to the body stops beating when the octopus swims.",
+        "ids": [
+          "chatcmpl-a7d87876efc47b27"
+        ],
+        "rate": 24000,
+        "audio_s": 11.84,
+        "audio_file": "c16_60.wav",
+        "asr": "Octopuses have three hearts, two pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, the heart that delivers blood to the body stops beating when the octopus swims.",
+        "wer": 0.0
+      },
+      {
+        "prompt": "How do vaccines work? Keep it short.",
+        "status": 200,
+        "ttft_s": 0.49624908900000264,
+        "ttfa_s": 0.7930155430000241,
+        "audio_chunks": 20,
+        "latency_s": 2.6896350020000455,
+        "text": "Vaccines work by training the immune system to recognize and fight specific pathogens, like viruses or bacteria, without causing the disease. They contain harmless parts of the pathogen (or a weakened version), which trigger an immune response, creating memory cells that protect against future infections.",
+        "ids": [
+          "chatcmpl-b0d4b3e3f449d903"
+        ],
+        "rate": 24000,
+        "audio_s": 19.16,
+        "audio_file": "c16_61.wav",
+        "asr": "Vasines work by training the immune system to recognize and fight specific pathogens, like viruses or bacteria, without causing the disease. They contain harmless parts of the pathogen, or a weakened version, which trigger an immune response, creating memory cells that protect against future infections.",
+        "wer": 0.022222222222222223
+      },
+      {
+        "prompt": "What should I pack for a weekend hiking trip?",
+        "status": 200,
+        "ttft_s": 0.8481141130000651,
+        "ttfa_s": 1.3200032940000028,
+        "audio_chunks": 23,
+        "latency_s": 3.242965314999992,
+        "text": "For a weekend hiking trip, you should pack a tent, sleeping bag, and sleeping pad. You should also pack a first aid kit, a water filter, and a headlamp. You should also pack a map, compass, and a multi-tool. You should also pack some snacks and a water bottle. You should also pack some extra clothes, such as a rain jacket and a warm layer. You should also pack some sunscreen and insect repellent. You should also pack a",
+        "ids": [
+          "chatcmpl-bc4aa523503fb4a9"
+        ],
+        "rate": 24000,
+        "audio_s": 22.6,
+        "audio_file": "c16_62.wav",
+        "asr": "For a weekend hiking trip, you should pack a tent, sleeping bag, and sleeping pad. You should also pack a first aid kit, a water filter, and a headlamp. You should also pack a map, compass, and a multi-tool. You should also pack some snacks and a water bottle. You should also pack some extra clothes, such as a rain jacket and a warm layer. You should also pack some sunscreen and insect repellent. You should also pack",
+        "wer": 0.0125
+      },
+      {
+        "prompt": "Recommend a good habit for better sleep and explain why in one sentence.",
+        "status": 200,
+        "ttft_s": 0.2437843539998994,
+        "ttfa_s": 0.48574665799992545,
+        "audio_chunks": 8,
+        "latency_s": 1.3512334879999344,
+        "text": "Establishing a consistent sleep schedule helps regulate your body's internal clock, making it easier to fall asleep and wake up naturally.",
+        "ids": [
+          "chatcmpl-9ca7df13029eb08b"
+        ],
+        "rate": 24000,
+        "audio_s": 7.8,
+        "audio_file": "c16_63.wav",
+        "asr": "Establishing a consistent sleep schedule helps regulate your body's internal clock, making it easier to fall asleep and wake up naturally.",
+        "wer": 0.0
+      }
+    ]
+  },
+  "error_tail": [
+    "\u001b[0;36m(APIServer pid=1194)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 22:13:19\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+}

@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="14" skipped="0" tests="64" time="7.921" timestamp="2026-10-31T22:32:04.128175+00:00" hostname="test-container"><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_output_emits_decode_input_codes_with_validity_and_forced_eos" time="0.016" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_output_empty_condition_and_length_cap" time="0.005" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_sampler_adapter_keeps_upstream_counts_and_only_forces_codec_eos[None]" time="0.002" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_sampler_adapter_keeps_upstream_counts_and_only_forces_codec_eos[forced1]" time="0.002" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_native_duplex_output[9]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_native_duplex_output[None]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_rejects_native_duplex_without_fence_identity[fence0]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_rejects_native_duplex_without_fence_identity[fence1]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_rejects_native_duplex_without_fence_identity[fence2]" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_context_with_only_eos_slot_forces_eos_at_prefill" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[24-False-True-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[25-False-True-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[29-False-True-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[30-False-True-False]" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[50-False-True-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[55-False-True-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[0-True-False-False]" time="0.005" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[0-False-False-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[24-False-False-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[25-False-False-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_waits_for_silence" time="0.006" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_stops_the_same_way_after_preemption" time="0.013" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_new_condition_starts_from_zero" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_forces_eos_after_a_quiet_run" time="0.007" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[0-cpu]" time="0.005" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[0-cuda]" time="0.647" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[3-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[3-cuda]" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[16-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[16-cuda]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[20-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[20-cuda]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_prefill_seeds_codec_history_for_the_actual_slot" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_turn_decode_does_not_build_duplex_limit_tensors" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_output_marks_each_draft_row" time="0.005"><failure message="assert [True, True, ...e, False, ...] == [True, True, ...ue, True, ...]&#10;  &#10;  At index 4 diff: False != True&#10;  Use -v to get more diff">def test_mrv2_output_marks_each_draft_row() -&gt; None:
+        talker = _talker()
+        prompt_lens = {0: 4, 1: 4, 3: 4096 - 100}
+        limit = min(_OFFLINE_CODEC_MAX_NEW_TOKENS, 100) - 1
+        rows = [
+            # Three codes so far, then drafts 21, EOS and 30: the codes end at the EOS input.
+            dict(slot=0, prompt_len=4, computed=6, span=[17, 21, _EOS, 30], prefill=False, drafts=3),
+            dict(slot=1, prompt_len=4, computed=5, span=[8], prefill=False),
+            # Drafts that run past the length cap.
+            dict(
+                slot=3,
+                prompt_len=prompt_lens[3],
+                computed=prompt_lens[3] + limit - 2,
+                span=[5, 6, 7],
+                prefill=False,
+                drafts=2,
+            ),
+        ]
+        batch, _ = _batch(rows)
+        out = talker.make_omni_output_mrv2(
+            torch.zeros((8, 4)), input_batch=batch, req_states=_req_states(prompt_lens), model_intermediate_buffer=[{}] * 3
+        )
+        assert out.multimodal_outputs["codes"]["audio"][:, 0].tolist() == batch.input_ids.tolist()
+        valid = out.multimodal_outputs["meta"]["codec_frame_valid"]
+&gt;       assert valid.tolist() == [True, True, False, False, True, True, True, True]
+E       assert [True, True, ...e, False, ...] == [True, True, ...ue, True, ...]
+E         
+E         At index 4 diff: False != True
+E         Use -v to get more diff
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:472: AssertionError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[3-cpu]" time="0.004"><failure message="AssertionError: Tensor-likes are not close!&#10;&#10;Mismatched elements: 5 / 192 (2.6%)&#10;Greatest absolute difference: 0.17706036567687988 at index (2, 7) (up to 1e-05 allowed)&#10;Greatest relative difference: 0.09297046065330505 at index (2, 7) (up to 1.3e-06 allowed)">device = 'cpu', output_count = 3
+
+    @pytest.mark.parametrize("device", ["cpu", "cuda"])
+    @pytest.mark.parametrize("output_count", [3, 14, 20])
+    def test_codec_penalty_window_includes_the_steps_earlier_drafts(device, output_count):
+        if device == "cuda" and not torch.cuda.is_available():
+            pytest.skip("CUDA required")
+        from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import (
+            _apply_batched_repetition_penalty,
+            _CodecWindowPenaltiesState,
+        )
+    
+        prompt_lens = torch.tensor([3, 0, 2], device=device)
+        lengths = prompt_lens + output_count
+        tokens = torch.zeros(3, 64, dtype=torch.long, device=device)
+        prefixes = torch.full((3, 16), -1, dtype=torch.long, device=device)
+        drafts = {2: [7, 7, 4], 0: [2]}
+        histories, slots, local_pos, input_ids = [], [], [], []
+        for slot, prefix in [(2, [5, 5, 5, 9]), (0, [7, 7])]:
+            output = ([1, 7, 2] * 7)[:output_count]
+            start = int(prompt_lens[slot])
+            tokens[slot, start : start + output_count] = torch.tensor(output, device=device)
+            prefixes[slot, -len(prefix) :] = torch.tensor(prefix, device=device)
+            # Logits row j of a request follows its last code and the step's first j drafts.
+            input_ids += [output[-1], *drafts[slot]]
+            for j in range(len(drafts[slot]) + 1):
+                histories.append(torch.tensor(prefix + output + drafts[slot][:j]))
+                slots.append(slot)
+                local_pos.append(j)
+        logits = torch.linspace(-3, 3, 32, device=device).repeat(len(histories), 1)
+        expected = _apply_batched_repetition_penalty(logits.cpu(), histories, penalty=1.05, window_size=16)
+    
+        state = object.__new__(_CodecWindowPenaltiesState)
+        state.window_size = 16
+        state.base = SimpleNamespace(apply=lambda logits, ctx: logits)
+        state.req_states = SimpleNamespace(
+            all_token_ids=SimpleNamespace(gpu=tokens),
+            total_len=SimpleNamespace(gpu=lengths),
+            prompt_len=SimpleNamespace(gpu=prompt_lens),
+        )
+        state.repetition_penalty = SimpleNamespace(gpu=torch.full((3,), 1.05, device=device))
+        state.use_window = np.ones(3, dtype=bool)
+        state.history_prefix = prefixes
+        ctx = SimpleNamespace(
+            idx_mapping_np=np.array([2, 0]),
+            expanded_idx_mapping=torch.tensor(slots, device=device),
+            expanded_local_pos=torch.tensor(local_pos, dtype=torch.int32, device=device),
+            input_ids=torch.tensor(input_ids, device=device),
+        )
+&gt;       torch.testing.assert_close(state.apply(logits, ctx).cpu(), expected)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 5 / 192 (2.6%)
+E       Greatest absolute difference: 0.17706036567687988 at index (2, 7) (up to 1e-05 allowed)
+E       Greatest relative difference: 0.09297046065330505 at index (2, 7) (up to 1.3e-06 allowed)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:524: AssertionError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[3-cuda]" time="0.004"><failure message="AssertionError: Tensor-likes are not close!&#10;&#10;Mismatched elements: 5 / 192 (2.6%)&#10;Greatest absolute difference: 0.17706036567687988 at index (2, 7) (up to 1e-05 allowed)&#10;Greatest relative difference: 0.09297046065330505 at index (2, 7) (up to 1.3e-06 allowed)">device = 'cuda', output_count = 3
+
+    @pytest.mark.parametrize("device", ["cpu", "cuda"])
+    @pytest.mark.parametrize("output_count", [3, 14, 20])
+    def test_codec_penalty_window_includes_the_steps_earlier_drafts(device, output_count):
+        if device == "cuda" and not torch.cuda.is_available():
+            pytest.skip("CUDA required")
+        from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import (
+            _apply_batched_repetition_penalty,
+            _CodecWindowPenaltiesState,
+        )
+    
+        prompt_lens = torch.tensor([3, 0, 2], device=device)
+        lengths = prompt_lens + output_count
+        tokens = torch.zeros(3, 64, dtype=torch.long, device=device)
+        prefixes = torch.full((3, 16), -1, dtype=torch.long, device=device)
+        drafts = {2: [7, 7, 4], 0: [2]}
+        histories, slots, local_pos, input_ids = [], [], [], []
+        for slot, prefix in [(2, [5, 5, 5, 9]), (0, [7, 7])]:
+            output = ([1, 7, 2] * 7)[:output_count]
+            start = int(prompt_lens[slot])
+            tokens[slot, start : start + output_count] = torch.tensor(output, device=device)
+            prefixes[slot, -len(prefix) :] = torch.tensor(prefix, device=device)
+            # Logits row j of a request follows its last code and the step's first j drafts.
+            input_ids += [output[-1], *drafts[slot]]
+            for j in range(len(drafts[slot]) + 1):
+                histories.append(torch.tensor(prefix + output + drafts[slot][:j]))
+                slots.append(slot)
+                local_pos.append(j)
+        logits = torch.linspace(-3, 3, 32, device=device).repeat(len(histories), 1)
+        expected = _apply_batched_repetition_penalty(logits.cpu(), histories, penalty=1.05, window_size=16)
+    
+        state = object.__new__(_CodecWindowPenaltiesState)
+        state.window_size = 16
+        state.base = SimpleNamespace(apply=lambda logits, ctx: logits)
+        state.req_states = SimpleNamespace(
+            all_token_ids=SimpleNamespace(gpu=tokens),
+            total_len=SimpleNamespace(gpu=lengths),
+            prompt_len=SimpleNamespace(gpu=prompt_lens),
+        )
+        state.repetition_penalty = SimpleNamespace(gpu=torch.full((3,), 1.05, device=device))
+        state.use_window = np.ones(3, dtype=bool)
+        state.history_prefix = prefixes
+        ctx = SimpleNamespace(
+            idx_mapping_np=np.array([2, 0]),
+            expanded_idx_mapping=torch.tensor(slots, device=device),
+            expanded_local_pos=torch.tensor(local_pos, dtype=torch.int32, device=device),
+            input_ids=torch.tensor(input_ids, device=device),
+        )
+&gt;       torch.testing.assert_close(state.apply(logits, ctx).cpu(), expected)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 5 / 192 (2.6%)
+E       Greatest absolute difference: 0.17706036567687988 at index (2, 7) (up to 1e-05 allowed)
+E       Greatest relative difference: 0.09297046065330505 at index (2, 7) (up to 1.3e-06 allowed)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:524: AssertionError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[14-cpu]" time="0.003"><failure message="AssertionError: Tensor-likes are not close!&#10;&#10;Mismatched elements: 12 / 192 (6.2%)&#10;Greatest absolute difference: 0.21521806716918945 at index (2, 7) (up to 1e-05 allowed)&#10;Greatest relative difference: 0.09297052025794983 at index (2, 7) (up to 1.3e-06 allowed)">device = 'cpu', output_count = 14
+
+    @pytest.mark.parametrize("device", ["cpu", "cuda"])
+    @pytest.mark.parametrize("output_count", [3, 14, 20])
+    def test_codec_penalty_window_includes_the_steps_earlier_drafts(device, output_count):
+        if device == "cuda" and not torch.cuda.is_available():
+            pytest.skip("CUDA required")
+        from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import (
+            _apply_batched_repetition_penalty,
+            _CodecWindowPenaltiesState,
+        )
+    
+        prompt_lens = torch.tensor([3, 0, 2], device=device)
+        lengths = prompt_lens + output_count
+        tokens = torch.zeros(3, 64, dtype=torch.long, device=device)
+        prefixes = torch.full((3, 16), -1, dtype=torch.long, device=device)
+        drafts = {2: [7, 7, 4], 0: [2]}
+        histories, slots, local_pos, input_ids = [], [], [], []
+        for slot, prefix in [(2, [5, 5, 5, 9]), (0, [7, 7])]:
+            output = ([1, 7, 2] * 7)[:output_count]
+            start = int(prompt_lens[slot])
+            tokens[slot, start : start + output_count] = torch.tensor(output, device=device)
+            prefixes[slot, -len(prefix) :] = torch.tensor(prefix, device=device)
+            # Logits row j of a request follows its last code and the step's first j drafts.
+            input_ids += [output[-1], *drafts[slot]]
+            for j in range(len(drafts[slot]) + 1):
+                histories.append(torch.tensor(prefix + output + drafts[slot][:j]))
+                slots.append(slot)
+                local_pos.append(j)
+        logits = torch.linspace(-3, 3, 32, device=device).repeat(len(histories), 1)
+        expected = _apply_batched_repetition_penalty(logits.cpu(), histories, penalty=1.05, window_size=16)
+    
+        state = object.__new__(_CodecWindowPenaltiesState)
+        state.window_size = 16
+        state.base = SimpleNamespace(apply=lambda logits, ctx: logits)
+        state.req_states = SimpleNamespace(
+            all_token_ids=SimpleNamespace(gpu=tokens),
+            total_len=SimpleNamespace(gpu=lengths),
+            prompt_len=SimpleNamespace(gpu=prompt_lens),
+        )
+        state.repetition_penalty = SimpleNamespace(gpu=torch.full((3,), 1.05, device=device))
+        state.use_window = np.ones(3, dtype=bool)
+        state.history_prefix = prefixes
+        ctx = SimpleNamespace(
+            idx_mapping_np=np.array([2, 0]),
+            expanded_idx_mapping=torch.tensor(slots, device=device),
+            expanded_local_pos=torch.tensor(local_pos, dtype=torch.int32, device=device),
+            input_ids=torch.tensor(input_ids, device=device),
+        )
+&gt;       torch.testing.assert_close(state.apply(logits, ctx).cpu(), expected)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 12 / 192 (6.2%)
+E       Greatest absolute difference: 0.21521806716918945 at index (2, 7) (up to 1e-05 allowed)
+E       Greatest relative difference: 0.09297052025794983 at index (2, 7) (up to 1.3e-06 allowed)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:524: AssertionError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[14-cuda]" time="0.004"><failure message="AssertionError: Tensor-likes are not close!&#10;&#10;Mismatched elements: 12 / 192 (6.2%)&#10;Greatest absolute difference: 0.21521806716918945 at index (2, 7) (up to 1e-05 allowed)&#10;Greatest relative difference: 0.09297052025794983 at index (2, 7) (up to 1.3e-06 allowed)">device = 'cuda', output_count = 14
+
+    @pytest.mark.parametrize("device", ["cpu", "cuda"])
+    @pytest.mark.parametrize("output_count", [3, 14, 20])
+    def test_codec_penalty_window_includes_the_steps_earlier_drafts(device, output_count):
+        if device == "cuda" and not torch.cuda.is_available():
+            pytest.skip("CUDA required")
+        from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import (
+            _apply_batched_repetition_penalty,
+            _CodecWindowPenaltiesState,
+        )
+    
+        prompt_lens = torch.tensor([3, 0, 2], device=device)
+        lengths = prompt_lens + output_count
+        tokens = torch.zeros(3, 64, dtype=torch.long, device=device)
+        prefixes = torch.full((3, 16), -1, dtype=torch.long, device=device)
+        drafts = {2: [7, 7, 4], 0: [2]}
+        histories, slots, local_pos, input_ids = [], [], [], []
+        for slot, prefix in [(2, [5, 5, 5, 9]), (0, [7, 7])]:
+            output = ([1, 7, 2] * 7)[:output_count]
+            start = int(prompt_lens[slot])
+            tokens[slot, start : start + output_count] = torch.tensor(output, device=device)
+            prefixes[slot, -len(prefix) :] = torch.tensor(prefix, device=device)
+            # Logits row j of a request follows its last code and the step's first j drafts.
+            input_ids += [output[-1], *drafts[slot]]
+            for j in range(len(drafts[slot]) + 1):
+                histories.append(torch.tensor(prefix + output + drafts[slot][:j]))
+                slots.append(slot)
+                local_pos.append(j)
+        logits = torch.linspace(-3, 3, 32, device=device).repeat(len(histories), 1)
+        expected = _apply_batched_repetition_penalty(logits.cpu(), histories, penalty=1.05, window_size=16)
+    
+        state = object.__new__(_CodecWindowPenaltiesState)
+        state.window_size = 16
+        state.base = SimpleNamespace(apply=lambda logits, ctx: logits)
+        state.req_states = SimpleNamespace(
+            all_token_ids=SimpleNamespace(gpu=tokens),
+            total_len=SimpleNamespace(gpu=lengths),
+            prompt_len=SimpleNamespace(gpu=prompt_lens),
+        )
+        state.repetition_penalty = SimpleNamespace(gpu=torch.full((3,), 1.05, device=device))
+        state.use_window = np.ones(3, dtype=bool)
+        state.history_prefix = prefixes
+        ctx = SimpleNamespace(
+            idx_mapping_np=np.array([2, 0]),
+            expanded_idx_mapping=torch.tensor(slots, device=device),
+            expanded_local_pos=torch.tensor(local_pos, dtype=torch.int32, device=device),
+            input_ids=torch.tensor(input_ids, device=device),
+        )
+&gt;       torch.testing.assert_close(state.apply(logits, ctx).cpu(), expected)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 12 / 192 (6.2%)
+E       Greatest absolute difference: 0.21521806716918945 at index (2, 7) (up to 1e-05 allowed)
+E       Greatest relative difference: 0.09297052025794983 at index (2, 7) (up to 1.3e-06 allowed)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:524: AssertionError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cpu]" time="0.003"><failure message="AssertionError: Tensor-likes are not close!&#10;&#10;Mismatched elements: 8 / 192 (4.2%)&#10;Greatest absolute difference: 0.1705625057220459 at index (3, 1) (up to 1e-05 allowed)&#10;Greatest relative difference: 0.05000004544854164 at index (5, 7) (up to 1.3e-06 allowed)">device = 'cpu', output_count = 20
+
+    @pytest.mark.parametrize("device", ["cpu", "cuda"])
+    @pytest.mark.parametrize("output_count", [3, 14, 20])
+    def test_codec_penalty_window_includes_the_steps_earlier_drafts(device, output_count):
+        if device == "cuda" and not torch.cuda.is_available():
+            pytest.skip("CUDA required")
+        from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import (
+            _apply_batched_repetition_penalty,
+            _CodecWindowPenaltiesState,
+        )
+    
+        prompt_lens = torch.tensor([3, 0, 2], device=device)
+        lengths = prompt_lens + output_count
+        tokens = torch.zeros(3, 64, dtype=torch.long, device=device)
+        prefixes = torch.full((3, 16), -1, dtype=torch.long, device=device)
+        drafts = {2: [7, 7, 4], 0: [2]}
+        histories, slots, local_pos, input_ids = [], [], [], []
+        for slot, prefix in [(2, [5, 5, 5, 9]), (0, [7, 7])]:
+            output = ([1, 7, 2] * 7)[:output_count]
+            start = int(prompt_lens[slot])
+            tokens[slot, start : start + output_count] = torch.tensor(output, device=device)
+            prefixes[slot, -len(prefix) :] = torch.tensor(prefix, device=device)
+            # Logits row j of a request follows its last code and the step's first j drafts.
+            input_ids += [output[-1], *drafts[slot]]
+            for j in range(len(drafts[slot]) + 1):
+                histories.append(torch.tensor(prefix + output + drafts[slot][:j]))
+                slots.append(slot)
+                local_pos.append(j)
+        logits = torch.linspace(-3, 3, 32, device=device).repeat(len(histories), 1)
+        expected = _apply_batched_repetition_penalty(logits.cpu(), histories, penalty=1.05, window_size=16)
+    
+        state = object.__new__(_CodecWindowPenaltiesState)
+        state.window_size = 16
+        state.base = SimpleNamespace(apply=lambda logits, ctx: logits)
+        state.req_states = SimpleNamespace(
+            all_token_ids=SimpleNamespace(gpu=tokens),
+            total_len=SimpleNamespace(gpu=lengths),
+            prompt_len=SimpleNamespace(gpu=prompt_lens),
+        )
+        state.repetition_penalty = SimpleNamespace(gpu=torch.full((3,), 1.05, device=device))
+        state.use_window = np.ones(3, dtype=bool)
+        state.history_prefix = prefixes
+        ctx = SimpleNamespace(
+            idx_mapping_np=np.array([2, 0]),
+            expanded_idx_mapping=torch.tensor(slots, device=device),
+            expanded_local_pos=torch.tensor(local_pos, dtype=torch.int32, device=device),
+            input_ids=torch.tensor(input_ids, device=device),
+        )
+&gt;       torch.testing.assert_close(state.apply(logits, ctx).cpu(), expected)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 8 / 192 (4.2%)
+E       Greatest absolute difference: 0.1705625057220459 at index (3, 1) (up to 1e-05 allowed)
+E       Greatest relative difference: 0.05000004544854164 at index (5, 7) (up to 1.3e-06 allowed)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:524: AssertionError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cuda]" time="0.007"><failure message="AssertionError: Tensor-likes are not close!&#10;&#10;Mismatched elements: 8 / 192 (4.2%)&#10;Greatest absolute difference: 0.1705625057220459 at index (3, 1) (up to 1e-05 allowed)&#10;Greatest relative difference: 0.05000004544854164 at index (5, 7) (up to 1.3e-06 allowed)">device = 'cuda', output_count = 20
+
+    @pytest.mark.parametrize("device", ["cpu", "cuda"])
+    @pytest.mark.parametrize("output_count", [3, 14, 20])
+    def test_codec_penalty_window_includes_the_steps_earlier_drafts(device, output_count):
+        if device == "cuda" and not torch.cuda.is_available():
+            pytest.skip("CUDA required")
+        from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import (
+            _apply_batched_repetition_penalty,
+            _CodecWindowPenaltiesState,
+        )
+    
+        prompt_lens = torch.tensor([3, 0, 2], device=device)
+        lengths = prompt_lens + output_count
+        tokens = torch.zeros(3, 64, dtype=torch.long, device=device)
+        prefixes = torch.full((3, 16), -1, dtype=torch.long, device=device)
+        drafts = {2: [7, 7, 4], 0: [2]}
+        histories, slots, local_pos, input_ids = [], [], [], []
+        for slot, prefix in [(2, [5, 5, 5, 9]), (0, [7, 7])]:
+            output = ([1, 7, 2] * 7)[:output_count]
+            start = int(prompt_lens[slot])
+            tokens[slot, start : start + output_count] = torch.tensor(output, device=device)
+            prefixes[slot, -len(prefix) :] = torch.tensor(prefix, device=device)
+            # Logits row j of a request follows its last code and the step's first j drafts.
+            input_ids += [output[-1], *drafts[slot]]
+            for j in range(len(drafts[slot]) + 1):
+                histories.append(torch.tensor(prefix + output + drafts[slot][:j]))
+                slots.append(slot)
+                local_pos.append(j)
+        logits = torch.linspace(-3, 3, 32, device=device).repeat(len(histories), 1)
+        expected = _apply_batched_repetition_penalty(logits.cpu(), histories, penalty=1.05, window_size=16)
+    
+        state = object.__new__(_CodecWindowPenaltiesState)
+        state.window_size = 16
+        state.base = SimpleNamespace(apply=lambda logits, ctx: logits)
+        state.req_states = SimpleNamespace(
+            all_token_ids=SimpleNamespace(gpu=tokens),
+            total_len=SimpleNamespace(gpu=lengths),
+            prompt_len=SimpleNamespace(gpu=prompt_lens),
+        )
+        state.repetition_penalty = SimpleNamespace(gpu=torch.full((3,), 1.05, device=device))
+        state.use_window = np.ones(3, dtype=bool)
+        state.history_prefix = prefixes
+        ctx = SimpleNamespace(
+            idx_mapping_np=np.array([2, 0]),
+            expanded_idx_mapping=torch.tensor(slots, device=device),
+            expanded_local_pos=torch.tensor(local_pos, dtype=torch.int32, device=device),
+            input_ids=torch.tensor(input_ids, device=device),
+        )
+&gt;       torch.testing.assert_close(state.apply(logits, ctx).cpu(), expected)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 8 / 192 (4.2%)
+E       Greatest absolute difference: 0.1705625057220459 at index (3, 1) (up to 1e-05 allowed)
+E       Greatest relative difference: 0.05000004544854164 at index (5, 7) (up to 1.3e-06 allowed)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:524: AssertionError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_draft_verification_forces_codec_eos_per_row" time="0.003"><failure message="ImportError: cannot import name 'MiniCPMO45TalkerRejectionSampler' from 'vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts' (/opt/vllm-omni/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_tts.py)">mocker = &lt;pytest_mock.plugin.MockerFixture object at 0x2b81df96ac00&gt;
+
+    def test_draft_verification_forces_codec_eos_per_row(mocker):
+        from vllm.v1.worker.gpu.spec_decode.rejection_sampler import RejectionSampler
+    
+&gt;       from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import MiniCPMO45TalkerRejectionSampler
+E       ImportError: cannot import name 'MiniCPMO45TalkerRejectionSampler' from 'vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts' (/opt/vllm-omni/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_tts.py)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:530: ImportError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_talker_verifies_drafts_with_its_codec_sampler" time="0.003"><failure message="AttributeError: module 'vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts' has no attribute 'MiniCPMO45TalkerRejectionSampler'. Did you mean: 'MiniCPMO45TalkerSampler'?">mocker = &lt;pytest_mock.plugin.MockerFixture object at 0x2b81df969400&gt;
+
+    def test_talker_verifies_drafts_with_its_codec_sampler(mocker):
+        import vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts as module
+    
+        talker = object.__new__(MiniCPMO45OmniTTSForConditionalGeneration)
+        talker._k_step_frames = 0
+        talker.vllm_config = SimpleNamespace(speculative_config=None)
+        mocker.patch.object(module, "_install_mrv2_talker_sampler", return_value="talker-sampler")
+        sampler = SimpleNamespace(req_states=SimpleNamespace(device="cpu"))
+        assert talker.mrv2_custom_sampler(sampler) == ("talker-sampler", None)
+        talker.vllm_config = SimpleNamespace(
+            speculative_config=SimpleNamespace(
+                num_speculative_tokens=7, enable_adaptive_verification=False, rejection_sample_method="standard"
+            )
+        )
+        talker_sampler, rejection = talker.mrv2_custom_sampler(sampler)
+        assert talker_sampler == "talker-sampler"
+&gt;       assert isinstance(rejection, module.MiniCPMO45TalkerRejectionSampler)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts' has no attribute 'MiniCPMO45TalkerRejectionSampler'. Did you mean: 'MiniCPMO45TalkerSampler'?
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:578: AttributeError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_drafter_loading_finds_the_codec_table_and_head" time="0.003"><failure message="AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has no attribute 'get_language_model'">def test_drafter_loading_finds_the_codec_table_and_head():
+        talker = object.__new__(MiniCPMO45OmniTTSForConditionalGeneration)
+        torch.nn.Module.__init__(talker)
+        talker.emb_code = torch.nn.ModuleList([torch.nn.Embedding(10, 4)])
+        talker.head_code = torch.nn.ModuleList([torch.nn.Linear(4, 10, bias=False)])
+&gt;       view = talker.get_language_model()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:589: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = MiniCPMO45OmniTTSForConditionalGeneration(
+  (emb_code): ModuleList(
+    (0): Embedding(10, 4)
+  )
+  (head_code): ModuleList(
+    (0): Linear(in_features=4, out_features=10, bias=False)
+  )
+)
+name = 'get_language_model'
+
+    def __getattr__(self, name: str) -&gt; Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+&gt;       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has no attribute 'get_language_model'
+
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py:1967: AttributeError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-turn-True]" time="0.004"><failure message="AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has no attribute 'set_aux_hidden_state_layers'">mocker = &lt;pytest_mock.plugin.MockerFixture object at 0x2b81df9bc980&gt;, v2 = True
+session = 'turn', ok = True
+
+    @pytest.mark.parametrize("v2,session,ok", [(True, "turn", True), (True, "duplex", False), (False, "turn", False)])
+    def test_talker_drafter_layers_need_turn_sessions_on_mrv2(mocker, v2, session, ok):
+        talker = object.__new__(MiniCPMO45OmniTTSForConditionalGeneration)
+        torch.nn.Module.__init__(talker)
+        talker._use_v2_model_runner = v2
+        talker._k_step_frames = 0
+        talker.vllm_config = SimpleNamespace(model_config=SimpleNamespace(session_mode=session))
+        talker.tts_model = mocker.Mock()
+        if ok:
+&gt;           talker.set_aux_hidden_state_layers((2, 10, 17))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:603: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = MiniCPMO45OmniTTSForConditionalGeneration()
+name = 'set_aux_hidden_state_layers'
+
+    def __getattr__(self, name: str) -&gt; Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+&gt;       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has no attribute 'set_aux_hidden_state_layers'
+
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py:1967: AttributeError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-duplex-False]" time="0.003"><failure message="AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has no attribute 'set_aux_hidden_state_layers'">mocker = &lt;pytest_mock.plugin.MockerFixture object at 0x2b81df9bd8b0&gt;, v2 = True
+session = 'duplex', ok = False
+
+    @pytest.mark.parametrize("v2,session,ok", [(True, "turn", True), (True, "duplex", False), (False, "turn", False)])
+    def test_talker_drafter_layers_need_turn_sessions_on_mrv2(mocker, v2, session, ok):
+        talker = object.__new__(MiniCPMO45OmniTTSForConditionalGeneration)
+        torch.nn.Module.__init__(talker)
+        talker._use_v2_model_runner = v2
+        talker._k_step_frames = 0
+        talker.vllm_config = SimpleNamespace(model_config=SimpleNamespace(session_mode=session))
+        talker.tts_model = mocker.Mock()
+        if ok:
+            talker.set_aux_hidden_state_layers((2, 10, 17))
+            talker.tts_model._set_aux_hidden_state_layers.assert_called_once_with((2, 10, 17))
+        else:
+            with pytest.raises(NotImplementedError, match="turn sessions"):
+&gt;               talker.set_aux_hidden_state_layers((2, 10, 17))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:607: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = MiniCPMO45OmniTTSForConditionalGeneration()
+name = 'set_aux_hidden_state_layers'
+
+    def __getattr__(self, name: str) -&gt; Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+&gt;       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has no attribute 'set_aux_hidden_state_layers'
+
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py:1967: AttributeError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_talker_drafter_layers_need_turn_sessions_on_mrv2[False-turn-False]" time="0.003"><failure message="AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has no attribute 'set_aux_hidden_state_layers'">mocker = &lt;pytest_mock.plugin.MockerFixture object at 0x2b81df9beb10&gt;, v2 = False
+session = 'turn', ok = False
+
+    @pytest.mark.parametrize("v2,session,ok", [(True, "turn", True), (True, "duplex", False), (False, "turn", False)])
+    def test_talker_drafter_layers_need_turn_sessions_on_mrv2(mocker, v2, session, ok):
+        talker = object.__new__(MiniCPMO45OmniTTSForConditionalGeneration)
+        torch.nn.Module.__init__(talker)
+        talker._use_v2_model_runner = v2
+        talker._k_step_frames = 0
+        talker.vllm_config = SimpleNamespace(model_config=SimpleNamespace(session_mode=session))
+        talker.tts_model = mocker.Mock()
+        if ok:
+            talker.set_aux_hidden_state_layers((2, 10, 17))
+            talker.tts_model._set_aux_hidden_state_layers.assert_called_once_with((2, 10, 17))
+        else:
+            with pytest.raises(NotImplementedError, match="turn sessions"):
+&gt;               talker.set_aux_hidden_state_layers((2, 10, 17))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:607: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = MiniCPMO45OmniTTSForConditionalGeneration()
+name = 'set_aux_hidden_state_layers'
+
+    def __getattr__(self, name: str) -&gt; Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+&gt;       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has no attribute 'set_aux_hidden_state_layers'
+
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py:1967: AttributeError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_profile_retains_full_thinker_handoff[minicpmo_4_5_turn_mrv2.yaml-capacities0-2-runners0]" time="0.043" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_profile_retains_full_thinker_handoff[minicpmo_4_5_turn_mrv2_h200.yaml-capacities1-4-runners1]" time="0.040" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_thinker_keeps_native_multimodal_embeddings_and_raw_ids" time="0.006" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_row_ledger_uses_live_batch_after_replay" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_thinker_duplex_output_and_prompt_rows" time="5.226" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_turn_thinker_retains_native_multimodal_path" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_thinker_custom_sampler_and_lifecycle" time="0.007" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_cancel_before_first_prefill_completes_frees_session" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_duplex_thinker_batches_prefill_appends" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_only_the_mrv2_duplex_thinker_keeps_native_multimodal_inputs[True-duplex-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_only_the_mrv2_duplex_thinker_keeps_native_multimodal_inputs[True-turn-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_only_the_mrv2_duplex_thinker_keeps_native_multimodal_inputs[False-duplex-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_batch_preprocess_hook_is_duplex_mrv2_only[True-turn]" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_batch_preprocess_hook_is_duplex_mrv2_only[False-duplex]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_mrv2_thinker_returns_drafter_layers_with_hidden_states" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_v1_thinker_refuses_drafter_layers" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_thinker_mrv2" name="test_talker_stage_hands_drafter_hooks_to_the_talker" time="0.003"><failure message="AttributeError: 'MiniCPMO45OmniForConditionalGeneration' object has no attribute 'model'">mocker = &lt;pytest_mock.plugin.MockerFixture object at 0x2b82300d4050&gt;
+
+    def test_talker_stage_hands_drafter_hooks_to_the_talker(mocker):
+        model = object.__new__(omni.MiniCPMO45OmniForConditionalGeneration)
+        torch.nn.Module.__init__(model)
+        model.model_stage = "tts"
+        model.thinker = None
+        model.talker = mocker.Mock()
+&gt;       assert model.get_language_model() is model.talker.get_language_model.return_value
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py:760: in get_language_model
+    return self.model
+           ^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = MiniCPMO45OmniForConditionalGeneration(), name = 'model'
+
+    def __getattr__(self, name: str) -&gt; Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+&gt;       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'MiniCPMO45OmniForConditionalGeneration' object has no attribute 'model'
+
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py:1967: AttributeError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,2750 @@
+{
+  "runs": [
+    {
+      "arm": "off",
+      "round": 0,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_off.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 321.22079849243164,
+      "ready": true,
+      "specacc_marks": {
+        "c1": 0,
+        "c16": 0
+      },
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=52)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 21:38:43\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 34.895681656999955,
+        "requests": 16,
+        "ok": 16,
+        "req_per_s": 0.4585094556188575,
+        "audio_s_per_s": 7.034681322832321
+      },
+      "c16": {
+        "wall_s": 23.699846395999998,
+        "requests": 64,
+        "ok": 64,
+        "req_per_s": 2.7004394429662533,
+        "audio_s_per_s": 40.7665089408793
+      }
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_dspark.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 288.19813227653503,
+      "ready": true,
+      "specacc_marks": {
+        "c1": 0,
+        "c16": 0
+      },
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=1050)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 21:45:39\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 21.109824857000035,
+        "requests": 16,
+        "ok": 16,
+        "req_per_s": 0.7579409165346243,
+        "audio_s_per_s": 12.36770090555373
+      },
+      "c16": {
+        "wall_s": 19.006287803000077,
+        "requests": 64,
+        "ok": 64,
+        "req_per_s": 3.367306686258735,
+        "audio_s_per_s": 49.46573522114081
+      }
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_dspark.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 216.14083218574524,
+      "ready": true,
+      "specacc_marks": {
+        "c1": 0,
+        "c16": 0
+      },
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=1992)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 21:51:02\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 20.974536842999896,
+        "requests": 16,
+        "ok": 16,
+        "req_per_s": 0.7628297168020608,
+        "audio_s_per_s": 12.447473903917626
+      },
+      "c16": {
+        "wall_s": 19.68888250200007,
+        "requests": 64,
+        "ok": 64,
+        "req_per_s": 3.2505653885383614,
+        "audio_s_per_s": 48.78895487859297
+      }
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_off.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 249.16994404792786,
+      "ready": true,
+      "specacc_marks": {
+        "c1": 0,
+        "c16": 0
+      },
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=2743)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 21:55:42\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 34.010551050000004,
+        "requests": 16,
+        "ok": 16,
+        "req_per_s": 0.47044224530434353,
+        "audio_s_per_s": 7.21776014858189
+      },
+      "c16": {
+        "wall_s": 20.902284562999967,
+        "requests": 64,
+        "ok": 64,
+        "req_per_s": 3.0618662666802057,
+        "audio_s_per_s": 46.05812331653699
+      }
+    }
+  ],
+  "asr": [
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 8.88
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 1,
+      "wer": 0.025,
+      "audio_s": 15.6
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 6.8
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 3,
+      "wer": 1.7692307692307692,
+      "audio_s": 12.48
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 4,
+      "wer": 0.04081632653061224,
+      "audio_s": 23.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 5,
+      "wer": 0.01818181818181818,
+      "audio_s": 25.28
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 6,
+      "wer": 0.10810810810810811,
+      "audio_s": 25.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 7,
+      "wer": 0.0,
+      "audio_s": 8.52
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 24.76
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 10,
+      "wer": 0.0,
+      "audio_s": 16.72
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.04
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 12,
+      "wer": 0.0,
+      "audio_s": 15.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 13,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.8
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 14,
+      "wer": 0.1282051282051282,
+      "audio_s": 26.44
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c1",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 10.12
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 0,
+      "wer": 0.041666666666666664,
+      "audio_s": 8.36
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 15.88
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 7.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 3,
+      "wer": 0.9230769230769231,
+      "audio_s": 9.64
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 4,
+      "wer": 0.0425531914893617,
+      "audio_s": 20.36
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 5,
+      "wer": 0.01818181818181818,
+      "audio_s": 25.04
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 6,
+      "wer": 0.10810810810810811,
+      "audio_s": 22.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 7,
+      "wer": 0.06060606060606061,
+      "audio_s": 11.96
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 22.84
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.2
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 10,
+      "wer": 0.0,
+      "audio_s": 9.68
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.12
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 12,
+      "wer": 0.0,
+      "audio_s": 14.48
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 13,
+      "wer": 0.03333333333333333,
+      "audio_s": 21.92
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 14,
+      "wer": 0.0,
+      "audio_s": 14.48
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 7.6
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 16,
+      "wer": 0.0,
+      "audio_s": 8.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 17,
+      "wer": 0.0,
+      "audio_s": 16.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 18,
+      "wer": 0.0,
+      "audio_s": 7.2
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 19,
+      "wer": 0.8461538461538461,
+      "audio_s": 10.96
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 20,
+      "wer": 0.043478260869565216,
+      "audio_s": 20.8
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 21,
+      "wer": 0.0,
+      "audio_s": 25.12
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 22,
+      "wer": 0.14864864864864866,
+      "audio_s": 21.72
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 23,
+      "wer": 0.0,
+      "audio_s": 8.52
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 24,
+      "wer": 0.0,
+      "audio_s": 20.56
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 25,
+      "wer": 0.0,
+      "audio_s": 3.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 26,
+      "wer": 0.0,
+      "audio_s": 15.2
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 27,
+      "wer": 0.0,
+      "audio_s": 14.6
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 28,
+      "wer": 0.0,
+      "audio_s": 14.68
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 29,
+      "wer": 0.01694915254237288,
+      "audio_s": 23.6
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 30,
+      "wer": 0.0,
+      "audio_s": 13.56
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 31,
+      "wer": 0.0,
+      "audio_s": 9.04
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 32,
+      "wer": 0.0,
+      "audio_s": 8.96
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 33,
+      "wer": 0.0,
+      "audio_s": 15.96
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 34,
+      "wer": 0.0,
+      "audio_s": 6.96
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 35,
+      "wer": 1.1538461538461537,
+      "audio_s": 11.64
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 36,
+      "wer": 0.0,
+      "audio_s": 20.36
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 37,
+      "wer": 0.01818181818181818,
+      "audio_s": 25.44
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 38,
+      "wer": 0.13513513513513514,
+      "audio_s": 22.72
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 39,
+      "wer": 0.0,
+      "audio_s": 8.56
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 40,
+      "wer": 0.0,
+      "audio_s": 24.44
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 41,
+      "wer": 0.0,
+      "audio_s": 3.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 42,
+      "wer": 0.0,
+      "audio_s": 16.72
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 43,
+      "wer": 0.0,
+      "audio_s": 14.04
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 44,
+      "wer": 0.023809523809523808,
+      "audio_s": 14.6
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 45,
+      "wer": 0.01694915254237288,
+      "audio_s": 23.8
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 46,
+      "wer": 0.0125,
+      "audio_s": 21.84
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 47,
+      "wer": 0.0,
+      "audio_s": 9.28
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 48,
+      "wer": 0.0,
+      "audio_s": 8.12
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 49,
+      "wer": 0.0,
+      "audio_s": 15.8
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 50,
+      "wer": 0.0,
+      "audio_s": 7.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 51,
+      "wer": 0.6923076923076923,
+      "audio_s": 9.08
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 52,
+      "wer": 0.0,
+      "audio_s": 20.96
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 53,
+      "wer": 0.01818181818181818,
+      "audio_s": 26.72
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 54,
+      "wer": 0.10666666666666667,
+      "audio_s": 22.76
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 55,
+      "wer": 0.0,
+      "audio_s": 8.44
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 56,
+      "wer": 0.0196078431372549,
+      "audio_s": 19.04
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 57,
+      "wer": 0.0,
+      "audio_s": 3.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 58,
+      "wer": 0.022222222222222223,
+      "audio_s": 15.24
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 59,
+      "wer": 0.0,
+      "audio_s": 14.0
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 60,
+      "wer": 0.0,
+      "audio_s": 14.44
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 61,
+      "wer": 0.01694915254237288,
+      "audio_s": 21.32
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 62,
+      "wer": 0.0,
+      "audio_s": 12.76
+    },
+    {
+      "arm": "dspark",
+      "round": 0,
+      "conc": "c16",
+      "idx": 63,
+      "wer": 0.0,
+      "audio_s": 10.2
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 8.88
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 1,
+      "wer": 0.025,
+      "audio_s": 15.6
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 6.8
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 3,
+      "wer": 1.7692307692307692,
+      "audio_s": 12.48
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 4,
+      "wer": 0.04081632653061224,
+      "audio_s": 23.24
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 5,
+      "wer": 0.01818181818181818,
+      "audio_s": 25.28
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 6,
+      "wer": 0.10810810810810811,
+      "audio_s": 25.08
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 7,
+      "wer": 0.0,
+      "audio_s": 8.52
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 24.76
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.24
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 10,
+      "wer": 0.0,
+      "audio_s": 16.72
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.04
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 12,
+      "wer": 0.0,
+      "audio_s": 15.08
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 13,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.8
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 14,
+      "wer": 0.1282051282051282,
+      "audio_s": 26.44
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c1",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 10.12
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 0,
+      "wer": 0.041666666666666664,
+      "audio_s": 8.2
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 15.4
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 6.92
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 3,
+      "wer": 0.6153846153846154,
+      "audio_s": 9.6
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 4,
+      "wer": 0.0425531914893617,
+      "audio_s": 19.2
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 5,
+      "wer": 0.0,
+      "audio_s": 26.36
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 6,
+      "wer": 0.10810810810810811,
+      "audio_s": 21.84
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 7,
+      "wer": 0.06060606060606061,
+      "audio_s": 12.44
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 22.32
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.32
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 10,
+      "wer": 0.0,
+      "audio_s": 9.68
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.6
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 12,
+      "wer": 0.022727272727272728,
+      "audio_s": 14.04
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 13,
+      "wer": 0.03333333333333333,
+      "audio_s": 22.32
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 14,
+      "wer": 0.02127659574468085,
+      "audio_s": 13.32
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 7.6
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 16,
+      "wer": 0.0,
+      "audio_s": 9.32
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 17,
+      "wer": 0.0,
+      "audio_s": 13.92
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 18,
+      "wer": 0.0,
+      "audio_s": 7.12
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 19,
+      "wer": 0.9230769230769231,
+      "audio_s": 11.36
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 20,
+      "wer": 0.0425531914893617,
+      "audio_s": 20.68
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 21,
+      "wer": 0.01818181818181818,
+      "audio_s": 25.32
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 22,
+      "wer": 0.10666666666666667,
+      "audio_s": 22.52
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 23,
+      "wer": 0.0,
+      "audio_s": 8.8
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 24,
+      "wer": 0.0,
+      "audio_s": 20.88
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 25,
+      "wer": 0.0,
+      "audio_s": 3.16
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 26,
+      "wer": 0.0,
+      "audio_s": 12.4
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 27,
+      "wer": 0.0,
+      "audio_s": 15.0
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 28,
+      "wer": 0.0,
+      "audio_s": 15.72
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 29,
+      "wer": 0.01694915254237288,
+      "audio_s": 23.12
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 30,
+      "wer": 0.0,
+      "audio_s": 12.92
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 31,
+      "wer": 0.0,
+      "audio_s": 10.64
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 32,
+      "wer": 0.0,
+      "audio_s": 7.56
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 33,
+      "wer": 0.0,
+      "audio_s": 15.84
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 34,
+      "wer": 0.0,
+      "audio_s": 6.8
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 35,
+      "wer": 0.6923076923076923,
+      "audio_s": 8.04
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 36,
+      "wer": 0.0,
+      "audio_s": 20.2
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 37,
+      "wer": 0.017241379310344827,
+      "audio_s": 25.2
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 38,
+      "wer": 0.13513513513513514,
+      "audio_s": 23.72
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 39,
+      "wer": 0.0,
+      "audio_s": 8.52
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 40,
+      "wer": 0.017543859649122806,
+      "audio_s": 25.8
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 41,
+      "wer": 0.0,
+      "audio_s": 3.24
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 42,
+      "wer": 0.0,
+      "audio_s": 15.96
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 43,
+      "wer": 0.0,
+      "audio_s": 14.36
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 44,
+      "wer": 0.0,
+      "audio_s": 12.4
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 45,
+      "wer": 0.01694915254237288,
+      "audio_s": 25.88
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 46,
+      "wer": 0.01282051282051282,
+      "audio_s": 21.08
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 47,
+      "wer": 0.0,
+      "audio_s": 10.44
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 48,
+      "wer": 0.0,
+      "audio_s": 8.96
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 49,
+      "wer": 0.0,
+      "audio_s": 16.76
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 50,
+      "wer": 0.0,
+      "audio_s": 7.64
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 51,
+      "wer": 0.7692307692307693,
+      "audio_s": 11.28
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 52,
+      "wer": 0.04081632653061224,
+      "audio_s": 23.28
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 53,
+      "wer": 0.03636363636363636,
+      "audio_s": 25.36
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 54,
+      "wer": 0.13513513513513514,
+      "audio_s": 21.92
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 55,
+      "wer": 0.0,
+      "audio_s": 8.44
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 56,
+      "wer": 0.0,
+      "audio_s": 23.6
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 57,
+      "wer": 0.0,
+      "audio_s": 3.24
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 58,
+      "wer": 0.0,
+      "audio_s": 16.24
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 59,
+      "wer": 0.0,
+      "audio_s": 14.08
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 60,
+      "wer": 0.0,
+      "audio_s": 14.56
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 61,
+      "wer": 0.01694915254237288,
+      "audio_s": 25.84
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 62,
+      "wer": 0.0,
+      "audio_s": 24.16
+    },
+    {
+      "arm": "dspark",
+      "round": 1,
+      "conc": "c16",
+      "idx": 63,
+      "wer": 0.0,
+      "audio_s": 10.16
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 7.96
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 16.0
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 6.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 3,
+      "wer": 0.6923076923076923,
+      "audio_s": 9.56
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 4,
+      "wer": 0.04081632653061224,
+      "audio_s": 21.88
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 5,
+      "wer": 0.0,
+      "audio_s": 23.68
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 6,
+      "wer": 0.10810810810810811,
+      "audio_s": 22.72
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 7,
+      "wer": 0.0,
+      "audio_s": 8.64
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 23.72
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 10,
+      "wer": 0.04878048780487805,
+      "audio_s": 14.72
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.48
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 12,
+      "wer": 0.0,
+      "audio_s": 15.12
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 13,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.64
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 14,
+      "wer": 0.02564102564102564,
+      "audio_s": 22.76
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c1",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 10.44
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 7.48
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 15.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 6.6
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 3,
+      "wer": 0.6923076923076923,
+      "audio_s": 9.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 4,
+      "wer": 0.0425531914893617,
+      "audio_s": 20.8
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 5,
+      "wer": 0.01818181818181818,
+      "audio_s": 26.72
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 6,
+      "wer": 0.06756756756756757,
+      "audio_s": 23.44
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 7,
+      "wer": 0.09090909090909091,
+      "audio_s": 12.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 8,
+      "wer": 0.016666666666666666,
+      "audio_s": 23.84
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.2
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 10,
+      "wer": 0.0,
+      "audio_s": 10.0
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.84
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 12,
+      "wer": 0.022727272727272728,
+      "audio_s": 14.6
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 13,
+      "wer": 0.03333333333333333,
+      "audio_s": 21.64
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 14,
+      "wer": 0.0,
+      "audio_s": 14.8
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 7.0
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 16,
+      "wer": 0.0,
+      "audio_s": 9.36
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 17,
+      "wer": 0.025,
+      "audio_s": 14.12
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 18,
+      "wer": 0.0,
+      "audio_s": 6.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 19,
+      "wer": 0.5384615384615384,
+      "audio_s": 10.28
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 20,
+      "wer": 0.0,
+      "audio_s": 21.72
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 21,
+      "wer": 0.0,
+      "audio_s": 23.6
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 22,
+      "wer": 0.06666666666666667,
+      "audio_s": 24.48
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 23,
+      "wer": 0.0,
+      "audio_s": 8.48
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 24,
+      "wer": 0.0,
+      "audio_s": 23.32
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 25,
+      "wer": 0.0,
+      "audio_s": 3.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 26,
+      "wer": 0.04878048780487805,
+      "audio_s": 14.6
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 27,
+      "wer": 0.0,
+      "audio_s": 14.4
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 28,
+      "wer": 0.0,
+      "audio_s": 14.88
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 29,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.64
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 30,
+      "wer": 0.02531645569620253,
+      "audio_s": 23.04
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 31,
+      "wer": 0.0,
+      "audio_s": 10.32
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 32,
+      "wer": 0.0,
+      "audio_s": 7.6
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 33,
+      "wer": 0.025,
+      "audio_s": 14.56
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 34,
+      "wer": 0.0,
+      "audio_s": 6.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 35,
+      "wer": 0.6153846153846154,
+      "audio_s": 10.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 36,
+      "wer": 0.04081632653061224,
+      "audio_s": 21.72
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 37,
+      "wer": 0.0,
+      "audio_s": 23.48
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 38,
+      "wer": 0.08,
+      "audio_s": 24.8
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 39,
+      "wer": 0.0,
+      "audio_s": 8.56
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 40,
+      "wer": 0.0,
+      "audio_s": 20.64
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 41,
+      "wer": 0.0,
+      "audio_s": 3.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 42,
+      "wer": 0.0,
+      "audio_s": 14.6
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 43,
+      "wer": 0.0,
+      "audio_s": 14.04
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 44,
+      "wer": 0.027777777777777776,
+      "audio_s": 11.72
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 45,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.2
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 46,
+      "wer": 0.01282051282051282,
+      "audio_s": 22.88
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 47,
+      "wer": 0.0,
+      "audio_s": 10.24
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 48,
+      "wer": 0.0,
+      "audio_s": 8.92
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 49,
+      "wer": 0.0,
+      "audio_s": 16.0
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 50,
+      "wer": 0.0,
+      "audio_s": 6.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 51,
+      "wer": 0.6153846153846154,
+      "audio_s": 10.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 52,
+      "wer": 0.04081632653061224,
+      "audio_s": 22.32
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 53,
+      "wer": 0.0,
+      "audio_s": 25.76
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 54,
+      "wer": 0.10810810810810811,
+      "audio_s": 22.36
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 55,
+      "wer": 0.0,
+      "audio_s": 8.44
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 56,
+      "wer": 0.0,
+      "audio_s": 23.6
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 57,
+      "wer": 0.0,
+      "audio_s": 3.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 58,
+      "wer": 0.0,
+      "audio_s": 17.52
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 59,
+      "wer": 0.0,
+      "audio_s": 14.48
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 60,
+      "wer": 0.0,
+      "audio_s": 14.08
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 61,
+      "wer": 0.03389830508474576,
+      "audio_s": 23.32
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 62,
+      "wer": 0.012048192771084338,
+      "audio_s": 23.68
+    },
+    {
+      "arm": "off",
+      "round": 0,
+      "conc": "c16",
+      "idx": 63,
+      "wer": 0.0,
+      "audio_s": 10.56
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 7.96
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 16.0
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 6.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 3,
+      "wer": 0.6923076923076923,
+      "audio_s": 9.56
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 4,
+      "wer": 0.04081632653061224,
+      "audio_s": 21.88
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 5,
+      "wer": 0.0,
+      "audio_s": 23.68
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 6,
+      "wer": 0.10810810810810811,
+      "audio_s": 22.72
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 7,
+      "wer": 0.0,
+      "audio_s": 8.64
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 23.72
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 10,
+      "wer": 0.04878048780487805,
+      "audio_s": 14.72
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.48
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 12,
+      "wer": 0.0,
+      "audio_s": 15.12
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 13,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.64
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 14,
+      "wer": 0.02564102564102564,
+      "audio_s": 22.76
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c1",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 10.44
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 0,
+      "wer": 0.0,
+      "audio_s": 7.84
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 1,
+      "wer": 0.0,
+      "audio_s": 17.16
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 2,
+      "wer": 0.0,
+      "audio_s": 5.96
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 3,
+      "wer": 0.8461538461538461,
+      "audio_s": 10.36
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 4,
+      "wer": 0.0,
+      "audio_s": 19.6
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 5,
+      "wer": 0.03636363636363636,
+      "audio_s": 23.88
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 6,
+      "wer": 0.1506849315068493,
+      "audio_s": 21.0
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 7,
+      "wer": 0.09090909090909091,
+      "audio_s": 12.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 8,
+      "wer": 0.0,
+      "audio_s": 25.16
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 9,
+      "wer": 0.0,
+      "audio_s": 3.2
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 10,
+      "wer": 0.0,
+      "audio_s": 9.8
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 11,
+      "wer": 0.0,
+      "audio_s": 14.4
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 12,
+      "wer": 0.022727272727272728,
+      "audio_s": 14.6
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 13,
+      "wer": 0.03333333333333333,
+      "audio_s": 21.64
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 14,
+      "wer": 0.0,
+      "audio_s": 15.12
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 15,
+      "wer": 0.0,
+      "audio_s": 7.28
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 16,
+      "wer": 0.0,
+      "audio_s": 9.32
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 17,
+      "wer": 0.0,
+      "audio_s": 16.12
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 18,
+      "wer": 0.0,
+      "audio_s": 6.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 19,
+      "wer": 0.6153846153846154,
+      "audio_s": 10.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 20,
+      "wer": 0.0,
+      "audio_s": 19.8
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 21,
+      "wer": 0.0,
+      "audio_s": 25.04
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 22,
+      "wer": 0.10810810810810811,
+      "audio_s": 21.2
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 23,
+      "wer": 0.0,
+      "audio_s": 8.48
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 24,
+      "wer": 0.0,
+      "audio_s": 23.76
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 25,
+      "wer": 0.0,
+      "audio_s": 3.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 26,
+      "wer": 0.0,
+      "audio_s": 17.56
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 27,
+      "wer": 0.0,
+      "audio_s": 14.4
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 28,
+      "wer": 0.0,
+      "audio_s": 12.32
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 29,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.76
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 30,
+      "wer": 0.02564102564102564,
+      "audio_s": 21.92
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 31,
+      "wer": 0.0,
+      "audio_s": 10.56
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 32,
+      "wer": 0.0,
+      "audio_s": 9.64
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 33,
+      "wer": 0.023255813953488372,
+      "audio_s": 16.12
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 34,
+      "wer": 0.0,
+      "audio_s": 6.0
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 35,
+      "wer": 0.5384615384615384,
+      "audio_s": 10.28
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 36,
+      "wer": 0.04081632653061224,
+      "audio_s": 22.2
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 37,
+      "wer": 0.0,
+      "audio_s": 23.48
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 38,
+      "wer": 0.10666666666666667,
+      "audio_s": 25.52
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 39,
+      "wer": 0.0,
+      "audio_s": 8.56
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 40,
+      "wer": 0.0,
+      "audio_s": 22.28
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 41,
+      "wer": 0.0,
+      "audio_s": 3.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 42,
+      "wer": 0.025,
+      "audio_s": 14.76
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 43,
+      "wer": 0.0,
+      "audio_s": 14.32
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 44,
+      "wer": 0.0,
+      "audio_s": 14.8
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 45,
+      "wer": 0.03389830508474576,
+      "audio_s": 23.16
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 46,
+      "wer": 0.05128205128205128,
+      "audio_s": 22.96
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 47,
+      "wer": 0.0,
+      "audio_s": 11.16
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 48,
+      "wer": 0.0,
+      "audio_s": 9.32
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 49,
+      "wer": 0.0,
+      "audio_s": 13.68
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 50,
+      "wer": 0.0,
+      "audio_s": 5.96
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 51,
+      "wer": 0.6153846153846154,
+      "audio_s": 10.6
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 52,
+      "wer": 0.04081632653061224,
+      "audio_s": 21.52
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 53,
+      "wer": 0.0,
+      "audio_s": 23.48
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 54,
+      "wer": 0.10810810810810811,
+      "audio_s": 23.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 55,
+      "wer": 0.0,
+      "audio_s": 9.28
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 56,
+      "wer": 0.0,
+      "audio_s": 20.16
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 57,
+      "wer": 0.0,
+      "audio_s": 3.08
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 58,
+      "wer": 0.0,
+      "audio_s": 15.68
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 59,
+      "wer": 0.0,
+      "audio_s": 14.6
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 60,
+      "wer": 0.0,
+      "audio_s": 12.6
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 61,
+      "wer": 0.01694915254237288,
+      "audio_s": 24.48
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 62,
+      "wer": 0.0,
+      "audio_s": 22.88
+    },
+    {
+      "arm": "off",
+      "round": 1,
+      "conc": "c16",
+      "idx": 63,
+      "wer": 0.0,
+      "audio_s": 10.44
+    }
+  ]
+}
