@@ -1,9 +1,9 @@
 diff --git a/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py b/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
-index 27ffb3337..c0e63907c 100644
+index b8de386ef..40dc00830 100644
 --- a/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
 +++ b/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
-@@ -1044,6 +1044,23 @@ def llm2tts(
-                 )
+@@ -1040,6 +1040,23 @@ def llm2tts(
+                 end_idx = tts_eos_idx if tts_eos_idx is not None else thinker_hidden_states.shape[0]
                  tts_token_ids_slice = torch.tensor(full_token_ids[tts_bos_idx:end_idx], dtype=torch.long)
                  tts_hidden_slice = thinker_hidden_states[tts_bos_idx:end_idx].to(torch.float32).contiguous()
 +                import os as _os
