@@ -1,0 +1,42 @@
++ /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/worker_v2/test_omni_ar_model_runner.py tests/worker_v2/test_omni_gpu_model_runner.py tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+>       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'MiniCPMO45OmniForConditionalGeneration' object has no attribute 'set_aux_hidden_state_layers'
+
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py:1967: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_v1_thinker_refuses_drafter_layers
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/worker_v2/test_omni_ar_model_runner.py::test_finalized_full_payload_latent_ledger_is_accumulated_once
+  /opt/vllm-omni/tests/engine/test_output_processor_mrv2_text.py:15: DeprecationWarning: Importing from 'vllm_omni.engine.output_modality' is deprecated. Use 'vllm_omni.outputs.output_modality' instead.
+    from vllm_omni.engine.output_modality import OutputModality
+
+tests/worker_v2/test_omni_ar_model_runner.py::test_finalized_full_payload_latent_ledger_is_accumulated_once
+  /opt/vllm-omni/tests/engine/test_output_processor_mrv2_text.py:16: DeprecationWarning: Importing from 'vllm_omni.engine.output_processor' is deprecated. Use 'vllm_omni.outputs.output_processor' instead.
+    from vllm_omni.engine.output_processor import (
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_sample_tokens_drafts_from_target_layers_after_postprocess[3]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_sample_tokens_drafts_from_target_layers_after_postprocess[2]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_async_output_drops_rejected_draft_rows[False]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_async_output_drops_rejected_draft_rows[True]
+FAILED tests/worker_v2/test_omni_gpu_model_runner.py::test_drafter_target_layers_reach_execute_state[NONE]
+FAILED tests/worker_v2/test_omni_gpu_model_runner.py::test_drafter_target_layers_reach_execute_state[FULL]
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_mrv2_thinker_returns_drafter_layers_with_hidden_states
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_v1_thinker_refuses_drafter_layers
+8 failed, 169 passed, 16 warnings in 19.52s
+rc=1

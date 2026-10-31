@@ -1,0 +1,497 @@
+{
+  "arm": "dspark",
+  "round": 0,
+  "cmd": [
+    "/usr/bin/python",
+    "-m",
+    "vllm_omni.entrypoints.cli.main",
+    "serve",
+    "openbmb/MiniCPM-o-4_5",
+    "--omni",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8091",
+    "--deploy-config",
+    "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_dspark.yaml",
+    "--trust-remote-code",
+    "--chat-template",
+    "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+    "--chat-template-content-format",
+    "openai"
+  ],
+  "startup_s": 300.1887447834015,
+  "ready": true,
+  "c1": {
+    "wall_s": 7.173080236999908,
+    "completion_tokens": 2091,
+    "tok_per_s": 291.5065677384011,
+    "rows": [
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "latency_s": 0.07879396099997393,
+        "finish_reason": "stop",
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 60,
+          "completion_tokens": 29,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 120 words.",
+        "status": 200,
+        "latency_s": 0.36449738700002854,
+        "finish_reason": "stop",
+        "text": "A hash map handles collisions, which occur when two keys hash to the same index, using techniques like chaining or open addressing. In chaining, each bucket contains a linked list of entries that hash to the same index. When a collision happens, the new entry is added to the list. In open addressing, the hash map probes other indices within the array to find an empty slot. Techniques like linear probing, quadratic probing, or double hashing are used to determine the next index. Both methods ensure that all keys are stored and can be retrieved efficiently despite collisions.",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 142,
+          "completion_tokens": 112,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Write a Python function that returns the n-th Fibonacci number iteratively, with a docstring.",
+        "status": 200,
+        "latency_s": 0.23580046699999002,
+        "finish_reason": "stop",
+        "text": "```python\ndef fibonacci(n):\n    \"\"\"\n    Calculate the n-th Fibonacci number iteratively.\n\n    Parameters:\n    n (int): The position in the Fibonacci sequence (non-negative integer).\n\n    Returns:\n    int: The n-th Fibonacci number.\n\n    Raises:\n    ValueError: If n is a negative integer.\n    \"\"\"\n    if n < 0:\n        raise ValueError(\"n must be a non-negative integer\")\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 180,
+          "completion_tokens": 149,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun, one per line, with one fact each.",
+        "status": 200,
+        "latency_s": 0.7780844100000195,
+        "finish_reason": "stop",
+        "text": "Mercury: It is the closest planet to the sun and has a very thin atmosphere known as exosphere. Venus: It is the hottest planet in the solar system, with surface temperatures reaching up to 462 degrees Celsius due to a runaway greenhouse effect. Earth: It is the only planet known to support life and has a diverse range of ecosystems. Mars: It is often called the 'Red Planet' due to its reddish appearance, which is caused by iron oxide (rust) on its surface. Jupiter: It is the largest planet in the solar system and has a massive storm known as the Great Red Spot, which has been raging for at least 400 years. Saturn: It is known for its prominent ring system, which is made up of ice and rock particles. Uranus: It is an ice giant and is unique for its tilted axis, which causes extreme seasons. Neptune: It is the farthest planet from the sun and has the strongest winds in the solar system, reaching speeds of up to 2,100 kilometers per hour.",
+        "usage": {
+          "prompt_tokens": 34,
+          "total_tokens": 252,
+          "completion_tokens": 218,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Translate into English: 今天天气很好，我们一起去公园散步吧。",
+        "status": 200,
+        "latency_s": 0.29011595899999065,
+        "finish_reason": "stop",
+        "text": "Translation: The weather is wonderful today, why don't we go for a walk in the park together? \n\nJustification: \n1. \"今天天气很好\" translates to \"The weather is wonderful today.\" This conveys the pleasant weather condition.\n2. \"我们一起去公园散步吧\" translates to \"why don't we go for a walk in the park together?\" This suggests a suggestion for a shared activity in the park.",
+        "usage": {
+          "prompt_tokens": 27,
+          "total_tokens": 115,
+          "completion_tokens": 88,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "请用三句话介绍一下长城。",
+        "status": 200,
+        "latency_s": 0.6751521399999092,
+        "finish_reason": "stop",
+        "text": "长城是中国古代的军事防御工程，始建于春秋战国时期，后经秦、汉、明等朝代不断修建和扩建。长城蜿蜒起伏，全长超过2万公里，横跨中国北部的山脉和沙漠。它不仅是中国的象征之一，也是世界文化遗产，吸引着无数游客前来参观。",
+        "usage": {
+          "prompt_tokens": 19,
+          "total_tokens": 85,
+          "completion_tokens": 66,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours and then 120 km in 1.5 hours. What is its average speed? Show the steps.",
+        "status": 200,
+        "latency_s": 0.21303344499995092,
+        "finish_reason": "stop",
+        "text": "To find the average speed, we need to calculate the total distance traveled and the total time taken.\n\nTotal distance = 180 km + 120 km = 300 km\nTotal time = 2 hours + 1.5 hours = 3.5 hours\n\nAverage speed = Total distance / Total time\nAverage speed = 300 km / 3.5 hours\nAverage speed = 85.71 km/h (rounded to two decimal places)\n\nTherefore, the average speed of the train is 85.71 km/h.",
+        "usage": {
+          "prompt_tokens": 48,
+          "total_tokens": 169,
+          "completion_tokens": 121,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Write a short story of about 100 words about a robot that learns to paint.",
+        "status": 200,
+        "latency_s": 0.5160611269999436,
+        "finish_reason": "stop",
+        "text": "In a quiet workshop, a robot named Zeta was assigned to assemble parts. One day, a child left a paintbrush and colors nearby. Curious, Zeta dipped the brush in paint and made a mark on a canvas. Surprised by the vibrant streak, Zeta experimented, blending colors and creating patterns. Days passed, and Zeta’s workspace transformed into a gallery of abstract art. The robot discovered joy in expression, proving that creativity isn’t just for humans. Soon, Zeta’s paintings were admired, showing that even machines can learn to see the beauty in color.",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 151,
+          "completion_tokens": 120,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer with a short bulleted list.",
+        "status": 200,
+        "latency_s": 0.45482423199996447,
+        "finish_reason": "stop",
+        "text": "- **Connection-oriented vs. Connectionless:** TCP is connection-oriented, requiring a handshake to establish a connection, while UDP is connectionless and does not establish a connection before sending data.\n- **Reliability:** TCP provides reliable data transfer with error checking and correction, while UDP does not guarantee delivery or order of packets.\n- **Flow Control and Congestion Control:** TCP includes mechanisms for flow control and congestion control, whereas UDP does not.\n- **Packet Ordering:** TCP ensures packets are delivered in order, while UDP does not guarantee order.\n- **Overhead:** TCP has higher overhead due to its reliability features, while UDP has lower overhead, making it faster for simple, small data transfers.",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 170,
+          "completion_tokens": 140,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs with numbered steps.",
+        "status": 200,
+        "latency_s": 0.33342766600003415,
+        "finish_reason": "stop",
+        "text": "Sure! Here’s a simple recipe for scrambled eggs with numbered steps:\n\n1. Crack 2–3 eggs into a bowl.\n2. Add a small splash of milk or cream (optional, for fluffiness).\n3. Season with salt and pepper to taste.\n4. Whisk the eggs until well beaten.\n5. Heat a non-stick pan over medium heat.\n6. Add a small amount of butter or oil to the pan.\n7. Pour the egg mixture into the pan.\n8. Let the eggs cook for a minute, then gently stir with a spatula.\n9. Continue stirring and cooking until the eggs are just set but still slightly creamy.\n10. Remove from heat and serve immediately.",
+        "usage": {
+          "prompt_tokens": 23,
+          "total_tokens": 169,
+          "completion_tokens": 146,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in four sentences.",
+        "status": 200,
+        "latency_s": 0.36692708199996105,
+        "finish_reason": "stop",
+        "text": "Romeo and Juliet is a tragic love story set in Verona, where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball, and they secretly marry. Their love is discovered, leading to a series of misunderstandings and tragic events, ultimately resulting in their deaths. The families reconcile after the tragedy, realizing the senselessness of their feud.",
+        "usage": {
+          "prompt_tokens": 25,
+          "total_tokens": 121,
+          "completion_tokens": 96,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning to a high school student.",
+        "status": 200,
+        "latency_s": 0.8043790170000875,
+        "finish_reason": "length",
+        "text": "Sure, I'd be happy to explain the difference between supervised and unsupervised learning in a way that's easy to understand.\n\nImagine you're learning to recognize different types of animals. \n\nIn supervised learning, you have a teacher who shows you pictures of animals and tells you what each animal is. For example, your teacher might show you a picture of a cat and say, \"This is a cat.\" You do this with many different pictures, and over time, you start to recognize cats on your own. The \"supervision\" comes from the teacher giving you the correct answers, so you can learn from them.\n\nIn unsupervised learning, you don't have a teacher. Instead, you're given a bunch of pictures of animals, but you don't know what they are. Your job is to find patterns or groupings on your own. For example, you might notice that some pictures have four legs and pointy ears, and others have fur and long tails. You might group the pictures into categories like \"cats\" and \"dogs\" without anyone telling you what to do. The \"unsupervised\" part means you're figuring things out by yourself, without being told the answers.\n\nSo, the main difference is that supervised learning uses labeled examples (",
+        "usage": {
+          "prompt_tokens": 29,
+          "total_tokens": 285,
+          "completion_tokens": 256,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "写一首关于秋天的五言绝句，并解释它的意思。",
+        "status": 200,
+        "latency_s": 1.177518174999932,
+        "finish_reason": "stop",
+        "text": "五言绝句：\n秋风扫落叶，寒露凝霜华。\n丹桂飘香远，金菊映晚霞。\n\n解释：\n这首五言绝句描绘了秋天的美丽景色和氛围。首句“秋风扫落叶”，描述了秋风的威力，它吹落了树上的叶子，象征着秋天的来临和生命的凋零。次句“寒露凝霜华”，描绘了秋天的寒冷，露水凝结成霜，覆盖在草木上，增添了一丝清冷的美感。第三句“丹桂飘香远”，丹桂是秋天的代表花卉之一，它的香气飘散得很远，象征着秋天的丰收和喜悦。最后一句“金菊映晚霞”，金菊是秋天的另一代表花卉，它在晚霞的映照下显得格外美丽，象征着秋天的绚烂和辉煌。整首诗通过对秋天景色的描绘，表达了对秋天的赞美和感慨，同时也蕴含了对生命和自然的思考。",
+        "usage": {
+          "prompt_tokens": 26,
+          "total_tokens": 239,
+          "completion_tokens": 213,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "What is 17 multiplied by 23? Explain how you computed it.",
+        "status": 200,
+        "latency_s": 0.47603854399994816,
+        "finish_reason": "stop",
+        "text": "To compute 17 multiplied by 23, you can use the standard multiplication method:\n\n```\n   17\n×  23\n------\n  51   (17 × 3)\n 340   (17 × 20, shifted one position to the left)\n------\n 391\n```\n\n**Step-by-step explanation:**\n\n1. Multiply 17 by 3 (the units digit of 23):  \n   17 × 3 = 51\n\n2. Multiply 17 by 20 (the tens digit of 23, which is 2 in the tens place, so it's 2 × 10 = 20):  \n   17 × 20 = 340\n\n3. Add the two results together:  \n   51 + 340 = 391\n\n**Answer:**  \n17 multiplied by 23 is **391**.",
+        "usage": {
+          "prompt_tokens": 29,
+          "total_tokens": 240,
+          "completion_tokens": 211,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms.",
+        "status": 200,
+        "latency_s": 0.1674151400000028,
+        "finish_reason": "stop",
+        "text": "The water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation. This cycle repeats itself over and over again.",
+        "usage": {
+          "prompt_tokens": 20,
+          "total_tokens": 60,
+          "completion_tokens": 40,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Write a SQL query that returns the top 5 customers by total order amount from tables customers(id, name) and orders(id, customer_id, amount).",
+        "status": 200,
+        "latency_s": 0.23865204800006268,
+        "finish_reason": "stop",
+        "text": "```python\n# This is a Python code block that would be used to execute the SQL query.\n# The actual SQL query is provided in the thought process.\n\nquery = \"\"\"\nSELECT c.id, c.name, SUM(o.amount) AS total_amount\nFROM customers c\nJOIN orders o ON c.id = o.customer_id\nGROUP BY c.id, c.name\nORDER BY total_amount DESC\nLIMIT 5;\n\"\"\"\n```",
+        "usage": {
+          "prompt_tokens": 43,
+          "total_tokens": 129,
+          "completion_tokens": 86,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      }
+    ]
+  },
+  "c16": {
+    "wall_s": 1.4346031139999695,
+    "completion_tokens": 2014,
+    "tok_per_s": 1403.8725974771883,
+    "rows": [
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "latency_s": 0.16719121100004486,
+        "finish_reason": "stop",
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 60,
+          "completion_tokens": 29,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 120 words.",
+        "status": 200,
+        "latency_s": 0.5097773340000913,
+        "finish_reason": "stop",
+        "text": "A hash map handles collisions, which occur when two keys hash to the same index, using techniques like chaining or open addressing. In chaining, each bucket contains a linked list of entries, allowing multiple items to coexist at the same index. In open addressing, the hash map finds another open slot within the array to store the colliding key-value pair, using methods like linear probing, quadratic probing, or double hashing to determine the next index. These strategies ensure that all keys are stored and can be retrieved efficiently despite collisions.",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 136,
+          "completion_tokens": 106,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Write a Python function that returns the n-th Fibonacci number iteratively, with a docstring.",
+        "status": 200,
+        "latency_s": 0.35841668100010793,
+        "finish_reason": "stop",
+        "text": "```python\ndef fibonacci(n):\n    \"\"\"\n    Calculate the n-th Fibonacci number iteratively.\n\n    Parameters:\n    n (int): The position in the Fibonacci sequence (non-negative integer).\n\n    Returns:\n    int: The n-th Fibonacci number.\n\n    Raises:\n    ValueError: If n is a negative integer.\n    \"\"\"\n    if n < 0:\n        raise ValueError(\"n must be a non-negative integer\")\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 180,
+          "completion_tokens": 149,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun, one per line, with one fact each.",
+        "status": 200,
+        "latency_s": 0.9098931229999607,
+        "finish_reason": "stop",
+        "text": "Mercury: It is the closest planet to the sun and has a very thin atmosphere known as exosphere. Venus: It is the hottest planet in the solar system, with surface temperatures reaching up to 462 degrees Celsius. Earth: It is the only planet known to support life and has a diverse range of ecosystems. Mars: It is often called the 'Red Planet' due to its reddish appearance, which is caused by iron oxide (rust) on its surface. Jupiter: It is the largest planet in the solar system and has a Great Red Spot, a giant storm that has been raging for at least 400 years. Saturn: It is known for its prominent ring system, which is made up of ice and rock particles. Uranus: It is an ice giant and rotates on its side, with its axis tilted at an angle of about 98 degrees. Neptune: It is the farthest planet from the sun and has the strongest winds in the solar system, reaching speeds of up to 2,100 kilometers per hour.",
+        "usage": {
+          "prompt_tokens": 34,
+          "total_tokens": 251,
+          "completion_tokens": 217,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Translate into English: 今天天气很好，我们一起去公园散步吧。",
+        "status": 200,
+        "latency_s": 0.40754398100000344,
+        "finish_reason": "stop",
+        "text": "Translation: The weather is wonderful today, why don't we go for a walk in the park together? \n\nJustification: \n1. \"今天天气很好\" translates to \"The weather is wonderful today.\" This conveys the pleasant weather condition.\n2. \"我们一起去公园散步吧\" translates to \"why don't we go for a walk in the park together?\" This suggests a suggestion for a shared activity in the park.",
+        "usage": {
+          "prompt_tokens": 27,
+          "total_tokens": 115,
+          "completion_tokens": 88,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "请用三句话介绍一下长城。",
+        "status": 200,
+        "latency_s": 0.5649454059999925,
+        "finish_reason": "stop",
+        "text": "长城是中国古代的军事防御工程，始建于春秋战国时期，后经秦、汉、明等朝代不断修建和扩建。长城蜿蜒起伏，全长超过2万公里，横跨中国北部的山脉和沙漠。它不仅是世界文化遗产，也是中华民族的象征之一。",
+        "usage": {
+          "prompt_tokens": 19,
+          "total_tokens": 78,
+          "completion_tokens": 59,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours and then 120 km in 1.5 hours. What is its average speed? Show the steps.",
+        "status": 200,
+        "latency_s": 0.3224489190000668,
+        "finish_reason": "stop",
+        "text": "To find the average speed, we need to calculate the total distance traveled and the total time taken.\n\nTotal distance = 180 km + 120 km = 300 km\nTotal time = 2 hours + 1.5 hours = 3.5 hours\n\nAverage speed = Total distance / Total time\nAverage speed = 300 km / 3.5 hours\nAverage speed = 85.71 km/h (rounded to two decimal places)\n\nTherefore, the average speed of the train is 85.71 km/h.",
+        "usage": {
+          "prompt_tokens": 48,
+          "total_tokens": 169,
+          "completion_tokens": 121,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Write a short story of about 100 words about a robot that learns to paint.",
+        "status": 200,
+        "latency_s": 0.6890675370000281,
+        "finish_reason": "stop",
+        "text": "In a quiet workshop, a robot named Zeta was assigned to assemble parts. One day, a child left a paintbrush and canvas nearby. Curious, Zeta dipped the brush in paint and made a bold stroke. Surprised by the colors blending, Zeta experimented, creating vibrant patterns. Days passed, and Zeta’s canvas filled with abstract art. The child returned, amazed. “You paint?” Zeta whirred, proud. From then on, Zeta’s purpose shifted—art became its new function, bringing joy through every brushstroke.",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 147,
+          "completion_tokens": 116,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer with a short bulleted list.",
+        "status": 200,
+        "latency_s": 0.6085104259999525,
+        "finish_reason": "stop",
+        "text": "- **Connection-oriented vs. Connectionless:** TCP is connection-oriented, requiring a handshake to establish a connection, while UDP is connectionless and does not require a prior connection setup.\n- **Reliability:** TCP provides reliable data transfer with error checking and correction, while UDP does not guarantee delivery or order of packets.\n- **Flow Control and Congestion Control:** TCP includes mechanisms for flow control and congestion control, whereas UDP does not.\n- **Packet Ordering:** TCP ensures packets are delivered in order, while UDP does not guarantee order.\n- **Overhead:** TCP has higher overhead due to its reliability features, while UDP has lower overhead, making it faster for simple, small data transfers.",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 169,
+          "completion_tokens": 139,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs with numbered steps.",
+        "status": 200,
+        "latency_s": 0.46276868399991145,
+        "finish_reason": "stop",
+        "text": "Sure! Here’s a simple recipe for scrambled eggs with numbered steps:\n\n1. Crack 2–3 eggs into a bowl.\n2. Add a small splash of milk or cream (optional, for fluffiness).\n3. Season with salt and pepper to taste.\n4. Whisk the eggs until well beaten.\n5. Heat a non-stick pan over medium heat.\n6. Add a small amount of butter or oil to the pan.\n7. Pour the egg mixture into the pan.\n8. Let the eggs cook for a minute, then gently stir with a spatula.\n9. Continue stirring and cooking until the eggs are just set but still slightly creamy.\n10. Remove from heat and serve immediately.",
+        "usage": {
+          "prompt_tokens": 23,
+          "total_tokens": 169,
+          "completion_tokens": 146,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in four sentences.",
+        "status": 200,
+        "latency_s": 0.5210556819999965,
+        "finish_reason": "stop",
+        "text": "Romeo and Juliet is a tragic love story set in Verona, where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball, and they secretly marry. Their love is discovered, leading to a series of misunderstandings and tragic events, including the deaths of several key characters. Ultimately, Romeo and Juliet take their own lives to be together, ending the long-standing feud between their families.",
+        "usage": {
+          "prompt_tokens": 25,
+          "total_tokens": 130,
+          "completion_tokens": 105,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning to a high school student.",
+        "status": 200,
+        "latency_s": 0.7854237619999367,
+        "finish_reason": "stop",
+        "text": "Sure! Imagine you're trying to teach a robot to recognize different types of animals in pictures.\n\nIn **supervised learning**, you give the robot lots of pictures of animals, and for each picture, you tell it what animal is in the picture. It's like giving the robot a textbook with labeled examples. Over time, the robot learns to recognize patterns and can eventually guess the animal in a new picture you show it.\n\nIn **unsupervised learning**, you give the robot a bunch of pictures of animals, but you don't tell it what each animal is. The robot has to figure out on its own that some pictures are similar and group them together. It's like giving the robot a pile of mixed-up pictures and asking it to sort them into groups based on what it notices.\n\nSo, supervised learning is like having a teacher who shows you the right answer, while unsupervised learning is like exploring and finding patterns on your own!",
+        "usage": {
+          "prompt_tokens": 29,
+          "total_tokens": 220,
+          "completion_tokens": 191,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "写一首关于秋天的五言绝句，并解释它的意思。",
+        "status": 200,
+        "latency_s": 1.4228409769999644,
+        "finish_reason": "stop",
+        "text": "五言绝句：\n秋风扫落叶，寒露凝霜华。\n丹桂飘香远，金菊映晚霞。\n\n解释：\n这首五言绝句描绘了秋天的美丽景色和氛围。首句“秋风扫落叶”，描述了秋风的威力，它吹落了树上的叶子，象征着秋天的来临和生命的凋零。次句“寒露凝霜华”，描绘了秋天的寒冷，露水凝结成霜，覆盖在草木上，增添了一丝清冷的美感。第三句“丹桂飘香远”，通过丹桂的香气，展现了秋天的芬芳和生机，丹桂的香气飘散得远远的，让人感受到秋天的宁静和美好。最后一句“金菊映晚霞”，描绘了秋天的黄昏，金黄色的菊花在晚霞的映照下更加鲜艳夺目，象征着秋天的丰收和希望。整首诗通过对秋天景色的描绘，表达了对秋天的赞美和对生命的感慨，同时也寄托了诗人对美好生活的向往和追求。",
+        "usage": {
+          "prompt_tokens": 26,
+          "total_tokens": 250,
+          "completion_tokens": 224,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "What is 17 multiplied by 23? Explain how you computed it.",
+        "status": 200,
+        "latency_s": 0.5947595049999563,
+        "finish_reason": "stop",
+        "text": "To compute 17 multiplied by 23, you can use the standard multiplication method:\n\n```\n   17\n×  23\n------\n  51   (17 × 3)\n 340   (17 × 20, shifted one position to the left)\n------\n 391\n```\n\n**Step-by-step explanation:**\n\n1. Multiply 17 by 3 (the units digit of 23):  \n   17 × 3 = 51\n\n2. Multiply 17 by 20 (the tens digit of 23, which is 2 in the tens place, so it's actually 20):  \n   17 × 20 = 340\n\n3. Add the two results together:  \n   51 + 340 = 391\n\n**Answer:**  \n17 multiplied by 23 is **391**.",
+        "usage": {
+          "prompt_tokens": 29,
+          "total_tokens": 234,
+          "completion_tokens": 205,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms.",
+        "status": 200,
+        "latency_s": 0.27506065399995805,
+        "finish_reason": "stop",
+        "text": "The water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation, such as rain or snow. This cycle repeats itself over and over again.",
+        "usage": {
+          "prompt_tokens": 20,
+          "total_tokens": 66,
+          "completion_tokens": 46,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      },
+      {
+        "prompt": "Write a SQL query that returns the top 5 customers by total order amount from tables customers(id, name) and orders(id, customer_id, amount).",
+        "status": 200,
+        "latency_s": 0.2984488849999707,
+        "finish_reason": "stop",
+        "text": "```python\n# This is a Python code snippet that constructs the SQL query as a string.\nquery = \"\"\"\nSELECT c.id, c.name, SUM(o.amount) AS total_amount\nFROM customers c\nJOIN orders o ON c.id = o.customer_id\nGROUP BY c.id, c.name\nORDER BY total_amount DESC\nLIMIT 5;\n\"\"\"\n```",
+        "usage": {
+          "prompt_tokens": 43,
+          "total_tokens": 116,
+          "completion_tokens": 73,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        }
+      }
+    ]
+  },
+  "spec_log_lines": [
+    "\u001b[0;36m(APIServer pid=951)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m10-31 01:23:34\u001b[0m \u001b[90m[model.py:733]\u001b[0m Resolved architecture: DSparkDraftModel",
+    "\u001b[0;36m(StageEngineCoreProc_stage0_replica0 pid=1133)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m10-31 01:24:05\u001b[0m \u001b[90m[core.py:133]\u001b[0m Initializing a V1 LLM engine (v0.32.0) with config: model='openbmb/MiniCPM-o-4_5', speculative_config=SpeculativeConfig(method='dspark', model='Qun1023/MiniCPM-o-4_5-thinker-DSpark-mm', num_spec_tokens=7), tokenizer='openbmb/MiniCPM-o-4_5', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=openbmb/MiniCPM-o-4_5, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::qwen4_exp_qsa_prepare_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)",
+    "\u001b[0;36m(StageEngineCoreProc_stage0_replica0 pid=1133)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 01:24:15\u001b[0m \u001b[90m[speculator.py:243]\u001b[0m Draft model Qwen3DSparkForCausalLM does not support external multimodal embeddings. Embeddings from the target model will not be passed to the drafter; using text-only draft inputs instead.",
+    "\u001b[0;36m(StageEngineCoreProc_stage1_replica0 pid=1452)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m10-31 01:26:15\u001b[0m \u001b[90m[core.py:133]\u001b[0m Initializing a V1 LLM engine (v0.32.0) with config: model='openbmb/MiniCPM-o-4_5', speculative_config=None, tokenizer='openbmb/MiniCPM-o-4_5', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=openbmb/MiniCPM-o-4_5, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::qwen4_exp_qsa_prepare_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 16, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)",
+    "\u001b[0;36m(StageEngineCoreProc_stage2_replica0 pid=1646)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m10-31 01:26:54\u001b[0m \u001b[90m[core.py:133]\u001b[0m Initializing a V1 LLM engine (v0.32.0) with config: model='openbmb/MiniCPM-o-4_5', speculative_config=None, tokenizer='openbmb/MiniCPM-o-4_5', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=65536, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=True, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=openbmb/MiniCPM-o-4_5, enable_prefix_caching=False, enable_chunked_prefill=False, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [65536], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=False, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)"
+  ],
+  "error_tail": [
+    "\u001b[0;36m(APIServer pid=951)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 01:23:48\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+}

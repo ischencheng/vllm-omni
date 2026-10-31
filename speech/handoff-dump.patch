@@ -1,0 +1,28 @@
+diff --git a/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py b/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
+index fa24f48fb..2177df19e 100644
+--- a/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
+@@ -1083,6 +1083,23 @@ def llm2tts(
+                 tts_token_ids_slice = torch.tensor(
+                     full_token_ids[tts_bos_idx : tts_bos_idx + tts_hidden_slice.shape[0]], dtype=torch.long
+                 )
++                import os as _os
++
++                _dump = _os.environ.get("SPEC_DUMP_DIR")
++                if _dump:
++                    _os.makedirs(_dump, exist_ok=True)
++                    torch.save(
++                        {
++                            "request_id": str(getattr(llm_output, "request_id", "")),
++                            "full_token_ids": list(full_token_ids),
++                            "rows": int(thinker_hidden_states.shape[0]),
++                            "tts_bos_idx": int(tts_bos_idx),
++                            "end_idx": int(end_idx),
++                            "ids": tts_token_ids_slice.clone(),
++                            "hidden": tts_hidden_slice.clone(),
++                        },
++                        _os.path.join(_dump, str(getattr(llm_output, "request_id", "req")).replace("/", "_") + ".pt"),
++                    )
+         else:
+             # Mirror the official streaming_generate unit loop. A segment delta
+             # can start with SEVERAL unit decisions (forced/model listens from

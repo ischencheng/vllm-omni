@@ -1,0 +1,94 @@
+[off-r0] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_off.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[off-r0] ready=True after 294s
+[off-r0] c1: 2012 tok in 13.9s (144.5 tok/s), errors=0
+[off-r0] c16: 2057 tok in 1.9s (1092.6 tok/s), errors=0
+[dspark-r0] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_dspark.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[dspark-r0] ready=True after 300s
+[dspark-r0] c1: 2091 tok in 7.2s (291.5 tok/s), errors=0
+[dspark-r0] c16: 2014 tok in 1.4s (1403.9 tok/s), errors=0
+[dspark-r1] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_dspark.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[dspark-r1] ready=True after 201s
+[dspark-r1] c1: 2091 tok in 6.9s (302.2 tok/s), errors=0
+[dspark-r1] c16: 2010 tok in 1.2s (1627.7 tok/s), errors=0
+[off-r1] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_off.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[off-r1] ready=True after 192s
+[off-r1] c1: 2012 tok in 14.1s (143.1 tok/s), errors=0
+[off-r1] c16: 2057 tok in 1.9s (1085.6 tok/s), errors=0
+[
+  {
+    "arm": "dspark",
+    "round": 0,
+    "conc": "c1",
+    "identical": 5,
+    "total": 16,
+    "mismatch_idx": [
+      1,
+      3,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "arm": "dspark",
+    "round": 0,
+    "conc": "c16",
+    "identical": 8,
+    "total": 16,
+    "mismatch_idx": [
+      1,
+      3,
+      7,
+      10,
+      11,
+      12,
+      14,
+      15
+    ]
+  },
+  {
+    "arm": "dspark",
+    "round": 1,
+    "conc": "c1",
+    "identical": 5,
+    "total": 16,
+    "mismatch_idx": [
+      1,
+      3,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "arm": "dspark",
+    "round": 1,
+    "conc": "c16",
+    "identical": 6,
+    "total": 16,
+    "mismatch_idx": [
+      1,
+      3,
+      5,
+      7,
+      8,
+      10,
+      11,
+      12,
+      14,
+      15
+    ]
+  }
+]
