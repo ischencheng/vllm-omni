@@ -1,0 +1,12 @@
+[off-r0] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_off.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[off-r0] ready=True after 294s
+[off-r0] c1: 0 tok in 8.7s (0.0 tok/s), errors=13
+  error: 500 {"error": {"message": "Stage-1 has no live replica", "type": "InternalServerError", "param": null, "code": 500, "request_id": "chatcmpl-b12d157719b1487b", "error_stage_id": 1}}
+  error: 500 {"error": {"message": "Stage-1 has no live replica", "type": "InternalServerError", "param": null, "code": 500, "request_id": "chatcmpl-a20c60d188106dbe", "error_stage_id": 1}}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:  20%|██        | 98/479 [00:00<00:00, 979.09it/s]
+Loading weights:  54%|█████▍    | 259/479 [00:00<00:00, 1349.30it/s]
+Loading weights:  82%|████████▏ | 394/479 [00:00<00:00, 1327.39it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 1520.80it/s]
+[]

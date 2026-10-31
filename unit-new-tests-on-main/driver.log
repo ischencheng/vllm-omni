@@ -1,0 +1,42 @@
++ /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/model_executor/stage_input_processors tests/model_executor/models/minicpmo_4_5
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/blackwell/gated_delta_net_cp_prefill.py:55
+  /usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/blackwell/gated_delta_net_cp_prefill.py:55: DeprecationWarning: cutlass.utils.TensorMapUpdateMode is deprecated; use cutlass.tensor_utils.TensorMapUpdateMode instead. It will be removed in a future release.
+    from cutlass.utils import TensorMapManager, TensorMapUpdateMode
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/cute_dsl/availability.py:136
+  /usr/local/lib/python3.12/dist-packages/flashinfer/cute_dsl/availability.py:136: DeprecationWarning: Arch from arch.py is deprecated. Use Arch from enums.py instead.
+    from cutlass.base_dsl.arch import Arch
+
+vllm_omni/protocol/realtime/audio.py:17
+  /opt/vllm-omni/vllm_omni/protocol/realtime/audio.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    from audioop import alaw2lin, lin2alaw, lin2ulaw, ulaw2lin
+
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_accepts_the_default_six_second_window
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_rejects_a_31_second_window
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_is_explicit_cuda_opt_in[True]
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_is_explicit_cuda_opt_in[true]
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_is_explicit_cuda_opt_in[1]
+  /usr/local/lib/python3.12/dist-packages/torch/backends/mkldnn/__init__.py:96: UserWarning: TF32 acceleration on top of oneDNN is available for Intel GPUs. The current Torch version does not have Intel GPU Support. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/Context.cpp:265.)
+    torch._C._set_onednn_allow_tf32(_allow_tf32)
+
+tests/model_executor/models/minicpmo_4_5/test_pipeline.py::TestPipelineTopology::test_three_stages
+tests/model_executor/models/minicpmo_4_5/test_pipeline.py::TestArchAliases::test_shared_minicpmo_alias_present
+tests/model_executor/models/minicpmo_4_5/test_pipeline.py::TestHfConfigPredicate::test_accepts_4_5_string
+  /usr/local/lib/python3.12/dist-packages/_pytest/fixtures.py:1313: PytestRemovedIn10Warning: Class-scoped fixture defined as instance method is deprecated.
+  Instance attributes set in this fixture will NOT be visible to test methods,
+  as each test gets a new instance while the fixture runs only once per class.
+  Use @classmethod decorator and set attributes on cls instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method
+    fixturefunc = resolve_fixture_function(fixturedef, request)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_batching.py::test_cpu_codec_transport_routes_owned_payloads[False-False]
+  /usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py:24: DeprecationWarning: `vllm.entrypoints.openai.api_server` is deprecated and will likely beunsupported in a future version. Use the corresponding function from `vllm.entrypoints.launchers` instead.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_reads_rows_from_ledger_when_steps_repeat
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_skips_rejected_draft_rows
+2 failed, 2478 passed, 3 skipped, 187 deselected, 41 warnings in 187.07s (0:03:07)
+rc=1
