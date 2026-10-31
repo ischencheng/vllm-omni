@@ -1,0 +1,42 @@
++ /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b5b460b5940>
+
+    def test_talker_verifies_drafts_with_its_codec_sampler(mocker):
+        import vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts as module
+    
+        talker = object.__new__(MiniCPMO45OmniTTSForConditionalGeneration)
+        talker._k_step_frames = 0
+        talker._codec_eos_id = _EOS
+        talker.vllm_config = SimpleNamespace(speculative_config=None)
+        mocker.patch.object(module, "_install_mrv2_talker_sampler", return_value="talker-sampler")
+        sampler = SimpleNamespace(req_states=SimpleNamespace(device="cpu", max_num_reqs=4))
+        assert talker.mrv2_custom_sampler(sampler) == ("talker-sampler", None)
+        talker.vllm_config = SimpleNamespace(
+            speculative_config=SimpleNamespace(
+                num_speculative_tokens=7, enable_adaptive_verification=False, rejection_sample_method="standard"
+            )
+        )
+        talker_sampler, rejection = talker.mrv2_custom_sampler(sampler)
+        assert talker_sampler == "talker-sampler"
+        assert isinstance(rejection, module.MiniCPMO45TalkerRejectionSampler)
+        # The stock sampler carries the codec window penalty installed above.
+>       assert rejection.sampler._sampler is sampler
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute '_sampler'
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:676: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_talker_verifies_drafts_with_its_codec_sampler
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_forces_codec_eos_after_processing
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_at_forced_rows_with_the_rejection_kernels
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_verifies_drafts_with_its_codec_sampler
+3 failed, 45 passed, 14 warnings in 3.50s
+rc=1

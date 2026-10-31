@@ -30,7 +30,7 @@ FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[14-cuda]
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cpu]
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cuda]
-FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_forces_codec_eos_per_row
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_forces_codec_eos_after_processing
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_at_forced_rows_with_the_rejection_kernels
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_verifies_drafts_with_its_codec_sampler
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_drafter_loading_finds_the_codec_table_and_head
@@ -38,5 +38,5 @@ FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-duplex-False]
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_drafter_layers_need_turn_sessions_on_mrv2[False-turn-False]
 FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_talker_stage_hands_drafter_hooks_to_the_talker
-15 failed, 50 passed, 14 warnings in 7.99s
+15 failed, 50 passed, 14 warnings in 5.66s
 rc=1

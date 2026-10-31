@@ -402,11 +402,11 @@ E       Greatest relative difference: 0.05000004544854164 at index (5, 7) (up to
 tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:526: AssertionError
 ---------------------------- Captured stdout setup -----------------------------
 --- Running test: test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cuda]
-_______________ test_draft_verification_forces_codec_eos_per_row _______________
+__________ test_draft_verification_forces_codec_eos_after_processing ___________
 
-mocker = <pytest_mock.plugin.MockerFixture object at 0x2b15c5bc18e0>
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b8fbe80bb60>
 
-    def test_draft_verification_forces_codec_eos_per_row(mocker):
+    def test_draft_verification_forces_codec_eos_after_processing(mocker):
         from vllm.v1.worker.gpu.spec_decode.rejection_sampler import RejectionSampler
     
 >       from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import MiniCPMO45TalkerRejectionSampler
@@ -414,7 +414,7 @@ E       ImportError: cannot import name 'MiniCPMO45TalkerRejectionSampler' from 
 
 tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:532: ImportError
 ---------------------------- Captured stdout setup -----------------------------
---- Running test: test_draft_verification_forces_codec_eos_per_row
+--- Running test: test_draft_verification_forces_codec_eos_after_processing
 ______ test_draft_verification_at_forced_rows_with_the_rejection_kernels _______
 
     @pytest.mark.skipif(not torch.cuda.is_available(), reason="the rejection kernels need CUDA")
@@ -424,21 +424,22 @@ ______ test_draft_verification_at_forced_rows_with_the_rejection_kernels _______
 >       from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import MiniCPMO45TalkerRejectionSampler
 E       ImportError: cannot import name 'MiniCPMO45TalkerRejectionSampler' from 'vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts' (/opt/vllm-omni/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_tts.py)
 
-tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:568: ImportError
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:587: ImportError
 ---------------------------- Captured stdout setup -----------------------------
 --- Running test: test_draft_verification_at_forced_rows_with_the_rejection_kernels
 ______________ test_talker_verifies_drafts_with_its_codec_sampler ______________
 
-mocker = <pytest_mock.plugin.MockerFixture object at 0x2b15c4f911f0>
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b8fbe848140>
 
     def test_talker_verifies_drafts_with_its_codec_sampler(mocker):
         import vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts as module
     
         talker = object.__new__(MiniCPMO45OmniTTSForConditionalGeneration)
         talker._k_step_frames = 0
+        talker._codec_eos_id = _EOS
         talker.vllm_config = SimpleNamespace(speculative_config=None)
         mocker.patch.object(module, "_install_mrv2_talker_sampler", return_value="talker-sampler")
-        sampler = SimpleNamespace(req_states=SimpleNamespace(device="cpu"))
+        sampler = SimpleNamespace(req_states=SimpleNamespace(device="cpu", max_num_reqs=4))
         assert talker.mrv2_custom_sampler(sampler) == ("talker-sampler", None)
         talker.vllm_config = SimpleNamespace(
             speculative_config=SimpleNamespace(
@@ -451,7 +452,7 @@ mocker = <pytest_mock.plugin.MockerFixture object at 0x2b15c4f911f0>
                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 E       AttributeError: module 'vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts' has no attribute 'MiniCPMO45TalkerRejectionSampler'. Did you mean: 'MiniCPMO45TalkerSampler'?
 
-tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:653: AttributeError
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:674: AttributeError
 ---------------------------- Captured stdout setup -----------------------------
 --- Running test: test_talker_verifies_drafts_with_its_codec_sampler
 _____________ test_drafter_loading_finds_the_codec_table_and_head ______________
@@ -464,7 +465,7 @@ _____________ test_drafter_loading_finds_the_codec_table_and_head ______________
 >       view = talker.get_language_model()
                ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:664: 
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:685: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = MiniCPMO45OmniTTSForConditionalGeneration(
@@ -500,7 +501,7 @@ E       AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has n
 --- Running test: test_drafter_loading_finds_the_codec_table_and_head
 ____ test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-turn-True] _____
 
-mocker = <pytest_mock.plugin.MockerFixture object at 0x2b15c5c32570>, v2 = True
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b8fbd54d7f0>, v2 = True
 session = 'turn', ok = True
 
     @pytest.mark.parametrize("v2,session,ok", [(True, "turn", True), (True, "duplex", False), (False, "turn", False)])
@@ -515,7 +516,7 @@ session = 'turn', ok = True
 >           talker.set_aux_hidden_state_layers((2, 10, 17))
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:678: 
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:699: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = MiniCPMO45OmniTTSForConditionalGeneration()
@@ -544,7 +545,7 @@ E       AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has n
 --- Running test: test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-turn-True]
 ___ test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-duplex-False] ___
 
-mocker = <pytest_mock.plugin.MockerFixture object at 0x2b15c5c32ea0>, v2 = True
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b8fbd54e480>, v2 = True
 session = 'duplex', ok = False
 
     @pytest.mark.parametrize("v2,session,ok", [(True, "turn", True), (True, "duplex", False), (False, "turn", False)])
@@ -563,7 +564,7 @@ session = 'duplex', ok = False
 >               talker.set_aux_hidden_state_layers((2, 10, 17))
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:682: 
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:703: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = MiniCPMO45OmniTTSForConditionalGeneration()
@@ -592,7 +593,7 @@ E       AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has n
 --- Running test: test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-duplex-False]
 ___ test_talker_drafter_layers_need_turn_sessions_on_mrv2[False-turn-False] ____
 
-mocker = <pytest_mock.plugin.MockerFixture object at 0x2b15c5bf60c0>, v2 = False
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b8fbd50a390>, v2 = False
 session = 'turn', ok = False
 
     @pytest.mark.parametrize("v2,session,ok", [(True, "turn", True), (True, "duplex", False), (False, "turn", False)])
@@ -611,7 +612,7 @@ session = 'turn', ok = False
 >               talker.set_aux_hidden_state_layers((2, 10, 17))
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:682: 
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:703: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = MiniCPMO45OmniTTSForConditionalGeneration()
@@ -640,7 +641,7 @@ E       AttributeError: 'MiniCPMO45OmniTTSForConditionalGeneration' object has n
 --- Running test: test_talker_drafter_layers_need_turn_sessions_on_mrv2[False-turn-False]
 _____________ test_talker_stage_hands_drafter_hooks_to_the_talker ______________
 
-mocker = <pytest_mock.plugin.MockerFixture object at 0x2b16162c64e0>
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b900cc2b5f0>
 
     def test_talker_stage_hands_drafter_hooks_to_the_talker(mocker):
         model = object.__new__(omni.MiniCPMO45OmniForConditionalGeneration)
@@ -696,7 +697,7 @@ FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[14-cuda]
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cpu]
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cuda]
-FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_forces_codec_eos_per_row
+FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_forces_codec_eos_after_processing
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_draft_verification_at_forced_rows_with_the_rejection_kernels
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_verifies_drafts_with_its_codec_sampler
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_drafter_loading_finds_the_codec_table_and_head
@@ -704,6 +705,6 @@ FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-duplex-False]
 FAILED tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py::test_talker_drafter_layers_need_turn_sessions_on_mrv2[False-turn-False]
 FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_talker_stage_hands_drafter_hooks_to_the_talker
-15 failed, 50 passed, 14 warnings in 7.99s
+15 failed, 50 passed, 14 warnings in 5.66s
 
 --- stderr ---

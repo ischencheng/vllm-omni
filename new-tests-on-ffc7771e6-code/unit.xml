@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="48" time="3.499" timestamp="2026-10-31T22:52:50.570640+00:00" hostname="test-container"><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_output_emits_decode_input_codes_with_validity_and_forced_eos" time="0.015" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_output_empty_condition_and_length_cap" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_sampler_adapter_keeps_upstream_counts_and_only_forces_codec_eos[None]" time="0.002" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_sampler_adapter_keeps_upstream_counts_and_only_forces_codec_eos[forced1]" time="0.002" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_native_duplex_output[9]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_native_duplex_output[None]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_rejects_native_duplex_without_fence_identity[fence0]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_rejects_native_duplex_without_fence_identity[fence1]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_talker_rejects_native_duplex_without_fence_identity[fence2]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_context_with_only_eos_slot_forces_eos_at_prefill" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[24-False-True-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[25-False-True-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[29-False-True-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[30-False-True-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[50-False-True-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[55-False-True-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[0-True-False-False]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[0-False-False-True]" time="0.005" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[24-False-False-True]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_masks_cadence_eos[25-False-False-False]" time="0.005" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_waits_for_silence" time="0.007" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_stops_the_same_way_after_preemption" time="0.014" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_new_condition_starts_from_zero" time="0.006" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_turn_end_drain_forces_eos_after_a_quiet_run" time="0.008" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[0-cpu]" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[0-cuda]" time="0.546" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[3-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[3-cuda]" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[16-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[16-cuda]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[20-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_carries_previous_segment_through_reordered_slots[20-cuda]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_prefill_seeds_codec_history_for_the_actual_slot" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_turn_decode_does_not_build_duplex_limit_tensors" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_mrv2_output_marks_each_draft_row" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[3-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[3-cuda]" time="0.004" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[14-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[14-cuda]" time="0.005" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cpu]" time="0.003" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_codec_penalty_window_includes_the_steps_earlier_drafts[20-cuda]" time="0.005" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_draft_verification_forces_codec_eos_after_processing" time="0.004"><failure message="AttributeError: 'str' object has no attribute 'sampled_token_ids'">mocker = &lt;pytest_mock.plugin.MockerFixture object at 0x2b5b46158ce0&gt;
+
+    def test_draft_verification_forces_codec_eos_after_processing(mocker):
+        from vllm.v1.worker.gpu.spec_decode.rejection_sampler import RejectionSampler
+    
+        from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import MiniCPMO45TalkerRejectionSampler
+    
+        batch, _ = _batch(
+            [
+                dict(slot=0, prompt_len=4, computed=6, span=[17, 21], prefill=False, drafts=1),
+                dict(slot=1, prompt_len=4, computed=0, span=[0] * 4, prefill=True),
+            ]
+        )
+    
+        def apply_sampling_params(logits, *args):
+            out = logits.clone()
+            out[:, 7] = float("-inf")  # min_tokens masks codec EOS on every row
+            return out
+    
+        sampler = SimpleNamespace(
+            req_states=SimpleNamespace(device="cpu", max_num_reqs=4), apply_sampling_params=apply_sampling_params
+        )
+        spec_config = SimpleNamespace(
+            num_speculative_tokens=1, enable_adaptive_verification=False, rejection_sample_method="standard"
+        )
+        forced = torch.tensor([False, True, True])
+        talker = SimpleNamespace(
+            _codec_eos_id=7, _mrv2_masked_eos=None, take_mrv2_forced_eos=mocker.Mock(return_value=forced)
+        )
+        rejection = MiniCPMO45TalkerRejectionSampler(sampler, spec_config, talker)
+        seen = {}
+    
+        def verify(self, logits, input_batch, draft_logits, invalid_drafts):
+            seen["processed"] = self.sampler.apply_sampling_params(
+                logits,
+                input_batch.expanded_idx_mapping,
+                input_batch.idx_mapping,
+                input_batch.idx_mapping_np,
+                None,
+                None,
+                input_batch.expanded_local_pos,
+                None,
+            )
+            return "verified"
+    
+        mocker.patch.object(RejectionSampler, "__call__", autospec=True, side_effect=verify)
+&gt;       assert rejection(torch.zeros(3, 8), batch) == "verified"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:573: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts.MiniCPMO45TalkerRejectionSampler object at 0x2b5b46158dd0&gt;
+logits = tensor([[0., 0., 0., 0., 0., 0., 0., 0.],
+        [-inf, -inf, -inf, -inf, -inf, -inf, -inf, 0.],
+        [-inf, -inf, -inf, -inf, -inf, -inf, -inf, 0.]])
+input_batch = namespace(num_reqs=2, has_prefill=True, is_prefilling_np=array([False,  True]), idx_mapping_np=array([0, 1]), idx_mapp..., 2, 3]), seq_lens=tensor([8, 4, 0, 0], dtype=torch.int32), seq_lens_cpu_upper_bound=tensor([8, 4], dtype=torch.int32))
+draft_logits = None, invalid_drafts = None
+
+    def __call__(
+        self,
+        logits: torch.Tensor,
+        input_batch: Any,
+        draft_logits: torch.Tensor | None = None,
+        invalid_drafts: torch.Tensor | None = None,
+    ) -&gt; Any:
+        eos = int(self.talker._codec_eos_id)
+        num_logits = logits.shape[0]
+        forced = self.talker.take_mrv2_forced_eos(input_batch, self.sampler.req_states, num_logits)
+        masked = getattr(self.talker, "_mrv2_masked_eos", None)
+        self.talker._mrv2_masked_eos = None
+        if masked is not None and masked.shape[0] == num_logits:
+            logits[:, eos].masked_fill_(masked, float("-inf"))
+        if forced is not None:
+            eos_only = torch.full_like(logits[:1], float("-inf"))
+            eos_only[:, eos] = 0.0
+            logits = torch.where(forced.unsqueeze(1), eos_only, logits)
+        output = super().__call__(logits, input_batch, draft_logits, invalid_drafts)
+        if forced is not None:
+            # min_tokens can still blank a forced row (an empty condition at
+            # its prefill); its sample is EOS regardless.
+            num_reqs = int(input_batch.num_reqs)
+            rows = torch.arange(num_logits, device=forced.device)
+            reqs = torch.searchsorted(input_batch.cu_num_logits[1 : num_reqs + 1].long(), rows, right=True)
+&gt;           pinned = torch.zeros_like(output.sampled_token_ids, dtype=torch.bool)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: 'str' object has no attribute 'sampled_token_ids'
+
+vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni_tts.py:718: AttributeError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_draft_verification_at_forced_rows_with_the_rejection_kernels" time="2.177"><failure message="assert [3, 1] == [2, 1]&#10;  &#10;  At index 0 diff: 3 != 2&#10;  Use -v to get more diff">@pytest.mark.skipif(not torch.cuda.is_available(), reason="the rejection kernels need CUDA")
+    def test_draft_verification_at_forced_rows_with_the_rejection_kernels():
+        from vllm.v1.worker.gpu.sample.states import NO_LOGPROBS
+    
+        from vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts import MiniCPMO45TalkerRejectionSampler
+    
+        talker = _talker()
+        cap_prompt = 4096 - 100
+        limit = min(_OFFLINE_CODEC_MAX_NEW_TOKENS, 100) - 1
+        prompt_lens = {3: cap_prompt, 1: 4}
+        rows = [
+            # Input 5 then drafts 6 and 0; the second draft row reaches the length cap.
+            dict(slot=3, prompt_len=cap_prompt, computed=cap_prompt + limit - 2, span=[5, 6, 0], prefill=False, drafts=2),
+            # Empty condition at its prefill: forced EOS that min_tokens blanks below.
+            dict(slot=1, prompt_len=4, computed=0, span=[0] * 4, prefill=True),
+        ]
+        batch, padded = _batch(rows)
+        out = talker.make_omni_output_mrv2(
+            torch.zeros((padded, 4)),
+            input_batch=batch,
+            req_states=_req_states(prompt_lens),
+            model_intermediate_buffer=[{}, {"audio_state": {"finished": True}}],
+        )
+        valid = out.multimodal_outputs["meta"]["codec_frame_valid"]
+        assert talker._mrv2_forced_eos.tolist() == [False, True, True, True]
+    
+        dev = torch.device("cuda")
+        for name, value in vars(batch).items():
+            if isinstance(value, torch.Tensor) and name != "seq_lens_cpu_upper_bound":
+                setattr(batch, name, value.to(dev))
+        talker._mrv2_forced_eos = talker._mrv2_forced_eos.to(dev)
+        prefill_len = torch.zeros(8, dtype=torch.int32, device=dev)
+        for slot, value in prompt_lens.items():
+            prefill_len[slot] = value
+    
+        def apply_sampling_params(logits, *args):
+            logits = logits.float().clone()
+            # min_tokens above the length cap: codec EOS masked on the forced rows too.
+            logits[1:, _EOS] = float("-inf")
+            return logits
+    
+        sampler = SimpleNamespace(
+            req_states=SimpleNamespace(prefill_len=SimpleNamespace(gpu=prefill_len), device=dev, max_num_reqs=8),
+            sampling_states=SimpleNamespace(
+                # Greedy target: a draft is accepted only if it is the row's argmax.
+                temperature=SimpleNamespace(gpu=torch.zeros(8, device=dev)),
+                seeds=SimpleNamespace(gpu=torch.zeros(8, dtype=torch.int64, device=dev)),
+                max_num_logprobs=lambda idx: NO_LOGPROBS,
+            ),
+            apply_sampling_params=apply_sampling_params,
+            logprobs_mode="raw_logprobs",
+            compute_nans=False,
+            use_fp64_gumbel=False,
+            return_sampling_mask=False,
+        )
+        spec_config = SimpleNamespace(
+            num_speculative_tokens=2, enable_adaptive_verification=False, rejection_sample_method="standard"
+        )
+        logits = torch.zeros(4, _EOS + 1, device=dev)
+        # Row 0's greedy pick is draft 6. Row 1's is code 0 unless EOS stays forced
+        # through the masking above, which would accept draft 0.
+        logits[0, 6] = 10.0
+        output = MiniCPMO45TalkerRejectionSampler(sampler, spec_config, talker)(logits, batch)
+        num_sampled = output.num_sampled.tolist()
+&gt;       assert num_sampled == [2, 1]
+E       assert [3, 1] == [2, 1]
+E         
+E         At index 0 diff: 3 != 2
+E         Use -v to get more diff
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:647: AssertionError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_talker_verifies_drafts_with_its_codec_sampler" time="0.002"><failure message="AttributeError: 'types.SimpleNamespace' object has no attribute '_sampler'">mocker = &lt;pytest_mock.plugin.MockerFixture object at 0x2b5b460b5940&gt;
+
+    def test_talker_verifies_drafts_with_its_codec_sampler(mocker):
+        import vllm_omni.model_executor.models.minicpmo_4_5.minicpmo_4_5_omni_tts as module
+    
+        talker = object.__new__(MiniCPMO45OmniTTSForConditionalGeneration)
+        talker._k_step_frames = 0
+        talker._codec_eos_id = _EOS
+        talker.vllm_config = SimpleNamespace(speculative_config=None)
+        mocker.patch.object(module, "_install_mrv2_talker_sampler", return_value="talker-sampler")
+        sampler = SimpleNamespace(req_states=SimpleNamespace(device="cpu", max_num_reqs=4))
+        assert talker.mrv2_custom_sampler(sampler) == ("talker-sampler", None)
+        talker.vllm_config = SimpleNamespace(
+            speculative_config=SimpleNamespace(
+                num_speculative_tokens=7, enable_adaptive_verification=False, rejection_sample_method="standard"
+            )
+        )
+        talker_sampler, rejection = talker.mrv2_custom_sampler(sampler)
+        assert talker_sampler == "talker-sampler"
+        assert isinstance(rejection, module.MiniCPMO45TalkerRejectionSampler)
+        # The stock sampler carries the codec window penalty installed above.
+&gt;       assert rejection.sampler._sampler is sampler
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute '_sampler'
+
+tests/model_executor/models/minicpmo_4_5/test_talker_mrv2.py:676: AttributeError</failure></testcase><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_drafter_loading_finds_the_codec_table_and_head" time="0.002" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-turn-True]" time="0.002" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_talker_drafter_layers_need_turn_sessions_on_mrv2[True-duplex-False]" time="0.002" /><testcase classname="tests.model_executor.models.minicpmo_4_5.test_talker_mrv2" name="test_talker_drafter_layers_need_turn_sessions_on_mrv2[False-turn-False]" time="0.002" /></testsuite></testsuites>
