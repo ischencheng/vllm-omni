@@ -1,0 +1,86 @@
+{
+  "runs": [
+    {
+      "arm": "dspark",
+      "round": 0,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_dspark.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 360.2236177921295,
+      "ready": true,
+      "spec_log_lines": [
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[3]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[3]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[3]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[3]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[1]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]",
+        "SPECACC nreq=1 ntok=8 ndraft=7 nsamp=[2]"
+      ],
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=52)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 01:40:54\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 8.600035452999975,
+        "completion_tokens": 2091,
+        "tok_per_s": 243.1385325592571
+      },
+      "c16": {
+        "wall_s": 1.7684223229999816,
+        "completion_tokens": 2019,
+        "tok_per_s": 1141.6956084194494
+      }
+    }
+  ],
+  "compare": [],
+  "audio_wer": null
+}

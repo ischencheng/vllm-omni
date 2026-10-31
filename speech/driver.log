@@ -1,0 +1,39 @@
+[off-r0] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_off.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[off-r0] ready=True after 285s
+[off-r0] c1: 1320 tok in 48.4s (27.3 tok/s), errors=0
+[dspark-r0] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_dspark.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[dspark-r0] ready=True after 291s
+[dspark-r0] c1: 1295 tok in 42.0s (30.9 tok/s), errors=0
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:  30%|███       | 144/479 [00:00<00:00, 1439.55it/s]
+Loading weights:  63%|██████▎   | 302/479 [00:00<00:00, 1492.45it/s]
+Loading weights:  94%|█████████▍| 452/479 [00:00<00:00, 1390.80it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 1491.75it/s]
+[transformers] Using custom `forced_decoder_ids` from the (generation) config. This is deprecated in favor of the `task` and `language` flags/config options.
+[transformers] Passing `generation_config` together with generation-related arguments=({'suppress_tokens', 'begin_suppress_tokens'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+[transformers] Whisper did not predict an ending timestamp, which can happen if audio is cut off in the middle of a word. Also make sure WhisperTimeStampLogitsProcessor was used during generation.
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+[
+  {
+    "arm": "dspark",
+    "round": 0,
+    "conc": "c1",
+    "identical": 2,
+    "total": 13,
+    "mismatch_idx": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12
+    ]
+  }
+]

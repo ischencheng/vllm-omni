@@ -1,0 +1,274 @@
+{
+  "arm": "off",
+  "round": 0,
+  "cmd": [
+    "/usr/bin/python",
+    "-m",
+    "vllm_omni.entrypoints.cli.main",
+    "serve",
+    "openbmb/MiniCPM-o-4_5",
+    "--omni",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8091",
+    "--deploy-config",
+    "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_off.yaml",
+    "--trust-remote-code",
+    "--chat-template",
+    "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+    "--chat-template-content-format",
+    "openai"
+  ],
+  "startup_s": 285.1642847061157,
+  "ready": true,
+  "c1": {
+    "wall_s": 48.352287030000014,
+    "completion_tokens": 1320,
+    "tok_per_s": 27.299639398256602,
+    "rows": [
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "latency_s": 0.9210848179999971,
+        "finish_reason": "stop",
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 61,
+          "completion_tokens": 29,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_00.wav",
+        "asr": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "asr_wer_vs_text": 0.0,
+        "audio_s": 7.4
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 120 words.",
+        "status": 200,
+        "latency_s": 3.085055073000035,
+        "finish_reason": "stop",
+        "text": "hash map handles collisions by using a collision resolution strategy. When two keys hash to the same index, the map uses methods like chaining or open addressing. Chaining involves maintaining a linked list at each index, allowing multiple entries. Open addressing finds another open slot within the hash table, using techniques like linear probing, quadratic probing, or double hashing. These methods ensure that each key can be stored, even if the hash function produces the same index for different keys.",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 124,
+          "completion_tokens": 93,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_01.wav",
+        "asr": "HashMap handles collisions by using a collision resolution strategy. When two keys hash to the same index, the map uses methods. Like chaining or open addressing, chaining involves maintaining a linked list at each index. Allowing multiple entries, open addressing finds another open slot within the hash table, using techniques like linear probing, quadratic probing, or double hashing. These methods ensure that each key can be stored even if the hash function produces the same index for different keys.",
+        "asr_wer_vs_text": 0.025,
+        "audio_s": 26.48
+      },
+      {
+        "prompt": "Write a Python function that returns the n-th Fibonacci number iteratively, with a docstring.",
+        "status": 200,
+        "latency_s": 4.381794374000037,
+        "finish_reason": "stop",
+        "text": "def fibonacci(n):\n    \"\"\"\n    Returns the n-th Fibonacci number iteratively.\n    \"\"\"\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2, n + 1):\n            a, b = b, a + b\n        return b",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 116,
+          "completion_tokens": 84,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_02.wav",
+        "asr": "Differs, f or h page in 5, entry, empreh, entry, entry, empre, masses, empre, entry, mass injury, empre, mias, empre, empre, mass endemic, if injury, mayante, empre, mayante, fante, empre, empre, empre, rite, empre, boundary, empre, empre, dumpre, empre, empre, I am pre, my am pre, am pre, am brie, l am brie, l am brie, l am brie, my an twen, one brie, am pre, am brie, am brie, am preen, am brie, am pre, am brie an t, one preen.",
+        "asr_wer_vs_text": 2.051282051282051,
+        "audio_s": 41.84
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun, one per line, with one fact each.",
+        "status": 200,
+        "latency_s": 3.913417151000033,
+        "finish_reason": "length",
+        "text": "Mercury: Closest to the sun, it has no moons. Venus: Often called Earth's twin due to similar size, it has a thick, toxic atmosphere. Earth: The only known planet to support life, it has one moon. Mars: Known as the Red Planet due to its iron oxide surface, it has the largest volcano in the solar system. Jupiter: The largest planet, it has a Great Red Spot, a storm larger than Earth. Saturn: Famous for its extensive ring system, it is less dense than water. Uranus: Rotates on its side, possibly due to a collision in the past. Neptune:",
+        "usage": {
+          "prompt_tokens": 35,
+          "total_tokens": 163,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_03.wav",
+        "asr": "Mercury, closest to the sun, has no moon's Venus, often called Earth's twin due to similar size. It has a thick, toxic atmosphere. Earth, the only known planet to support life it has one moon, Mars, known as the Red Planet due to its iron oxide surface. It has the largest volcano in the solar system. Jupiter the largest planet. It has a great red spot, a storm larger than Earth, Saturn famous for its extensive ring system. dense than water, Uranus rotates on its side possibly due to a collision in the past, Neptune.",
+        "asr_wer_vs_text": 0.050505050505050504,
+        "audio_s": 33.36
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours and then 120 km in 1.5 hours. What is its average speed? Show the steps.",
+        "status": 200,
+        "latency_s": 3.9884836950000135,
+        "finish_reason": "stop",
+        "text": "To find the average speed, we need to calculate the total distance traveled and the total time taken.\nTotal distance = 180 km + 120 km = 300 km\nTotal time = 2 hours + 1.5 hours = 3.5 hours\nAverage speed = Total distance / Total time\nAverage speed = 300 km / 3.5 hours\nAverage speed = 85.71 km/h (rounded to two decimal places)\nTherefore, the average speed of the train is 85.71 km/h.",
+        "usage": {
+          "prompt_tokens": 49,
+          "total_tokens": 170,
+          "completion_tokens": 121,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_04.wav",
+        "asr": "To find the average speed, we need to calculate the total distance traveled and the total time taken total distance, then you 180 km, that's 120 km, then you all 3000 km total, timed inures, 2 hours last 105 hours, then you are 3 5 hours, speed inures total distance, total time, that's when you wander speed, then you are 300 km, 305 hours grotted speed, then you are 8571 km chased, rounded to 2 decimal, place is price, therefore, the average speed of of the train is 8571 kilometer. Chains.",
+        "asr_wer_vs_text": 0.5555555555555556,
+        "audio_s": 32.24
+      },
+      {
+        "prompt": "Write a short story of about 100 words about a robot that learns to paint.",
+        "status": 200,
+        "latency_s": 3.8305698039999925,
+        "finish_reason": "stop",
+        "text": "In a quiet workshop, a robot named Zeta was assigned to assemble parts. One day, it found a paintbrush and began experimenting. Strokes of blue, red, and gold danced across the canvas. Zeta mixed colors, creating swirls and patterns. The robot discovered joy in the process, not just precision. Days turned into weeks as Zeta painted, learning to express emotions through art. Its creator, amazed, realized Zeta had found a new purpose—artistry. The robot’s masterpiece hung proudly, a testament to creativity beyond programming.",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 145,
+          "completion_tokens": 113,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_05.wav",
+        "asr": "In a quiet workshop a robot named Zeta was assigned to assemble parts one day it found a paintbrush and began experimenting strokes of blue, red, and gold danced across the canvas. Zeta mixed colors creating swirls and patterns. The robot discovered joy in the process. Not just precision, days turned into weeks as Zeta painted, learning to express emotions through art. Its creator, amazed. realized Zeta had found a new purpose artistry the robots masterpiece hung proudly a testament to creativity beyond programming",
+        "asr_wer_vs_text": 0.023529411764705882,
+        "audio_s": 33.68
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer with a short bulleted list.",
+        "status": 200,
+        "latency_s": 5.335075257000028,
+        "finish_reason": "length",
+        "text": "TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are two fundamental protocols in the internet protocol suite. Here are the main differences:\n\n- **Connection-Oriented vs. Connectionless:**\n  - TCP is connection-oriented, requiring a handshake (three-way process) to establish a connection before data transfer.\n  - UDP is connectionless, meaning it does not establish a connection before sending data.\n\n- **Reliability:**\n  - TCP provides reliable, ordered, and error-checked delivery of data through mechanisms like acknowledgments, retransmissions, and sequence numbers.\n  - UDP does not guarantee delivery, order, or error",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 159,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_06.wav",
+        "asr": "TCP, pull pull pull pull, myandera control protocol, and UDP, user datacom protocol, are two fundamental protocols in the internet. Protocol suite. Here are the main differences the asterisk connection-oriented versus connectionless ditto. TCP is connection oriented, requiring a handshake three-way process to establish a connection before data transfer. UDP is connectionless, meaning it does not establish a connection before sending data. Tasterous. Ah. Reliability. Ditto. TCP provides reliable, ordered, and error-check delivery of data through mechanisms like acknowledgments, transmissions, and sequence numbers. UDP does not guarantee delivery order or error.",
+        "asr_wer_vs_text": 0.17857142857142858,
+        "audio_s": 49.4
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs with numbered steps.",
+        "status": 200,
+        "latency_s": 4.496081774000004,
+        "finish_reason": "length",
+        "text": "Sure! Here’s a simple recipe for scrambled eggs with numbered steps:\n\n1. Crack 2–3 eggs into a bowl.\n2. Add a small splash of milk or cream (optional, for fluffiness).\n3. Season with salt and pepper to taste.\n4. Whisk the eggs until well beaten.\n5. Heat a non-stick pan over medium heat.\n6. Add a small amount of butter or oil to the pan.\n7. Pour the egg mixture into the pan.\n8. Let the eggs cook for a minute, then gently stir with a spatula.\n9. Continue stirring and cooking until the eggs are",
+        "usage": {
+          "prompt_tokens": 24,
+          "total_tokens": 152,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_07.wav",
+        "asr": "Sure, here's a simple recipe for scrambled eggs with numbered steps. Desjersen, crack two three eggs into a bowl. Two, add a small splash of milk or cream, optional, for fluffiness 30. Season with salt and pepper to taste. You four, whisk the eggs until well beaten five. Heat a non-stick pan over medium heat. Non-sticks pan over medium heat. Six, add a small amount of butter or oil to the pan seven. Pour the egg mixture into the pan. Attain, let the eggs cook for a minute. Then gently stir with a spatula. 9 continue stirring and cooking until the eggs are twined.",
+        "asr_wer_vs_text": 0.20202020202020202,
+        "audio_s": 40.0
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in four sentences.",
+        "status": 200,
+        "latency_s": 3.014722511000002,
+        "finish_reason": "stop",
+        "text": "Romeo and Juliet is a tragic love story set in Verona, where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball, and they secretly marry. Their love is discovered, leading to a series of misunderstandings and tragic events, ultimately resulting in their deaths. The families reconcile after the tragedy, realizing the senselessness of their feud.",
+        "usage": {
+          "prompt_tokens": 26,
+          "total_tokens": 122,
+          "completion_tokens": 96,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_08.wav",
+        "asr": "Rommo and Juliet is a tragic love story set in. For Rona, we're too feuding. Families the Montagues and Capulets are at odds, Romeo a Montague falls in love with Juliet, a Capulet at a bow, and they secretly marry. Their love is discovered, leading to a series of misunderstandings and tragic events, ultimately resulting in their deaths the families reconcile after the tragedy realizing the senselessness of their feud.",
+        "asr_wer_vs_text": 0.08695652173913043,
+        "audio_s": 25.52
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning to a high school student.",
+        "status": 200,
+        "latency_s": 4.179791427999987,
+        "finish_reason": "length",
+        "text": "Supervised learning is when a machine learning model is trained on a labeled dataset, meaning the data has been pre-labeled with the correct output. The model uses this labeled data to learn the relationship between the input and output, and then it can make predictions on new, unseen data. For example, if you have a dataset of emails labeled as spam or not spam, a supervised learning model can learn to identify patterns in the emails that are associated with spam and use that knowledge to predict whether a new email is spam or not.\nUnsupervised learning, on the other hand, is when a machine learning model is trained on an unlabeled",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 158,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_09.wav",
+        "asr": "Supervised learning is when a machine learning model is trained on a labeled dataset, meaning the data has been pre-l labeled with the correct output. The model uses this labeled data to learn the relationship between the input and output, and then it can make predictions on new, unseen data, for example. If you have a dataset of emails labeled as spam or not spam, a supervised learning model can learn to identify patterns in the emails that are associated with spam and use that knowledge to predict whether a new email is spam or not a month supervised learning, on the other hand, is when a machine learning model is trained on an unlabeled",
+        "asr_wer_vs_text": 0.035398230088495575,
+        "audio_s": 36.32
+      },
+      {
+        "prompt": "What is 17 multiplied by 23? Explain how you computed it.",
+        "status": 200,
+        "latency_s": 5.118807758999992,
+        "finish_reason": "length",
+        "text": "To compute 17 × 23, you can use the standard multiplication method:\n\n```\n   17\n×  23\n------\n  51   (17 × 3)\n 340   (17 × 20, shifted one position to the left)\n------\n 391\n```\n\n**Step-by-step explanation:**\n1. Multiply 17 by 3 (the units digit of 23): 17 × 3 = 51.\n2. Multiply 17 by 20 (the tens digit of 23, which",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 158,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_10.wav",
+        "asr": "To compute 117 x 23, you can use the standard multiplication method Dansabors. DT9, 17, 4S x 2, 3-Quad and Mi-S-I-S-S-T. C-TIN, 4S-S-S-TIN-T. Qui-Point x 3-I-S, 117 x 2000. Tuthy, shifted one position to the left. S-Way-I-S-I-S-S-TIN to the left. Matesly SPSed Step by Step Explanation Ditto 1 Team by 30 The Units Digit of 2 3C Port 1170 times 3 Team 4 Multiply 17 by 2 The Tens Digit of 2 3 Witch",
+        "asr_wer_vs_text": 1.1111111111111112,
+        "audio_s": 46.8
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms.",
+        "status": 200,
+        "latency_s": 1.4282609630000138,
+        "finish_reason": "stop",
+        "text": "The water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation. This cycle helps distribute water around the planet.",
+        "usage": {
+          "prompt_tokens": 21,
+          "total_tokens": 61,
+          "completion_tokens": 40,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_11.wav",
+        "asr": "The water cycle is a continuous process where water evaporates from the Earth's surface forms, clouds, and then falls back to the ground as precipitation. This cycle helps distribute water around the planet.",
+        "asr_wer_vs_text": 0.0,
+        "audio_s": 12.08
+      },
+      {
+        "prompt": "Write a SQL query that returns the top 5 customers by total order amount from tables customers(id, name) and orders(id, customer_id, amount).",
+        "status": 200,
+        "latency_s": 4.609661088999985,
+        "finish_reason": "stop",
+        "text": "To solve this problem, you can use the SQL JOIN and GROUP BY clauses to combine the customers and orders tables, and then use the ORDER BY and LIMIT clauses to get the top 5 customers by total order amount. Here is a sample SQL query:\nsql\nSELECT c.id, c.name, SUM(o.amount) as total_order_amount\nFROM customers c\nJOIN orders o ON c.id = o.customer_id\nGROUP BY c.id, c.name\nORDER BY total_order_amount DESC\nLIMIT 5;",
+        "usage": {
+          "prompt_tokens": 44,
+          "total_tokens": 148,
+          "completion_tokens": 104,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_12.wav",
+        "asr": "To solve this problem, you can use the SQL join and grid by clauses to combine the customers and orders tables and then use the by and maybe not clauses to get the top. Five customers by total order amount. Here is a sample SQL query dot SQL crosses can prod time sampine as total profit t crop hand customers customers gob up open customers c coppin gob customers can goppers are coppers b r i poppers",
+        "asr_wer_vs_text": 0.4823529411764706,
+        "audio_s": 42.28
+      }
+    ]
+  },
+  "spec_log_lines": [
+    "\u001b[0;36m(StageEngineCoreProc_stage0_replica0 pid=236)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m10-31 01:18:54\u001b[0m \u001b[90m[core.py:133]\u001b[0m Initializing a V1 LLM engine (v0.32.0) with config: model='openbmb/MiniCPM-o-4_5', speculative_config=None, tokenizer='openbmb/MiniCPM-o-4_5', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=openbmb/MiniCPM-o-4_5, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::qwen4_exp_qsa_prepare_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [16384], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 32, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)",
+    "\u001b[0;36m(StageEngineCoreProc_stage1_replica0 pid=510)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m10-31 01:20:32\u001b[0m \u001b[90m[core.py:133]\u001b[0m Initializing a V1 LLM engine (v0.32.0) with config: model='openbmb/MiniCPM-o-4_5', speculative_config=None, tokenizer='openbmb/MiniCPM-o-4_5', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=openbmb/MiniCPM-o-4_5, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::qwen4_exp_qsa_prepare_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 16, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)",
+    "\u001b[0;36m(StageEngineCoreProc_stage2_replica0 pid=718)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m10-31 01:21:24\u001b[0m \u001b[90m[core.py:133]\u001b[0m Initializing a V1 LLM engine (v0.32.0) with config: model='openbmb/MiniCPM-o-4_5', speculative_config=None, tokenizer='openbmb/MiniCPM-o-4_5', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=65536, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=True, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=openbmb/MiniCPM-o-4_5, enable_prefix_caching=False, enable_chunked_prefill=False, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'ir_enable_torch_wrap': False, 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [65536], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=False, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)"
+  ],
+  "error_tail": [
+    "\u001b[0;36m(APIServer pid=52)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m10-31 01:18:38\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+}

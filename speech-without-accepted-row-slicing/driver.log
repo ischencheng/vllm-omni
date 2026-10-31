@@ -1,0 +1,12 @@
+[dspark-r0] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_dspark.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[dspark-r0] ready=True after 423s
+[dspark-r0] c1: 0 tok in 4.4s (0.0 tok/s), errors=13
+  error: 500 {"error": {"message": "Stage-1 has no live replica", "type": "InternalServerError", "param": null, "code": 500, "request_id": "chatcmpl-963148be506590ef", "error_stage_id": 1}}
+  error: 500 {"error": {"message": "Stage-1 has no live replica", "type": "InternalServerError", "param": null, "code": 500, "request_id": "chatcmpl-896a5ec50b921f7d", "error_stage_id": 1}}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:  13%|█▎        | 60/479 [00:00<00:00, 532.00it/s]
+Loading weights:  49%|████▉     | 236/479 [00:00<00:00, 1194.40it/s]
+Loading weights:  76%|███████▌  | 365/479 [00:00<00:00, 1208.84it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 1303.45it/s]
+[]

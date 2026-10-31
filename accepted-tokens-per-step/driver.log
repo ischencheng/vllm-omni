@@ -1,0 +1,5 @@
+[dspark-r0] /usr/bin/python -m vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_smoke_dspark.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[dspark-r0] ready=True after 360s
+[dspark-r0] c1: 2091 tok in 8.6s (243.1 tok/s), errors=0
+[dspark-r0] c16: 2019 tok in 1.8s (1141.7 tok/s), errors=0
+[]

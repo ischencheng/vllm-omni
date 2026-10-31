@@ -1,0 +1,42 @@
++ /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/worker_v2/test_omni_ar_model_runner.py tests/worker_v2/test_omni_gpu_model_runner.py tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py
+        )[0]["model_intermediate_buffer"]
+    
+        assert info["ids"]["tts"] == output_ids
+>       assert torch.equal(torch.as_tensor(unpack_handoff_tensor(info["hidden_states"]["tts"])), latent[2:4])
+E       AssertionError: assert False
+E        +  where False = <built-in method equal of type object at 0x2b47294bff20>(tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.],\n        [16., 17., 18., 19.],\n        [20., 21., 22., 23.]]), tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.]]))
+E        +    where <built-in method equal of type object at 0x2b47294bff20> = torch.equal
+E        +    and   tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.],\n        [16., 17., 18., 19.],\n        [20., 21., 22., 23.]]) = <built-in method as_tensor of type object at 0x2b47294bff20>(tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.],\n        [16., 17., 18., 19.],\n        [20., 21., 22., 23.]]))
+E        +      where <built-in method as_tensor of type object at 0x2b47294bff20> = torch.as_tensor
+E        +      and   tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.],\n        [16., 17., 18., 19.],\n        [20., 21., 22., 23.]]) = unpack_handoff_tensor(b'\x84\xaa__tensor__\xc3\xa5dtype\xa7float32\xa5shape\x92\x04\x04\xa4data\xc4@\x00\x00\x00A\x00\x00\x10A\x00\x00 A\x00...00`A\x00\x00pA\x00\x00\x80A\x00\x00\x88A\x00\x00\x90A\x00\x00\x98A\x00\x00\xa0A\x00\x00\xa8A\x00\x00\xb0A\x00\x00\xb8A')
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:93: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_drops_rows_past_a_length_stop
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/worker_v2/test_omni_ar_model_runner.py::test_finalized_full_payload_latent_ledger_is_accumulated_once
+  /opt/vllm-omni/tests/engine/test_output_processor_mrv2_text.py:15: DeprecationWarning: Importing from 'vllm_omni.engine.output_modality' is deprecated. Use 'vllm_omni.outputs.output_modality' instead.
+    from vllm_omni.engine.output_modality import OutputModality
+
+tests/worker_v2/test_omni_ar_model_runner.py::test_finalized_full_payload_latent_ledger_is_accumulated_once
+  /opt/vllm-omni/tests/engine/test_output_processor_mrv2_text.py:16: DeprecationWarning: Importing from 'vllm_omni.engine.output_processor' is deprecated. Use 'vllm_omni.outputs.output_processor' instead.
+    from vllm_omni.engine.output_processor import (
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_sample_tokens_drafts_from_target_layers_after_postprocess[3]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_sample_tokens_drafts_from_target_layers_after_postprocess[2]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_async_output_drops_rejected_draft_rows[False]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_async_output_drops_rejected_draft_rows[True]
+FAILED tests/worker_v2/test_omni_gpu_model_runner.py::test_drafter_target_layers_reach_execute_state[NONE]
+FAILED tests/worker_v2/test_omni_gpu_model_runner.py::test_drafter_target_layers_reach_execute_state[FULL]
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_mrv2_thinker_returns_drafter_layers_with_hidden_states
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_v1_thinker_refuses_drafter_layers
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_drops_rows_past_a_length_stop
+9 failed, 214 passed, 16 warnings in 20.85s
+rc=1

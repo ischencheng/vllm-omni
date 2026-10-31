@@ -1,0 +1,42 @@
++ /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/worker_v2 tests/model_executor/models/minicpmo_4_5 tests/model_executor/models/moss_tts/test_local_eager_mtp.py tests/model_executor/stage_input_processors
+  /usr/local/lib/python3.12/dist-packages/flashinfer/cute_dsl/availability.py:136: DeprecationWarning: Arch from arch.py is deprecated. Use Arch from enums.py instead.
+    from cutlass.base_dsl.arch import Arch
+
+tests/worker_v2/test_omni_ar_model_runner.py::test_finalized_full_payload_latent_ledger_is_accumulated_once
+  /opt/vllm-omni/tests/engine/test_output_processor_mrv2_text.py:15: DeprecationWarning: Importing from 'vllm_omni.engine.output_modality' is deprecated. Use 'vllm_omni.outputs.output_modality' instead.
+    from vllm_omni.engine.output_modality import OutputModality
+
+tests/worker_v2/test_omni_ar_model_runner.py::test_finalized_full_payload_latent_ledger_is_accumulated_once
+  /opt/vllm-omni/tests/engine/test_output_processor_mrv2_text.py:16: DeprecationWarning: Importing from 'vllm_omni.engine.output_processor' is deprecated. Use 'vllm_omni.outputs.output_processor' instead.
+    from vllm_omni.engine.output_processor import (
+
+tests/worker_v2/test_omni_model_state.py::test_rope_shim_constructs_sequential_mrope_state
+  /opt/vllm-omni/tests/worker_v2/test_omni_model_state.py:639: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+    torch.testing.assert_close(torch.as_tensor(np.asarray(positions)).long(), torch.arange(4).expand(3, -1))
+
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_accepts_the_default_six_second_window
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_rejects_a_31_second_window
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_is_explicit_cuda_opt_in[True]
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_is_explicit_cuda_opt_in[true]
+tests/model_executor/models/minicpmo_4_5/test_code2wav_device_spk_flag.py::test_cpu_reference_speaker_is_explicit_cuda_opt_in[1]
+  /usr/local/lib/python3.12/dist-packages/torch/backends/mkldnn/__init__.py:96: UserWarning: TF32 acceleration on top of oneDNN is available for Intel GPUs. The current Torch version does not have Intel GPU Support. (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/Context.cpp:265.)
+    torch._C._set_onednn_allow_tf32(_allow_tf32)
+
+tests/model_executor/models/minicpmo_4_5/test_pipeline.py::TestPipelineTopology::test_three_stages
+tests/model_executor/models/minicpmo_4_5/test_pipeline.py::TestArchAliases::test_shared_minicpmo_alias_present
+tests/model_executor/models/minicpmo_4_5/test_pipeline.py::TestHfConfigPredicate::test_accepts_4_5_string
+  /usr/local/lib/python3.12/dist-packages/_pytest/fixtures.py:1313: PytestRemovedIn10Warning: Class-scoped fixture defined as instance method is deprecated.
+  Instance attributes set in this fixture will NOT be visible to test methods,
+  as each test gets a new instance while the fixture runs only once per class.
+  Use @classmethod decorator and set attributes on cls instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method
+    fixturefunc = resolve_fixture_function(fixturedef, request)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_batching.py::test_cpu_codec_transport_routes_owned_payloads[False-False]
+  /usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py:24: DeprecationWarning: `vllm.entrypoints.openai.api_server` is deprecated and will likely beunsupported in a future version. Use the corresponding function from `vllm.entrypoints.launchers` instead.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+2808 passed, 3 skipped, 222 deselected, 44 warnings in 201.69s (0:03:21)
+rc=0

@@ -1,0 +1,808 @@
+Running 223 items in this shard
+..................FF..........................................FF........ [ 32%]
+........................................................................ [ 64%]
+...............FF..............FF..F.................................... [ 96%]
+.......                                                                  [100%]
+=================================== FAILURES ===================================
+______ test_sample_tokens_drafts_from_target_layers_after_postprocess[3] _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b484d42cad0>
+num_spec_tokens = 3
+
+    @pytest.mark.parametrize("num_spec_tokens", [3, 2])
+    def test_sample_tokens_drafts_from_target_layers_after_postprocess(monkeypatch, num_spec_tokens) -> None:
+        """MRv2 AR stages propose the next drafts from this step's target layers."""
+        runner = OmniARModelRunner.__new__(OmniARModelRunner)
+        input_batch = SimpleNamespace(req_ids=["a", "b"], num_reqs=2, seq_lens=torch.tensor([5, 9]))
+        input_batch.idx_mapping, input_batch.query_start_loc = torch.tensor([1, 0]), torch.tensor([0, 4, 8])
+        hidden, aux = torch.zeros(8, 2), [torch.ones(8, 2), torch.full((8, 2), 2.0)]
+        runner.execute_model_state = SimpleNamespace(
+            input_batch=input_batch,
+            hidden_states=hidden,
+            finished_req_ids=set(),
+            ec_connector_output=None,
+            attn_metadata="attn",
+            slot_mappings_by_layer="slots",
+            aux_hidden_states=aux,
+            dp_sync_state=None,
+            num_spec_tokens_to_schedule=num_spec_tokens,
+        )
+        runner._kv_extracted_req_ids = runner._last_aux_output = runner._last_multimodal_outputs = None
+        runner.is_last_pp_rank, runner.pp_handler, runner.check_ep_fault = True, None, False
+        runner.aux_output_connector = None
+        runner.model_config = SimpleNamespace(async_chunk=False)
+        runner.vllm_config = SimpleNamespace(model_config=SimpleNamespace(engine_output_type="text"))
+        runner.model = SimpleNamespace(compute_logits=lambda h: h)
+        runner.model_state = SimpleNamespace(
+            postprocess_model_output=MagicMock(return_value=(hidden, None)), supports_mm_inputs=False
+        )
+        runner.req_states = SimpleNamespace(
+            all_token_ids=SimpleNamespace(gpu=torch.zeros(2, 9)),
+            num_computed_tokens=SimpleNamespace(gpu=torch.zeros(2)),
+            prompt_len=SimpleNamespace(np=np.array([2, 2]), gpu=torch.tensor([2, 2])),
+            draft_tokens=torch.zeros(2, 3, dtype=torch.long),
+            last_sampled_tokens="last",
+            next_prefill_tokens="next",
+        )
+        runner.main_stream = runner.output_copy_stream = MagicMock()
+        runner.eplb = runner._finalize_native_data_plane_output = runner._reserve_native_data_plane_outputs = MagicMock()
+        runner.sampler = SimpleNamespace(
+            sampling_states=SimpleNamespace(temperature=SimpleNamespace(gpu="temp"), seeds=SimpleNamespace(gpu="seeds"))
+        )
+        num_sampled, num_rejected = torch.tensor([3, 1]), torch.tensor([0, 2])
+        runner.sample = MagicMock(
+            return_value=(SimpleNamespace(sampled_token_ids=torch.zeros(2, 4, dtype=torch.long)), num_sampled, num_rejected)
+        )
+        runner.prompt_logprobs_worker = SimpleNamespace(
+            compute_prompt_logprobs=MagicMock(return_value={}),
+            compute_prompt_token_id_logprobs=MagicMock(return_value={}),
+        )
+        order = []
+        runner.postprocess_sampled = MagicMock(side_effect=lambda *_: order.append("postprocess"))
+        runner.kv_connector = SimpleNamespace(post_forward=MagicMock(side_effect=lambda _: order.append("kv")))
+        runner.num_speculative_steps = 3
+        runner._draft_workspace_lane = 1
+        runner.adaptive_verification = None
+        runner.draft_tokens_handler = MagicMock()
+        runner.speculator = MagicMock(spec=["propose", "supports_mm_inputs"])
+        runner.speculator.supports_mm_inputs = False
+        runner.speculator.propose.side_effect = lambda *_, **__: order.append("propose") or torch.tensor(
+            [[7, 8, 9], [4, 5, 6]]
+        )
+        monkeypatch.setattr(
+            omni_ar_model_runner, "OmniAsyncOutput", MagicMock(return_value=SimpleNamespace(copy_event=None))
+        )
+    
+        runner.sample_tokens(None)
+    
+>       assert order == ["postprocess", "propose", "kv"]
+E       AssertionError: assert ['postprocess', 'kv'] == ['postprocess...ropose', 'kv']
+E         
+E         At index 1 diff: 'kv' != 'propose'
+E         Right contains one more item: 'kv'
+E         Use -v to get more diff
+
+tests/worker_v2/test_omni_ar_model_runner.py:299: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_sample_tokens_drafts_from_target_layers_after_postprocess[3]
+______ test_sample_tokens_drafts_from_target_layers_after_postprocess[2] _______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b484d2b7320>
+num_spec_tokens = 2
+
+    @pytest.mark.parametrize("num_spec_tokens", [3, 2])
+    def test_sample_tokens_drafts_from_target_layers_after_postprocess(monkeypatch, num_spec_tokens) -> None:
+        """MRv2 AR stages propose the next drafts from this step's target layers."""
+        runner = OmniARModelRunner.__new__(OmniARModelRunner)
+        input_batch = SimpleNamespace(req_ids=["a", "b"], num_reqs=2, seq_lens=torch.tensor([5, 9]))
+        input_batch.idx_mapping, input_batch.query_start_loc = torch.tensor([1, 0]), torch.tensor([0, 4, 8])
+        hidden, aux = torch.zeros(8, 2), [torch.ones(8, 2), torch.full((8, 2), 2.0)]
+        runner.execute_model_state = SimpleNamespace(
+            input_batch=input_batch,
+            hidden_states=hidden,
+            finished_req_ids=set(),
+            ec_connector_output=None,
+            attn_metadata="attn",
+            slot_mappings_by_layer="slots",
+            aux_hidden_states=aux,
+            dp_sync_state=None,
+            num_spec_tokens_to_schedule=num_spec_tokens,
+        )
+        runner._kv_extracted_req_ids = runner._last_aux_output = runner._last_multimodal_outputs = None
+        runner.is_last_pp_rank, runner.pp_handler, runner.check_ep_fault = True, None, False
+        runner.aux_output_connector = None
+        runner.model_config = SimpleNamespace(async_chunk=False)
+        runner.vllm_config = SimpleNamespace(model_config=SimpleNamespace(engine_output_type="text"))
+        runner.model = SimpleNamespace(compute_logits=lambda h: h)
+        runner.model_state = SimpleNamespace(
+            postprocess_model_output=MagicMock(return_value=(hidden, None)), supports_mm_inputs=False
+        )
+        runner.req_states = SimpleNamespace(
+            all_token_ids=SimpleNamespace(gpu=torch.zeros(2, 9)),
+            num_computed_tokens=SimpleNamespace(gpu=torch.zeros(2)),
+            prompt_len=SimpleNamespace(np=np.array([2, 2]), gpu=torch.tensor([2, 2])),
+            draft_tokens=torch.zeros(2, 3, dtype=torch.long),
+            last_sampled_tokens="last",
+            next_prefill_tokens="next",
+        )
+        runner.main_stream = runner.output_copy_stream = MagicMock()
+        runner.eplb = runner._finalize_native_data_plane_output = runner._reserve_native_data_plane_outputs = MagicMock()
+        runner.sampler = SimpleNamespace(
+            sampling_states=SimpleNamespace(temperature=SimpleNamespace(gpu="temp"), seeds=SimpleNamespace(gpu="seeds"))
+        )
+        num_sampled, num_rejected = torch.tensor([3, 1]), torch.tensor([0, 2])
+        runner.sample = MagicMock(
+            return_value=(SimpleNamespace(sampled_token_ids=torch.zeros(2, 4, dtype=torch.long)), num_sampled, num_rejected)
+        )
+        runner.prompt_logprobs_worker = SimpleNamespace(
+            compute_prompt_logprobs=MagicMock(return_value={}),
+            compute_prompt_token_id_logprobs=MagicMock(return_value={}),
+        )
+        order = []
+        runner.postprocess_sampled = MagicMock(side_effect=lambda *_: order.append("postprocess"))
+        runner.kv_connector = SimpleNamespace(post_forward=MagicMock(side_effect=lambda _: order.append("kv")))
+        runner.num_speculative_steps = 3
+        runner._draft_workspace_lane = 1
+        runner.adaptive_verification = None
+        runner.draft_tokens_handler = MagicMock()
+        runner.speculator = MagicMock(spec=["propose", "supports_mm_inputs"])
+        runner.speculator.supports_mm_inputs = False
+        runner.speculator.propose.side_effect = lambda *_, **__: order.append("propose") or torch.tensor(
+            [[7, 8, 9], [4, 5, 6]]
+        )
+        monkeypatch.setattr(
+            omni_ar_model_runner, "OmniAsyncOutput", MagicMock(return_value=SimpleNamespace(copy_event=None))
+        )
+    
+        runner.sample_tokens(None)
+    
+>       assert order == ["postprocess", "propose", "kv"]
+E       AssertionError: assert ['postprocess', 'kv'] == ['postprocess...ropose', 'kv']
+E         
+E         At index 1 diff: 'kv' != 'propose'
+E         Right contains one more item: 'kv'
+E         Use -v to get more diff
+
+tests/worker_v2/test_omni_ar_model_runner.py:299: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_sample_tokens_drafts_from_target_layers_after_postprocess[2]
+______________ test_async_output_drops_rejected_draft_rows[False] ______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b484d42d6a0>
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b484d42fe90>
+async_chunk = False
+
+    @pytest.mark.parametrize("async_chunk", [False, True])
+    def test_async_output_drops_rejected_draft_rows(monkeypatch, mocker, async_chunk):
+        """Only rows of accepted tokens reach the next stage after draft verification."""
+        from vllm.v1.worker.gpu.input_batch import InputBatch
+    
+        monkeypatch.setattr(torch.cuda, "set_stream", lambda _stream: None)
+        # Each request verified three drafts: [last sampled, d1, d2, d3].
+        hidden = torch.arange(8 * 4, dtype=torch.float32).reshape(8, 4)
+        ids = torch.arange(8).reshape(8, 1)
+        batch = mocker.Mock(spec=InputBatch)
+        batch.query_start_loc_np = np.array([0, 4, 8])
+        batch.num_scheduled_tokens = np.array([4, 4])
+        batch.num_reqs = 2
+        batch.num_tokens_after_padding = 8
+>       output = _async_output(
+            req_ids=["req-0", "req-1"],
+            sampler_output=SamplerOutput(
+                torch.ones(2, 4, dtype=torch.long), None, None, torch.tensor([3, 1]), torch.tensor([1, 3])
+            ),
+            num_sampled_tokens=torch.tensor([3, 1]),
+            num_rejected_tokens=torch.tensor([1, 3]),
+            text_hidden=hidden,
+            multimodal_outputs={"latent_input_ids": ids},
+            input_batch=batch,
+            async_chunk=async_chunk,
+        ).get_output()
+
+tests/worker_v2/test_omni_ar_model_runner.py:514: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req_ids = ['req-0', 'req-1']
+overrides = {'sampler_output': SamplerOutput(sampled_token_ids=tensor([[1, 1, 1, 1],
+        [1, 1, 1, 1]]), logprobs_tensors=None... [16., 17., 18., 19.],
+        [20., 21., 22., 23.],
+        [24., 25., 26., 27.],
+        [28., 29., 30., 31.]]), ...}
+
+    def _async_output(req_ids=("req-0",), **overrides) -> OmniAsyncOutput:
+        rid2idx = {rid: i for i, rid in enumerate(req_ids)}
+        mro = omni_ar_model_runner.OmniModelRunnerOutput(list(req_ids), rid2idx, None, prompt_logprobs_dict={})
+        sampler_output = SamplerOutput(torch.tensor([[123]]), None, None, torch.tensor([1]), torch.tensor([0]))
+        kwargs = dict(model_runner_output=mro, sampler_output=sampler_output)
+        kwargs.update(num_sampled_tokens=torch.tensor([1] * len(req_ids)), copy_event=_FakeEvent())
+        kwargs.update(main_stream=_FakeStream(), copy_stream=_FakeStream())
+>       return OmniAsyncOutput(**(kwargs | overrides))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: OmniAsyncOutput.__init__() got an unexpected keyword argument 'num_rejected_tokens'
+
+tests/worker_v2/test_omni_ar_model_runner.py:50: TypeError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_async_output_drops_rejected_draft_rows[False]
+______________ test_async_output_drops_rejected_draft_rows[True] _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b484d42e9f0>
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b484d42ec30>
+async_chunk = True
+
+    @pytest.mark.parametrize("async_chunk", [False, True])
+    def test_async_output_drops_rejected_draft_rows(monkeypatch, mocker, async_chunk):
+        """Only rows of accepted tokens reach the next stage after draft verification."""
+        from vllm.v1.worker.gpu.input_batch import InputBatch
+    
+        monkeypatch.setattr(torch.cuda, "set_stream", lambda _stream: None)
+        # Each request verified three drafts: [last sampled, d1, d2, d3].
+        hidden = torch.arange(8 * 4, dtype=torch.float32).reshape(8, 4)
+        ids = torch.arange(8).reshape(8, 1)
+        batch = mocker.Mock(spec=InputBatch)
+        batch.query_start_loc_np = np.array([0, 4, 8])
+        batch.num_scheduled_tokens = np.array([4, 4])
+        batch.num_reqs = 2
+        batch.num_tokens_after_padding = 8
+>       output = _async_output(
+            req_ids=["req-0", "req-1"],
+            sampler_output=SamplerOutput(
+                torch.ones(2, 4, dtype=torch.long), None, None, torch.tensor([3, 1]), torch.tensor([1, 3])
+            ),
+            num_sampled_tokens=torch.tensor([3, 1]),
+            num_rejected_tokens=torch.tensor([1, 3]),
+            text_hidden=hidden,
+            multimodal_outputs={"latent_input_ids": ids},
+            input_batch=batch,
+            async_chunk=async_chunk,
+        ).get_output()
+
+tests/worker_v2/test_omni_ar_model_runner.py:514: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req_ids = ['req-0', 'req-1']
+overrides = {'sampler_output': SamplerOutput(sampled_token_ids=tensor([[1, 1, 1, 1],
+        [1, 1, 1, 1]]), logprobs_tensors=None... [16., 17., 18., 19.],
+        [20., 21., 22., 23.],
+        [24., 25., 26., 27.],
+        [28., 29., 30., 31.]]), ...}
+
+    def _async_output(req_ids=("req-0",), **overrides) -> OmniAsyncOutput:
+        rid2idx = {rid: i for i, rid in enumerate(req_ids)}
+        mro = omni_ar_model_runner.OmniModelRunnerOutput(list(req_ids), rid2idx, None, prompt_logprobs_dict={})
+        sampler_output = SamplerOutput(torch.tensor([[123]]), None, None, torch.tensor([1]), torch.tensor([0]))
+        kwargs = dict(model_runner_output=mro, sampler_output=sampler_output)
+        kwargs.update(num_sampled_tokens=torch.tensor([1] * len(req_ids)), copy_event=_FakeEvent())
+        kwargs.update(main_stream=_FakeStream(), copy_stream=_FakeStream())
+>       return OmniAsyncOutput(**(kwargs | overrides))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: OmniAsyncOutput.__init__() got an unexpected keyword argument 'num_rejected_tokens'
+
+tests/worker_v2/test_omni_ar_model_runner.py:50: TypeError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_async_output_drops_rejected_draft_rows[True]
+_____________ test_drafter_target_layers_reach_execute_state[NONE] _____________
+
+cg_mode = <CUDAGraphMode.NONE: 0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b484d7d1160>
+
+    @pytest.mark.parametrize("cg_mode", [CUDAGraphMode.NONE, CUDAGraphMode.FULL])
+    def test_drafter_target_layers_reach_execute_state(cg_mode, monkeypatch):
+        """Layers a drafter reads leave the forward tuple; the Omni aux slot stays empty."""
+        from vllm.v1.worker.gpu.input_batch import InputBatch
+    
+        runner = object.__new__(OmniGPUModelRunner)
+        runner._staged_writes = staged_writes.StagedWrites()
+        hidden, aux = torch.ones(1, 2), [torch.full((1, 2), 3.0)]
+        runner.model = MagicMock(return_value=(hidden, aux))
+        runner.cudagraph_manager = MagicMock()
+        runner.cudagraph_manager.run_fullgraph.return_value = (hidden, aux)
+        runner.use_aux_hidden_state_outputs = True
+        runner.model_config = SimpleNamespace()
+        runner.vllm_config = SimpleNamespace()
+        runner.req_states = SimpleNamespace()
+        runner.model_state = MagicMock()
+        runner.model_state.prepare_inputs.return_value = {}
+        runner._omni_data_plane = object()
+        runner.supports_mm_inputs = False
+        runner.lora_config = None
+        runner.is_encoder_decoder = False
+        runner.eplb = MagicMock()
+        runner.kv_connector = MagicMock()
+        runner.input_buffers = object()
+        runner.kv_cache_config = object()
+        runner.attn_groups = []
+        input_batch = SimpleNamespace(
+            input_ids=torch.tensor([1]),
+            positions=torch.tensor([0]),
+            num_tokens=1,
+            num_tokens_after_padding=1,
+            is_padding=None,
+        )
+        monkeypatch.setattr(InputBatch, "make_dummy", MagicMock(return_value=input_batch))
+        runner.prepare_dummy_attn = MagicMock(return_value=((), torch.empty(0)))
+        runner.gather_batch_req_state = MagicMock(return_value=(None, 1))
+        batch_desc = SimpleNamespace(cg_mode=cg_mode, num_reqs=1, num_tokens=1, num_active_loras=0, max_query_len=1)
+        runner._dispatch_batch_descriptor = MagicMock(return_value=(batch_desc, None))
+        monkeypatch.setattr("vllm_omni.worker_v2.omni_model_runner.build_slot_mappings_by_layer", lambda *args: {})
+        monkeypatch.setattr(
+            "vllm_omni.worker_v2.omni_model_runner.set_forward_context", lambda *args, **kwargs: nullcontext()
+        )
+        scheduled = SchedulerOutput.make_empty()
+        scheduled.num_scheduled_tokens = {"_dummy_req_0": 1}
+        scheduled.total_num_scheduled_tokens = 1
+    
+        runner.execute_model(scheduled, dummy_run=True, valid_dummy_state_slots=True)
+    
+        assert runner.execute_model_state.hidden_states is hidden
+>       assert runner.execute_model_state.aux_hidden_states is aux
+E       assert None is [tensor([[3., 3.]])]
+E        +  where None = ExecuteModelState(input_batch=namespace(input_ids=tensor([1]), positions=tensor([0]), num_tokens=1, num_tokens_after_p...sync_state=None, finished_req_ids=set(), ec_connector_output=None, cudagraph_stats=None, num_spec_tokens_to_schedule=0).aux_hidden_states
+E        +    where ExecuteModelState(input_batch=namespace(input_ids=tensor([1]), positions=tensor([0]), num_tokens=1, num_tokens_after_p...sync_state=None, finished_req_ids=set(), ec_connector_output=None, cudagraph_stats=None, num_spec_tokens_to_schedule=0) = <vllm_omni.worker_v2.omni_model_runner.OmniGPUModelRunner object at 0x2b484d7d11c0>.execute_model_state
+
+tests/worker_v2/test_omni_gpu_model_runner.py:686: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_drafter_target_layers_reach_execute_state[NONE]
+_____________ test_drafter_target_layers_reach_execute_state[FULL] _____________
+
+cg_mode = <CUDAGraphMode.FULL: 2>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b484d713650>
+
+    @pytest.mark.parametrize("cg_mode", [CUDAGraphMode.NONE, CUDAGraphMode.FULL])
+    def test_drafter_target_layers_reach_execute_state(cg_mode, monkeypatch):
+        """Layers a drafter reads leave the forward tuple; the Omni aux slot stays empty."""
+        from vllm.v1.worker.gpu.input_batch import InputBatch
+    
+        runner = object.__new__(OmniGPUModelRunner)
+        runner._staged_writes = staged_writes.StagedWrites()
+        hidden, aux = torch.ones(1, 2), [torch.full((1, 2), 3.0)]
+        runner.model = MagicMock(return_value=(hidden, aux))
+        runner.cudagraph_manager = MagicMock()
+        runner.cudagraph_manager.run_fullgraph.return_value = (hidden, aux)
+        runner.use_aux_hidden_state_outputs = True
+        runner.model_config = SimpleNamespace()
+        runner.vllm_config = SimpleNamespace()
+        runner.req_states = SimpleNamespace()
+        runner.model_state = MagicMock()
+        runner.model_state.prepare_inputs.return_value = {}
+        runner._omni_data_plane = object()
+        runner.supports_mm_inputs = False
+        runner.lora_config = None
+        runner.is_encoder_decoder = False
+        runner.eplb = MagicMock()
+        runner.kv_connector = MagicMock()
+        runner.input_buffers = object()
+        runner.kv_cache_config = object()
+        runner.attn_groups = []
+        input_batch = SimpleNamespace(
+            input_ids=torch.tensor([1]),
+            positions=torch.tensor([0]),
+            num_tokens=1,
+            num_tokens_after_padding=1,
+            is_padding=None,
+        )
+        monkeypatch.setattr(InputBatch, "make_dummy", MagicMock(return_value=input_batch))
+        runner.prepare_dummy_attn = MagicMock(return_value=((), torch.empty(0)))
+        runner.gather_batch_req_state = MagicMock(return_value=(None, 1))
+        batch_desc = SimpleNamespace(cg_mode=cg_mode, num_reqs=1, num_tokens=1, num_active_loras=0, max_query_len=1)
+        runner._dispatch_batch_descriptor = MagicMock(return_value=(batch_desc, None))
+        monkeypatch.setattr("vllm_omni.worker_v2.omni_model_runner.build_slot_mappings_by_layer", lambda *args: {})
+        monkeypatch.setattr(
+            "vllm_omni.worker_v2.omni_model_runner.set_forward_context", lambda *args, **kwargs: nullcontext()
+        )
+        scheduled = SchedulerOutput.make_empty()
+        scheduled.num_scheduled_tokens = {"_dummy_req_0": 1}
+        scheduled.total_num_scheduled_tokens = 1
+    
+>       runner.execute_model(scheduled, dummy_run=True, valid_dummy_state_slots=True)
+
+tests/worker_v2/test_omni_gpu_model_runner.py:683: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py:124: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+vllm_omni/worker_v2/staged_writes.py:112: in wrapped
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <vllm_omni.worker_v2.omni_model_runner.OmniGPUModelRunner object at 0x2b484d713680>
+scheduler_output = SchedulerOutput(scheduled_new_reqs=[], scheduled_cached_reqs=CachedRequestData(req_ids=[],resumed_req_ids=set(),new_to... kv_cache_block_copies=None, kv_connector_block_state=None, num_spec_tokens_to_schedule=0, num_common_prefix_blocks=[])
+intermediate_tensors = None, dummy_run = True, skip_attn_for_dummy_run = False
+is_profile = False, context_len = 0, valid_dummy_state_slots = True
+randomize_inputs = False
+
+    @torch.inference_mode()
+    @staged_writes.runner_context
+    def execute_model(
+        self,
+        scheduler_output: SchedulerOutput,
+        intermediate_tensors: IntermediateTensors | None = None,
+        dummy_run: bool = False,
+        skip_attn_for_dummy_run: bool = False,
+        is_profile: bool = False,
+        context_len: int = 0,
+        valid_dummy_state_slots: bool = False,
+        randomize_inputs: bool = False,
+    ) -> Any:
+        if not dummy_run:
+            self._prepare_native_data_plane(scheduler_output)
+            self.finish_requests(scheduler_output)
+            self.free_states(scheduler_output)
+            self.add_requests(scheduler_output)
+            self.update_requests(scheduler_output)
+            self._sync_native_data_plane_payloads(scheduler_output)
+            self.block_tables.apply_staged_writes()
+            reanchor = getattr(self.model, "apply_duplex_kv_reanchor", None)
+            if callable(reanchor):
+                reanchor(self, scheduler_output=scheduler_output)
+            if self.aux_output_connector is not None:
+                self.aux_output_connector.begin_step(scheduler_output.aux_output_connector_metadata)
+            if scheduler_output.total_num_scheduled_tokens == 0:
+                empty_output = self.kv_connector.no_forward(scheduler_output)
+                return self._attach_native_data_plane_signals(
+                    self._merge_ec_connector_no_forward(scheduler_output, empty_output)
+                )
+    
+        num_reqs = len(scheduler_output.num_scheduled_tokens)
+        num_toks = scheduler_output.total_num_scheduled_tokens
+        max_query_len = max(scheduler_output.num_scheduled_tokens.values())
+        batch_req_state, uniform_tok_count = self.gather_batch_req_state(scheduler_output, dummy_run)
+        if batch_req_state is not None:
+            num_toks = batch_req_state.num_tokens
+        num_active_loras = 0
+        if self.lora_config:
+            req_ids = list(scheduler_output.num_scheduled_tokens.keys())
+            num_active_loras = get_num_active_loras_for_dispatch(
+                self.lora_config,
+                self.lora_state,
+                req_ids,
+                dummy_run,
+            )
+        # Encoder-decoder models: disable compilation when encoder inputs
+        # are scheduled (dynamic cross-attention cache updates).
+        skip_compiled = self.is_encoder_decoder and bool(scheduler_output.scheduled_encoder_inputs)
+        batch_desc, dp_sync = self._dispatch_batch_descriptor(
+            num_reqs=num_reqs,
+            num_toks=num_toks,
+            uniform_tok_count=uniform_tok_count,
+            num_active_loras=num_active_loras,
+            use_eager=is_profile or skip_compiled,
+            max_query_len=max_query_len,
+        )
+    
+        if batch_desc.num_tokens == 0:
+            empty_output = self.kv_connector.no_forward(scheduler_output)
+            return self._attach_native_data_plane_signals(
+                self._merge_ec_connector_no_forward(scheduler_output, empty_output)
+            )
+    
+        runner_assisted_request = None
+        if (
+            not dummy_run
+            and batch_desc.cg_mode == CUDAGraphMode.NONE
+            and intermediate_tensors is None
+            and batch_req_state is not None
+            and num_reqs > 0
+        ):
+            request_hook = getattr(self.model, "get_runner_assisted_full_attention_metadata_request", None)
+            context_hook = getattr(self.model, "set_runner_assisted_full_attention_metadata_context", None)
+            if callable(request_hook) and callable(context_hook):
+                runner_assisted_request = request_hook(
+                    req_ids=batch_req_state.req_ids,
+                    num_reqs=num_reqs,
+                    num_scheduled_tokens=batch_req_state.num_scheduled_tokens,
+                    num_computed_tokens=self.req_states.num_computed_tokens_np[batch_req_state.idx_mapping_np],
+                    max_num_scheduled_tokens=max_query_len,
+                    num_prompt_tokens=self.req_states.prompt_len.np[batch_req_state.idx_mapping_np],
+                )
+                if runner_assisted_request is not None:
+                    if not isinstance(runner_assisted_request, RunnerAssistedFullAttentionMetadataRequest):
+                        raise TypeError("runner-assisted full attention metadata hook returned an invalid request")
+                    padded_desc = _runner_assisted_batch_descriptor(
+                        batch_desc, runner_assisted_request, num_reqs, self.scheduler_config.max_num_seqs
+                    )
+                    if padded_desc is not None:
+                        # Prepare the padded query locations, slot mappings,
+                        # and block-table rows through the normal InputBatch
+                        # path before requesting FULL attention metadata.
+                        batch_desc = padded_desc
+                    else:
+                        runner_assisted_request = None
+    
+        if not dummy_run:
+            assert batch_req_state is not None
+            input_batch = self.prepare_inputs(scheduler_output, batch_req_state, batch_desc, num_active_loras)
+            if runner_assisted_request is not None:
+                # Preserve the uniform decode bound. Mixed graphs instead
+                # need a stable varlen launch layout across packed layouts.
+                query_bound = (
+                    max_query_len
+                    if runner_assisted_request.num_tokens_padded is None
+                    else max(2, runner_assisted_request.num_tokens_padded)
+                )
+                input_batch = replace(input_batch, max_query_len=query_bound)
+            block_tables, slot_mappings = self.prepare_attn(input_batch)
+            self.model_state.preprocess_state(
+                input_batch,
+                block_tables,
+                self.kv_cache_config,
+                self.req_states.num_computed_tokens.gpu,
+            )
+    
+            if self.lora_config:
+                lora_inputs = self.lora_state.make_lora_inputs(
+                    input_batch.req_ids,
+                    input_batch.idx_mapping_np,
+                    input_batch.num_scheduled_tokens,
+                )
+                self._set_active_loras(*lora_inputs)
+        else:
+            input_batch = self._make_dummy_input_batch(
+                batch_desc.num_reqs or num_reqs,
+                batch_desc.num_tokens,
+                max_query_len=batch_desc.max_query_len,
+                is_padding=not is_profile,
+            )
+            if randomize_inputs:
+                input_batch.input_ids.random_(0, self.vocab_size)
+            if not skip_attn_for_dummy_run:
+                block_tables, slot_mappings = self.prepare_dummy_attn(input_batch, valid_dummy_state_slots)
+                if context_len:
+                    set_dummy_context(
+                        input_batch,
+                        self.block_tables,
+                        context_len,
+                        self.kv_cache_config.num_blocks,
+                        self.max_model_len,
+                    )
+            else:
+                assert batch_desc.cg_mode != CUDAGraphMode.FULL, (
+                    "Attention metadata is required for FULL CUDA graph dummy runs"
+                )
+                block_tables = None
+                slot_mappings = None
+    
+        attn_metadata = None
+        slot_mappings_by_layer = None
+        # Models with their own unified decode graph need FULL attention
+        # metadata even when the v2 runner itself is executing eagerly. Only
+        # pad request/token metadata to the model-owned unified graph bucket.
+        runner_assisted_full_attn = runner_assisted_request is not None
+        runner_assisted_capture = runner_assisted_request is not None and runner_assisted_request.for_cudagraph_capture
+        if not (dummy_run and skip_attn_for_dummy_run):
+            assert slot_mappings is not None
+            slot_mappings_by_layer = build_slot_mappings_by_layer(slot_mappings, self.kv_cache_config)
+            assert block_tables is not None
+            attn_metadata = self.model_state.prepare_attn(
+                input_batch,
+                CUDAGraphMode.FULL if runner_assisted_full_attn else batch_desc.cg_mode,
+                block_tables,
+                slot_mappings,
+                self.attn_groups,
+                self.kv_cache_config,
+                for_capture=(dummy_run and batch_desc.cg_mode == CUDAGraphMode.FULL) or runner_assisted_capture,
+            )
+        input_ids, inputs_embeds, ec_connector_output = self._prepare_mm_inputs(
+            scheduler_output,
+            input_batch,
+            dummy_run=dummy_run,
+        )
+    
+        model_inputs: dict[str, Any] = {
+            "input_ids": input_ids,
+            "positions": input_batch.positions,
+            "inputs_embeds": inputs_embeds,
+            "intermediate_tensors": intermediate_tensors,
+            **self.model_state.prepare_inputs(input_batch, self.req_states),
+        }
+        self._add_legacy_forward_inputs(model_inputs, input_batch)
+        # ★ PRE-FORWARD: per-request preprocess + batched MTP.
+        # Runs for ALL graph modes (FULL, PIECEWISE, NONE).
+        # For FULL graph: OmniModelState provides a static inputs_embeds
+        # buffer that was captured by the graph.  Preprocess writes
+        # in-place to this buffer, and FULL graph replay reads the
+        # updated values from the same tensor address.
+        if not dummy_run:
+            self.model_state.run_preprocess(
+                input_batch,
+                model_inputs,
+                self.req_states,
+                self._dispatch_mtp_batch_descriptor,
+            )
+    
+        self.eplb.prepare_forward(self.model_config, input_batch.num_tokens)
+    
+        # --- Model forward ---
+        if batch_desc.cg_mode == CUDAGraphMode.FULL:
+            # FULL graph replay.  Preprocess already wrote to the static
+            # inputs_embeds buffer above.
+            assert self.cudagraph_manager is not None
+            self.kv_connector.pre_forward(scheduler_output)
+            replayed = self.cudagraph_manager.run_fullgraph(batch_desc)
+            self._last_multimodal_outputs = None
+            hidden_states, self._last_aux_output = self._split_fullgraph_output(replayed)
+            if hasattr(self.model, "_last_captured_layers"):
+                self.model._last_captured_layers = self._last_aux_output
+        else:
+            batch_descriptor = BatchDescriptor(
+                num_tokens=input_batch.num_tokens_after_padding,
+                has_lora=self.lora_config is not None,
+                num_active_loras=batch_desc.num_active_loras,
+            )
+            try:
+                if runner_assisted_full_attn:
+                    self.model.set_runner_assisted_full_attention_metadata_context(
+                        enabled=True, num_reqs=input_batch.num_reqs
+                    )
+                with self._forward_context(
+                    attn_metadata,
+                    self.vllm_config,
+                    num_tokens=input_batch.num_tokens_after_padding,
+                    num_actual_tokens=input_batch.num_tokens,
+                    in_profile_run=is_profile,
+                    cudagraph_runtime_mode=CUDAGraphMode.FULL if runner_assisted_full_attn else batch_desc.cg_mode,
+                    num_tokens_across_dp=dp_sync.num_tokens_across_dp if dp_sync is not None else None,
+                    batch_descriptor=batch_descriptor,
+                    slot_mapping=slot_mappings_by_layer,
+                    skip_compiled=skip_compiled,
+                    is_padding=input_batch.is_padding,
+                ):
+                    self.kv_connector.pre_forward(scheduler_output)
+                    if batch_desc.cg_mode == CUDAGraphMode.PIECEWISE:
+                        assert self.cudagraph_manager is not None
+                        model_output = self.cudagraph_manager.run_pw_graph(
+                            self.model,
+                            model_inputs,
+                        )
+                    else:
+                        model_output = self.model(**model_inputs)
+            finally:
+                if runner_assisted_full_attn:
+                    self.model.set_runner_assisted_full_attention_metadata_context(enabled=False)
+    
+            # Extract hidden_states from model output.
+            self._last_aux_output = None
+            self._last_multimodal_outputs = None
+            if isinstance(model_output, OmniOutput):
+                hidden_states = model_output.text_hidden_states
+                if model_output.multimodal_outputs:
+                    self._last_multimodal_outputs = cast(dict[str, Any], model_output.multimodal_outputs)
+            elif isinstance(model_output, tuple) and len(model_output) == 2:
+                hidden_states, self._last_aux_output = model_output
+                if hasattr(self.model, "_last_captured_layers"):
+                    self.model._last_captured_layers = self._last_aux_output
+            else:
+                hidden_states = model_output
+        if not dummy_run and isinstance(hidden_states, torch.Tensor):
+            self.model_state.run_postprocess(hidden_states, input_batch)
+    
+        self.execute_model_state = ExecuteModelState(
+            input_batch=input_batch,
+            attn_metadata=attn_metadata,
+            slot_mappings_by_layer=slot_mappings_by_layer,
+            hidden_states=hidden_states,
+            aux_hidden_states=None,
+            dp_sync_state=dp_sync,
+            finished_req_ids=scheduler_output.finished_req_ids,
+            ec_connector_output=ec_connector_output,
+            cudagraph_stats=None,
+            num_spec_tokens_to_schedule=scheduler_output.num_spec_tokens_to_schedule,
+        )
+    
+>       assert isinstance(hidden_states, torch.Tensor)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError
+
+vllm_omni/worker_v2/omni_model_runner.py:846: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_drafter_target_layers_reach_execute_state[FULL]
+_________ test_mrv2_thinker_returns_drafter_layers_with_hidden_states __________
+
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b484d71cbc0>
+
+    def test_mrv2_thinker_returns_drafter_layers_with_hidden_states(mocker):
+        from vllm.model_executor.models.interfaces import SupportsEagle3, supports_eagle3
+    
+        model = _model(mocker)
+        language_model = torch.nn.Module()
+        model.thinker.get_language_model = lambda: language_model
+>       assert supports_eagle3(model)
+E       assert False
+E        +  where False = <function supports_eagle3 at 0x2b4811db91c0>(MiniCPMO45OmniForConditionalGeneration(\n  (thinker): Module()\n  (model): Module()\n))
+
+tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py:256: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_mrv2_thinker_returns_drafter_layers_with_hidden_states
+____________________ test_v1_thinker_refuses_drafter_layers ____________________
+
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b484d729a00>
+
+    def test_v1_thinker_refuses_drafter_layers(mocker):
+        model = _model(mocker, v2=False)
+        with pytest.raises(NotImplementedError, match="model_runner: v2"):
+>           model.set_aux_hidden_state_layers((1, 9, 17))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py:278: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = MiniCPMO45OmniForConditionalGeneration(
+  (thinker): Module()
+  (model): Module()
+)
+name = 'set_aux_hidden_state_layers'
+
+    def __getattr__(self, name: str) -> Union[Tensor, "Module"]:
+        if "_parameters" in self.__dict__:
+            _parameters = self.__dict__["_parameters"]
+            if name in _parameters:
+                return _parameters[name]
+        if "_buffers" in self.__dict__:
+            _buffers = self.__dict__["_buffers"]
+            if name in _buffers:
+                return _buffers[name]
+        if "_modules" in self.__dict__:
+            modules = self.__dict__["_modules"]
+            if name in modules:
+                return modules[name]
+>       raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+E       AttributeError: 'MiniCPMO45OmniForConditionalGeneration' object has no attribute 'set_aux_hidden_state_layers'
+
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py:1967: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_v1_thinker_refuses_drafter_layers
+____________ test_plain_chat_handoff_drops_rows_past_a_length_stop _____________
+
+    def test_plain_chat_handoff_drops_rows_past_a_length_stop() -> None:
+        """Accepted drafts past max_tokens leave Thinker rows with no output token."""
+        prompt_ids = [101, 102]
+        output_ids = [11, 12]
+        latent = torch.arange(24, dtype=torch.float32).reshape(6, 4)
+    
+        info = llm2tts(
+            [_output(prompt_ids=prompt_ids, output_ids=output_ids, latent=latent)],
+            prompt=[{}],
+        )[0]["model_intermediate_buffer"]
+    
+        assert info["ids"]["tts"] == output_ids
+>       assert torch.equal(torch.as_tensor(unpack_handoff_tensor(info["hidden_states"]["tts"])), latent[2:4])
+E       AssertionError: assert False
+E        +  where False = <built-in method equal of type object at 0x2b47294bff20>(tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.],\n        [16., 17., 18., 19.],\n        [20., 21., 22., 23.]]), tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.]]))
+E        +    where <built-in method equal of type object at 0x2b47294bff20> = torch.equal
+E        +    and   tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.],\n        [16., 17., 18., 19.],\n        [20., 21., 22., 23.]]) = <built-in method as_tensor of type object at 0x2b47294bff20>(tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.],\n        [16., 17., 18., 19.],\n        [20., 21., 22., 23.]]))
+E        +      where <built-in method as_tensor of type object at 0x2b47294bff20> = torch.as_tensor
+E        +      and   tensor([[ 8.,  9., 10., 11.],\n        [12., 13., 14., 15.],\n        [16., 17., 18., 19.],\n        [20., 21., 22., 23.]]) = unpack_handoff_tensor(b'\x84\xaa__tensor__\xc3\xa5dtype\xa7float32\xa5shape\x92\x04\x04\xa4data\xc4@\x00\x00\x00A\x00\x00\x10A\x00\x00 A\x00...00`A\x00\x00pA\x00\x00\x80A\x00\x00\x88A\x00\x00\x90A\x00\x00\x98A\x00\x00\xa0A\x00\x00\xa8A\x00\x00\xb0A\x00\x00\xb8A')
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:93: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_drops_rows_past_a_length_stop
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/worker_v2/test_omni_ar_model_runner.py::test_finalized_full_payload_latent_ledger_is_accumulated_once
+  /opt/vllm-omni/tests/engine/test_output_processor_mrv2_text.py:15: DeprecationWarning: Importing from 'vllm_omni.engine.output_modality' is deprecated. Use 'vllm_omni.outputs.output_modality' instead.
+    from vllm_omni.engine.output_modality import OutputModality
+
+tests/worker_v2/test_omni_ar_model_runner.py::test_finalized_full_payload_latent_ledger_is_accumulated_once
+  /opt/vllm-omni/tests/engine/test_output_processor_mrv2_text.py:16: DeprecationWarning: Importing from 'vllm_omni.engine.output_processor' is deprecated. Use 'vllm_omni.outputs.output_processor' instead.
+    from vllm_omni.engine.output_processor import (
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_sample_tokens_drafts_from_target_layers_after_postprocess[3]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_sample_tokens_drafts_from_target_layers_after_postprocess[2]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_async_output_drops_rejected_draft_rows[False]
+FAILED tests/worker_v2/test_omni_ar_model_runner.py::test_async_output_drops_rejected_draft_rows[True]
+FAILED tests/worker_v2/test_omni_gpu_model_runner.py::test_drafter_target_layers_reach_execute_state[NONE]
+FAILED tests/worker_v2/test_omni_gpu_model_runner.py::test_drafter_target_layers_reach_execute_state[FULL]
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_mrv2_thinker_returns_drafter_layers_with_hidden_states
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_v1_thinker_refuses_drafter_layers
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_drops_rows_past_a_length_stop
+9 failed, 214 passed, 16 warnings in 20.85s
+
+--- stderr ---

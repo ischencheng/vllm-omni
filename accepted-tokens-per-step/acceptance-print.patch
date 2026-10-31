@@ -1,0 +1,23 @@
+diff --git a/vllm_omni/worker_v2/omni_ar_model_runner.py b/vllm_omni/worker_v2/omni_ar_model_runner.py
+index 56f4f9aa2..d69df4c50 100644
+--- a/vllm_omni/worker_v2/omni_ar_model_runner.py
++++ b/vllm_omni/worker_v2/omni_ar_model_runner.py
+@@ -365,6 +365,18 @@ class OmniARModelRunner(OmniGPUModelRunner):
+         )
+         if draft_inputs is not None:
+             self._propose_draft_tokens(input_batch, draft_inputs, num_sampled, num_rejected, mm_inputs)
++            import os as _os
++            if _os.environ.get("SPEC_DEBUG"):
++                print(
++                    "SPECACC nreq=%d ntok=%d ndraft=%d nsamp=%s"
++                    % (
++                        int(input_batch.num_reqs),
++                        int(input_batch.num_tokens),
++                        int(input_batch.num_draft_tokens),
++                        num_sampled[: input_batch.num_reqs].tolist(),
++                    ),
++                    flush=True,
++                )
+         model_runner_output.kv_connector_output = self.kv_connector.post_forward(finished_req_ids)
+         model_runner_output.ec_connector_output = ec_connector_output
+ 
