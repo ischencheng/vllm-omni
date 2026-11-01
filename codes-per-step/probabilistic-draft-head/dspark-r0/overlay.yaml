@@ -1,0 +1,8 @@
+base_config: minicpmo_4_5_turn_mrv2.yaml
+stages:
+  - stage_id: 1
+    speculative_config:
+      method: dspark
+      model: /work/talker-draft
+      num_speculative_tokens: 7
+      draft_sample_method: probabilistic

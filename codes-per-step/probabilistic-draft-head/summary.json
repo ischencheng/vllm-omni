@@ -1,0 +1,51 @@
+{
+  "runs": [
+    {
+      "arm": "dspark",
+      "round": 0,
+      "cmd": [
+        "/usr/bin/python",
+        "-m",
+        "vllm_omni.entrypoints.cli.main",
+        "serve",
+        "openbmb/MiniCPM-o-4_5",
+        "--omni",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8091",
+        "--deploy-config",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_talker_dspark.yaml",
+        "--trust-remote-code",
+        "--chat-template",
+        "/usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja",
+        "--chat-template-content-format",
+        "openai"
+      ],
+      "startup_s": 387.26207733154297,
+      "ready": true,
+      "specacc_marks": {
+        "c1": 175,
+        "c16": 2586
+      },
+      "error_tail": [
+        "\u001b[0;36m(APIServer pid=64)\u001b[0;0m \u001b[33mWARNING\u001b[0m \u001b[90m11-01 00:13:33\u001b[0m \u001b[90m[model.py:2660]\u001b[0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+      ],
+      "c1": {
+        "wall_s": 21.32285830500001,
+        "requests": 16,
+        "ok": 16,
+        "req_per_s": 0.7503684436269105,
+        "audio_s_per_s": 11.086693754587602
+      },
+      "c16": {
+        "wall_s": 8.993149931000005,
+        "requests": 32,
+        "ok": 32,
+        "req_per_s": 3.5582638169629313,
+        "audio_s_per_s": 51.265685942893434
+      }
+    }
+  ],
+  "asr": null
+}

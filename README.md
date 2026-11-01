@@ -1,6 +1,6 @@
 # DSpark draft codes on the MiniCPM-o 4.5 MRv2 Talker (raw results)
 
-Branch `feat/minicpmo-talker-dspark` (head `fd29a61f9`, three commits on #9696's `636aecc44`, base `c7f56f015`). The serving runs are on `fb442216e`, except `head-smoke/` on the head; the commits after `fb442216e` add tests and apply forced codec EOS after logits processing. vLLM 0.32.0 (`vllm/vllm-openai:v0.32.0`), vllm-omni installed from the tree with `uv pip install .`, plus `step-audio2==1.0.0`. Serving and unit runs on 1x H100.
+Branch `feat/minicpmo-talker-dspark` (head `c9e1f17fd`, after review; `fd29a61f9` before it). The serving runs are on `fb442216e`, except `head-smoke/` on the head; the commits after `fb442216e` add tests and apply forced codec EOS after logits processing. vLLM 0.32.0 (`vllm/vllm-openai:v0.32.0`), vllm-omni installed from the tree with `uv pip install .`, plus `step-audio2==1.0.0`. Serving and unit runs on 1x H100.
 
 Each serving run starts `vllm serve openbmb/MiniCPM-o-4_5 --omni --trust-remote-code --chat-template <minicpmo45_native.jinja> --chat-template-content-format openai --deploy-config <overlay>`: `minicpmo_4_5_turn_mrv2.yaml` plus, for the DSpark arm, a stage-1 `speculative_config` (`dspark`, k=7). No draft on the Thinker. Each run directory has `overlay.yaml`, `server.log`, `results.json` (per request: text, TTFA, latency, audio seconds, Whisper transcript and WER) and `metrics.txt`; audio files are left out.
 
@@ -12,7 +12,8 @@ Draft: `Qun1023/MiniCPM-o-4_5-talker-DSpark` at `0457ffd6980c2d1f19ebd3f1775f497
 - `greedy-codes/`, `greedy-codes-6/`: `--greedy` (Talker `temperature: 0`) on the head plus `scripts/apply_debug.py`, which saves the codes handed to Code2Wav (`codes.jsonl`) and prints per-step `num_sampled` (`SPECACC`). `scripts/codes_by_prompt.py greedy-codes` compares codes per prompt across arms and phases.
 - `codes-per-step/{argmax-draft,probabilistic-draft}/`: DSpark arm only, default sampling, debug tree; `scripts/analyze.py <dir>` splits `SPECACC` by phase. Not throughput runs.
 - `head-smoke/`: `--arms off,dspark --rounds 1 --conc 1,16 --num-prompts 16 --c16-waves 2 --draft-sample probabilistic` on the head.
-- `unit/`: `scripts/unit.py` (default test set) on the head.
+- `unit/`: `scripts/unit.py` (default test set) on `c9e1f17fd`.
+- `codes-per-step/probabilistic-draft-head/`: like `probabilistic-draft/`, on `c9e1f17fd` plus `scripts/apply_debug.py`.
 - `new-tests-on-pr9696-code/`: the head's Talker and Thinker test files against #9696's code.
 - `new-tests-on-ffc7771e6-code/`: the head's Talker test file against `ffc7771e6`, where forced EOS was applied before logits processing.
 
