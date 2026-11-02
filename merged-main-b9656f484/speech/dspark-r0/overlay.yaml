@@ -1,0 +1,8 @@
+base_config: minicpmo_4_5_turn_mrv2.yaml
+stages:
+  - stage_id: 0
+    speculative_config:
+      method: dspark
+      model: Qun1023/MiniCPM-o-4_5-thinker-DSpark-mm
+      revision: c4c310aca2c768343165261cb22c21b90c1f79e0
+      num_speculative_tokens: 7

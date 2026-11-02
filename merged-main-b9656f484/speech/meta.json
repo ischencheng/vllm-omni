@@ -1,0 +1,10 @@
+{
+  "run_id": "s10-merged-tip-audio",
+  "started": "2026-11-02T01:36:48.074335+00:00",
+  "finished": "2026-11-02T01:52:31.690424+00:00",
+  "image": "vllm/vllm-openai:v0.32.0",
+  "gpu": "H100!",
+  "src": "<tree: b9656f484 + speech/handoff-dump.patch>",
+  "script": "smoke.py",
+  "args": "--arms off,dspark --conc 1 --max-tokens 128 --audio --env SPEC_DUMP_DIR=/work/out/dumps"
+}

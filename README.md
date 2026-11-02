@@ -10,3 +10,8 @@ Each serving run starts `vllm serve openbmb/MiniCPM-o-4_5 --omni --trust-remote-
 - `speech/`: `scripts/smoke.py --arms off,dspark --conc 1 --max-tokens 128 --audio --env SPEC_DUMP_DIR=<dir>` on the head plus `handoff-dump.patch`. `dumps/` holds each handoff (token ids + Thinker rows the Talker gets); `scripts/compare_handoff.py speech` writes `handoff_compare.json`. Text across containers can differ at near ties, so both arms run in one container.
 - `unit/`: `scripts/unit.py` (default test set) on the head.
 - `unit-new-tests-on-main/`: the head's runner and Thinker test files against upstream `c7f56f015` code.
+
+After merging main (`552e8e972`) into the branch, head `b9656f484`, 1x H100:
+
+- `merged-main-b9656f484/unit/`: `scripts/unit.py` (default test set): 2813 passed, 3 skipped.
+- `merged-main-b9656f484/speech/`: `scripts/smoke.py --arms off,dspark --conc 1 --max-tokens 128 --audio --env SPEC_DUMP_DIR=<dir>` on the head plus `handoff-dump.patch`; `handoff_compare.json` is `scripts/compare_handoff.py` on that run.
