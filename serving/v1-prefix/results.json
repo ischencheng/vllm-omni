@@ -1,0 +1,568 @@
+{
+  "arm": "v1-prefix",
+  "round": 0,
+  "base": "minicpmo_4_5_turn.yaml",
+  "ready": true,
+  "startup_s": 345.22822523117065,
+  "c1": {
+    "wall_s": 58.81509922999999,
+    "completion_tokens": 1332,
+    "rows": [
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "latency_s": 4.157344382000019,
+        "finish_reason": "stop",
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "id": "chatcmpl-a3721bcc7d7f48f6",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 61,
+          "completion_tokens": 29,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_00.wav",
+        "asr": "the capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 7.16
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 120 words.",
+        "status": 200,
+        "latency_s": 3.3576023940000255,
+        "finish_reason": "stop",
+        "text": "hash map handles collisions through various methods. One common approach is chaining, where each bucket contains a linked list of entries that hash to the same index. Another method is open addressing, which finds another open slot within the array for the colliding key. Techniques like linear probing, quadratic probing, and double hashing are used to find the next available slot. Some hash maps also use a combination of these methods or employ more complex structures like binary trees to manage collisions efficiently.",
+        "id": "chatcmpl-bd7dfd60ade65e70",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 125,
+          "completion_tokens": 94,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_01.wav",
+        "asr": "HashMap handles collisions through various methods. One common approach is chaining, where each bucket contains a linked list of entries that hash to the same index. Another method is open addressing, which finds another open slot within the array for the colliding key. Techniques like linear probing, quadratic probing and double hashing are used to find the next available slot. Some HashMaps also use a combination of these methods, or employ more complex structures like binary trees to manage collisions efficiently.",
+        "asr_wer_vs_text": 0.04819277108433735,
+        "asr_chunked": "HashMap handles collisions through various methods. One common approach is chaining, where each bucket contains a linked list of entries that hash to the same index. Another method is open addressing, which finds another open slot within the array for the colliding key. Techniques like linear probing, quadratic probing, and double hashing are used to find the next available slot. Some HashMaps also use a combination of these methods, or employ more complex structures like binary trees to manage collisions efficiently.",
+        "asr_chunked_wer_vs_text": 0.04819277108433735,
+        "audio_s": 24.52
+      },
+      {
+        "prompt": "Write a Python function that returns the n-th Fibonacci number iteratively, with a docstring.",
+        "status": 200,
+        "latency_s": 4.592646349999995,
+        "finish_reason": "stop",
+        "text": "def fibonacci(n):\n    \"\"\"\n    Returns the n-th Fibonacci number iteratively.\n    \"\"\"\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2, n + 1):\n            a, b = b, a + b\n        return b",
+        "id": "chatcmpl-bb599008605d28eb",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 116,
+          "completion_tokens": 84,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_02.wav",
+        "asr": "Deaferetsisen, dauprogomse, nampayen 9, wudstau, i, nampayen 9, at prun, nampayen, i, dap, mine, dapa, i, dak, i, wa, paia, y, l, return 0, nampay, lf, not l, return 0, 1.Mile, LCA, B, Dunyuro, 1, Yuapo, ICO, for I in range 2 ends last 1, Maya, B, Dunyoo with B, a Jasp buy, Maso, return buy.",
+        "asr_wer_vs_text": 1.0512820512820513,
+        "asr_chunked": "1.mile lcab 1.uapo ico for i and range 2 ends last 1. maya b dun you with b a jasbai maso return b",
+        "asr_chunked_wer_vs_text": 0.8461538461538461,
+        "audio_s": 37.72
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun, one per line, with one fact each.",
+        "status": 200,
+        "latency_s": 4.882038473000023,
+        "finish_reason": "length",
+        "text": "Mercury: Closest to the sun, it has no moons. Venus: Often called Earth's twin due to similar size, it has a thick, toxic atmosphere. Earth: The only known planet to support life, it has one moon. Mars: Known as the Red Planet due to its iron oxide surface, it has the largest volcano in the solar system. Jupiter: The largest planet, it has a Great Red Spot, a storm larger than Earth. Saturn: Famous for its extensive ring system, it is less dense than water. Uranus: Rotates on its side, possibly due to a collision with another object. Neptune:",
+        "id": "chatcmpl-9f763a0c3e4b9b36",
+        "usage": {
+          "prompt_tokens": 35,
+          "total_tokens": 163,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_03.wav",
+        "asr": "Mercury. Closest to the sun, it has no moons. Venus, often called Earth's twin due to similar size. It has a thick, toxic atmosphere. Earth, the only known planet to support life. It has one moon. Mars, known as the red planet due to its iron oxide surface. It has the largest volcano in the solar system. Jupiter, the largest planet. It has a great red spot, a storm larger than Earth. Saturn, famous for its extensive ring system, it is less dense than water. Uranus, rotates on its side, possibly due to a collision with another object. Neptune.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "Mercury. Closest to the sun. It has no moons. Venus. Often called Earth's twin due to similar size. It has a thick, toxic atmosphere. Earth. The only known planet to support life. It has one moon. Mars. Known as the red planet due to its iron oxide surface. It has the largest volcano in the solar system. Jupiter. The largest planet. It has a great red spot. A storm larger than Earth. Saturn, famous for its extensive ring system, it is less dense than water. Uranus, rotates on its side, possibly due to a collision with another object. Neptune,",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 36.24
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours and then 120 km in 1.5 hours. What is its average speed? Show the steps.",
+        "status": 200,
+        "latency_s": 4.0966722080000295,
+        "finish_reason": "stop",
+        "text": "To find the average speed, we need to calculate the total distance traveled and the total time taken.\nTotal distance = 180 km + 120 km = 300 km\nTotal time = 2 hours + 1.5 hours = 3.5 hours\nAverage speed = Total distance / Total time\nAverage speed = 300 km / 3.5 hours\nAverage speed = 85.71 km/h\nTherefore, the average speed of the train is 85.71 km/h.",
+        "id": "chatcmpl-825f9ff9cef3dd57",
+        "usage": {
+          "prompt_tokens": 49,
+          "total_tokens": 164,
+          "completion_tokens": 115,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_04.wav",
+        "asr": "To find the average speed, we need to calculate the total distance traveled and the total time taken. Total distance donor 180 kilometer Drosdall, not under 20 kilometers. Donors 300 kilometers, total time, donor 2 hours lost 1.5 hours. Donors 3.5 hours, speed donor, total distance, total time. Shaspite, donors 300 kilometers, 3.5 hours. Shabbard speed, dull route, 85.71 kilometer chance therefore. The average speed of the train is 85.71 kmc.",
+        "asr_wer_vs_text": 0.3582089552238806,
+        "asr_chunked": "To find the average speed, we need to calculate.71 km chance therefore. The average speed of the train is 85.71 km chance.",
+        "asr_chunked_wer_vs_text": 0.6716417910447762,
+        "audio_s": 31.96
+      },
+      {
+        "prompt": "Write a short story of about 100 words about a robot that learns to paint.",
+        "status": 200,
+        "latency_s": 4.536135019999961,
+        "finish_reason": "stop",
+        "text": "In a quiet workshop, a robot named Zeta was assigned to assemble parts. One day, it found a paintbrush and began experimenting. Strokes of blue, red, and gold danced across the canvas. Zeta mixed colors, creating swirls and patterns. The robot discovered joy in the process, not just the result. Days turned into weeks as Zeta painted every free moment. Its creator, amazed, realized the robot had learned to express itself. Zeta’s art brought color to the workshop, proving that creativity knows no metal bounds.",
+        "id": "chatcmpl-ad09d7571ef604f3",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 143,
+          "completion_tokens": 111,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_05.wav",
+        "asr": "In a quiet workshop, a robot named Zeta was assigned to assemble parts. One day, it found a paintbrush and began experimenting. Strokes of blue, red, and gold danced across the canvas. Zeta mixed colors, creating swirls and patterns. The robot discovered joy in the process, not just the result. Days turned into weeks, as Zeta painted every free moment. Its creator, amazed, realized the robot had learned to express itself. Zeta's art brought color to the workshop, proving that creativity knows no metal bounds.",
+        "asr_wer_vs_text": 0.023255813953488372,
+        "asr_chunked": "In a quiet workshop, a robot named Zeta was assigned to assemble parts. One day, it found a paintbrush and began experimenting. Strokes of blue, red, and gold danced across the canvas. Zeta mixed colors, creating swirls and patterns. The robot discovered joy in the process, not just the result. Days turned into weeks, as Zeta painted every free moment. Its creator, amazed, realized the robot had learned to express itself. Zeta's art brought color to the workshop, proving that creativity knows no metal bounds.",
+        "asr_chunked_wer_vs_text": 0.023255813953488372,
+        "audio_s": 35.6
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer with a short bulleted list.",
+        "status": 200,
+        "latency_s": 6.074199408000027,
+        "finish_reason": "length",
+        "text": "TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are two fundamental protocols in the internet protocol suite, but they have several key differences:\n\n- **Connection-Oriented vs. Connectionless:** TCP is connection-oriented, meaning it establishes a connection before data transfer, while UDP is connectionless and does not establish a connection beforehand.\n- **Reliability:** TCP provides reliable data transfer with error checking and correction, ensuring data is delivered accurately and in order. UDP does not guarantee delivery, order, or error checking.\n- **Flow Control and Congestion Control:** TCP includes flow control and congestion control mechanisms to manage data flow and prevent",
+        "id": "chatcmpl-89715f251a90cc02",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 159,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_06.wav",
+        "asr": "TCP, Satinborn Control Protocol, and UDP, User Data On Protocol are two fundamental protocols in the Internet Protocol Suite, but they have several key differences. Connection-oriented versus connectionless. TCP is connection-oriented, meaning it establishes a connection before data transfer, while UDP is connectionless and does not establish a connection beforehand. Reliability TCP provides reliable data transfer with error checking and correction, ensuring data is delivered accurately and in order. UDP does not guarantee delivery order or error checking. Flow control and congestion control. TCP includes flow control and congestion control mechanisms to manage data flow and",
+        "asr_wer_vs_text": 0.05102040816326531,
+        "asr_chunked": "TCP, Satinborn Control Protocol, and UDP, user data on protocol are two fundamental protocols in the internet protocol suite, but they have several key differences. Connection oriented versus connectionless. TCP is connection oriented, meaning it establishes a connection before data transfer, while UDP is connectionless and does not establish a connection beforehand, reliability TCP provides reliable data transfer with error checking and correction, ensuring data is delivered accurately and in order. UDP does not guarantee delivery order or error checking. Flow control and congestion control TCP includes flow control and congestion control mechanisms to manage data flow and",
+        "asr_chunked_wer_vs_text": 0.05102040816326531,
+        "audio_s": 48.24
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs with numbered steps.",
+        "status": 200,
+        "latency_s": 4.634685102999981,
+        "finish_reason": "length",
+        "text": "Sure! Here’s a simple recipe for scrambled eggs with numbered steps:\n\n1. Crack 2–3 eggs into a bowl.\n2. Add a small splash of milk or cream (optional, for fluffiness).\n3. Season with salt and pepper to taste.\n4. Whisk the eggs until well beaten.\n5. Heat a non-stick pan over medium heat.\n6. Add a small amount of butter or oil to the pan.\n7. Pour the egg mixture into the pan.\n8. Let the eggs cook for a minute, then gently stir with a spatula.\n9. Continue stirring and cooking until the eggs are",
+        "id": "chatcmpl-bb9e565f17ce7e27",
+        "usage": {
+          "prompt_tokens": 24,
+          "total_tokens": 152,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_07.wav",
+        "asr": "Sure, here's a simple recipe for scrambled eggs with numbered steps. 1. Crack 2 to 3 eggs into a bowl. 2. Add a small splash of milk or cream, optional, for fluffinesses. 3. Season with salt and pepper to taste. 4. Whisk the eggs until well beaten. 5. Heat a non-stick pan over medium heat. 6. Add a small amount of butter or oil to the pan. 7. Pour the egg mixture into the pan. 8. Let the eggs cook for a minute, Then gently stir with a spatula. 9. Continue stirring and cooking until the eggs...",
+        "asr_wer_vs_text": 0.050505050505050504,
+        "asr_chunked": "Sure, here's a simple recipe then gently stir with a spatula. 9. Continue stirring and cooking until the eggs",
+        "asr_chunked_wer_vs_text": 0.8181818181818182,
+        "audio_s": 34.0
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in four sentences.",
+        "status": 200,
+        "latency_s": 3.2370916640000473,
+        "finish_reason": "stop",
+        "text": "Romeo and Juliet is a tragic love story set in Verona, where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball hosted by her family. Their secret marriage leads to a series of misunderstandings and misfortunes, ultimately resulting in their tragic deaths. The families eventually reconcile after the loss of their children.",
+        "id": "chatcmpl-9c896479d645c70e",
+        "usage": {
+          "prompt_tokens": 26,
+          "total_tokens": 117,
+          "completion_tokens": 91,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_08.wav",
+        "asr": "Romeo and Juliet is a tragic love story set in Verona where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball hosted by her family. Their secret marriage leads to a series of misunderstandings and misfortunes, ultimately resulting in their tragic deaths. The families eventually reconcile after the loss of their children.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "Romeo and Juliet is a tragic love story set in Verona where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball hosted by her family. Their secret marriage leads to a series of misunderstandings and misfortunes, ultimately resulting in their tragic deaths. The families eventually reconcile after the loss of their children.",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 23.72
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning to a high school student.",
+        "status": 200,
+        "latency_s": 4.8229585950000455,
+        "finish_reason": "length",
+        "text": "Supervised learning is a type of machine learning where the model is trained on a labeled dataset, meaning that the input data is already associated with the correct output. The model learns to map the input to the output by adjusting its parameters to minimize the difference between its predictions and the actual labels. This is like having a teacher who provides the correct answers to guide the learning process.\nUnsupervised learning, on the other hand, is a type of machine learning where the model is trained on an unlabeled dataset, meaning that there are no predefined labels or outputs. The model tries to find patterns or structures in the data on its own, without",
+        "id": "chatcmpl-8227f167c53e3209",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 158,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_09.wav",
+        "asr": "Supervised learning is a type of machine learning where the model is trained on a labeled dataset, meaning that the input data is already associated with the correct output. The model learns to map the input to the output by adjusting its parameters to minimize the difference between its predictions and the actual labels. This is like having a teacher who provides the correct answers to guide the learning process. Fun supervised learning, on the other hand, is a type of machine learning where the model is trained on an unlabeled dataset, meaning that there are no predefined labels or outputs. The model tries to find patterns or structures in the data on its own.",
+        "asr_wer_vs_text": 0.02608695652173913,
+        "asr_chunked": "Supervised learning is a type of machine learning where the model is trained on a labeled data set, meaning that the input data is already associated with the correct output. The model learns to map the input to the output by adjusting its parameters to minimize the difference between its predictions and the actual labels. This is like having a teacher who provides the correct answers to guide the learning process. Fun supervised learning, on the other hand, is a type of machine learning where the model is trained on an unlabeled dataset, meaning that there are no predefined labels or outputs. The model tries to find patterns or structures in the data on its own.",
+        "asr_chunked_wer_vs_text": 0.043478260869565216,
+        "audio_s": 36.08
+      },
+      {
+        "prompt": "What is 17 multiplied by 23? Explain how you computed it.",
+        "status": 200,
+        "latency_s": 6.550272966000023,
+        "finish_reason": "length",
+        "text": "To compute 17 × 23, you can use the standard multiplication method:\n\n```\n   17\n×  23\n------\n  51   (17 × 3)\n 340   (17 × 20, shifted one position to the left)\n------\n 391\n```\n\n**Step-by-step explanation:**\n1. Multiply 17 by 3 (the units digit of 23):  \n   17 × 3 = 51\n2. Multiply 17 by 20 (the tens digit of 23",
+        "id": "chatcmpl-845bf84d39f8ec5e",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 158,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_10.wav",
+        "asr": "To compute 17 times 23, you can use the standard multiplication method mall, tall, 17, shaal times 23, chan, midna, 51, 17 times 3, nai, nan, 3040, 17 times 20, shifted one position to the left, May nigh nigh three hundred ninety-one, nah nah nah nah nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh nigh n Naws, naws, nod, nod.",
+        "asr_wer_vs_text": 4.547169811320755,
+        "asr_chunked": "To compute 17 times 23, you can use the standard multiplication method mall, tall, 17, shaal times 23, chan, midna, 51, 17 times 3, nai, nan, 3040, 17 times 20, shifted one position to the left, me, nai, nai, 391, nan, na, nan, na, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai, nai nai three hundred ninety one naan naan naan nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai nai n, nān, nāi, nāi, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nāz, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nād, nā",
+        "asr_chunked_wer_vs_text": 11.075471698113208,
+        "audio_s": 53.0
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms.",
+        "status": 200,
+        "latency_s": 1.6408403030000045,
+        "finish_reason": "stop",
+        "text": "The water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation. This cycle repeats itself over and over again.",
+        "id": "chatcmpl-b322ec9092c9ed29",
+        "usage": {
+          "prompt_tokens": 21,
+          "total_tokens": 61,
+          "completion_tokens": 40,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_11.wav",
+        "asr": "the water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation. This cycle repeats itself over and over again.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "The water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation. This cycle repeats itself over and over again.",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 12.64
+      },
+      {
+        "prompt": "Write a SQL query that returns the top 5 customers by total order amount from tables customers(id, name) and orders(id, customer_id, amount).",
+        "status": 200,
+        "latency_s": 6.1832071029999724,
+        "finish_reason": "length",
+        "text": "To retrieve the top 5 customers by total order amount, you can use the following SQL query. This query assumes that the `orders` table contains a record for each order, and the `amount` column represents the total amount of each order. The query joins the `customers` and `orders` tables, groups the results by customer, and calculates the total order amount for each customer. Finally, it orders the results by the total amount in descending order and limits the output to the top 5 customers.\n\n```sql\nSELECT c.id, c.name, SUM(o.amount) AS total_order_amount\nFROM customers c\nJOIN orders",
+        "id": "chatcmpl-9d56486c3a20d159",
+        "usage": {
+          "prompt_tokens": 44,
+          "total_tokens": 172,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_12.wav",
+        "asr": "To retrieve the top 5 customers by total order amount, you can use the following SQL query. This query assumes that the orders table contains a record for each order and the worth a pound or column represents the total amount of each order. The query joins the customers and orders tables, groups the results by customer, and calculates the total order amount for each customer. Finally, it orders the results by the total amount in descending order and limits the output to the top 5 customers.",
+        "asr_wer_vs_text": 0.21568627450980393,
+        "asr_chunked": "To retrieve the top 5 customers by total order amount, you can use the following SQL query. This query assumes that the orders table contains a record for each order and the worth a pound or column represents the total amount of each order. The query joins the customers and orders tables, groups the results by customer and calculates the total order amount for each customer. Finally, it orders the results by the total amount in descending order and limits the output to the top 5 customers.",
+        "asr_chunked_wer_vs_text": 0.21568627450980393,
+        "audio_s": 49.96
+      }
+    ]
+  },
+  "c2": {
+    "wall_s": 50.012010843999974,
+    "completion_tokens": 1255,
+    "rows": [
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "latency_s": 1.0843986849999965,
+        "finish_reason": "stop",
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "id": "chatcmpl-9f8427b24360e2b6",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 61,
+          "completion_tokens": 29,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_00.wav",
+        "asr": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 7.6
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 120 words.",
+        "status": 200,
+        "latency_s": 3.7481200799999783,
+        "finish_reason": "stop",
+        "text": "hash map handles collisions by using a collision resolution strategy. When two keys hash to the same index, the map uses methods like chaining or open addressing. Chaining involves maintaining a linked list at each index, allowing multiple entries to be stored. Open addressing finds another open slot within the hash table, using techniques like linear probing, quadratic probing, or double hashing to resolve the collision. These methods ensure that all keys are stored and can be retrieved efficiently, despite the initial collision.",
+        "id": "chatcmpl-8d67096a1be1e26a",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 127,
+          "completion_tokens": 96,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_01.wav",
+        "asr": "AshMap handles collisions by using a collision resolution strategy. When two keys hash to the same index, the map uses methods like chaining or open addressing. Chaining involves maintaining a linked list at each index, allowing multiple entries to be stored. Open addressing finds another open slot within the hash table, using techniques like linear probing, quadratic probing, or double hashing to resolve the collision. These methods ensure that all keys are stored and can be retrieved efficiently, despite the initial collision.",
+        "asr_wer_vs_text": 0.024096385542168676,
+        "asr_chunked": "AshMap handles collisions by using a collision resolution strategy. When two keys hash to the same index, the map uses methods like chaining or open addressing. Chaining involves maintaining a linked list at each index, allowing multiple entries to be stored. Open addressing finds another open slot within the hash table, using techniques like linear probing, quadratic probing, or double hashing to resolve the collision. These methods ensure that all keys are stored and can be retrieved efficiently, despite the initial collision.",
+        "asr_chunked_wer_vs_text": 0.024096385542168676,
+        "audio_s": 28.52
+      },
+      {
+        "prompt": "Write a Python function that returns the n-th Fibonacci number iteratively, with a docstring.",
+        "status": 200,
+        "latency_s": 5.086822935000043,
+        "finish_reason": "stop",
+        "text": "def fibonacci(n):\n    \"\"\"\n    Returns the n-th Fibonacci number iteratively.\n    \"\"\"\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for i in range(2, n + 1):\n            a, b = b, a + b\n        return b",
+        "id": "chatcmpl-99a61c4b59f1fffa",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 116,
+          "completion_tokens": 84,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_02.wav",
+        "asr": "the pharatsis and dauprachonsa. URAW returns the N-fibonacci number iteratively. WRA gold, if N force SL, return 0. Graphering 0, return 0. E-daup URA return 1. Knobshirv URAFS, equal V-daumura 0, 1. Equal daumura 0, 1. Equal daumura 0, 1. Equal daumura 0, 1. Equal 0, 1. Equal daumura 0, 1. equal the Damur Azir, equal Damuras, Eagle returns the end, number is equal Vanuras, number is Namis SL, Nampras, number of V Damuras.",
+        "asr_wer_vs_text": 1.5897435897435896,
+        "asr_chunked": "If N force SL, return 0. Graphering 0, return 0. Domura 0, 1, equal 0, 1, equal Domura's, equal the Domura's ear, equal Domura's, Eagle returns the end, number is equal Vaunura's, number is, num is SL, num press, number of V Domura.",
+        "asr_chunked_wer_vs_text": 1.0512820512820513,
+        "audio_s": 41.64
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun, one per line, with one fact each.",
+        "status": 200,
+        "latency_s": 4.4682300000000055,
+        "finish_reason": "length",
+        "text": "Mercury: Closest to the sun, it has no moons.\nVenus: Similar in size to Earth, it has a thick, toxic atmosphere.\nEarth: Only known planet to support life, it has one moon.\nMars: Known as the 'Red Planet' due to its iron oxide surface, it has the largest volcano in the solar system.\nJupiter: The largest planet, it has a Great Red Spot, a storm larger than Earth.\nSaturn: Famous for its extensive ring system, it is less dense than water.\nUranus: Rotates on its side, possibly due to a past collision, it has",
+        "id": "chatcmpl-859615b7cbf2554a",
+        "usage": {
+          "prompt_tokens": 35,
+          "total_tokens": 163,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_03.wav",
+        "asr": "Mercury, closest to the sun, it has no moons. Venus, similar in size to Earth, it has a thick, toxic atmosphere. Earth, only known planet to support life, it has one moon. Mars, known as the red planet due to its iron oxide surface, it has the largest volcano in the solar system. Jupiter, the largest planet, it has a great red spot, a storm larger than Earth. Saturn, famous for its extensive ring system, it is less dense than water. Uranus rotates on its side, possibly due to a past collision.",
+        "asr_wer_vs_text": 0.0425531914893617,
+        "asr_chunked": "Mercury, closest to the sun. It has no moons. Venus, similar in size to Earth. It has a thick, toxic atmosphere. Earth, only known planet to support life. It has one moon. Mars, known as the red planet due to its iron oxide surface. It has the largest volcano in the solar system. Jupiter, the largest planet. It has a great red spot, a storm larger than Earth. Saturn, famous for its extensive ring system. It is less dense than water. Uranus rotates on its side, possibly due to a past collision.",
+        "asr_chunked_wer_vs_text": 0.0425531914893617,
+        "audio_s": 33.4
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours and then 120 km in 1.5 hours. What is its average speed? Show the steps.",
+        "status": 200,
+        "latency_s": 4.560505306999971,
+        "finish_reason": "stop",
+        "text": "To find the average speed, we need to calculate the total distance traveled and the total time taken.\nTotal distance = 180 km + 120 km = 300 km\nTotal time = 2 hours + 1.5 hours = 3.5 hours\nAverage speed = Total distance / Total time\nAverage speed = 300 km / 3.5 hours\nAverage speed = 85.71 km/h (rounded to two decimal places)\nTherefore, the average speed of the train is 85.71 km/h.",
+        "id": "chatcmpl-a95289028f341b4a",
+        "usage": {
+          "prompt_tokens": 49,
+          "total_tokens": 170,
+          "completion_tokens": 121,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_04.wav",
+        "asr": "To find the average speed, we need to calculate the total distance traveled and the total time taken. Total distance, then you're at 180 kilometers, that's 120 kilometers. Then you're at 300 kilometers. Total time, then you're at 2 hours, last 1.5 hours. Then you're at 3.5 hours, 3.5 hours. Speed, then you're at total distance, total time. Crazord speed, then you're at 300 kilometers, 3.5 hours. Crazord speed, then you're at 85.71 1 kilometer gens, rounded to two decimal places, thus therefore, the average speed of the train is 85.71 kilometer gens.",
+        "asr_wer_vs_text": 0.5277777777777778,
+        "asr_chunked": "To find the average speed, we need to calculate the total distance traveled and the train is 85.71 kmj.",
+        "asr_chunked_wer_vs_text": 0.7361111111111112,
+        "audio_s": 35.12
+      },
+      {
+        "prompt": "Write a short story of about 100 words about a robot that learns to paint.",
+        "status": 200,
+        "latency_s": 4.066987927999946,
+        "finish_reason": "stop",
+        "text": "In a quiet workshop, a robot named Zeta was assigned to assemble gadgets. One day, it found a paintbrush and began experimenting. Strokes of blue, red, and gold danced across the canvas. Zeta mixed colors, creating swirls and patterns. The robot discovered joy in the creative process. Its circuits buzzed with excitement. Soon, Zeta’s art adorned the workshop walls. Humans marveled at the robot’s talent. Zeta had learned that art brings color to even the most mechanical of lives.",
+        "id": "chatcmpl-81bcd2a1eeb56d65",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 138,
+          "completion_tokens": 106,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_05.wav",
+        "asr": "In a quiet workshop, a robot named Zeta was assigned to assemble gadgets. One day, it found a paintbrush and began experimenting. Strokes of blue, red, and gold danced across the canvas. Zeta mixed colors, creating swirls and patterns. The robot discovered joy in the creative process. Its circuits buzzed with excitement. Soon, Zeta's art adorned the workshop walls. Humans marveled at the robot's talent. Zeta had learned that art brings color to even the most mechanical of lives.",
+        "asr_wer_vs_text": 0.04938271604938271,
+        "asr_chunked": "In a quiet workshop, a robot named Zeta was assigned to assemble gadgets. One day, it found a paintbrush and began experimenting. Strokes of blue, red, and gold danced across the canvas. Zeta mixed colors, creating swirls and patterns. The robot discovered joy in the creative process. Its circuits buzzed with excitement. Soon, Zeta's art adorned the workshop walls. Humans marveled at the robot's talent. Zeta had learned that art brings color to even the most mechanical of lives.",
+        "asr_chunked_wer_vs_text": 0.04938271604938271,
+        "audio_s": 30.64
+      },
+      {
+        "prompt": "What are the main differences between TCP and UDP? Answer with a short bulleted list.",
+        "status": 200,
+        "latency_s": 5.636637809000035,
+        "finish_reason": "length",
+        "text": "TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are two fundamental protocols in the Internet Protocol Suite, but they have several key differences:\n\n- **Connection-Oriented vs. Connectionless:** TCP is connection-oriented, meaning it establishes a connection before data transfer, while UDP is connectionless and does not establish a connection beforehand.\n- **Reliability:** TCP provides reliable, ordered, and error-checked delivery of data, whereas UDP does not guarantee delivery, order, or error checking.\n- **Flow Control and Congestion Control:** TCP includes mechanisms for flow control and congestion control to manage data transmission efficiently, while UDP does not have",
+        "id": "chatcmpl-ae0ac0a39107148c",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 159,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_06.wav",
+        "asr": "TCP, Fadenberg Control Protocol, and UDP. User Datacom Protocol are two fundamental protocols in the Internet Protocol Suite, but they have several key differences. Connection-oriented versus connectionless. TCP is connection-oriented, meaning it establishes a connection before data transfer, while UDP is connectionless and does not establish a connection beforehand. Reliability. TCP provides reliable, ordered, and error-checked delivery of data, whereas UDP does not guarantee delivery, order, or error checking. Flow Control and Congestion Control TCP includes mechanisms for flow control and congestion control to manage data transmission efficiently, while UDP does not.",
+        "asr_wer_vs_text": 0.041666666666666664,
+        "asr_chunked": "TCP, Fadenberg Control Protocol, and UDP. User Datacom Protocol are two fundamental protocols in the Internet Protocol Suite, but they have several key differences. Connection-oriented versus connectionless. TCP is connection-oriented, meaning it establishes a connection before data transfer, while UDP is connectionless and does not establish a connection beforehand. Reliability. TCP provides reliable, ordered, and error-checked delivery of data, whereas UDP does not guarantee delivery, order, or error checking, flow control and congestion control. TCP includes mechanisms for flow control and congestion control to manage data transmission efficiently, while UDP does not.",
+        "asr_chunked_wer_vs_text": 0.041666666666666664,
+        "audio_s": 44.24
+      },
+      {
+        "prompt": "Give me a recipe for scrambled eggs with numbered steps.",
+        "status": 200,
+        "latency_s": 4.5284353760000045,
+        "finish_reason": "length",
+        "text": "Sure! Here’s a simple recipe for scrambled eggs with numbered steps:\n\n1. Crack 2–3 eggs into a bowl.\n2. Add a small splash of milk or cream (optional, for fluffiness).\n3. Season with salt and pepper to taste.\n4. Whisk the eggs until well beaten.\n5. Heat a non-stick pan over medium heat.\n6. Add a small amount of butter or oil to the pan.\n7. Pour the egg mixture into the pan.\n8. Let the eggs cook for a minute, then gently stir with a spatula.\n9. Continue stirring and cooking until the eggs are",
+        "id": "chatcmpl-8d5af5ab18dd1a7b",
+        "usage": {
+          "prompt_tokens": 24,
+          "total_tokens": 152,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_07.wav",
+        "asr": "Sure, here's a simple recipe for scrambled eggs with numbered steps. 1. Crack 2 to 3 eggs into a bowl. 2. Add a small splash of milk or cream, optional for fluffinesses. 3. Season with salt and pepper to taste. 4. Whisk the eggs until well beaten. 5. Heat a non-stick pan over medium heat. 6. Add a small amount of butter or oil to the pan. 7. Pour the egg mixture into the pan. 8. Let the eggs cook for a minute. Then gently stir with a spatula. 9. Continue stirring and cooking until the eggs puff.",
+        "asr_wer_vs_text": 0.050505050505050504,
+        "asr_chunked": "Sure, here's a simple recipe Then gently stir with a spatula. 9. Continue stirring and cooking until the eggs puff.",
+        "asr_chunked_wer_vs_text": 0.8181818181818182,
+        "audio_s": 34.2
+      },
+      {
+        "prompt": "Summarize the plot of Romeo and Juliet in four sentences.",
+        "status": 200,
+        "latency_s": 3.9084161400000426,
+        "finish_reason": "stop",
+        "text": "Romeo and Juliet is a tragic love story set in Verona, where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball hosted by her family. Their secret marriage is arranged, but their happiness is short-lived as misunderstandings and external conflicts lead to a series of tragic events. Ultimately, both Romeo and Juliet die in each other's arms, bringing an end to the long-standing feud between their families.",
+        "id": "chatcmpl-a7b00d70a2cd4797",
+        "usage": {
+          "prompt_tokens": 26,
+          "total_tokens": 135,
+          "completion_tokens": 109,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_08.wav",
+        "asr": "Romeo and Juliet is a tragic love story said in Verona, where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball hosted by her family. Their secret marriage is arranged, but their happiness is short-lived, as misunderstandings and external conflicts lead to a series of tragic events. Ultimately, both Romeo and Juliet die in each other's arms, bringing an end to the long-standing feud between their families.",
+        "asr_wer_vs_text": 0.012048192771084338,
+        "asr_chunked": "Romeo and Juliet is a tragic love story said in Verona, where two feuding families, the Montagues and Capulets, are at odds. Romeo, a Montague, falls in love with Juliet, a Capulet, at a ball hosted by her family. Their secret marriage is arranged, but their happiness is short-lived, as misunderstandings and external conflicts lead to a series of tragic events. Ultimately, both Romeo and Juliet die in each other's arms, bringing an end to the long-standing feud between their families.",
+        "asr_chunked_wer_vs_text": 0.012048192771084338,
+        "audio_s": 30.64
+      },
+      {
+        "prompt": "Explain the difference between supervised and unsupervised learning to a high school student.",
+        "status": 200,
+        "latency_s": 2.0178699020000295,
+        "finish_reason": "stop",
+        "text": "Supervised learning is like having a teacher who shows you examples of what you should be doing, and you learn from those examples. Unsupervised learning is like being given a bunch of data and having to find patterns and relationships on your own, without any guidance.",
+        "id": "chatcmpl-9f095be6a5d690a9",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 84,
+          "completion_tokens": 54,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_09.wav",
+        "asr": "Supervised learning is like having a teacher who shows you examples of what you should be doing, and you learn from those examples. Unsupervised learning is like being given a bunch of data and having to find patterns and relationships on your own, without any guidance.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "Supervised learning is like having a teacher who shows you examples of what you should be doing, and you learn from those examples. Unsupervised learning is like being given a bunch of data and having to find patterns and relationships on your own, without any guidance.",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 14.68
+      },
+      {
+        "prompt": "What is 17 multiplied by 23? Explain how you computed it.",
+        "status": 200,
+        "latency_s": 5.291148667000016,
+        "finish_reason": "length",
+        "text": "To compute 17 × 23, you can use the standard multiplication method:\n\n```\n   17\n×  23\n------\n  51   (17 × 3)\n 340   (17 × 20, shifted one position to the left)\n------\n 391\n```\n\n**Step-by-step explanation:**\n1. Multiply 17 by 3 (the units digit of 23):  \n   17 × 3 = 51\n2. Multiply 17 by 20 (the tens digit of 23",
+        "id": "chatcmpl-b337fccaa798fcab",
+        "usage": {
+          "prompt_tokens": 30,
+          "total_tokens": 158,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_10.wav",
+        "asr": "To compute 17 times 23, you can use the standard multiplication method mall-word-time-team-s-all-times-23-y-my-um-by-51-17-times-3-yell-30-40-17-times-20 shifted one position to the left, my-mi-my-um-bro-391-timer-01-b-is-is-step-by-step-explanation-dedo-1-multiply-17-by-3 The unit's digit of 23 got all 17 times 3. Dejour 51, 2, multiply 17 by 20, the 10's digit of 20.",
+        "asr_wer_vs_text": 0.660377358490566,
+        "asr_chunked": "To compute 17 times 23, you 51 2 Multiply 17 by 20 The tens digit of 23",
+        "asr_chunked_wer_vs_text": 0.7169811320754716,
+        "audio_s": 39.2
+      },
+      {
+        "prompt": "Describe the water cycle in simple terms.",
+        "status": 200,
+        "latency_s": 1.59245654099999,
+        "finish_reason": "stop",
+        "text": "The water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation. This cycle repeats itself over and over again.",
+        "id": "chatcmpl-9680f4ef7727911a",
+        "usage": {
+          "prompt_tokens": 21,
+          "total_tokens": 61,
+          "completion_tokens": 40,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_11.wav",
+        "asr": "The water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation. This cycle repeats itself over and over again.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "The water cycle is a continuous process where water evaporates from the Earth's surface, forms clouds, and then falls back to the ground as precipitation. This cycle repeats itself over and over again.",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 12.04
+      },
+      {
+        "prompt": "Write a SQL query that returns the top 5 customers by total order amount from tables customers(id, name) and orders(id, customer_id, amount).",
+        "status": 200,
+        "latency_s": 3.988938152000003,
+        "finish_reason": "stop",
+        "text": "To solve this problem, you can use the SQL JOIN and GROUP BY clauses to combine the customers and orders tables, and then use the ORDER BY and LIMIT clauses to get the top 5 customers by total order amount. Here is a sample SQL query:\nsql\nSELECT c.id, c.name, SUM(o.amount) as total_order_amount\nFROM customers c\nJOIN orders o ON c.id = o.customer_id\nGROUP BY c.id, c.name\nORDER BY total_order_amount DESC\nLIMIT 5;",
+        "id": "chatcmpl-81b1630984dca0ea",
+        "usage": {
+          "prompt_tokens": 44,
+          "total_tokens": 148,
+          "completion_tokens": 104,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c2_12.wav",
+        "asr": "To solve this problem, you can use the SQL JOIN and GRID BY causes to combine the customers and orders tables, and then use the I BY and L causes to get the top 5 customers by total order amount. Here is a sample SQL query. Cut i9coc-braction2-c.id-c.name-i-shambide-as-total-correct-queen-hot-cosmon-customers-crop-bot-garb-i-c.i-buy-codo",
+        "asr_wer_vs_text": 0.4470588235294118,
+        "asr_chunked": "To solve this problem, you can use the SQL join and grid by clauses to combine the customers and orders tables, and then use the I buy and L clauses to get the topmon customers crop art garb I see that I buy cuddle",
+        "asr_chunked_wer_vs_text": 0.6470588235294118,
+        "audio_s": 30.64
+      }
+    ]
+  },
+  "malformed_lines": 0,
+  "rows_stop_lines": [],
+  "length_mismatch_lines": 0
+}

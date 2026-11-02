@@ -1,0 +1,117 @@
+{
+  "arm": "fault",
+  "round": 0,
+  "base": "minicpmo_4_5_turn_mrv2.yaml",
+  "ready": true,
+  "startup_s": 225.13929057121277,
+  "c1": {
+    "wall_s": 14.590855680000004,
+    "completion_tokens": 366,
+    "rows": [
+      {
+        "prompt": "What is the capital of China? Answer in one sentence and then name three famous places there.",
+        "status": 200,
+        "latency_s": 1.1867453170000317,
+        "finish_reason": "stop",
+        "text": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "id": "chatcmpl-9d3bbe3416d36f68",
+        "usage": {
+          "prompt_tokens": 32,
+          "total_tokens": 61,
+          "completion_tokens": 29,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_00.wav",
+        "asr": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "The capital of China is Beijing. Three famous places there are the Great Wall of China, the Forbidden City, and the Temple of Heaven.",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 7.96
+      },
+      {
+        "prompt": "Explain how a hash map handles collisions. Keep it under 120 words.",
+        "status": 200,
+        "latency_s": 3.43750980599998,
+        "finish_reason": "stop",
+        "text": "hash map handles collisions through various methods. One common approach is chaining, where each bucket contains a linked list of entries that hash to the same index. Another method is open addressing, which finds another open slot within the array for the colliding key. Techniques like linear probing, quadratic probing, and double hashing are used to find the next available slot. Some hash maps also use a combination of these methods or employ more complex structures like binary trees to manage collisions efficiently.",
+        "id": "chatcmpl-8b46707e50927072",
+        "usage": {
+          "prompt_tokens": 31,
+          "total_tokens": 125,
+          "completion_tokens": 94,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_01.wav",
+        "asr": "HashMap handles collisions through various methods, one common approach is chaining, where each bucket contains a linked list of entries that hash to the same index. Another method is open addressing, which finds another open slot within the array for the colliding key. Techniques like linear probing, quadratic probing and double hashing are used to find the next available slot. Some HashMaps also use a combination of these methods or employ more complex structures like binary trees to manage collisions efficiently.",
+        "asr_wer_vs_text": 0.04819277108433735,
+        "asr_chunked": "HashMap handles collisions through various methods. One common approach is chaining, where each bucket contains a linked list of entries that hash to the same index. Another method is open addressing, which finds another open slot within the array for the colliding key. Techniques like linear probing, quadratic probing and double hashing are used to find the next available slot. Some HashMaps also use a combination of these methods or employ more complex structures like binary trees to manage collisions efficiently.",
+        "asr_chunked_wer_vs_text": 0.04819277108433735,
+        "audio_s": 25.68
+      },
+      {
+        "prompt": "Write a Python function that returns the n-th Fibonacci number iteratively, with a docstring.",
+        "status": 500,
+        "latency_s": 0.6004213520000121,
+        "error": "{\"error\": {\"message\": \"MiniCPM-o turn handoff: malformed Thinker row ledger for request_id=chatcmpl-b9f01b432aea7b24-a6d8083b: ids=torch.Size([230, 1]) positions=torch.Size([229, 1]) rows=230\", \"type\": \"Internal Server Error\", \"param\": null, \"code\": 500}}"
+      },
+      {
+        "prompt": "List the planets of the solar system in order from the sun, one per line, with one fact each.",
+        "status": 200,
+        "latency_s": 4.464339950999829,
+        "finish_reason": "length",
+        "text": "Mercury: Closest to the sun, it has no moons. Venus: Often called Earth's twin due to similar size, it has a thick, toxic atmosphere. Earth: The only known planet to support life, it has one moon. Mars: Known as the Red Planet due to its iron oxide surface, it has the largest volcano in the solar system. Jupiter: The largest planet, it has a Great Red Spot, a storm larger than Earth. Saturn: Famous for its extensive ring system, it is less dense than water. Uranus: Rotates on its side, possibly due to a collision with another object. Neptune:",
+        "id": "chatcmpl-b0cd8f0b93d536a2",
+        "usage": {
+          "prompt_tokens": 35,
+          "total_tokens": 163,
+          "completion_tokens": 128,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_03.wav",
+        "asr": "Mercury, closest to the sun. It has no moons. Venus, often called Earth's twin due to similar size. It has a thick, toxic atmosphere. Earth, the only known planet to support life. It has one moon. Mars, known as the red planet due to its iron oxide surface. It has the largest volcano in the solar system. Jupiter, the largest planet. It has a great red spot, a storm larger than Earth. Saturn, famous for its extensive ring system, it is less dense than water. Uranus rotates on its side, possibly due to a collision with another object. Neptune.",
+        "asr_wer_vs_text": 0.0,
+        "asr_chunked": "Mercury, closest to the sun. It has no moons. Venus, often called Earth's twin due to similar size. It has a thick, toxic atmosphere. Earth, the only known planet to support life. It has one moon. Mars, known as the Red Planet due to its iron oxide surface. It has the largest volcano in the solar system. Jupiter, the largest planet. It has a great red spot, a storm larger than Earth. Saturn, famous for its extensive ring system, it is less dense than water. Uranus rotates on its side, possibly due to a collision with another object. Neptune",
+        "asr_chunked_wer_vs_text": 0.0,
+        "audio_s": 34.92
+      },
+      {
+        "prompt": "A train travels 180 km in 2 hours and then 120 km in 1.5 hours. What is its average speed? Show the steps.",
+        "status": 200,
+        "latency_s": 4.112143045000039,
+        "finish_reason": "stop",
+        "text": "To find the average speed, we need to calculate the total distance traveled and the total time taken.\nTotal distance = 180 km + 120 km = 300 km\nTotal time = 2 hours + 1.5 hours = 3.5 hours\nAverage speed = Total distance / Total time\nAverage speed = 300 km / 3.5 hours\nAverage speed = 85.71 km/h\nTherefore, the average speed of the train is 85.71 km/h.",
+        "id": "chatcmpl-99e335fcbd9fdd99",
+        "usage": {
+          "prompt_tokens": 49,
+          "total_tokens": 164,
+          "completion_tokens": 115,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": null
+        },
+        "audio_file": "c1_04.wav",
+        "asr": "To find the average speed, we need to calculate the total distance traveled and the total time taken. Total distance, then you 180 km. That's 120 km. Then you are 300 km. Total time, then you are 2 hours last 1.5 hours. Then you are 3.5 hours. Speed, then you are total distance, total time. You are dress speed, then you are 300 km, 3.5 hours. Speed, then you are 85.71 km chance therefore. The average speed of the train is 85.71 kmc.",
+        "asr_wer_vs_text": 0.44776119402985076,
+        "asr_chunked": "To find the average speed, we need to calculate. The average speed of the train is 85.71 kilometer chens.",
+        "asr_chunked_wer_vs_text": 0.7313432835820896,
+        "audio_s": 31.68
+      },
+      {
+        "prompt": "Write a short story of about 100 words about a robot that learns to paint.",
+        "status": 500,
+        "latency_s": 0.7755059449998498,
+        "error": "{\"error\": {\"message\": \"MiniCPM-o turn handoff: malformed Thinker row ledger for request_id=chatcmpl-b1046726431d3aa2-b7641486: ids=torch.Size([284, 1]) positions=torch.Size([283, 1]) rows=284\", \"type\": \"Internal Server Error\", \"param\": null, \"code\": 500}}"
+      }
+    ]
+  },
+  "health_after": 200,
+  "request_after": {
+    "status": 200,
+    "has_audio": true
+  },
+  "malformed_lines": 8,
+  "rows_stop_lines": [],
+  "length_mismatch_lines": 0
+}
