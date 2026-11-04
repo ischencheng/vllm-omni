@@ -1,4 +1,4 @@
-Running 3584 items in this shard
+Running 3588 items in this shard
 ........................................................................ [  2%]
 ........................................................................ [  4%]
 ........................................................................ [  6%]
@@ -48,7 +48,7 @@ Running 3584 items in this shard
 ........................................................................ [ 94%]
 ........................................................................ [ 96%]
 ........................................................................ [ 98%]
-........................................................                 [100%]
+............................................................             [100%]
 =============================== warnings summary ===============================
 ../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
   /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
@@ -156,6 +156,6 @@ tests/model_executor/models/minicpmo_4_5/test_talker_batching.py::test_cpu_codec
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
 --- Running Summary
-3579 passed, 5 skipped, 218 deselected, 44 warnings in 150.10s (0:02:30)
+3583 passed, 5 skipped, 218 deselected, 44 warnings in 132.36s (0:02:12)
 
 --- stderr ---

@@ -13,6 +13,6 @@ Image `vllm/vllm-openai:v0.32.0` plus `uv pip install .` of the tree. 1x H100 fo
 | `main-cache-on` | main `01c3f711a` | `pc_bench.py --arms v2-native --workloads sys_c1,long_c1` |
 | `main-one-token` | main `01c3f711a` | `pc_bench.py --arms v1-on,v2-off --workloads edge` |
 | `duplex-e2e` | `5a10eb2f1` | `duplex_e2e.py merge` |
-| `unit-head`, `unit-main-red` | `76b7ca2b7`, main with the new tests | `unit.py <paths in the PR>` |
+| `unit-head`, `unit-main-red` | `ed5c8c8e7`, main `01c3f711a` with the new tests | `unit.py <paths in the PR>` |
 
 The saved rows (`*.pt`) stay out of this branch. `rows-compare.txt` compares them per prompt, first pass against second pass, and `rows-gap.txt` counts reply tokens minus rows after the 0.6 GiB run. In `correctness`, the `v2-off-fp32` and `v2-native-fp32` directories are start-up failures from a KV budget too small for FP32 weights; `fp32` is the run with `kv_cache_memory_bytes` set. In `low-kv-1.6g` the warm-up's long prompts return 400 because of `max_model_len`, which are the two tracebacks in those logs.

@@ -1,13 +1,13 @@
-Running 603 items in this shard
-...FFF.................................................................. [ 11%]
+Running 608 items in this shard
+...FFFF................................................................. [ 11%]
 ........................................................................ [ 23%]
 ........................................................................ [ 35%]
 ........................................................................ [ 47%]
 ........................................................................ [ 59%]
 ........................................................................ [ 71%]
-................FF...................................................... [ 83%]
-........................................................................ [ 95%]
-...........................                                              [100%]
+.................F....F................................................. [ 82%]
+........................................................................ [ 94%]
+................................                                         [100%]
 =================================== FAILURES ===================================
 _ test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1] _
 
@@ -51,26 +51,44 @@ E       KeyError: 'tts'
 tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:119: KeyError
 ---------------------------- Captured stdout setup -----------------------------
 --- Running test: test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels]
-________ test_plain_chat_handoff_without_reply_rows_hands_over_nothing _________
+_______ test_plain_chat_handoff_without_reply_rows_is_an_empty_condition _______
 
-    def test_plain_chat_handoff_without_reply_rows_hands_over_nothing() -> None:
-        """A Thinker that stopped at its first token has no row at or after the reply's position."""
+    def test_plain_chat_handoff_without_reply_rows_is_an_empty_condition() -> None:
+        """A Thinker that stopped at its first token has no reply rows; the Talker finishes such a request."""
         prompt_ids, output_ids = [101, 102], [11]
     
-        info = llm2tts([_ledger_output(prompt_ids, output_ids, [(101, 0), (102, 1)] * 2)], prompt=[{}])[0][
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, [(101, 0), (102, 1)])], prompt=[{}])[0][
             "model_intermediate_buffer"
         ]
     
->       assert info["ids"]["tts"] is None
-E       assert [] is None
+>       assert info["ids"]["tts"] == []
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
 
-tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:132: AssertionError
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:132: KeyError
 ---------------------------- Captured stdout setup -----------------------------
---- Running test: test_plain_chat_handoff_without_reply_rows_hands_over_nothing
+--- Running test: test_plain_chat_handoff_without_reply_rows_is_an_empty_condition
+__ test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it __
+
+    def test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it() -> None:
+        """A resumed request hits on its earlier reply tokens, so their rows come from before the preemption."""
+        prompt_ids, output_ids = list(range(100, 116)), [11, 12, 13, 14]
+        # Forwarded up to token 12, preempted, then resumed from a hit that covers it.
+        forwarded = [(115, 15), (11, 16), (12, 17), (13, 18)]
+    
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, forwarded)], prompt=[{}])[0]["model_intermediate_buffer"]
+    
+>       assert info["ids"]["tts"] == [11, 12, 13]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:144: KeyError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it
 _ TestDeployConfigLoading.test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2.yaml-cuda-True] _
 
-self = <tests.config.test_config_factory.TestDeployConfigLoading object at 0x2b8e580a1460>
-monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b8e58b500e0>
+self = <tests.config.test_config_factory.TestDeployConfigLoading object at 0x2b6d52b56150>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b6d530a06e0>
 yaml_name = 'minicpmo_4_5_turn_mrv2.yaml', platform = 'cuda', enabled = True
 
     @pytest.mark.parametrize(
@@ -84,6 +102,7 @@ yaml_name = 'minicpmo_4_5_turn_mrv2.yaml', platform = 'cuda', enabled = True
             ("minicpmo_4_5_turn.yaml", "cuda", True),
             *(("minicpmo_4_5_turn.yaml", platform, False) for platform in ("npu", "rocm", "xpu", "musa")),
             ("minicpmo_4_5_turn_mrv2.yaml", "cuda", True),
+            *(("minicpmo_4_5_turn_mrv2.yaml", platform, False) for platform in ("npu", "rocm", "xpu", "musa")),
             ("minicpmo_4_5_turn_mrv2_h200.yaml", "cuda", True),
             ("minicpmo_4_5.yaml", "cuda", False),
             ("minicpmo_4_5_duplex_h200.yaml", "cuda", False),
@@ -114,13 +133,13 @@ yaml_name = 'minicpmo_4_5_turn_mrv2.yaml', platform = 'cuda', enabled = True
 >       assert stage0.yaml_engine_args["enable_prefix_caching"] is enabled
 E       assert False is True
 
-tests/config/test_config_factory.py:2128: AssertionError
+tests/config/test_config_factory.py:2129: AssertionError
 ---------------------------- Captured stdout setup -----------------------------
 --- Running test: test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2.yaml-cuda-True]
 _ TestDeployConfigLoading.test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2_h200.yaml-cuda-True] _
 
-self = <tests.config.test_config_factory.TestDeployConfigLoading object at 0x2b8e580a13a0>
-monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b8e58bb8080>
+self = <tests.config.test_config_factory.TestDeployConfigLoading object at 0x2b6d52b55c70>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b6d530dfda0>
 yaml_name = 'minicpmo_4_5_turn_mrv2_h200.yaml', platform = 'cuda'
 enabled = True
 
@@ -135,6 +154,7 @@ enabled = True
             ("minicpmo_4_5_turn.yaml", "cuda", True),
             *(("minicpmo_4_5_turn.yaml", platform, False) for platform in ("npu", "rocm", "xpu", "musa")),
             ("minicpmo_4_5_turn_mrv2.yaml", "cuda", True),
+            *(("minicpmo_4_5_turn_mrv2.yaml", platform, False) for platform in ("npu", "rocm", "xpu", "musa")),
             ("minicpmo_4_5_turn_mrv2_h200.yaml", "cuda", True),
             ("minicpmo_4_5.yaml", "cuda", False),
             ("minicpmo_4_5_duplex_h200.yaml", "cuda", False),
@@ -165,7 +185,7 @@ enabled = True
 >       assert stage0.yaml_engine_args["enable_prefix_caching"] is enabled
 E       assert False is True
 
-tests/config/test_config_factory.py:2128: AssertionError
+tests/config/test_config_factory.py:2129: AssertionError
 ---------------------------- Captured stdout setup -----------------------------
 --- Running test: test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2_h200.yaml-cuda-True]
 =============================== warnings summary ===============================
@@ -244,9 +264,10 @@ tests/config/test_config_factory.py::TestPipelineRegistration::test_lance_checkp
 =========================== short test summary info ============================
 FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1]
 FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels]
-FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_without_reply_rows_hands_over_nothing
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_without_reply_rows_is_an_empty_condition
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it
 FAILED tests/config/test_config_factory.py::TestDeployConfigLoading::test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2.yaml-cuda-True]
 FAILED tests/config/test_config_factory.py::TestDeployConfigLoading::test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2_h200.yaml-cuda-True]
-5 failed, 598 passed, 32 warnings in 27.56s
+6 failed, 602 passed, 32 warnings in 23.68s
 
 --- stderr ---

@@ -1,5 +1,4 @@
 + /usr/bin/python -m pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/unit.xml tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py tests/config/test_config_factory.py
-
 ../../usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/cute_dsl/low_latency_blockscaled_gemm.py:102
   /usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/cute_dsl/low_latency_blockscaled_gemm.py:102: DeprecationWarning: cutlass.utils.smem_allocator.get_smem_capacity_in_bytes is deprecated; use cutlass.memory.get_smem_capacity_in_bytes instead. It will be removed in a future release.
     _SMEM_CAPACITY_BYTES = cutlass.utils.get_smem_capacity_in_bytes("sm_100")
@@ -35,8 +34,9 @@ tests/config/test_config_factory.py::TestPipelineRegistration::test_lance_checkp
 =========================== short test summary info ============================
 FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1]
 FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels]
-FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_without_reply_rows_hands_over_nothing
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_without_reply_rows_is_an_empty_condition
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it
 FAILED tests/config/test_config_factory.py::TestDeployConfigLoading::test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2.yaml-cuda-True]
 FAILED tests/config/test_config_factory.py::TestDeployConfigLoading::test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2_h200.yaml-cuda-True]
-5 failed, 598 passed, 32 warnings in 27.56s
+6 failed, 602 passed, 32 warnings in 23.68s
 rc=1
