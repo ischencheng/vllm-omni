@@ -1,0 +1,30 @@
+row dump patched
+[v2-off-fp32-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off-fp32.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-fp32-r0] ready=True after 330s
+  warm done 341s {'host_used_gb': 18.08, 'host_rss_tree_gb': 32.5, 'gpu_mem_mib_util': '55603, 62'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:  34%|███▍      | 162/479 [00:00<00:00, 1562.80it/s]
+Loading weights:  67%|██████▋   | 319/479 [00:00<00:00, 1370.71it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 1716.54it/s]
+[transformers] Using custom `forced_decoder_ids` from the (generation) config. This is deprecated in favor of the `task` and `language` flags/config options.
+[transformers] Passing `generation_config` together with generation-related arguments=({'suppress_tokens', 'begin_suppress_tokens'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+  correct_pass1: n=8 ok=8 audio=8 wall=15.8s ttft p50=0.626 p90=0.813 ttfa p50=0.763 p90=0.948 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 10029.11it/s]
+  correct_pass2: n=8 ok=8 audio=8 wall=15.6s ttft p50=0.624 p90=0.811 ttfa p50=0.759 p90=0.944 cached=[None, None] prompt=[709, 711] errs=[]
+[v2-off-fp32-r0] done in 380s {'host_used_gb': 19.08, 'host_rss_tree_gb': 32.58, 'gpu_mem_mib_util': '58053, 75'}
+[v2-native-fp32-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native-fp32.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-fp32-r0] ready=True after 210s
+  warm done 220s {'host_used_gb': 18.72, 'host_rss_tree_gb': 32.14, 'gpu_mem_mib_util': '58035, 55'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 11358.39it/s]
+  correct_pass1: n=8 ok=8 audio=8 wall=15.6s ttft p50=0.625 p90=0.811 ttfa p50=0.758 p90=0.951 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 10943.91it/s]
+  correct_pass2: n=8 ok=8 audio=8 wall=13.7s ttft p50=0.403 p90=0.589 ttfa p50=0.534 p90=0.724 cached=[None, None] prompt=[709, 711] errs=[]
+[v2-native-fp32-r0] done in 255s {'host_used_gb': 18.81, 'host_rss_tree_gb': 32.23, 'gpu_mem_mib_util': '58035, 82'}

@@ -1,0 +1,58 @@
+{
+ "wall_s": 2.8543797820000236,
+ "state": {
+  "host_used_gb": 18.29,
+  "host_rss_tree_gb": 31.75,
+  "gpu_mem_mib_util": "48633, 45"
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 0.07524697999997443,
+   "usage": {
+    "prompt_tokens": 713,
+    "total_tokens": 714,
+    "completion_tokens": 1
+   },
+   "latency_s": 0.09820742900001278,
+   "text": "The"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3898852419999912,
+   "usage": {
+    "prompt_tokens": 722,
+    "total_tokens": 771,
+    "completion_tokens": 49
+   },
+   "ttfa_s": 0.5387885630000255,
+   "latency_s": 2.203584946000092,
+   "text": "A hash map uses collision resolution techniques like chaining or open addressing to handle collisions. Chaining stores collided items in a linked list at the same index. Open addressing finds another open slot nearby. Both ensure all data is stored and retrieved efficiently.",
+   "audio_s": 17.56
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03532026199991378,
+   "usage": {
+    "prompt_tokens": 718,
+    "total_tokens": 719,
+    "completion_tokens": 1
+   },
+   "latency_s": 0.05554134099998009,
+   "text": "Mer"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.47353099700012535,
+   "usage": {
+    "prompt_tokens": 723,
+    "total_tokens": 786,
+    "completion_tokens": 63
+   },
+   "ttfa_s": 0.6339933240001301,
+   "latency_s": 2.8537970250001763,
+   "text": "A robot found a paintbrush. It dipped it in paint and made a line. The line was straight. The robot dipped again. It made a curve. The robot dipped again. It made a shape. The robot dipped again. It made a picture. The robot dipped again. It made a painting.",
+   "audio_s": 22.64
+  }
+ ]
+}

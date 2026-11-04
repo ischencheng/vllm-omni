@@ -1,0 +1,23 @@
+[v2-native-tiny-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native-tiny.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-tiny-r0] ready=True after 327s
+  warm done 332s {'host_used_gb': 18.16, 'host_rss_tree_gb': 32.01, 'gpu_mem_mib_util': '35857, 58'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:  13%|█▎        | 60/479 [00:00<00:00, 585.81it/s]
+Loading weights:  30%|███       | 144/479 [00:00<00:00, 698.22it/s]
+Loading weights:  45%|████▍     | 214/479 [00:00<00:00, 695.29it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 1499.80it/s]
+[transformers] Using custom `forced_decoder_ids` from the (generation) config. This is deprecated in favor of the `task` and `language` flags/config options.
+[transformers] Passing `generation_config` together with generation-related arguments=({'suppress_tokens', 'begin_suppress_tokens'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+  stress: n=48 ok=48 audio=48 wall=26.7s ttft p50=0.933 p90=1.396 ttfa p50=1.488 p90=4.118 cached=[None, None] prompt=[1380, 1379] errs=[]
+[v2-native-tiny-r0] done in 394s {'host_used_gb': 19.93, 'host_rss_tree_gb': 32.33, 'gpu_mem_mib_util': '46445, 81'}
+[v2-off-tiny-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off-tiny.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-tiny-r0] ready=True after 210s
+  warm done 214s {'host_used_gb': 19.2, 'host_rss_tree_gb': 31.53, 'gpu_mem_mib_util': '38293, 62'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 13068.32it/s]
+  stress: n=48 ok=48 audio=48 wall=27.6s ttft p50=0.97 p90=2.071 ttfa p50=1.771 p90=4.044 cached=[None, None] prompt=[1380, 1379] errs=[]
+[v2-off-tiny-r0] done in 277s {'host_used_gb': 19.78, 'host_rss_tree_gb': 31.97, 'gpu_mem_mib_util': '46441, 63'}

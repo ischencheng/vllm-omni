@@ -1,0 +1,328 @@
+row dump patched
+[v2-off-fp32-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off-fp32.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-fp32-r0] ready=False after 186s
+  | The above exception was the direct cause of the following exception:
+  | 
+  | Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 83, in <module>
+  |     main()
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 77, in main
+  |     args.dispatch_function(args)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/serve.py", line 197, in cmd
+  |     uvloop.run(omni_run_server(args))
+  |   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+  |     return __asyncio.run(
+  |            ^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  |   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+  |     return await main
+  |            ^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 281, in omni_run_server
+  |     await omni_run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 407, in omni_run_server_worker
+  |     async with build_async_omni(
+  |   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 648, in build_async_omni
+  |     async with build_async_omni_from_stage_config(
+  |   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 758, in build_async_omni_from_stage_config
+  |     async_omni = AsyncOmni(model=model, **kwargs)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 114, in __init__
+  |     AsyncOmniBase.__init__(self, *args, model=model, **kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni_base.py", line 109, in __init__
+  |     OmniBase.__init__(self, model=model, **kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/omni_base.py", line 222, in __init__
+  |     self.engine = self._create_engine(
+  |                   ^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 110, in _create_engine
+  |     return AsyncOmniEngine(**engine_kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 344, in __init__
+  |     self._wait_for_orchestrator_init(startup_future, startup_timeout)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 567, in _wait_for_orchestrator_init
+  |     self.orchestrator_loop = startup_future.result(timeout=min(remaining, _STARTUP_POLL_INTERVAL_S))
+  |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+  |     return self.__get_result()
+  |            ^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+  |     raise self._exception
+  | RuntimeError: Orchestrator initialization failed: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[v2-native-fp32-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native-fp32.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-fp32-r0] ready=False after 111s
+  | The above exception was the direct cause of the following exception:
+  | 
+  | Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 83, in <module>
+  |     main()
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 77, in main
+  |     args.dispatch_function(args)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/serve.py", line 197, in cmd
+  |     uvloop.run(omni_run_server(args))
+  |   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+  |     return __asyncio.run(
+  |            ^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  |   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+  |     return await main
+  |            ^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 281, in omni_run_server
+  |     await omni_run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 407, in omni_run_server_worker
+  |     async with build_async_omni(
+  |   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 648, in build_async_omni
+  |     async with build_async_omni_from_stage_config(
+  |   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 758, in build_async_omni_from_stage_config
+  |     async_omni = AsyncOmni(model=model, **kwargs)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 114, in __init__
+  |     AsyncOmniBase.__init__(self, *args, model=model, **kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni_base.py", line 109, in __init__
+  |     OmniBase.__init__(self, model=model, **kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/omni_base.py", line 222, in __init__
+  |     self.engine = self._create_engine(
+  |                   ^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 110, in _create_engine
+  |     return AsyncOmniEngine(**engine_kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 344, in __init__
+  |     self._wait_for_orchestrator_init(startup_future, startup_timeout)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 567, in _wait_for_orchestrator_init
+  |     self.orchestrator_loop = startup_future.result(timeout=min(remaining, _STARTUP_POLL_INTERVAL_S))
+  |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+  |     return self.__get_result()
+  |            ^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+  |     raise self._exception
+  | RuntimeError: Orchestrator initialization failed: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[v2-native-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-r0] ready=True after 345s
+  warm done 353s {'host_used_gb': 17.65, 'host_rss_tree_gb': 32.04, 'gpu_mem_mib_util': '46199, 47'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:  18%|█▊        | 85/479 [00:00<00:00, 791.38it/s]
+Loading weights:  40%|███▉      | 191/479 [00:00<00:00, 850.74it/s]
+Loading weights:  58%|█████▊    | 276/479 [00:00<00:00, 814.58it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 1397.72it/s]
+[transformers] Using custom `forced_decoder_ids` from the (generation) config. This is deprecated in favor of the `task` and `language` flags/config options.
+[transformers] Passing `generation_config` together with generation-related arguments=({'suppress_tokens', 'begin_suppress_tokens'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+  correct_pass1: n=8 ok=8 audio=8 wall=14.2s ttft p50=0.296 p90=0.384 ttfa p50=0.457 p90=0.554 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 9535.90it/s]
+  correct_pass2: n=8 ok=8 audio=8 wall=14.3s ttft p50=0.279 p90=0.346 ttfa p50=0.444 p90=0.511 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 8318.96it/s]
+  correct_mm_pass1: n=6 ok=6 audio=6 wall=6.4s ttft p50=0.228 p90=0.355 ttfa p50=0.388 p90=0.512 cached=[None, None] prompt=[392, 250] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 9441.70it/s]
+  correct_mm_pass2: n=6 ok=6 audio=6 wall=6.1s ttft p50=0.171 p90=0.298 ttfa p50=0.331 p90=0.46 cached=[None, None] prompt=[392, 250] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 7479.65it/s]
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+  stress: n=48 ok=48 audio=48 wall=30.8s ttft p50=1.018 p90=1.51 ttfa p50=3.632 p90=5.621 cached=[None, None] prompt=[1380, 1379] errs=[]
+[v2-native-r0] done in 479s {'host_used_gb': 19.27, 'host_rss_tree_gb': 32.42, 'gpu_mem_mib_util': '56591, 58'}
+[v2-native-ds-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native-ds.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-ds-r0] ready=True after 387s
+  warm done 395s {'host_used_gb': 19.09, 'host_rss_tree_gb': 32.19, 'gpu_mem_mib_util': '48917, 46'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 8485.37it/s]
+  correct_pass1: n=8 ok=8 audio=8 wall=14.0s ttft p50=0.184 p90=0.257 ttfa p50=0.342 p90=0.426 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 6899.00it/s]
+  correct_pass2: n=8 ok=8 audio=8 wall=13.3s ttft p50=0.194 p90=0.287 ttfa p50=0.346 p90=0.445 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 9249.70it/s]
+  correct_mm_pass1: n=6 ok=6 audio=6 wall=6.0s ttft p50=0.172 p90=0.222 ttfa p50=0.332 p90=0.38 cached=[None, None] prompt=[392, 250] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 8420.96it/s]
+  correct_mm_pass2: n=6 ok=6 audio=6 wall=5.6s ttft p50=0.102 p90=0.142 ttfa p50=0.254 p90=0.302 cached=[None, None] prompt=[392, 250] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 9560.82it/s]
+  stress: n=48 ok=48 audio=48 wall=28.8s ttft p50=0.635 p90=1.069 ttfa p50=4.087 p90=5.544 cached=[None, None] prompt=[1380, 1379] errs=[]
+[v2-native-ds-r0] done in 515s {'host_used_gb': 19.72, 'host_rss_tree_gb': 32.74, 'gpu_mem_mib_util': '55311, 0'}
+[v2-off-ds-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off-ds.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-ds-r0] ready=True after 246s
+  warm done 253s {'host_used_gb': 19.12, 'host_rss_tree_gb': 32.08, 'gpu_mem_mib_util': '48917, 41'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 8595.91it/s]
+  correct_pass1: n=8 ok=8 audio=8 wall=13.7s ttft p50=0.186 p90=0.259 ttfa p50=0.349 p90=0.421 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 9903.25it/s]
+  correct_pass2: n=8 ok=8 audio=8 wall=13.6s ttft p50=0.184 p90=0.252 ttfa p50=0.34 p90=0.414 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 7218.64it/s]
+  correct_mm_pass1: n=6 ok=6 audio=6 wall=5.8s ttft p50=0.129 p90=0.162 ttfa p50=0.289 p90=0.318 cached=[None, None] prompt=[392, 250] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 7826.29it/s]
+  correct_mm_pass2: n=6 ok=6 audio=6 wall=5.7s ttft p50=0.105 p90=0.164 ttfa p50=0.261 p90=0.325 cached=[None, None] prompt=[392, 250] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 8215.11it/s]
+  stress: n=48 ok=48 audio=48 wall=29.9s ttft p50=0.701 p90=1.52 ttfa p50=4.124 p90=5.581 cached=[None, None] prompt=[1380, 1379] errs=[]
+[v2-off-ds-r0] done in 372s {'host_used_gb': 19.45, 'host_rss_tree_gb': 32.39, 'gpu_mem_mib_util': '55629, 74'}
+[v2-native-tiny-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native-tiny.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-tiny-r0] ready=False after 84s
+  | The above exception was the direct cause of the following exception:
+  | 
+  | Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 83, in <module>
+  |     main()
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 77, in main
+  |     args.dispatch_function(args)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/serve.py", line 197, in cmd
+  |     uvloop.run(omni_run_server(args))
+  |   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+  |     return __asyncio.run(
+  |            ^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  |   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+  |     return await main
+  |            ^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 281, in omni_run_server
+  |     await omni_run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 407, in omni_run_server_worker
+  |     async with build_async_omni(
+  |   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 648, in build_async_omni
+  |     async with build_async_omni_from_stage_config(
+  |   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 758, in build_async_omni_from_stage_config
+  |     async_omni = AsyncOmni(model=model, **kwargs)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 114, in __init__
+  |     AsyncOmniBase.__init__(self, *args, model=model, **kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni_base.py", line 109, in __init__
+  |     OmniBase.__init__(self, model=model, **kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/omni_base.py", line 222, in __init__
+  |     self.engine = self._create_engine(
+  |                   ^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 110, in _create_engine
+  |     return AsyncOmniEngine(**engine_kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 344, in __init__
+  |     self._wait_for_orchestrator_init(startup_future, startup_timeout)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 567, in _wait_for_orchestrator_init
+  |     self.orchestrator_loop = startup_future.result(timeout=min(remaining, _STARTUP_POLL_INTERVAL_S))
+  |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+  |     return self.__get_result()
+  |            ^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+  |     raise self._exception
+  | RuntimeError: Orchestrator initialization failed: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[v2-off-tiny-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off-tiny.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-tiny-r0] ready=False after 81s
+  | The above exception was the direct cause of the following exception:
+  | 
+  | Traceback (most recent call last):
+  |   File "<frozen runpy>", line 198, in _run_module_as_main
+  |   File "<frozen runpy>", line 88, in _run_code
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 83, in <module>
+  |     main()
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/main.py", line 77, in main
+  |     args.dispatch_function(args)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/cli/serve.py", line 197, in cmd
+  |     uvloop.run(omni_run_server(args))
+  |   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+  |     return __asyncio.run(
+  |            ^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "uvloop/loop.pyx", line 1515, in uvloop.loop.Loop.run_until_complete
+  |   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+  |     return await main
+  |            ^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 281, in omni_run_server
+  |     await omni_run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 407, in omni_run_server_worker
+  |     async with build_async_omni(
+  |   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 648, in build_async_omni
+  |     async with build_async_omni_from_stage_config(
+  |   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/openai/api_server.py", line 758, in build_async_omni_from_stage_config
+  |     async_omni = AsyncOmni(model=model, **kwargs)
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 114, in __init__
+  |     AsyncOmniBase.__init__(self, *args, model=model, **kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni_base.py", line 109, in __init__
+  |     OmniBase.__init__(self, model=model, **kwargs)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/omni_base.py", line 222, in __init__
+  |     self.engine = self._create_engine(
+  |                   ^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/entrypoints/async_omni.py", line 110, in _create_engine
+  |     return AsyncOmniEngine(**engine_kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 344, in __init__
+  |     self._wait_for_orchestrator_init(startup_future, startup_timeout)
+  |   File "/usr/local/lib/python3.12/dist-packages/vllm_omni/engine/omni_engine_base.py", line 567, in _wait_for_orchestrator_init
+  |     self.orchestrator_loop = startup_future.result(timeout=min(remaining, _STARTUP_POLL_INTERVAL_S))
+  |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+  |     return self.__get_result()
+  |            ^^^^^^^^^^^^^^^^^^^
+  |   File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+  |     raise self._exception
+  | RuntimeError: Orchestrator initialization failed: Engine core initialization failed. See root cause above. Failed core proc(s): {}

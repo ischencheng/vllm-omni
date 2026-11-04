@@ -1,0 +1,130 @@
+{
+ "wall_s": 13.133064046999834,
+ "state": {
+  "host_used_gb": 20.31,
+  "host_rss_tree_gb": 33.3,
+  "gpu_mem_mib_util": "52905, 73"
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 0.2187306929999977,
+   "usage": {
+    "prompt_tokens": 709,
+    "total_tokens": 735,
+    "completion_tokens": 26
+   },
+   "ttfa_s": 0.3625099920000139,
+   "latency_s": 1.1214566189999005,
+   "text": "The capital of China is Beijing. The Great Wall, the Forbidden City, and the Summer Palace are three famous places there.",
+   "audio_s": 9.08,
+   "asr": " The capital of China is Beijing. The Great Wall, the Forbidden City and the Summer Palace are three famous places there.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3649988999998186,
+   "usage": {
+    "prompt_tokens": 711,
+    "total_tokens": 760,
+    "completion_tokens": 49
+   },
+   "ttfa_s": 0.5195817099997839,
+   "latency_s": 2.1887099219998163,
+   "text": "A hash map uses collision resolution techniques like chaining or open addressing to handle collisions. Chaining stores multiple entries in a linked list at the same index. Open addressing finds another open slot nearby. Both ensure efficient data retrieval even with hash collisions.",
+   "audio_s": 18.8,
+   "asr": " A hash map uses collision resolution techniques like chaining or open addressing to handle collisions. Chaining stores multiple entries and a linked list at the same index. Open addressing finds another open slot nearby. Both ensure efficient data retrieval, even with hash collisions.",
+   "wer": 0.023255813953488372
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.16183238799999344,
+   "usage": {
+    "prompt_tokens": 726,
+    "total_tokens": 745,
+    "completion_tokens": 19
+   },
+   "ttfa_s": 0.30811601000004885,
+   "latency_s": 0.9657914949998485,
+   "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+   "audio_s": 7.96,
+   "asr": " Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.4309346339998683,
+   "usage": {
+    "prompt_tokens": 708,
+    "total_tokens": 767,
+    "completion_tokens": 59
+   },
+   "ttfa_s": 0.5806597419998525,
+   "latency_s": 2.499012408999988,
+   "text": "A robot found a paintbrush. It dipped it in paint and made a mark. It tried again. Soon, it painted beautiful pictures. The robot learned to paint. It was happy. It painted every day. The robot learned to paint. It was happy. It painted every day.",
+   "audio_s": 21.12,
+   "asr": " A robot found a paintbrush. It dipped it in paint and made a mark. It tried again. Soon it painted beautiful pictures. The robot learned to paint. It was happy. It painted every day. The robot learned to paint. It was happy. It painted every day.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.22181467600012184,
+   "usage": {
+    "prompt_tokens": 717,
+    "total_tokens": 745,
+    "completion_tokens": 28
+   },
+   "ttfa_s": 0.36397073400007685,
+   "latency_s": 1.6327295580001646,
+   "text": "TCP is connection oriented and guarantees delivery while UDP is connectionless and does not guarantee delivery. TCP is more reliable but slower than UDP.",
+   "audio_s": 14.24,
+   "asr": " TCP is connection-oriented and guarantees delivery, while UDP is connectionless and does not guarantee delivery. TCP is more reliable but slower than UDP.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.281984957000077,
+   "usage": {
+    "prompt_tokens": 711,
+    "total_tokens": 748,
+    "completion_tokens": 37
+   },
+   "ttfa_s": 0.4258318980000695,
+   "latency_s": 1.4613893400000961,
+   "text": "First, crack two eggs into a bowl.  Second, beat them with a fork.  Third, pour them into a hot pan and stir until they are soft and fluffy.",
+   "audio_s": 11.92,
+   "asr": " First, crack two eggs into a bowl. Second, beat them with a fork. Third, pour them into a hot pan and stir until they are soft and fluffy.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.2768069899998409,
+   "usage": {
+    "prompt_tokens": 715,
+    "total_tokens": 751,
+    "completion_tokens": 36
+   },
+   "ttfa_s": 0.41916197699993063,
+   "latency_s": 1.6858614129998841,
+   "text": "Romeo and Juliet is a play about two young lovers from feuding families who fall in love at first sight. Their secret marriage and tragic deaths ultimately reconcile their families.",
+   "audio_s": 14.4,
+   "asr": " Romeo and Juliet is a play about two young lovers from feuding families who fall in love at first sight. Their secret marriage and tragic deaths ultimately reconcile their families.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.2820447310000418,
+   "usage": {
+    "prompt_tokens": 723,
+    "total_tokens": 760,
+    "completion_tokens": 37
+   },
+   "ttfa_s": 0.42490563899991685,
+   "latency_s": 1.5758545880000838,
+   "text": "Supervised learning uses labeled data to train models, while unsupervised learning works with unlabeled data. Supervised learning predicts outcomes, and unsupervised learning finds hidden patterns.",
+   "audio_s": 13.12,
+   "asr": " Supervised learning uses labeled data to train models, while unsupervised learning works with unlabeled data. Supervised learning predicts outcomes, and unsupervised learning finds hidden patterns.",
+   "wer": 0.0
+  }
+ ]
+}

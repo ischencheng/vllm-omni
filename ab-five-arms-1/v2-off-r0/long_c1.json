@@ -1,0 +1,114 @@
+{
+ "wall_s": 13.952610390000018,
+ "state": {
+  "host_used_gb": 18.85,
+  "host_rss_tree_gb": 31.98,
+  "gpu_mem_mib_util": "52979, 53"
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 0.38658176800004185,
+   "usage": {
+    "prompt_tokens": 4500,
+    "total_tokens": 4522,
+    "completion_tokens": 22
+   },
+   "ttfa_s": 0.5131950180000331,
+   "latency_s": 1.092962904999922,
+   "text": "The capital of China is Beijing. The Great Wall, the Forbidden City, and Tiananmen Square.",
+   "audio_s": 8.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.5575182019999829,
+   "usage": {
+    "prompt_tokens": 4498,
+    "total_tokens": 4543,
+    "completion_tokens": 45
+   },
+   "ttfa_s": 0.6926794690000406,
+   "latency_s": 2.1386416279999594,
+   "text": "A hash map uses chaining or open addressing. Chaining stores collided items in a list at the same slot. Open addressing finds another slot nearby when a collision occurs. Both methods handle multiple entries at the same hash result.",
+   "audio_s": 18.04
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3632017239999641,
+   "usage": {
+    "prompt_tokens": 4494,
+    "total_tokens": 4513,
+    "completion_tokens": 19
+   },
+   "ttfa_s": 0.49295472900007553,
+   "latency_s": 0.939777309999954,
+   "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+   "audio_s": 6.28
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.7034094660000392,
+   "usage": {
+    "prompt_tokens": 4499,
+    "total_tokens": 4563,
+    "completion_tokens": 64
+   },
+   "ttfa_s": 0.8327686960001301,
+   "latency_s": 2.6170906520001154,
+   "text": "A robot named Zeta watched humans paint. Curious, it grabbed a brush. At first, its strokes were clumsy. But with practice, colors blended beautifully. Zeta discovered joy in creating art. It painted sunsets, flowers, and abstract dreams. The robot learned that skill comes from patience and passion. Now",
+   "audio_s": 22.04
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.4699740420001035,
+   "usage": {
+    "prompt_tokens": 4496,
+    "total_tokens": 4529,
+    "completion_tokens": 33
+   },
+   "ttfa_s": 0.6015496830000302,
+   "latency_s": 1.6983930470000814,
+   "text": "TCP is connection-oriented and guarantees delivery, while UDP is connectionless and faster but without guarantees. TCP handles retransmissions and sequencing, whereas UDP does not.",
+   "audio_s": 14.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.7033402619999833,
+   "usage": {
+    "prompt_tokens": 4493,
+    "total_tokens": 4557,
+    "completion_tokens": 64
+   },
+   "ttfa_s": 0.8512332569998762,
+   "latency_s": 2.6284996419999516,
+   "text": "Sure, here's a quick recipe for scrambled eggs in three steps.\n\nOne. Crack two eggs into a bowl, add a splash of milk, and whisk until smooth.\n\nTwo. Heat a non-stick pan over medium heat, add a little butter, and pour in the egg mixture.\n\nThree. Stir gently with a",
+   "audio_s": 20.2
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.4685464359999969,
+   "usage": {
+    "prompt_tokens": 4494,
+    "total_tokens": 4527,
+    "completion_tokens": 33
+   },
+   "ttfa_s": 0.6005750889999035,
+   "latency_s": 1.4655885229999512,
+   "text": "Romeo and Juliet is a tragic love story about two young lovers from feuding families in Verona who secretly marry. Their deaths ultimately reconcile their families.",
+   "audio_s": 10.8
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.433255440000039,
+   "usage": {
+    "prompt_tokens": 4496,
+    "total_tokens": 4524,
+    "completion_tokens": 28
+   },
+   "ttfa_s": 0.5709663330001149,
+   "latency_s": 1.3692268170000261,
+   "text": "Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning finds patterns in unlabeled data without predefined outputs.",
+   "audio_s": 9.68
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+[v2-off-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-r0] ready=True after 300s
+  warm done 306s {'host_used_gb': 17.91, 'host_rss_tree_gb': 32.33, 'gpu_mem_mib_util': '46199, 70'}
+  miss_c1: n=16 ok=16 audio=16 wall=22.3s ttft p50=0.303 p90=0.403 ttfa p50=0.426 p90=0.525 cached=[None, None] prompt=[1386, 1387] errs=[]
+  sys_c1: n=16 ok=16 audio=16 wall=18.4s ttft p50=0.268 p90=0.373 ttfa p50=0.388 p90=0.497 cached=[None, None] prompt=[1375, 1373] errs=[]
+  sys_c8: n=32 ok=32 audio=32 wall=9.0s ttft p50=0.374 p90=0.663 ttfa p50=0.73 p90=0.901 cached=[None, None] prompt=[1375, 1373] errs=[]
+  long_c1: n=8 ok=8 audio=8 wall=12.7s ttft p50=0.459 p90=0.687 ttfa p50=0.597 p90=0.804 cached=[None, None] prompt=[4500, 4498] errs=[]
+  chat_c4: n=24 ok=24 audio=24 wall=7.4s ttft p50=0.241 p90=0.325 ttfa p50=0.435 p90=0.513 cached=[None, None] prompt=[225, 225] errs=[]
+  text_short_miss: n=8 ok=8 audio=0 wall=0.8s ttft p50=0.08 p90=0.088 ttfa p50=None p90=None cached=[None, None] prompt=[1374, 1388] errs=[]
+  text_short_hit: n=8 ok=8 audio=0 wall=0.9s ttft p50=0.083 p90=0.085 ttfa p50=None p90=None cached=[None, None] prompt=[1377, 1373] errs=[]
+  text_long_miss: n=8 ok=8 audio=0 wall=2.5s ttft p50=0.305 p90=0.309 ttfa p50=None p90=None cached=[None, None] prompt=[4489, 4481] errs=[]
+  text_long_hit: n=8 ok=8 audio=0 wall=2.8s ttft p50=0.307 p90=0.313 ttfa p50=None p90=None cached=[None, None] prompt=[4471, 4467] errs=[]
+  miss_c8: n=32 ok=32 audio=32 wall=10.0s ttft p50=0.419 p90=0.658 ttfa p50=0.661 p90=0.913 cached=[None, None] prompt=[1382, 1391] errs=[]
+[v2-off-r0] done in 394s {'host_used_gb': 18.44, 'host_rss_tree_gb': 32.77, 'gpu_mem_mib_util': '51295, 70'}
+[v2-native-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-r0] ready=True after 201s
+  warm done 207s {'host_used_gb': 17.46, 'host_rss_tree_gb': 31.75, 'gpu_mem_mib_util': '46181, 51'}
+  miss_c1: n=16 ok=16 audio=16 wall=25.7s ttft p50=0.307 p90=0.41 ttfa p50=0.441 p90=0.563 cached=[None, None] prompt=[1386, 1387] errs=[]
+  sys_c1: n=16 ok=16 audio=16 wall=21.1s ttft p50=0.246 p90=0.344 ttfa p50=0.388 p90=0.482 cached=[None, None] prompt=[1375, 1373] errs=[]
+  sys_c8: n=32 ok=32 audio=32 wall=8.8s ttft p50=0.256 p90=0.4 ttfa p50=0.554 p90=0.691 cached=[None, None] prompt=[1375, 1373] errs=[]
+  long_c1: n=8 ok=8 audio=8 wall=12.8s ttft p50=0.279 p90=0.511 ttfa p50=0.419 p90=0.652 cached=[None, None] prompt=[4500, 4498] errs=[]
+  chat_c4: n=24 ok=24 audio=24 wall=9.2s ttft p50=0.267 p90=0.356 ttfa p50=0.459 p90=0.549 cached=[None, None] prompt=[225, 225] errs=[]
+  text_short_miss: n=8 ok=8 audio=0 wall=0.9s ttft p50=0.1 p90=0.108 ttfa p50=None p90=None cached=[None, None] prompt=[1374, 1388] errs=[]
+  text_short_hit: n=8 ok=8 audio=0 wall=0.7s ttft p50=0.03 p90=0.043 ttfa p50=None p90=None cached=[None, None] prompt=[1377, 1373] errs=[]
+  text_long_miss: n=8 ok=8 audio=0 wall=3.1s ttft p50=0.388 p90=0.396 ttfa p50=None p90=None cached=[None, None] prompt=[4489, 4481] errs=[]
+  text_long_hit: n=8 ok=8 audio=0 wall=1.2s ttft p50=0.054 p90=0.057 ttfa p50=None p90=None cached=[None, None] prompt=[4471, 4467] errs=[]
+  miss_c8: n=32 ok=32 audio=32 wall=10.7s ttft p50=0.425 p90=0.77 ttfa p50=0.691 p90=1.042 cached=[None, None] prompt=[1382, 1391] errs=[]
+[v2-native-r0] done in 302s {'host_used_gb': 17.95, 'host_rss_tree_gb': 32.23, 'gpu_mem_mib_util': '50757, 28'}
+[v2-off-r1] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-r1] ready=True after 183s
+  warm done 189s {'host_used_gb': 17.63, 'host_rss_tree_gb': 31.94, 'gpu_mem_mib_util': '46181, 69'}
+  miss_c1: n=16 ok=16 audio=16 wall=21.5s ttft p50=0.291 p90=0.407 ttfa p50=0.413 p90=0.53 cached=[None, None] prompt=[1386, 1387] errs=[]
+  sys_c1: n=16 ok=16 audio=16 wall=18.3s ttft p50=0.262 p90=0.371 ttfa p50=0.375 p90=0.491 cached=[None, None] prompt=[1375, 1373] errs=[]
+  sys_c8: n=32 ok=32 audio=32 wall=8.5s ttft p50=0.371 p90=0.649 ttfa p50=0.656 p90=0.882 cached=[None, None] prompt=[1375, 1373] errs=[]
+  long_c1: n=8 ok=8 audio=8 wall=12.5s ttft p50=0.456 p90=0.683 ttfa p50=0.575 p90=0.806 cached=[None, None] prompt=[4500, 4498] errs=[]
+  chat_c4: n=24 ok=24 audio=24 wall=7.3s ttft p50=0.24 p90=0.326 ttfa p50=0.456 p90=0.51 cached=[None, None] prompt=[225, 225] errs=[]
+  text_short_miss: n=8 ok=8 audio=0 wall=0.8s ttft p50=0.087 p90=0.09 ttfa p50=None p90=None cached=[None, None] prompt=[1374, 1388] errs=[]
+  text_short_hit: n=8 ok=8 audio=0 wall=0.9s ttft p50=0.085 p90=0.086 ttfa p50=None p90=None cached=[None, None] prompt=[1377, 1373] errs=[]
+  text_long_miss: n=8 ok=8 audio=0 wall=2.6s ttft p50=0.316 p90=0.318 ttfa p50=None p90=None cached=[None, None] prompt=[4489, 4481] errs=[]
+  text_long_hit: n=8 ok=8 audio=0 wall=2.8s ttft p50=0.31 p90=0.314 ttfa p50=None p90=None cached=[None, None] prompt=[4471, 4467] errs=[]
+  miss_c8: n=32 ok=32 audio=32 wall=10.2s ttft p50=0.429 p90=0.657 ttfa p50=0.661 p90=0.923 cached=[None, None] prompt=[1382, 1391] errs=[]
+[v2-off-r1] done in 275s {'host_used_gb': 18.12, 'host_rss_tree_gb': 32.43, 'gpu_mem_mib_util': '51257, 68'}
+[v2-native-r1] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-r1] ready=True after 180s
+  warm done 185s {'host_used_gb': 17.67, 'host_rss_tree_gb': 31.93, 'gpu_mem_mib_util': '46181, 65'}
+  miss_c1: n=16 ok=16 audio=16 wall=20.0s ttft p50=0.286 p90=0.403 ttfa p50=0.396 p90=0.515 cached=[None, None] prompt=[1386, 1387] errs=[]
+  sys_c1: n=16 ok=16 audio=16 wall=16.9s ttft p50=0.239 p90=0.336 ttfa p50=0.345 p90=0.442 cached=[None, None] prompt=[1375, 1373] errs=[]
+  sys_c8: n=32 ok=32 audio=32 wall=7.9s ttft p50=0.243 p90=0.384 ttfa p50=0.501 p90=0.613 cached=[None, None] prompt=[1375, 1373] errs=[]
+  long_c1: n=8 ok=8 audio=8 wall=10.2s ttft p50=0.27 p90=0.503 ttfa p50=0.379 p90=0.611 cached=[None, None] prompt=[4500, 4498] errs=[]
+  chat_c4: n=24 ok=24 audio=24 wall=8.3s ttft p50=0.271 p90=0.331 ttfa p50=0.459 p90=0.515 cached=[None, None] prompt=[225, 225] errs=[]
+  text_short_miss: n=8 ok=8 audio=0 wall=0.8s ttft p50=0.076 p90=0.084 ttfa p50=None p90=None cached=[None, None] prompt=[1374, 1388] errs=[]
+  text_short_hit: n=8 ok=8 audio=0 wall=0.7s ttft p50=0.021 p90=0.031 ttfa p50=None p90=None cached=[None, None] prompt=[1377, 1373] errs=[]
+  text_long_miss: n=8 ok=8 audio=0 wall=2.5s ttft p50=0.306 p90=0.308 ttfa p50=None p90=None cached=[None, None] prompt=[4489, 4481] errs=[]
+  text_long_hit: n=8 ok=8 audio=0 wall=1.0s ttft p50=0.034 p90=0.037 ttfa p50=None p90=None cached=[None, None] prompt=[4471, 4467] errs=[]
+  miss_c8: n=32 ok=32 audio=32 wall=9.9s ttft p50=0.409 p90=0.675 ttfa p50=0.705 p90=0.919 cached=[None, None] prompt=[1382, 1391] errs=[]
+[v2-native-r1] done in 264s {'host_used_gb': 18.12, 'host_rss_tree_gb': 32.38, 'gpu_mem_mib_util': '51379, 57'}

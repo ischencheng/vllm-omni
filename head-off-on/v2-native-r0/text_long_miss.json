@@ -1,0 +1,98 @@
+{
+ "wall_s": 3.1309042750000344,
+ "state": {
+  "host_used_gb": 17.61,
+  "host_rss_tree_gb": 31.91,
+  "gpu_mem_mib_util": "49843, 55"
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 0.3549805600000582,
+   "usage": {
+    "prompt_tokens": 4489,
+    "total_tokens": 4497,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.3620904160000009,
+   "text": "The capital of China is Beijing. The"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.34889182599999913,
+   "usage": {
+    "prompt_tokens": 4481,
+    "total_tokens": 4489,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.3570779550000225,
+   "text": "Hash maps use chaining or open addressing."
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.38600775099996554,
+   "usage": {
+    "prompt_tokens": 4503,
+    "total_tokens": 4511,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.3952033330000404,
+   "text": "Mercury, Venus, Earth, Mars"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.38806123699998807,
+   "usage": {
+    "prompt_tokens": 4514,
+    "total_tokens": 4522,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.39797188000000006,
+   "text": "A robot named Zeta spent hours watching"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3934454989999949,
+   "usage": {
+    "prompt_tokens": 4503,
+    "total_tokens": 4511,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.40255557699993005,
+   "text": "TCP is a connection-oriented protocol that ensures"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.39147023499992883,
+   "usage": {
+    "prompt_tokens": 4480,
+    "total_tokens": 4488,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.4003974919999109,
+   "text": "Beat eggs in a bowl.  \nHeat"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.39580571500005135,
+   "usage": {
+    "prompt_tokens": 4485,
+    "total_tokens": 4493,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.4041436429999976,
+   "text": "Romeo and Juliet is a tragic"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.40202587699991454,
+   "usage": {
+    "prompt_tokens": 4509,
+    "total_tokens": 4517,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.41083851299993057,
+   "text": "Supervised learning uses labeled data to train"
+  }
+ ]
+}

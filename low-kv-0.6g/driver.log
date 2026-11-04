@@ -1,0 +1,14 @@
+row dump patched
+[v2-native-tiny2-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native-tiny2.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-tiny2-r0] ready=True after 279s
+  warm done 283s {'host_used_gb': 17.28, 'host_rss_tree_gb': 31.76, 'gpu_mem_mib_util': '37137, 58'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:   2%|▏         | 11/479 [00:00<00:05, 78.01it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 2242.13it/s]
+[transformers] Using custom `forced_decoder_ids` from the (generation) config. This is deprecated in favor of the `task` and `language` flags/config options.
+[transformers] Passing `generation_config` together with generation-related arguments=({'suppress_tokens', 'begin_suppress_tokens'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+  stress: n=48 ok=48 audio=48 wall=28.0s ttft p50=1.024 p90=2.276 ttfa p50=1.767 p90=3.346 cached=[None, None] prompt=[1380, 1379] errs=[]
+[v2-native-tiny2-r0] done in 349s {'host_used_gb': 18.75, 'host_rss_tree_gb': 31.96, 'gpu_mem_mib_util': '47479, 76'}

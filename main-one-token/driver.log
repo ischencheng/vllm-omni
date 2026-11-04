@@ -1,0 +1,10 @@
+[v1-on-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v1-on.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v1-on-r0] ready=True after 402s
+  warm done 414s {'host_used_gb': 18.98, 'host_rss_tree_gb': 33.28, 'gpu_mem_mib_util': '50455, 38'}
+  edge: n=4 ok=4 audio=0 wall=0.5s ttft p50=0.093 p90=0.38 ttfa p50=None p90=None cached=[None, None] prompt=[None, None] errs=[]
+[v1-on-r0] done in 420s {'host_used_gb': 16.74, 'host_rss_tree_gb': 26.06, 'gpu_mem_mib_util': '44750, 18'}
+[v2-off-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-r0] ready=True after 357s
+  warm done 365s {'host_used_gb': 17.88, 'host_rss_tree_gb': 32.32, 'gpu_mem_mib_util': '46199, 42'}
+  edge: n=4 ok=4 audio=0 wall=0.5s ttft p50=0.095 p90=0.359 ttfa p50=None p90=None cached=[None, None] prompt=[None, None] errs=[]
+[v2-off-r0] done in 366s {'host_used_gb': 15.09, 'host_rss_tree_gb': 24.41, 'gpu_mem_mib_util': '42554, 55'}

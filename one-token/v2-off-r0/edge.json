@@ -1,0 +1,58 @@
+{
+ "wall_s": 2.3675069299999905,
+ "state": {
+  "host_used_gb": 18.67,
+  "host_rss_tree_gb": 32.06,
+  "gpu_mem_mib_util": "48651, 51"
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 0.06293978799999422,
+   "usage": {
+    "prompt_tokens": 713,
+    "total_tokens": 714,
+    "completion_tokens": 1
+   },
+   "latency_s": 0.08215512199990371,
+   "text": "The"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3729243249999854,
+   "usage": {
+    "prompt_tokens": 722,
+    "total_tokens": 771,
+    "completion_tokens": 49
+   },
+   "ttfa_s": 0.5171588709999924,
+   "latency_s": 2.094900112000005,
+   "text": "A hash map uses collision resolution techniques like chaining or open addressing to handle collisions. Chaining stores collided items in a linked list at the same index. Open addressing finds another open slot nearby. Both ensure all data is stored and retrieved efficiently.",
+   "audio_s": 17.56
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.0666867900000625,
+   "usage": {
+    "prompt_tokens": 718,
+    "total_tokens": 719,
+    "completion_tokens": 1
+   },
+   "latency_s": 0.08457317800002784,
+   "text": "Mer"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.4124866129999418,
+   "usage": {
+    "prompt_tokens": 723,
+    "total_tokens": 779,
+    "completion_tokens": 56
+   },
+   "ttfa_s": 0.5550397759999441,
+   "latency_s": 2.3670696909999833,
+   "text": "A robot practiced painting every day. It learned to mix colors and make brush strokes. Soon, its art was better than any human. People came from far away to see the robot's paintings. The robot was happy, creating beautiful art. It had found its true purpose.",
+   "audio_s": 19.88
+  }
+ ]
+}

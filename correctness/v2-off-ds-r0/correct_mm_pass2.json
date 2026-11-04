@@ -1,0 +1,100 @@
+{
+ "wall_s": 5.749071766000043,
+ "state": {
+  "host_used_gb": 18.95,
+  "host_rss_tree_gb": 31.91,
+  "gpu_mem_mib_util": "48135, 74"
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 0.1643391210000118,
+   "usage": {
+    "prompt_tokens": 392,
+    "total_tokens": 431,
+    "completion_tokens": 39
+   },
+   "ttfa_s": 0.3254212290000851,
+   "latency_s": 1.1234593320000386,
+   "text": "The image shows a simple graphic with a light blue background, a red square on the left, a green rectangle below and to the right, and a yellow circle in the upper right area.",
+   "audio_s": 8.4,
+   "asr": " The image shows a simple graphic with a light blue background, a red square on the left, a green rectangle below end to the right, and a yellow circle in the upper right area.",
+   "wer": 0.029411764705882353
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.07883392000007916,
+   "usage": {
+    "prompt_tokens": 250,
+    "total_tokens": 259,
+    "completion_tokens": 9
+   },
+   "ttfa_s": 0.23261746200000744,
+   "latency_s": 0.3786030200001278,
+   "text": "This sound is low-pitched. ",
+   "audio_s": 2.36,
+   "asr": " This sound is low pitched.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.09729386399999385,
+   "usage": {
+    "prompt_tokens": 399,
+    "total_tokens": 425,
+    "completion_tokens": 26
+   },
+   "ttfa_s": 0.2551424149999093,
+   "latency_s": 0.7780714079999598,
+   "text": "The image shows a simple graphic with a red square, a green rectangle, and a yellow circle on a light blue background.",
+   "audio_s": 5.84,
+   "asr": " The image shows a simple graphic with a red square, a green rectangle, and a yellow circle on a light blue background.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.10549381099986022,
+   "usage": {
+    "prompt_tokens": 236,
+    "total_tokens": 256,
+    "completion_tokens": 20
+   },
+   "ttfa_s": 0.26079317199992147,
+   "latency_s": 0.8298299690000022,
+   "text": "This sound is high. A fun fact is that sound travels faster in water than in air!",
+   "audio_s": 6.32,
+   "asr": " This sound is high. A fun fact is that sound travels faster in water than in air.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.19818715800010978,
+   "usage": {
+    "prompt_tokens": 412,
+    "total_tokens": 458,
+    "completion_tokens": 46
+   },
+   "ttfa_s": 0.35810623299994404,
+   "latency_s": 1.5967840890000389,
+   "text": "The image shows a simple graphic with a light blue background, featuring a red square on the left, a green rectangle to its right and slightly lower, and a yellow circle positioned above and to the right of the green shape.",
+   "audio_s": 12.72,
+   "asr": " The image shows a simple graphic with a light blue background, featuring a red square on the left, a green rectangle to its right and slightly lower, and a yellow circle positioned above and to the right of the green shape.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.11004791899995325,
+   "usage": {
+    "prompt_tokens": 244,
+    "total_tokens": 264,
+    "completion_tokens": 20
+   },
+   "ttfa_s": 0.2666288049999821,
+   "latency_s": 1.0409593790000145,
+   "text": "This sound is high. A fun fact is that sound travels faster in water than in air!",
+   "audio_s": 8.12,
+   "asr": " This sound is high. A fun fact is that sound travels faster in water than in air.",
+   "wer": 0.0
+  }
+ ]
+}

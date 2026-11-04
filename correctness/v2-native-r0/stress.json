@@ -1,0 +1,730 @@
+{
+ "wall_s": 30.765254147000064,
+ "state": {
+  "host_used_gb": 19.27,
+  "host_rss_tree_gb": 32.42,
+  "gpu_mem_mib_util": "56591, 69"
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 1.2279222570000456,
+   "usage": {
+    "prompt_tokens": 1380,
+    "total_tokens": 1464,
+    "completion_tokens": 84
+   },
+   "ttfa_s": 1.5603703330000371,
+   "latency_s": 6.621955772000092,
+   "text": "The capital of China is Beijing. \n\nThree famous places in Beijing are the Great Wall of China, the Forbidden City, and Tiananmen Square. These landmarks are iconic and attract millions of visitors each year. The Great Wall is a historic fortification, the Forbidden City was the imperial palace, and Tiananmen Square is a large public space. Beijing is a vibrant city with a rich history and cultural significance.",
+   "audio_s": 32.08,
+   "asr": " The capital of China is Beijing. Three famous places in Beijing are the Great Wall of China, the Forbidden City, and Tiananmen Square. These landmarks are iconic and attract millions of visitors each year. The Great Wall is a historic fortification. The Forbidden City was the Imperial Palace and Tiananmen Square is a large public space. Beijing is a vibrant city with a rich history and cultural significance.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0441947670000218,
+   "usage": {
+    "prompt_tokens": 1379,
+    "total_tokens": 1429,
+    "completion_tokens": 50
+   },
+   "ttfa_s": 1.4741184470000235,
+   "latency_s": 4.6353061830000115,
+   "text": "Hash maps use techniques like chaining or open addressing to handle collisions. Chaining stores multiple entries in a linked list at the same index. Open addressing finds another available slot nearby. Both methods ensure all data is stored efficiently even when hash collisions occur.",
+   "audio_s": 17.16,
+   "asr": " Hash maps use techniques like chaining or open addressing to handle collisions. Chaining stores multiple entries in a linked list at the same index. Open addressing finds another available slot nearby. Both methods ensure all data is stored efficiently even when hash collisions occur.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.5123675420001064,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1490,
+    "completion_tokens": 116
+   },
+   "ttfa_s": 3.7125295080001024,
+   "latency_s": 10.869886507000047,
+   "text": "The planets of the solar system, in order from the sun, are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. This order is based on their average distance from the sun. Mercury is the closest, followed by Venus, then Earth, and Mars. The gas giants, Jupiter and Saturn, come next, followed by the ice giants Uranus and Neptune. This sequence is often remembered using the mnemonic \"My Very Educated Mother Just Served Us Noodles.\" Each planet has unique characteristics and orbits the sun in a specific path.",
+   "audio_s": 44.08,
+   "asr": " The planets of the solar system in order from the Sun are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune. This order is based on their average distance from the Sun. Mercury is the closest, followed by Venus, then Earth and Mars. The gas giants, Jupiter and Saturn, come next, followed by the ice giants Uranus and Neptune. This sequence is often remembered using the mnemonic, My Very Educated Mother Just Served Us Noodles. Each planet has unique characteristics and orbits the sun in a specific path.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.2337143989999504,
+   "usage": {
+    "prompt_tokens": 1400,
+    "total_tokens": 1484,
+    "completion_tokens": 84
+   },
+   "ttfa_s": 1.560104082999942,
+   "latency_s": 6.1018537479999395,
+   "text": "In a quiet workshop, a curious robot named Zeta discovered paint. It dipped a brush, experimented with colors, and created vibrant patterns. Each stroke brought joy. Soon, Zeta painted masterpieces, blending logic with art. Humans marveled at its talent. Zeta learned that creativity wasn't just code, but a beautiful expression. It found its purpose in the brushstrokes, turning metal into magic.",
+   "audio_s": 29.44,
+   "asr": " In a quiet workshop, a curious robot named Zeta discovered paint. It dipped a brush, experimented with colors, and created vibrant patterns. Each stroke brought joy. Soon, Zeta painted masterpieces, blending logic with art. Humans marveled at its talent. Zeta learned that creativity wasn't just code, but a beautiful expression. It found its purpose in the brush strokes, turning metal into magic.",
+   "wer": 0.03278688524590164
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0509916290000092,
+   "usage": {
+    "prompt_tokens": 1376,
+    "total_tokens": 1434,
+    "completion_tokens": 58
+   },
+   "ttfa_s": 1.4781993360001024,
+   "latency_s": 5.337527416000057,
+   "text": "TCP is a connection-oriented protocol that ensures reliable, ordered data delivery, while UDP is connectionless and prioritizes speed over reliability. TCP handles error checking and retransmissions, making it suitable for critical data, whereas UDP is faster and used for real-time applications like streaming or gaming.",
+   "audio_s": 23.36,
+   "asr": " TCP is a connection-oriented protocol that ensures reliable, ordered data delivery, while UDP is connectionless and prioritizes speed over reliability. TCP handles error checking and retransmissions, making it suitable for critical data, whereas UDP is faster and used for real-time applications like streaming or gaming.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0005749680000235,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1394,
+    "completion_tokens": 21
+   },
+   "ttfa_s": 1.298057923999977,
+   "latency_s": 2.296055542999966,
+   "text": "Beat eggs in a bowl. Heat pan, add butter, pour in eggs. Stir until fluffy.",
+   "audio_s": 7.08,
+   "asr": " Beat eggs in a bowl. Heat pan. Add butter. Pour in eggs. Stir until fluffy.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0194759529999828,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1411,
+    "completion_tokens": 37
+   },
+   "ttfa_s": 1.4783698789999562,
+   "latency_s": 3.3142338339999924,
+   "text": "Romeo and Juliet is a tragic love story about two young lovers from feuding families in Verona. Their secret marriage and eventual deaths by suicide bring peace to their families.",
+   "audio_s": 12.36,
+   "asr": " Romeo and Juliet is a tragic love story about two young lovers from feuding families in Verona. Their secret marriage and eventual deaths by suicide bring peace to their families.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0084430279999879,
+   "usage": {
+    "prompt_tokens": 1395,
+    "total_tokens": 1423,
+    "completion_tokens": 28
+   },
+   "ttfa_s": 1.4725116590000198,
+   "latency_s": 3.276120729000013,
+   "text": "Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning finds patterns in unlabeled data without predefined answers.",
+   "audio_s": 11.96,
+   "asr": " Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning finds patterns in unlabeled data without predefined answers.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.3777506090000315,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1474,
+    "completion_tokens": 101
+   },
+   "ttfa_s": 3.406914960999984,
+   "latency_s": 9.136749726000062,
+   "text": "The water cycle is how water moves around the Earth. It starts when water from oceans, lakes, and rivers turns into water vapor and rises into the air. This is called evaporation. The water vapor cools and turns back into liquid, forming clouds. This is called condensation. When the clouds get heavy, the water falls back to the ground as rain or snow. This is called precipitation. The water then flows back into rivers, lakes, and oceans, and the cycle starts again.",
+   "audio_s": 35.12,
+   "asr": " The water cycle is how water moves around the Earth. It starts when water from oceans, lakes, and rivers turns into water vapor and rises into the air. This is called evaporation. The water vapor cools and turns back into liquid, forming clouds. This is called condensation. When the clouds get heavy, the water falls back to the ground as rain or snow. This is called precipitation. The water then flows back into rivers, lakes, and oceans, and the cycle starts again.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0226967720000175,
+   "usage": {
+    "prompt_tokens": 1397,
+    "total_tokens": 1436,
+    "completion_tokens": 39
+   },
+   "ttfa_s": 1.476247097000055,
+   "latency_s": 3.311208744000055,
+   "text": "The sky appears blue because of a phenomenon called Rayleigh scattering. Shorter blue wavelengths of sunlight scatter more easily in the atmosphere than other colors, making the sky look blue to our eyes.",
+   "audio_s": 12.8,
+   "asr": " The sky appears blue because of a phenomenon called Rayleigh scattering. Shorter blue wavelengths of sunlight scatter more easily in the atmosphere than other colors, making the sky look blue to our eyes.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.5865233679999164,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1497,
+    "completion_tokens": 126
+   },
+   "ttfa_s": 6.773440137999955,
+   "latency_s": 17.59927836299994,
+   "text": "Octopuses have three hearts! Two pump blood to the gills, while the third pumps it to the rest of the body. Also, they have blue blood because it contains copper-based hemocyanin instead of iron-based hemoglobin. Octopuses are incredibly intelligent and can solve puzzles, use tools, and even escape from enclosures. They can change color and texture to blend into their surroundings, making them masters of disguise. Some species can even squirt ink to confuse predators. Octopuses have a short lifespan, often living only one to three years. Their unique abilities and mysterious nature make them fascinating creatures!",
+   "audio_s": 53.48,
+   "asr": " octopuses have three hearts. Two pump blood to the gills, while the third pumps it to the rest of the body. Also, they have blue blood because it contains copper-based hemocyanin instead of iron-based hemoglobin. Octopuses are incredibly intelligent and can solve puzzles, tools, and even escape from enclosures. They can change color and texture to blend into their surroundings, making them masters of disguise. Some species can even squirt ink to confuse predators. Octopuses have a short lifespan, often living only one to three years. Their unique abilities and mysterious nature make them fascinating creatures.",
+   "wer": 0.010101010101010102
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.2740694660000145,
+   "usage": {
+    "prompt_tokens": 1384,
+    "total_tokens": 1474,
+    "completion_tokens": 90
+   },
+   "ttfa_s": 2.6038835880000306,
+   "latency_s": 7.2607152980000365,
+   "text": "Vaccines work by teaching your immune system how to recognize and fight off specific germs, like viruses or bacteria. They contain a small, harmless piece of the germ, or a weakened version of it, which triggers your body to produce antibodies. These antibodies remember the germ, so if you're exposed to it later, your immune system can quickly respond and protect you from getting sick. This process helps build immunity without causing the actual disease.",
+   "audio_s": 30.08,
+   "asr": " The scenes work by teaching your immune system how to recognize and fight off specific germs, like viruses or bacteria. They contain a small, harmless piece of the germ, or a weakened version of it, which triggers your body to produce antibodies. These antibodies remember the germ, so if you're exposed to it later, your immune system can quickly respond and protect you from getting sick. This process helps build immunity without causing the actual disease.",
+   "wer": 0.02666666666666667
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.5102243659999885,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1488,
+    "completion_tokens": 117
+   },
+   "ttfa_s": 4.348912724000002,
+   "latency_s": 10.245797584999991,
+   "text": "For a weekend hiking trip, pack comfortable hiking shoes, weather-appropriate clothing, a map or GPS, snacks, water, a first aid kit, and a small backpack. Bring layers in case the temperature changes. If you're camping, add a tent, sleeping bag, and cooking supplies. Don't forget sunscreen, insect repellent, and a flashlight. Check the weather forecast before you go. Let someone know your hiking plans and expected return time. This will help ensure a safe and enjoyable trip. Always prioritize safety and be prepared for changing conditions. Have a great hike!",
+   "audio_s": 35.84,
+   "asr": " For a weekend hiking trip, pack comfortable hiking shoes, weather appropriate clothing, a map or GPS, snacks, water, a first aid kit, and a small backpack. Bring layers in case the temperature changes. If you're camping, add a tent, sleeping bag, and cooking supplies. Don't forget sunscreen, insect repellent, and a flashlight. Check the weather forecast before you go. Let someone know your hiking plans and expected return time. This will help ensure a safe and enjoyable trip. Always prioritize safety and be prepared for changing conditions. Have a great hike!",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.5195216330000676,
+   "usage": {
+    "prompt_tokens": 1387,
+    "total_tokens": 1505,
+    "completion_tokens": 118
+   },
+   "ttfa_s": 6.303298877000088,
+   "latency_s": 13.574502416000087,
+   "text": "A good habit for better sleep is to go to bed and wake up at the same time every day. This helps regulate your body's internal clock, making it easier to fall asleep and wake up feeling refreshed. Consistent sleep schedules improve sleep quality and help you feel more alert during the day. Try to create a relaxing bedtime routine, like reading or taking a warm bath, to signal your body that it's time to wind down. Avoid screens and caffeine close to bedtime, as they can interfere with your ability to sleep. Getting enough sleep is crucial for overall health and well-being.",
+   "audio_s": 39.04,
+   "asr": " A good habit for better sleep is to go to bed and wake up at the same time every day. This helps regulate your body's internal clock, making it easier to fall asleep and wake up feeling refreshed. Consistent sleep schedules improve sleep quality and help you feel more alert during the day. Try to create a relaxing bedtime routine, like reading or taking a warm bath, to signal your body that it's time to wind down. screens and caffeine close to bedtime as they can interfere with your ability to sleep. Getting enough sleep is crucial for overall health and wellbeing.",
+   "wer": 0.028846153846153848
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.5115524550000146,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1490,
+    "completion_tokens": 117
+   },
+   "ttfa_s": 5.15169902599996,
+   "latency_s": 12.387046139999939,
+   "text": "The tallest mountain in Africa is Mount Kilimanjaro. It is located in Tanzania, near the border with Kenya. Mount Kilimanjaro is a free-standing mountain, meaning it is not part of a mountain range. It stands at about five thousand nine hundred and five meters, or just over nineteen thousand feet, above sea level. The mountain is made up of three distinct volcanic cones. It is a popular destination for hikers and climbers, though the climb can be challenging due to the high altitude. The mountain is also a significant source of water for the surrounding region.",
+   "audio_s": 40.32,
+   "asr": " The tallest mountain in Africa is Mount Kilimanjaro. It is located in Tanzania, near the border with Kenya. Mount Kilimanjaro is a freestanding mountain, meaning it is not part of a mountain range. It stands at about 5,905 meters, or just over 19,000 feet above sea level. The mountain is made up of three distinct volcanic cones. It is a popular destination for hikers and climbers, though the climb can be challenging due to the high altitude. The mountain is also a significant source of water for the surrounding region.",
+   "wer": 0.10309278350515463
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.396802201000014,
+   "usage": {
+    "prompt_tokens": 1399,
+    "total_tokens": 1503,
+    "completion_tokens": 104
+   },
+   "ttfa_s": 3.6316078180000204,
+   "latency_s": 8.525839576999942,
+   "text": "Copper is used in electrical wiring because it conducts electricity very well. It is also used in plumbing for pipes because it is resistant to corrosion and can last a long time. Copper is a good conductor of heat too, so it's used in cookware. It is a good material for these uses because it is durable, non-toxic, and can be easily shaped or molded. Its excellent conductivity makes it efficient for both electricity and heat transfer. Copper is also recyclable, which is good for the environment.",
+   "audio_s": 31.8,
+   "asr": " Copper is used in electrical wiring because it conducts electricity very well. It is also used in plumbing for pipes because it is resistant to corrosion and can last a long time. Copper is a good conductor of heat too so it's used in cookware. It is a good material for these uses because it is durable, non-toxic and can be easily shaped or moulded. Its excellent conductivity makes it efficient for both electricity and heat transfer. Copper is also recyclable, which is good for the environment.",
+   "wer": 0.011363636363636364
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.7514193060000025,
+   "usage": {
+    "prompt_tokens": 1380,
+    "total_tokens": 1463,
+    "completion_tokens": 83
+   },
+   "ttfa_s": 4.968682790000003,
+   "latency_s": 10.404452405000029,
+   "text": "The capital of China is Beijing. \n\nThree famous places in Beijing are the Great Wall of China, the Forbidden City, and Tiananmen Square. These landmarks are iconic and attract millions of visitors each year. The Great Wall is a historic fortification, the Forbidden City was the imperial palace, and Tiananmen Square is a large public space. Beijing is a vibrant city with a rich history and culture.",
+   "audio_s": 29.08,
+   "asr": " The capital of China is Beijing. Three famous places in Beijing are the Great Wall of China, the Forbidden City, and Tiananmen Square. These landmarks are iconic and attract millions of visitors each year. The Great Wall is a historic fortification, the Forbidden City was the imperial palace, and Tiananmen Square is a large public space. Beijing is a vibrant city with a rich history and culture.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.7659241659999907,
+   "usage": {
+    "prompt_tokens": 1376,
+    "total_tokens": 1447,
+    "completion_tokens": 71
+   },
+   "ttfa_s": 5.05560036899999,
+   "latency_s": 8.98271593100003,
+   "text": "A hash map uses a technique called chaining to handle collisions. When two keys hash to the same index, a linked list is stored at that index. Each new collision adds a new node to the list, allowing multiple values to be stored at the same bucket. This way, even with many collisions, the map can still find and access values efficiently.",
+   "audio_s": 20.92,
+   "asr": " A hash map uses a technique called chaining to handle collisions. When two keys hash to the same index, a linked list is stored at that index. Each new collision adds a new node to the list, allowing multiple values to be stored at the same bucket. This way, even with many collisions, the map can still find and access values efficiently.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.1463674110000284,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1490,
+    "completion_tokens": 116
+   },
+   "ttfa_s": 6.570652952000046,
+   "latency_s": 15.275847563999946,
+   "text": "The planets of the solar system, in order from the sun, are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. This order is based on their average distance from the sun. Mercury is the closest, followed by Venus, then Earth, and Mars. The gas giants, Jupiter and Saturn, come next, followed by the ice giants Uranus and Neptune. This sequence is often remembered using the mnemonic \"My Very Educated Mother Just Served Us Noodles.\" Each planet has unique characteristics and orbits the sun in a specific path.",
+   "audio_s": 42.2,
+   "asr": " The planets of the solar system in order from the Sun are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. This order is based on their average distance from the Sun. Mercury is the closest, followed by Venus, then Earth and Mars, the gas giants. Jupiter and Saturn come next, followed by the ice giants Uranus and Neptune. This sequence is often remembered using the mnemonic My Very Educated Mother Just Served Us Noodles. Each planet has unique characteristics and orbits the sun in a specific path.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.8741968379999889,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1458,
+    "completion_tokens": 85
+   },
+   "ttfa_s": 5.588031684000043,
+   "latency_s": 12.191383252000037,
+   "text": "In a quiet workshop, a curious robot named Zeta discovered paint. It dipped a brush, experimented with colors, and created vibrant patterns. Each stroke brought joy. Soon, Zeta painted masterpieces, blending logic with art. Humans marveled at its talent. Zeta learned that creativity, though unexpected, could be a beautiful part of its programming. It found a new purpose, expressing itself through color and form.",
+   "audio_s": 29.76,
+   "asr": " In a quiet workshop, a curious robot named Zeta discovered paint. It dipped a brush, experimented with colors, and created vibrant patterns. Each stroke brought joy. Soon, Zeta painted masterpieces, blending logic with art. Humans marveled at its talent. Zeta learned that creativity, though unexpected, could be a beautiful part of its programming. It found a new purpose, expressing itself through color and form.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.42024002200002997,
+   "usage": {
+    "prompt_tokens": 1376,
+    "total_tokens": 1418,
+    "completion_tokens": 42
+   },
+   "ttfa_s": 5.796257797000067,
+   "latency_s": 9.237200846000064,
+   "text": "TCP is a connection-oriented protocol, meaning it establishes a reliable, ordered, and error-checked connection between devices. UDP is connectionless, offering faster transmission with less overhead but without guarantees of delivery or order.",
+   "audio_s": 15.84,
+   "asr": " TCP is a connection-oriented protocol, meaning it establishes a reliable, ordered, and error-checked connection between devices. UDP is connectionless, offering faster transmission, with less overhead, but without guarantees of delivery or order.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.40632527900004334,
+   "usage": {
+    "prompt_tokens": 1394,
+    "total_tokens": 1431,
+    "completion_tokens": 37
+   },
+   "ttfa_s": 6.0998954369999865,
+   "latency_s": 9.392795668000076,
+   "text": "Beat eggs in a bowl. Heat a pan, add butter, and pour in the eggs. Stir constantly until they are soft and fluffy. Serve immediately. Enjoy your scrambled eggs!",
+   "audio_s": 12.8,
+   "asr": " Beat eggs in a bowl. Heat a pan, add butter, and pour in the eggs. Stir constantly until they are soft and fluffy. Serve immediately. Enjoy your scrambled eggs.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3825258949999579,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1413,
+    "completion_tokens": 39
+   },
+   "ttfa_s": 5.62115488500001,
+   "latency_s": 8.531320556999958,
+   "text": "Romeo and Juliet is a tragic love story about two young lovers from feuding families. Their secret marriage and eventual deaths lead to the end of the long-standing feud between their families.",
+   "audio_s": 11.92,
+   "asr": " Romeo and Juliet is a tragic love story about two young lovers from feuding families. Their secret marriage and eventual deaths lead to the end of the long-standing feud between their families.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.5002680449999843,
+   "usage": {
+    "prompt_tokens": 1380,
+    "total_tokens": 1429,
+    "completion_tokens": 49
+   },
+   "ttfa_s": 5.3622449890000325,
+   "latency_s": 9.892626670000027,
+   "text": "Supervised learning uses labeled data to predict outcomes, while unsupervised learning finds patterns in unlabeled data. Supervised learning trains models with input-output pairs, whereas unsupervised learning groups or clusters data based on similarities without predefined labels.",
+   "audio_s": 18.04,
+   "asr": " Supervised learning uses labeled data to predict outcomes, while unsupervised learning finds patterns in unlabeled data. Supervised learning trains models with input-output pairs, whereas unsupervised learning groups or clusters data based on similarities, without predefined labels.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0178905000000213,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1480,
+    "completion_tokens": 107
+   },
+   "ttfa_s": 5.190922903000001,
+   "latency_s": 13.05999844500002,
+   "text": "The water cycle is how water moves around the Earth. It starts when water from oceans, lakes, and rivers turns into water vapor and rises into the air. This is called evaporation. The water vapor cools and turns back into liquid, forming clouds through condensation. When the clouds get heavy, the water falls back to the ground as precipitation, like rain or snow. Then, the water collects in bodies of water again, and the cycle starts over. This process keeps Earth's water moving and available for living things.",
+   "audio_s": 36.92,
+   "asr": " the water cycle is how water moves around the Earth. It starts when water from oceans, lakes, and rivers turns into water vapor and rises into the air. This is called evaporation. The water vapor cools and turns back into liquid, forming clouds through condensation. When the clouds get heavy, the water falls back to the ground as precipitation, like rain or snow. Then, the water collects in bodies of water again, and the cycle starts over. This process keeps Earth's water moving and available for living things.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.5955284290000691,
+   "usage": {
+    "prompt_tokens": 1383,
+    "total_tokens": 1441,
+    "completion_tokens": 58
+   },
+   "ttfa_s": 4.421752964000007,
+   "latency_s": 8.776600202000054,
+   "text": "The sky appears blue because of a process called Rayleigh scattering. When sunlight enters Earth's atmosphere, it collides with molecules and small particles in the air. Blue light has a shorter wavelength and is scattered more easily than other colors, which makes the sky look blue to our eyes.",
+   "audio_s": 19.08,
+   "asr": " The sky appears blue because of a process called Rayleigh scattering. When sunlight enters Earth's atmosphere, it collides with molecules and small particles in the air. Blue light has a shorter wavelength and is scattered more easily than other colors, which makes the sky look blue to our eyes.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0254810379999526,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1480,
+    "completion_tokens": 109
+   },
+   "ttfa_s": 4.492961344999912,
+   "latency_s": 12.389106528999946,
+   "text": "Octopuses have three hearts! Two pump blood to the gills, while the third pumps it to the rest of the body. Also, they have blue blood because it uses copper instead of iron to carry oxygen. Octopuses are incredibly smart and can solve puzzles, use tools, and even escape from enclosures. They can change color and texture to blend into their surroundings, making them masters of disguise. Some octopuses can even squirt ink to confuse predators. Their intelligence and unique abilities make them fascinating creatures of the sea.",
+   "audio_s": 39.08,
+   "asr": " octopuses have three hearts. Two pump blood to the gills, while the third pumps it to the rest of the body. Also, they have blue blood because it uses copper instead of iron to carry oxygen. Octopuses are incredibly smart and can solve puzzles, use tools, and even escape from enclosures. They can change color and texture to blend into their surroundings, making them masters of disguise. Some octopuses can even squirt ink to confuse predators. Their intelligence and unique abilities make them fascinating creatures of the sea.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.021543872000052,
+   "usage": {
+    "prompt_tokens": 1370,
+    "total_tokens": 1474,
+    "completion_tokens": 104
+   },
+   "ttfa_s": 3.3784981979999884,
+   "latency_s": 11.56462375000001,
+   "text": "Vaccines work by teaching your immune system how to recognize and fight off a specific germ, like a virus or bacteria. They contain a small, harmless piece of the germ, or a weakened version, which triggers your body to make antibodies. These antibodies remember the germ, so if you're exposed to it later, your immune system can quickly respond and protect you. This helps prevent serious illness or reduces its severity. Vaccines are safe, effective, and a key tool in preventing the spread of infectious diseases.",
+   "audio_s": 40.28,
+   "asr": " Vasines work by teaching your immune system how to recognize and fight off a specific germ, like a virus or bacteria. They contain a small, harmless piece of the germ, or a weakened version, which triggers your body to make antibodies. These antibodies remember the germ, so if you're exposed to it later, your immune system can quickly respond and protect you. This helps prevent serious illness or reduces its severity. Vaccines are safe, effective, and a key tool in preventing the spread of infectious diseases.",
+   "wer": 0.011627906976744186
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0951865810000072,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1489,
+    "completion_tokens": 118
+   },
+   "ttfa_s": 2.7680871100000104,
+   "latency_s": 11.746069676000047,
+   "text": "For a weekend hiking trip, pack comfortable hiking shoes, weather-appropriate clothing, a map or GPS, snacks, water, a first aid kit, and a small backpack. Bring layers in case the temperature changes. Don't forget sunscreen, insect repellent, and a flashlight or headlamp. If you're camping, include a tent, sleeping bag, and cooking supplies. Check the weather forecast beforehand. Let someone know your hiking plans and expected return time. This will help ensure a safe and enjoyable trip. Always prioritize safety and be prepared for changing conditions. Have a great hike!",
+   "audio_s": 47.6,
+   "asr": " For a weekend hiking trip, pack comfortable hiking shoes, weather-appropriate clothing, a map or GPS, snacks, water, a first aid kit, and a small backpack. Bring layers in case the temperature changes. Don't forget sunscreen, insect repellent, and a flashlight or headlamp. If you're camping, include a tent, sleeping bag, and cooking supplies. Check the weather forecast beforehand. Let someone know your hiking plans and expected return time. This will help ensure a safe and enjoyable trip. Always prioritize safety and be prepared for changing conditions. Have a great hike!",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.3962849309999683,
+   "usage": {
+    "prompt_tokens": 1380,
+    "total_tokens": 1517,
+    "completion_tokens": 137
+   },
+   "ttfa_s": 3.001331774999926,
+   "latency_s": 13.372818819000031,
+   "text": "A good habit for better sleep is to establish a consistent bedtime routine. This helps signal your body that it's time to wind down, making it easier to fall asleep and improving sleep quality. Try activities like reading a book, taking a warm bath, or practicing gentle stretches. Avoid screens and stimulating activities before bed, as they can interfere with your body's natural sleep-wake cycle. Creating a calm and dark environment also supports a restful night's sleep. Consistency is key, so try to go to bed and wake up at the same time every day, even on weekends. This regularity helps regulate your internal clock, leading to more restful and restorative sleep.",
+   "audio_s": 52.68,
+   "asr": " A good habit for better sleep is to establish a consistent bedtime routine. This helps signal your body that it's time to wind down, making it easier to fall asleep and improving sleep quality. Try activities like reading a book, taking a warm bath, or practicing gentle stretches. Avoid screens and stimulating activities before bed, as they can interfere with your body's natural sleep-wake cycle. Creating a calm and dark environment also supports a restful night's sleep. Consistency is key, so try to go to bed and wake up at the same time every day, even on weekends. This regularity helps regulate your internal clock, leading to more restful and restorative sleep.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.439310436000028,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1517,
+    "completion_tokens": 144
+   },
+   "ttfa_s": 3.6756430810000893,
+   "latency_s": 12.434726352000098,
+   "text": "The tallest mountain in Africa is Mount Kilimanjaro. It is located in Tanzania, near the border with Kenya. Mount Kilimanjaro is a free-standing mountain, meaning it is not part of a mountain range. It stands at about five thousand nine hundred and five meters, or just over nineteen thousand feet, above sea level. The mountain is made up of three distinct volcanic cones: Kibo, Mawenzi, and Shira. Kibo is the highest of these, and it is from this peak that climbers often make their summit attempt. The mountain is a popular destination for hikers and adventurers, and it is also a significant cultural and spiritual site for the local Chagga people.",
+   "audio_s": 44.08,
+   "asr": " The tallest mountain in Africa is Mount Kilimanjaro. It is located in Tanzania, near the border with Kenya. Mount Kilimanjaro is a freestanding mountain, meaning it is not part of a mountain range. It stands at about 5,905 meters or just over 19,000 feet above sea level. The mountain is made up of three distinct volcanic cones, Kibo, Moenzi and Shira. Kibo is the highest of these and it is from this peak that climbers often make their summit attempt. The mountain is a popular destination for hikers and adventurers and it is also a significant cultural and spiritual site for the local Chaga people.",
+   "wer": 0.10714285714285714
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.8909212549999665,
+   "usage": {
+    "prompt_tokens": 1382,
+    "total_tokens": 1470,
+    "completion_tokens": 88
+   },
+   "ttfa_s": 2.115804611000044,
+   "latency_s": 7.4031971519999615,
+   "text": "Copper is used in electrical wiring because it conducts electricity very well. It is also used in plumbing for pipes because it is durable and resistant to corrosion. Copper is a good conductor of heat, so it is also used in cookware. It is a good material for these uses because it is strong, lasts a long time, and works well with electricity and heat. It is also recyclable, which is good for the environment.",
+   "audio_s": 27.32,
+   "asr": " Copper is used in electrical wiring because it conducts electricity very well. It is also used in plumbing for pipes, because it is durable and resistant to corrosion. Copper is a good conductor of heat, so it is also used in cookware. It is a good material for these uses because it is strong, lasts a long time, and works well with electricity and heat. It is also recyclable, which is good for the environment.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.8642101829999547,
+   "usage": {
+    "prompt_tokens": 1380,
+    "total_tokens": 1464,
+    "completion_tokens": 84
+   },
+   "ttfa_s": 4.804818716999989,
+   "latency_s": 11.515153067000028,
+   "text": "The capital of China is Beijing. \n\nThree famous places in Beijing are the Great Wall of China, the Forbidden City, and Tiananmen Square. These landmarks are iconic and attract millions of visitors each year. The Great Wall is a historic fortification, the Forbidden City was the imperial palace, and Tiananmen Square is a large public space. Beijing is a vibrant city with a rich history and cultural significance.",
+   "audio_s": 31.48,
+   "asr": " The capital of China is Beijing. Three famous places in Beijing are the Great Wall of China, the Forbidden City, and Tiananmen Square. These landmarks are iconic and attract millions of visitors each year. The Great Wall is a historic fortification, the Forbidden City was the imperial palace, and Tiananmen Square is a large public space. Beijing is a vibrant city with a rich history and cultural significance.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.565415809000001,
+   "usage": {
+    "prompt_tokens": 1393,
+    "total_tokens": 1446,
+    "completion_tokens": 53
+   },
+   "ttfa_s": 2.637775794999925,
+   "latency_s": 5.826460733999966,
+   "text": "A hash map uses a technique called chaining to handle collisions. When two keys hash to the same index, a linked list is stored at that index. Each new collision adds a new node to the list, allowing multiple values to be stored at the same bucket.",
+   "audio_s": 17.6,
+   "asr": " A hash map uses a technique called chaining to handle collisions. When two keys hash to the same index, a linked list is stored at that index. Each new collision adds a new node to the list, allowing multiple values to be stored at the same bucket.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0493823230000316,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1481,
+    "completion_tokens": 107
+   },
+   "ttfa_s": 4.927046926999992,
+   "latency_s": 11.81485374700003,
+   "text": "The planets of the solar system, in order from the sun, are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. This sequence is based on their average distance from the sun. Mercury is the closest, followed by Venus, then Earth, and Mars. The gas giants, Jupiter and Saturn, come next, followed by the ice giants Uranus and Neptune. This order remains consistent as the planets orbit the sun in this sequence. Understanding this order helps in studying planetary positions and their characteristics.",
+   "audio_s": 37.32,
+   "asr": " The planets of the solar system, in order from the Sun, are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. This sequence is based on their average distance from the Sun. Mercury is the closest, followed by Venus, then Earth, and Mars. The gas giants, Jupiter and Saturn, come next, followed by the ice giants, Uranus and Neptune. This order remains consistent as the planets orbit the Sun in this sequence. Understanding this order helps in studying planetary positions and their characteristics.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.7761761529999376,
+   "usage": {
+    "prompt_tokens": 1389,
+    "total_tokens": 1468,
+    "completion_tokens": 79
+   },
+   "ttfa_s": 4.546972208999932,
+   "latency_s": 10.631059226999923,
+   "text": "Rusty, a factory robot, discovered a paintbrush. He dipped it in vibrant colors, creating swirling patterns. His circuits buzzed with joy. Rusty learned to blend hues, forming abstract masterpieces. Humans marveled at his art. Once purely functional, Rusty now expressed creativity, proving that even machines can find beauty. His brushes danced, painting a world of endless possibilities.",
+   "audio_s": 25.96,
+   "asr": " Rusty, a factory robot, discovered a paintbrush. He dipped it in vibrant colors, creating swirling patterns. His circuits buzzed with joy. Rusty learned to blend hues, forming abstract masterpieces. Humans marveled at his art. Once purely functional, Rusty now expressed creativity, proving that even machines can find beauty. His brushes danced, painting a world of endless possibilities.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.6567698529999006,
+   "usage": {
+    "prompt_tokens": 1376,
+    "total_tokens": 1445,
+    "completion_tokens": 69
+   },
+   "ttfa_s": 4.370697088999918,
+   "latency_s": 10.224446776999912,
+   "text": "TCP is a connection-oriented protocol that ensures reliable, ordered data delivery, while UDP is connectionless and prioritizes speed over reliability. TCP handles error checking and retransmissions, making it suitable for critical data like web browsing, whereas UDP is used for real-time applications like video streaming or online gaming where speed is more important than perfect delivery.",
+   "audio_s": 27.72,
+   "asr": " TCP is a connection-oriented protocol that ensures reliable, ordered data delivery, while UDP is connectionless and prioritizes speed over reliability. TCP handles error checking and retransmissions, making it suitable for critical data like web browsing, whereas UDP is used for real-time applications like video streaming or online gaming where speed is more important than perfect delivery.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.6227380710000716,
+   "usage": {
+    "prompt_tokens": 1395,
+    "total_tokens": 1456,
+    "completion_tokens": 61
+   },
+   "ttfa_s": 3.5967987970000195,
+   "latency_s": 8.148942324000018,
+   "text": "Beat eggs in a bowl, add a splash of milk and a pinch of salt. Heat a pan over medium heat, add a little butter and pour in the egg mixture. Stir gently as the eggs begin to set, cooking until they reach your desired consistency. Serve hot. Enjoy your scrambled eggs!",
+   "audio_s": 18.76,
+   "asr": " Beat eggs in a bowl, add a splash of milk and a pinch of salt. Heat a pan over medium heat, add a little butter and pour in the egg mixture. Stir gently as the eggs begin to set, cooking until they reach your desired consistency. Serve hot! Enjoy your scrambled eggs!",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.4259006309999904,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1413,
+    "completion_tokens": 39
+   },
+   "ttfa_s": 4.002570089999949,
+   "latency_s": 6.668120926000029,
+   "text": "Romeo and Juliet is a tragic love story about two young lovers from feuding families. Their secret marriage and eventual deaths lead to the end of the long-standing feud between their families.",
+   "audio_s": 12.28,
+   "asr": " Romeo and Juliet is a tragic love story about two young lovers from feuding families. Their secret marriage and eventual deaths lead to the end of the long-standing feud between their families.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3228415009999708,
+   "usage": {
+    "prompt_tokens": 1399,
+    "total_tokens": 1427,
+    "completion_tokens": 28
+   },
+   "ttfa_s": 5.611832006999975,
+   "latency_s": 8.118101548999903,
+   "text": "Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning finds patterns in unlabeled data without predefined answers.",
+   "audio_s": 10.16,
+   "asr": " Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning finds patterns in unlabeled data without predefined answers.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.9986916109999129,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1480,
+    "completion_tokens": 107
+   },
+   "ttfa_s": 4.636052159999963,
+   "latency_s": 9.888966558999982,
+   "text": "The water cycle is how water moves around the Earth. It starts when water from oceans, lakes, and rivers turns into water vapor and rises into the air. This is called evaporation. The water vapor cools and turns back into liquid, forming clouds through condensation. When the clouds get heavy, the water falls back to the ground as precipitation, like rain or snow. Then, the water collects in bodies of water again, and the cycle starts over. This process keeps Earth's water moving and available for living things.",
+   "audio_s": 36.92,
+   "asr": " The water cycle is how water moves around the Earth. It starts when water from oceans, lakes, and rivers turns into water vapor and rises into the air. This is called evaporation. The water vapor cools and turns back into liquid, forming clouds through condensation. When the clouds get heavy, the water falls back to the ground as precipitation, like rain or snow. Then, the water collects in bodies of water again, and the cycle starts over. This process keeps Earth's water moving and available for living things.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3624036050000541,
+   "usage": {
+    "prompt_tokens": 1377,
+    "total_tokens": 1411,
+    "completion_tokens": 34
+   },
+   "ttfa_s": 3.533105450999983,
+   "latency_s": 6.37108330600006,
+   "text": "The sky appears blue because of a phenomenon called Rayleigh scattering. Shorter blue wavelengths of sunlight scatter more easily than other colors when they hit the Earth's atmosphere.",
+   "audio_s": 12.6,
+   "asr": " The sky appears blue because of a phenomenon called Rayleigh scattering. Shorter blue wavelengths of sunlight scatter more easily than other colors when they hit the Earth's atmosphere.",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.1052146140000332,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1483,
+    "completion_tokens": 112
+   },
+   "ttfa_s": 3.3835886780000237,
+   "latency_s": 9.639909442999965,
+   "text": "Octopuses have three hearts! Two pump blood to the gills, while the third pumps it to the rest of the body. Also, they have blue blood because it uses copper instead of iron to carry oxygen. Octopuses are incredibly smart and can solve puzzles, use tools, and even escape from enclosures. They can change color and texture to blend into their surroundings, making them masters of disguise. Some octopuses can even squirt ink to confuse predators and make a quick getaway. Their unique abilities make them fascinating creatures of the sea!",
+   "audio_s": 45.2,
+   "asr": " Osteopoises have three hearts. Two pump blood to the gills, while the third pumps it to the rest of the body. Also, they have blue blood because it uses copper instead of iron to carry oxygen. Osteopoises are incredibly smart and can solve puzzles, use tools, and even escape from enclosures. They can change color and texture to blend into their surroundings, making them masters of disguise. Some octopuses can even squirt ink to confuse predators and make a quick getaway. Their unique abilities make them fascinating creatures of the sea.",
+   "wer": 0.02197802197802198
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.9711828740000783,
+   "usage": {
+    "prompt_tokens": 1375,
+    "total_tokens": 1473,
+    "completion_tokens": 98
+   },
+   "ttfa_s": 3.1655862640000123,
+   "latency_s": 8.045843637000075,
+   "text": "Vaccines teach your immune system how to fight off a virus or bacteria. They contain a small, harmless piece of the germ, like a protein or a dead version of it. Your body recognizes this as a threat and makes antibodies to fight it. If you later encounter the real germ, your immune system can quickly recognize and destroy it, preventing illness. This process helps build immunity without causing the disease itself. Vaccines are safe and effective, protecting individuals and communities from outbreaks.",
+   "audio_s": 34.0,
+   "asr": " Vaccines teach your immune system how to fight off a virus or bacteria. They contain a small, harmless piece of the germ, like a protein, or a dead version of it. Your body recognizes this as a threat, and makes antibodies to fight it. If you later encounter the real germ, your immune system can quickly recognize and destroy it, preventing illness. This process helps build immunity without causing the disease itself. are safe and effective, protecting individuals and communities from outbreaks.",
+   "wer": 0.012048192771084338
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.0160181030000786,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1474,
+    "completion_tokens": 103
+   },
+   "ttfa_s": 2.220044837000046,
+   "latency_s": 6.994931664000092,
+   "text": "For a weekend hiking trip, pack comfortable hiking shoes, weather-appropriate clothing, a map or GPS, snacks, water, a first aid kit, and a small backpack. Bring layers in case the temperature changes. If you're camping, add a tent, sleeping bag, and cooking supplies. Don't forget sunscreen, insect repellent, and a flashlight. Check the weather forecast before you go. It's also a good idea to let someone know your hiking plans and expected return time. Enjoy your adventure!",
+   "audio_s": 33.6,
+   "asr": " For a weekend hiking trip, pack comfortable hiking shoes, weather-appropriate clothing, a map or GPS, snacks, water, a first-aid kit, and a small backpack. Bring layers in case the temperature changes. If you're camping, add a tent, sleeping bag, and cooking supplies. Don't forget sunscreen, insect repellent, and a flashlight. Check the weather forecast before you go. It's also a good idea to let someone know your hiking plans and expected return time. Enjoy your adventure!",
+   "wer": 0.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.1761864320000086,
+   "usage": {
+    "prompt_tokens": 1376,
+    "total_tokens": 1495,
+    "completion_tokens": 119
+   },
+   "ttfa_s": 2.604677924999919,
+   "latency_s": 7.620457974999908,
+   "text": "A good habit for better sleep is to establish a consistent bedtime routine. This helps signal your body that it's time to wind down, making it easier to fall asleep and improving sleep quality. Try activities like reading a book, taking a warm bath, or practicing gentle stretches before bed. Avoid screens and stimulating activities close to bedtime, as they can interfere with your body's natural sleep-wake cycle. Creating a calm, dark, and quiet sleep environment also supports restful sleep. Consistency in your routine helps regulate your internal clock, leading to more restful and restorative sleep overall.",
+   "audio_s": 36.76,
+   "asr": " A good habit for better sleep is to establish a consistent bedtime routine. This helps signal your body that it's time to wind down, making it easier to fall asleep and improving sleep quality. Try activities like reading a book, taking a warm bath, or practicing gentle stretches before bed. Avoid screens and stimulating activities close to bedtime, as they can interfere with your body's natural sleep-wake cycle. a calm, dark and quiet sleep environment also supports restful sleep. Consistency in your routine helps regulate your internal clock, leading to more restful and restorative sleep overall.",
+   "wer": 0.01020408163265306
+  },
+  {
+   "status": 200,
+   "ttft_s": 1.5191806420000376,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1533,
+    "completion_tokens": 160
+   },
+   "ttfa_s": 2.093965257000036,
+   "latency_s": 8.13676281100004,
+   "text": "The tallest mountain in Africa is Mount Kilimanjaro. It is located in Tanzania, near the border with Kenya. Mount Kilimanjaro is a free-standing mountain, meaning it is not part of a mountain range. It is a dormant volcano, with its last eruption believed to have occurred over thirty thousand years ago. The mountain is composed of three distinct volcanic cones: Kibo, Mawenzi, and Shira. Kibo is the highest of these, and it is the peak that most climbers aim to reach. The summit of Mount Kilimanjaro is known as Uhuru Peak, and it stands at an elevation of approximately five thousand eight hundred and ninety five meters, or about nineteen thousand three hundred and forty one feet. This makes it the highest free-standing mountain in the",
+   "audio_s": 45.84,
+   "asr": " The tallest mountain in Africa is Mount Kilimanjaro. It is located in Tanzania, near the border with Kenya. Mount Kilimanjaro is a freestanding mountain, meaning it is not part of a mountain range. It is a dormant volcano, with its last eruption believed to have occurred over 30,000 years ago. The mountain is composed of three distinct volcanic cones, Kibo, Mawenzi, and Shira. Kibo is the highest of these, and it is the peak that most climbers aim to reach. The summit of Mount Kilimanjaro is known as Uhuru Peak and it stands at an elevation of approximately 5,895 meters or about 19,341 feet. This makes it the highest freestanding mountain in the world.",
+   "wer": 0.1640625
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.7526864359999763,
+   "usage": {
+    "prompt_tokens": 1400,
+    "total_tokens": 1478,
+    "completion_tokens": 78
+   },
+   "ttfa_s": 1.1898570680000375,
+   "latency_s": 5.529562086000055,
+   "text": "Copper is used in electrical wiring because it conducts electricity very well. It is also used in plumbing for pipes because it is durable and resistant to corrosion. Copper's excellent conductivity makes it efficient for transmitting electrical signals with minimal loss. Its resistance to rust and long lifespan in plumbing ensure reliable water transport and prevent leaks. These properties make copper a preferred material in both electrical and plumbing applications.",
+   "audio_s": 31.44,
+   "asr": " Copper is used in electrical wiring because it conducts electricity very well. It is also used in plumbing for pipes because it is durable and resistant to corrosion. Copper's excellent conductivity makes it efficient for transmitting electrical signals with minimal loss. Its resistance to rust and long lifespan in plumbing ensure reliable water transport and prevent leaks. These properties make copper a preferred material in both electrical and and plumbing applications.",
+   "wer": 0.014285714285714285
+  }
+ ]
+}

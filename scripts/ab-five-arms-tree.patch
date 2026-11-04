@@ -1,0 +1,51 @@
+diff --git a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+index 2038a9a92..71f676940 100644
+--- a/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/models/minicpmo_4_5/minicpmo_4_5_omni.py
+@@ -180,6 +180,10 @@ class MiniCPMO45OmniForConditionalGeneration(nn.Module, SupportsMultiModal, Supp
+         self.requires_raw_input_tokens = self.model_stage == "llm"
+ 
+         if self.model_stage == "llm":
++            import os as _spec_os
++
++            if _spec_os.environ.get("SPEC_PC_MERGE"):
++                self.supports_mrv2_prefix_cache_outputs = True
+             # Initialize thinker model (image preprocessing + vision encoder + 3D resampler)
+             self.thinker = init_vllm_registered_model(
+                 vllm_config=vllm_config,
+diff --git a/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py b/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
+index 18a2d4fad..b0b311fd1 100644
+--- a/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
++++ b/vllm_omni/model_executor/stage_input_processors/minicpmo_4_5_omni.py
+@@ -1100,11 +1100,30 @@ def llm2tts(
+         tts_token_ids_slice = tts_hidden_slice = None
+         native_segment_end = False
+         if not is_native_duplex_handoff:
+-            if tts_bos_idx is not None and thinker_hidden_states.shape[0] > tts_bos_idx:
++            import os as _spec_os
++
++            if tts_bos_idx is not None and (
++                thinker_hidden_states.shape[0] > tts_bos_idx or _spec_os.environ.get("SPEC_PC_NATIVE")
++            ):
+                 end_idx = tts_eos_idx if tts_eos_idx is not None else len(full_token_ids)
+                 tts_hidden_slice = _turn_hidden_rows(
+                     mm_output, thinker_hidden_states, full_token_ids, tts_bos_idx, end_idx, llm_output.request_id
+                 )
++                _spec_dump = _spec_os.environ.get("SPEC_DUMP_ROWS")
++                if _spec_dump:
++                    import hashlib as _spec_hash
++                    import time as _spec_time
++
++                    torch.save(
++                        {
++                            "prompt_hash": _spec_hash.sha1(str(prompt_token_ids).encode()).hexdigest(),
++                            "prompt_len": len(prompt_token_ids),
++                            "ids": full_token_ids[tts_bos_idx:end_idx],
++                            "rows": tts_hidden_slice.cpu(),
++                            "time": _spec_time.time(),
++                        },
++                        f"{_spec_dump}/{llm_output.request_id}.pt",
++                    )
+                 tts_token_ids_slice = torch.tensor(
+                     full_token_ids[tts_bos_idx : tts_bos_idx + tts_hidden_slice.shape[0]], dtype=torch.long
+                 )

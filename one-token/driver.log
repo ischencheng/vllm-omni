@@ -1,0 +1,45 @@
+[v1-on-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v1-on.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v1-on-r0] ready=True after 336s
+  warm done 347s {'host_used_gb': 19.36, 'host_rss_tree_gb': 33.66, 'gpu_mem_mib_util': '50455, 48'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights:  25%|██▍       | 118/479 [00:00<00:00, 1134.82it/s]
+Loading weights:  59%|█████▉    | 284/479 [00:00<00:00, 1438.40it/s]
+Loading weights:  90%|████████▉ | 429/479 [00:00<00:00, 1291.46it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 1443.59it/s]
+[transformers] Using custom `forced_decoder_ids` from the (generation) config. This is deprecated in favor of the `task` and `language` flags/config options.
+[transformers] Passing `generation_config` together with generation-related arguments=({'suppress_tokens', 'begin_suppress_tokens'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+  correct_pass1: n=8 ok=8 audio=8 wall=15.7s ttft p50=0.284 p90=0.363 ttfa p50=0.447 p90=0.531 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 7320.12it/s]
+  correct_pass2: n=8 ok=8 audio=8 wall=14.1s ttft p50=0.277 p90=0.323 ttfa p50=0.435 p90=0.488 cached=[None, None] prompt=[709, 711] errs=[]
+  edge: n=4 ok=4 audio=2 wall=2.6s ttft p50=0.043 p90=0.368 ttfa p50=0.065 p90=0.529 cached=[None, None] prompt=[713, 722] errs=[]
+[v1-on-r0] done in 391s {'host_used_gb': 20.47, 'host_rss_tree_gb': 33.85, 'gpu_mem_mib_util': '52905, 59'}
+[v2-off-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-off.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-off-r0] ready=True after 306s
+  warm done 313s {'host_used_gb': 18.64, 'host_rss_tree_gb': 32.04, 'gpu_mem_mib_util': '48651, 52'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 8832.60it/s]
+  correct_pass1: n=8 ok=8 audio=8 wall=14.3s ttft p50=0.293 p90=0.371 ttfa p50=0.437 p90=0.527 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 8711.31it/s]
+  correct_pass2: n=8 ok=8 audio=8 wall=14.4s ttft p50=0.29 p90=0.364 ttfa p50=0.426 p90=0.517 cached=[None, None] prompt=[709, 711] errs=[]
+  edge: n=4 ok=4 audio=2 wall=2.4s ttft p50=0.067 p90=0.373 ttfa p50=0.517 p90=0.517 cached=[None, None] prompt=[713, 722] errs=[]
+[v2-off-r0] done in 354s {'host_used_gb': 18.67, 'host_rss_tree_gb': 32.06, 'gpu_mem_mib_util': '48651, 0'}
+[v2-native-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-r0] ready=True after 231s
+  warm done 238s {'host_used_gb': 18.27, 'host_rss_tree_gb': 31.72, 'gpu_mem_mib_util': '48633, 33'}
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 8193.80it/s]
+  correct_pass1: n=8 ok=8 audio=8 wall=14.9s ttft p50=0.298 p90=0.378 ttfa p50=0.455 p90=0.548 cached=[None, None] prompt=[709, 711] errs=[]
+
+Loading weights:   0%|          | 0/479 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 479/479 [00:00<00:00, 6856.06it/s]
+  correct_pass2: n=8 ok=8 audio=8 wall=13.1s ttft p50=0.273 p90=0.318 ttfa p50=0.43 p90=0.473 cached=[None, None] prompt=[709, 711] errs=[]
+  edge: n=4 ok=4 audio=2 wall=2.9s ttft p50=0.075 p90=0.39 ttfa p50=0.539 p90=0.539 cached=[None, None] prompt=[713, 722] errs=[]
+[v2-native-r0] done in 279s {'host_used_gb': 18.29, 'host_rss_tree_gb': 31.75, 'gpu_mem_mib_util': '48633, 45'}

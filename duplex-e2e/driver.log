@@ -1,0 +1,24 @@
++ /usr/bin/python -m pytest -s -v -p no:cacheprovider -m advanced_model and cuda --run-level advanced_model --junitxml=/work/out/e2e-merge.xml tests/e2e/online_serving/test_minicpmo_4_5_duplex.py tests/e2e/online_serving/test_minicpmo_4_5_window.py
+[0;36m(APIServer pid=65)[0;0m [33mWARNING[0m [90m11-04 05:41:53[0m [90m[model.py:2660][0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embedding
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSEDOmniServer stopping...
+[0;36m(APIServer pid=1387)[0;0m [33mWARNING[0m [90m11-04 05:49:18[0m [90m[model.py:2660][0m User-specified max_model_len (65536) is greater than the derived max_model_len (max_position_embeddi
+PASSED
+PASSED
+PASSED
+PASSED
+PASSED
+PASSEDOmniServer stopping...
+========== 19 passed, 4 deselected, 31 warnings in 872.80s (0:14:32) ===========
+lane=merge rc=0

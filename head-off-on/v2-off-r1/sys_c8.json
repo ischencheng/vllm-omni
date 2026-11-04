@@ -1,0 +1,426 @@
+{
+ "wall_s": 8.542341175000047,
+ "state": {
+  "host_used_gb": 18.06,
+  "host_rss_tree_gb": 32.38,
+  "gpu_mem_mib_util": "50675, 87"
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 0.6455426609999222,
+   "usage": {
+    "prompt_tokens": 1375,
+    "total_tokens": 1401,
+    "completion_tokens": 26
+   },
+   "ttfa_s": 0.8841994769999246,
+   "latency_s": 1.845801999999935,
+   "text": "The capital of China is Beijing. The Great Wall, the Forbidden City, and the Summer Palace are three famous places there.",
+   "audio_s": 8.32
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.689510663999954,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1417,
+    "completion_tokens": 44
+   },
+   "ttfa_s": 0.9039041469999347,
+   "latency_s": 2.8906969759999583,
+   "text": "A hash map uses chaining or open addressing to handle collisions. Chaining stores multiple entries in a linked list at the same index. Open addressing finds another open slot nearby. Both methods ensure all data is stored efficiently.",
+   "audio_s": 14.0
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.6394975189999741,
+   "usage": {
+    "prompt_tokens": 1369,
+    "total_tokens": 1388,
+    "completion_tokens": 19
+   },
+   "ttfa_s": 0.8179908229999455,
+   "latency_s": 1.4269866380000167,
+   "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+   "audio_s": 6.52
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.7531605120000222,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1426,
+    "completion_tokens": 52
+   },
+   "ttfa_s": 0.9991328770000791,
+   "latency_s": 3.1585062249999964,
+   "text": "A robot found a paintbrush. It dipped it in paint and made a mark. The robot tried again. Soon, it painted beautiful pictures. It learned to create art, bringing color to the world. The robot discovered a new way to express itself.",
+   "audio_s": 14.4
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.6492687310000065,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1400,
+    "completion_tokens": 29
+   },
+   "ttfa_s": 0.8766737120000698,
+   "latency_s": 2.659563439000067,
+   "text": "TCP is a connection-oriented protocol that ensures reliable, ordered data delivery. UDP is connectionless and faster but does not guarantee delivery or order.",
+   "audio_s": 12.52
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.6507581140000411,
+   "usage": {
+    "prompt_tokens": 1368,
+    "total_tokens": 1400,
+    "completion_tokens": 32
+   },
+   "ttfa_s": 0.8773747170000661,
+   "latency_s": 2.0149121250000235,
+   "text": "First, crack two eggs into a bowl.  Second, beat them with a fork.  Third, cook in a pan on medium heat until soft.",
+   "audio_s": 9.68
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.6556262110000262,
+   "usage": {
+    "prompt_tokens": 1369,
+    "total_tokens": 1408,
+    "completion_tokens": 39
+   },
+   "ttfa_s": 0.8819385489999831,
+   "latency_s": 2.8903106070000604,
+   "text": "Romeo and Juliet is a tragic love story about two young lovers from feuding families in Verona. Their secret marriage and eventual deaths unite their families, ending the long-standing feud.",
+   "audio_s": 13.6
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.6428686650000373,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1399,
+    "completion_tokens": 28
+   },
+   "ttfa_s": 0.8796123140000418,
+   "latency_s": 2.241909944999975,
+   "text": "Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning finds patterns in unlabeled data without predefined outcomes.",
+   "audio_s": 11.04
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.334898237999937,
+   "usage": {
+    "prompt_tokens": 1368,
+    "total_tokens": 1399,
+    "completion_tokens": 31
+   },
+   "ttfa_s": 0.6718276899999864,
+   "latency_s": 2.2035416159999386,
+   "text": "Water evaporates from oceans, lakes, and rivers into the air. It then condenses into clouds and falls back to Earth as rain or snow.",
+   "audio_s": 10.92
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.31797362999998313,
+   "usage": {
+    "prompt_tokens": 1367,
+    "total_tokens": 1394,
+    "completion_tokens": 27
+   },
+   "ttfa_s": 0.6061078320000206,
+   "latency_s": 1.955671706999965,
+   "text": "The sky appears blue because of Rayleigh scattering. Shorter blue wavelengths scatter more in all directions, making the sky look blue.",
+   "audio_s": 9.72
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.12441473900003075,
+   "usage": {
+    "prompt_tokens": 1366,
+    "total_tokens": 1374,
+    "completion_tokens": 8
+   },
+   "ttfa_s": 0.43239161500002865,
+   "latency_s": 0.8625598390000278,
+   "text": "Octopuses have three hearts.",
+   "audio_s": 2.76
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.5848473080000076,
+   "usage": {
+    "prompt_tokens": 1365,
+    "total_tokens": 1423,
+    "completion_tokens": 58
+   },
+   "ttfa_s": 1.0040352319999784,
+   "latency_s": 4.0437581850000015,
+   "text": "Vaccines teach your immune system how to fight off a virus or bacteria. They use a small, harmless piece of the germ to train your body to recognize and attack it if you're exposed later. This way, your body is ready to fight the real infection without getting sick.",
+   "audio_s": 20.12
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.506427207999991,
+   "usage": {
+    "prompt_tokens": 1366,
+    "total_tokens": 1404,
+    "completion_tokens": 38
+   },
+   "ttfa_s": 0.7518246860000772,
+   "latency_s": 3.0410089210000706,
+   "text": "For a weekend hiking trip, pack comfortable hiking shoes, weather-appropriate clothing, a water bottle, snacks, a map or GPS, a first aid kit, and a small backpack.",
+   "audio_s": 13.44
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.47588787900008356,
+   "usage": {
+    "prompt_tokens": 1370,
+    "total_tokens": 1404,
+    "completion_tokens": 34
+   },
+   "ttfa_s": 0.6551563070000839,
+   "latency_s": 2.5814579460000004,
+   "text": "Try to go to bed and wake up at the same time every day, even on weekends, because it helps regulate your body's internal clock for better sleep quality.",
+   "audio_s": 11.72
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3711393419999922,
+   "usage": {
+    "prompt_tokens": 1368,
+    "total_tokens": 1387,
+    "completion_tokens": 19
+   },
+   "ttfa_s": 0.5851762739999913,
+   "latency_s": 1.3189621349999925,
+   "text": "The tallest mountain in Africa is Mount Kilimanjaro. It is located in Tanzania.",
+   "audio_s": 5.92
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.4758339069999238,
+   "usage": {
+    "prompt_tokens": 1370,
+    "total_tokens": 1403,
+    "completion_tokens": 33
+   },
+   "ttfa_s": 0.6563172420000001,
+   "latency_s": 2.344403378999914,
+   "text": "Copper is used in electrical wiring because it conducts electricity very well. It is also used in plumbing because it is resistant to corrosion and lasts a long time.",
+   "audio_s": 11.08
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.23844030299994756,
+   "usage": {
+    "prompt_tokens": 1378,
+    "total_tokens": 1399,
+    "completion_tokens": 21
+   },
+   "ttfa_s": 0.39117628099995727,
+   "latency_s": 1.6001616920000288,
+   "text": "The capital of China is Beijing. The Great Wall, the Forbidden City, and the Summer Palace.",
+   "audio_s": 7.44
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.4625205710000273,
+   "usage": {
+    "prompt_tokens": 1376,
+    "total_tokens": 1418,
+    "completion_tokens": 42
+   },
+   "ttfa_s": 0.8644530600000735,
+   "latency_s": 3.4184252180000385,
+   "text": "Hash maps use chaining or open addressing to handle collisions. Chaining stores multiple entries in linked lists at the same index. Open addressing finds another open slot nearby. Both methods ensure all data is stored efficiently.",
+   "audio_s": 17.24
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.22589731100003974,
+   "usage": {
+    "prompt_tokens": 1372,
+    "total_tokens": 1391,
+    "completion_tokens": 19
+   },
+   "ttfa_s": 0.4199029489999475,
+   "latency_s": 1.6583312760000126,
+   "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+   "audio_s": 6.6
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.4375342670000464,
+   "usage": {
+    "prompt_tokens": 1377,
+    "total_tokens": 1421,
+    "completion_tokens": 44
+   },
+   "ttfa_s": 0.7596268949999967,
+   "latency_s": 3.4454237140000714,
+   "text": "A robot practiced painting every day. It learned to mix colors and create beautiful art. Soon, people admired its work. The robot found joy in creating, proving that even machines can learn to express themselves through art.",
+   "audio_s": 18.32
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3485619759999281,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1409,
+    "completion_tokens": 35
+   },
+   "ttfa_s": 0.4869919799999707,
+   "latency_s": 2.7040071760000046,
+   "text": "TCP is connection-oriented and reliable, while UDP is connectionless and faster but less reliable. TCP ensures data delivery in order, whereas UDP does not guarantee delivery or order.",
+   "audio_s": 15.08
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.41983967399994526,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1396,
+    "completion_tokens": 25
+   },
+   "ttfa_s": 0.7336668750000399,
+   "latency_s": 1.6405972899999597,
+   "text": "Beat eggs with a splash of milk.  \nCook gently in a pan, stirring often.  \nServe hot with toast.",
+   "audio_s": 7.84
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.35041960800003835,
+   "usage": {
+    "prompt_tokens": 1372,
+    "total_tokens": 1396,
+    "completion_tokens": 24
+   },
+   "ttfa_s": 0.6560839429999987,
+   "latency_s": 1.5773380240000279,
+   "text": "Romeo and Juliet are young lovers from feuding families. Their secret marriage and tragic deaths end the feud.",
+   "audio_s": 7.68
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.381788580000034,
+   "usage": {
+    "prompt_tokens": 1374,
+    "total_tokens": 1402,
+    "completion_tokens": 28
+   },
+   "ttfa_s": 0.6727624900000819,
+   "latency_s": 1.9894022790000463,
+   "text": "Supervised learning uses labeled data to train models to predict outcomes. Unsupervised learning finds patterns in unlabeled data without predefined answers.",
+   "audio_s": 11.04
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.3641472670000212,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1405,
+    "completion_tokens": 34
+   },
+   "ttfa_s": 0.5986543239999946,
+   "latency_s": 2.102844911000034,
+   "text": "Water evaporates from oceans, lakes, and rivers, turning into clouds.  \nThese clouds move and release water as rain or snow, which falls back to Earth.",
+   "audio_s": 11.96
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.25640858899998875,
+   "usage": {
+    "prompt_tokens": 1370,
+    "total_tokens": 1393,
+    "completion_tokens": 23
+   },
+   "ttfa_s": 0.41110180400005447,
+   "latency_s": 1.5095421260000421,
+   "text": "The sky is blue because sunlight scatters in the atmosphere. Shorter blue wavelengths scatter more than other colors.",
+   "audio_s": 7.6
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.1212415280000414,
+   "usage": {
+    "prompt_tokens": 1369,
+    "total_tokens": 1377,
+    "completion_tokens": 8
+   },
+   "ttfa_s": 0.3884053040000026,
+   "latency_s": 0.7771341359999724,
+   "text": "Octopuses have three hearts.",
+   "audio_s": 2.96
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.22495982100008405,
+   "usage": {
+    "prompt_tokens": 1368,
+    "total_tokens": 1385,
+    "completion_tokens": 17
+   },
+   "ttfa_s": 0.433663296000077,
+   "latency_s": 1.0329859710000164,
+   "text": "Vaccines teach your immune system how to fight off a virus or bacteria.",
+   "audio_s": 5.6
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.26621764499998335,
+   "usage": {
+    "prompt_tokens": 1369,
+    "total_tokens": 1390,
+    "completion_tokens": 21
+   },
+   "ttfa_s": 0.4339903850000155,
+   "latency_s": 1.0320943090000583,
+   "text": "Pack hiking boots, water, snacks, a map, a first aid kit, and extra layers.",
+   "audio_s": 5.56
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.34091209199993955,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1399,
+    "completion_tokens": 26
+   },
+   "ttfa_s": 0.5361259039999595,
+   "latency_s": 1.0215786129999742,
+   "text": "Go to bed and wake up at the same time every day. This helps regulate your body's internal clock for better sleep.",
+   "audio_s": 7.4
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.2978852700000516,
+   "usage": {
+    "prompt_tokens": 1371,
+    "total_tokens": 1389,
+    "completion_tokens": 18
+   },
+   "ttfa_s": 0.4751217520000637,
+   "latency_s": 0.8633326320000378,
+   "text": "Mount Kilimanjaro is the tallest mountain in Africa. It is in Tanzania.",
+   "audio_s": 5.32
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.22186392599996907,
+   "usage": {
+    "prompt_tokens": 1373,
+    "total_tokens": 1392,
+    "completion_tokens": 19
+   },
+   "ttfa_s": 0.36431006700001944,
+   "latency_s": 0.8799994890000562,
+   "text": "Electrical wiring and plumbing. It conducts electricity and heat well and is resistant to corrosion.",
+   "audio_s": 7.16
+  }
+ ]
+}

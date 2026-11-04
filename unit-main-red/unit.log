@@ -1,0 +1,252 @@
+Running 603 items in this shard
+...FFF.................................................................. [ 11%]
+........................................................................ [ 23%]
+........................................................................ [ 35%]
+........................................................................ [ 47%]
+........................................................................ [ 59%]
+........................................................................ [ 71%]
+................FF...................................................... [ 83%]
+........................................................................ [ 95%]
+...........................                                              [100%]
+=================================== FAILURES ===================================
+_ test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1] _
+
+repeat = 1
+
+    @pytest.mark.parametrize("repeat", [1, 2], ids=["v1", "mrv2_both_channels"])
+    def test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt(repeat) -> None:
+        """Native KV reuse forwards only the uncached tail, fewer rows than the reply's position."""
+        prompt_ids, output_ids = list(range(100, 116)), [11, 12, 13]
+        # Tokens 0-14 hit; the last prompt token and the reply are forwarded.
+        steps = [[(115, 15)], [(11, 16)], [(12, 17)]]
+        forwarded = [row for step in steps for row in step * repeat]
+    
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, forwarded)], prompt=[{}])[0]["model_intermediate_buffer"]
+    
+>       assert info["ids"]["tts"] == [11, 12]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:119: KeyError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1]
+_ test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels] _
+
+repeat = 2
+
+    @pytest.mark.parametrize("repeat", [1, 2], ids=["v1", "mrv2_both_channels"])
+    def test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt(repeat) -> None:
+        """Native KV reuse forwards only the uncached tail, fewer rows than the reply's position."""
+        prompt_ids, output_ids = list(range(100, 116)), [11, 12, 13]
+        # Tokens 0-14 hit; the last prompt token and the reply are forwarded.
+        steps = [[(115, 15)], [(11, 16)], [(12, 17)]]
+        forwarded = [row for step in steps for row in step * repeat]
+    
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, forwarded)], prompt=[{}])[0]["model_intermediate_buffer"]
+    
+>       assert info["ids"]["tts"] == [11, 12]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:119: KeyError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels]
+________ test_plain_chat_handoff_without_reply_rows_hands_over_nothing _________
+
+    def test_plain_chat_handoff_without_reply_rows_hands_over_nothing() -> None:
+        """A Thinker that stopped at its first token has no row at or after the reply's position."""
+        prompt_ids, output_ids = [101, 102], [11]
+    
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, [(101, 0), (102, 1)] * 2)], prompt=[{}])[0][
+            "model_intermediate_buffer"
+        ]
+    
+>       assert info["ids"]["tts"] is None
+E       assert [] is None
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:132: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_without_reply_rows_hands_over_nothing
+_ TestDeployConfigLoading.test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2.yaml-cuda-True] _
+
+self = <tests.config.test_config_factory.TestDeployConfigLoading object at 0x2b8e580a1460>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b8e58b500e0>
+yaml_name = 'minicpmo_4_5_turn_mrv2.yaml', platform = 'cuda', enabled = True
+
+    @pytest.mark.parametrize(
+        ("yaml_name", "platform", "enabled"),
+        [
+            ("qwen3_omni_moe.yaml", "cuda", True),
+            *(("qwen3_omni_moe.yaml", platform, False) for platform in ("npu", "rocm", "xpu", "musa")),
+            ("qwen3_omni_moe_mrv2.yaml", "cuda", False),
+            ("qwen3_omni_duplex.yaml", "cuda", False),
+            ("qwen3_omni_duplex_mrv2.yaml", "cuda", False),
+            ("minicpmo_4_5_turn.yaml", "cuda", True),
+            *(("minicpmo_4_5_turn.yaml", platform, False) for platform in ("npu", "rocm", "xpu", "musa")),
+            ("minicpmo_4_5_turn_mrv2.yaml", "cuda", True),
+            ("minicpmo_4_5_turn_mrv2_h200.yaml", "cuda", True),
+            ("minicpmo_4_5.yaml", "cuda", False),
+            ("minicpmo_4_5_duplex_h200.yaml", "cuda", False),
+        ],
+    )
+    def test_thinker_prefix_cache_defaults(self, monkeypatch, yaml_name: str, platform: str, enabled: bool):
+        """Stage-0 prefix caching ships on only for the validated CUDA turn profiles.
+    
+        Checked on the final engine args: the stage value rides in
+        ``engine_extras`` and must keep winning over the pipeline-wide flag.
+        """
+        from vllm_omni import platforms
+    
+        # merge_pipeline_deploy runs its own override pass for the host platform;
+        # pin it so the row does not depend on the machine running the test.
+        monkeypatch.setattr(platforms.current_omni_platform, "device_name", platform)
+        deploy = _apply_platform_overrides(
+            load_deploy_config(Path(get_deploy_config_path(yaml_name))), platform=platform
+        )
+        # The Qwen3-Omni profiles carry no ``pipeline:`` key; serving resolves it from the model config.
+        pipeline = (
+            resolve_pipeline_config(deploy.pipeline)
+            if deploy.pipeline
+            else resolve_pipeline_config("qwen3_omni_moe", Q3_OMNI_ALL_STAGES_HF_CONFIG)
+        )
+        assert pipeline is not None
+        stage0 = next(stage for stage in merge_pipeline_deploy(pipeline, deploy) if stage.stage_id == 0)
+>       assert stage0.yaml_engine_args["enable_prefix_caching"] is enabled
+E       assert False is True
+
+tests/config/test_config_factory.py:2128: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2.yaml-cuda-True]
+_ TestDeployConfigLoading.test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2_h200.yaml-cuda-True] _
+
+self = <tests.config.test_config_factory.TestDeployConfigLoading object at 0x2b8e580a13a0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x2b8e58bb8080>
+yaml_name = 'minicpmo_4_5_turn_mrv2_h200.yaml', platform = 'cuda'
+enabled = True
+
+    @pytest.mark.parametrize(
+        ("yaml_name", "platform", "enabled"),
+        [
+            ("qwen3_omni_moe.yaml", "cuda", True),
+            *(("qwen3_omni_moe.yaml", platform, False) for platform in ("npu", "rocm", "xpu", "musa")),
+            ("qwen3_omni_moe_mrv2.yaml", "cuda", False),
+            ("qwen3_omni_duplex.yaml", "cuda", False),
+            ("qwen3_omni_duplex_mrv2.yaml", "cuda", False),
+            ("minicpmo_4_5_turn.yaml", "cuda", True),
+            *(("minicpmo_4_5_turn.yaml", platform, False) for platform in ("npu", "rocm", "xpu", "musa")),
+            ("minicpmo_4_5_turn_mrv2.yaml", "cuda", True),
+            ("minicpmo_4_5_turn_mrv2_h200.yaml", "cuda", True),
+            ("minicpmo_4_5.yaml", "cuda", False),
+            ("minicpmo_4_5_duplex_h200.yaml", "cuda", False),
+        ],
+    )
+    def test_thinker_prefix_cache_defaults(self, monkeypatch, yaml_name: str, platform: str, enabled: bool):
+        """Stage-0 prefix caching ships on only for the validated CUDA turn profiles.
+    
+        Checked on the final engine args: the stage value rides in
+        ``engine_extras`` and must keep winning over the pipeline-wide flag.
+        """
+        from vllm_omni import platforms
+    
+        # merge_pipeline_deploy runs its own override pass for the host platform;
+        # pin it so the row does not depend on the machine running the test.
+        monkeypatch.setattr(platforms.current_omni_platform, "device_name", platform)
+        deploy = _apply_platform_overrides(
+            load_deploy_config(Path(get_deploy_config_path(yaml_name))), platform=platform
+        )
+        # The Qwen3-Omni profiles carry no ``pipeline:`` key; serving resolves it from the model config.
+        pipeline = (
+            resolve_pipeline_config(deploy.pipeline)
+            if deploy.pipeline
+            else resolve_pipeline_config("qwen3_omni_moe", Q3_OMNI_ALL_STAGES_HF_CONFIG)
+        )
+        assert pipeline is not None
+        stage0 = next(stage for stage in merge_pipeline_deploy(pipeline, deploy) if stage.stage_id == 0)
+>       assert stage0.yaml_engine_args["enable_prefix_caching"] is enabled
+E       assert False is True
+
+tests/config/test_config_factory.py:2128: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2_h200.yaml-cuda-True]
+=============================== warnings summary ===============================
+../../usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: 14 warnings
+  /usr/local/lib/python3.12/dist-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py:3446
+  /usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py:3446: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    c_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/blackwell/moe_w4a16_kernel.py:2326
+  /usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/blackwell/moe_w4a16_kernel.py:2326: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    c_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/utils.py:29
+  /usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/utils.py:29: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    a_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/utils.py:31
+  /usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/utils.py:31: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    b_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/utils.py:34
+  /usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/utils.py:34: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    c_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/contiguous_grouped_gemm_finalize_fusion.py:903
+  /usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/contiguous_grouped_gemm_finalize_fusion.py:903: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    a_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/contiguous_grouped_gemm_finalize_fusion.py:905
+  /usr/local/lib/python3.12/dist-packages/flashinfer/fused_moe/cute_dsl/hopper/contiguous_grouped_gemm_finalize_fusion.py:905: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    b_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/grouped_gemm_masked_blackwell.py:427
+  /usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/grouped_gemm_masked_blackwell.py:427: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    epi_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/grouped_gemm_masked_blackwell.py:2391
+  /usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/grouped_gemm_masked_blackwell.py:2391: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    c_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/cute_dsl/low_latency_blockscaled_gemm.py:102
+  /usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/cute_dsl/low_latency_blockscaled_gemm.py:102: DeprecationWarning: cutlass.utils.smem_allocator.get_smem_capacity_in_bytes is deprecated; use cutlass.memory.get_smem_capacity_in_bytes instead. It will be removed in a future release.
+    _SMEM_CAPACITY_BYTES = cutlass.utils.get_smem_capacity_in_bytes("sm_100")
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/grouped_gemm_masked_rubin.py:215
+  /usr/local/lib/python3.12/dist-packages/flashinfer/gemm/kernels/grouped_gemm_masked_rubin.py:215: DeprecationWarning: cutlass.utils.LayoutEnum is deprecated; use cutlass.tensor_utils.LayoutEnum instead. It will be removed in a future release.
+    c_layout: utils.LayoutEnum,
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/blackwell/gated_delta_net_chunked.py:95
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/blackwell/gated_delta_net_chunked.py:95
+  /usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/blackwell/gated_delta_net_chunked.py:95: DeprecationWarning: cutlass.utils.TensorMapUpdateMode is deprecated; use cutlass.tensor_utils.TensorMapUpdateMode instead. It will be removed in a future release.
+    from cutlass.utils import TensorMapManager, TensorMapUpdateMode
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/delta_rule_dsl/collective_store_tma.py:6
+  /usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/delta_rule_dsl/collective_store_tma.py:6: DeprecationWarning: cutlass.utils.tensormap_manager.TensorMapUpdateMode is deprecated; use cutlass.tensor_utils.TensorMapUpdateMode instead. It will be removed in a future release.
+    from cutlass.utils.tensormap_manager import TensorMapManager, TensorMapUpdateMode
+
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/blackwell/gated_delta_net_cp_prefill.py:55
+../../usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/blackwell/gated_delta_net_cp_prefill.py:55
+  /usr/local/lib/python3.12/dist-packages/flashinfer/gdn_kernels/blackwell/gated_delta_net_cp_prefill.py:55: DeprecationWarning: cutlass.utils.TensorMapUpdateMode is deprecated; use cutlass.tensor_utils.TensorMapUpdateMode instead. It will be removed in a future release.
+    from cutlass.utils import TensorMapManager, TensorMapUpdateMode
+
+tests/config/test_config_factory.py::TestPipelineRegistration::test_lance_checkpoint_output_type[False-Lance-image]
+  /usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py:24: DeprecationWarning: `vllm.entrypoints.openai.api_server` is deprecated and will likely beunsupported in a future version. Use the corresponding function from `vllm.entrypoints.launchers` instead.
+    warnings.warn(
+
+tests/config/test_config_factory.py::TestPipelineRegistration::test_lance_checkpoint_output_type[False-Lance-image]
+  /opt/vllm-omni/vllm_omni/protocol/realtime/audio.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    from audioop import alaw2lin, lin2alaw, lin2ulaw, ulaw2lin
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1]
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels]
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_without_reply_rows_hands_over_nothing
+FAILED tests/config/test_config_factory.py::TestDeployConfigLoading::test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2.yaml-cuda-True]
+FAILED tests/config/test_config_factory.py::TestDeployConfigLoading::test_thinker_prefix_cache_defaults[minicpmo_4_5_turn_mrv2_h200.yaml-cuda-True]
+5 failed, 598 passed, 32 warnings in 27.56s
+
+--- stderr ---

@@ -1,0 +1,6 @@
+[v2-native-r0] vllm_omni.entrypoints.cli.main serve openbmb/MiniCPM-o-4_5 --omni --host 127.0.0.1 --port 8091 --deploy-config /usr/local/lib/python3.12/dist-packages/vllm_omni/deploy/_pc_v2-native.yaml --trust-remote-code --chat-template /usr/local/lib/python3.12/dist-packages/vllm_omni/transformers_utils/chat_templates/minicpmo45_native.jinja --chat-template-content-format openai
+[v2-native-r0] ready=True after 312s
+  warm done 318s {'host_used_gb': 16.56, 'host_rss_tree_gb': 24.43, 'gpu_mem_mib_util': '42554, 1'}
+  sys_c1: n=16 ok=16 audio=0 wall=0.4s ttft p50=None p90=None ttfa p50=None p90=None cached=[None, None] prompt=[None, None] errs=[]
+  long_c1: n=8 ok=8 audio=0 wall=0.1s ttft p50=None p90=None ttfa p50=None p90=None cached=[None, None] prompt=[None, None] errs=[]
+[v2-native-r0] done in 319s {'host_used_gb': 12.07, 'host_rss_tree_gb': 16.11, 'gpu_mem_mib_util': '10664, 0'}
