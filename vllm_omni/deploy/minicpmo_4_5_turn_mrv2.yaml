@@ -52,11 +52,14 @@ platforms:
         # Reserve enough KV for eight concurrent 4096-token Talker requests.
         kv_cache_memory_bytes: 2147483648
         # The base profile's multi-frame Talker decode is V1 only (see
-        # minicpmo_4_5_duplex_mrv2.yaml), and its async_scheduling: false
-        # belongs to that decode. This profile decodes one codec frame per
-        # step with asynchronous scheduling.
+        # minicpmo_4_5_duplex_mrv2.yaml), and so are its async_scheduling:
+        # false and its continue/stop id 1, an ordinary codec id to a
+        # one-frame Talker. This profile decodes one codec frame per step
+        # with asynchronous scheduling and stops on codec EOS.
         speculative_config: null
         async_scheduling: true
+        default_sampling_params:
+          stop_token_ids: []
   npu:
     model_runner: v1
   xpu:

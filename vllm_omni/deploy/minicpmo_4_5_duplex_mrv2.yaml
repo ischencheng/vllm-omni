@@ -23,6 +23,10 @@ platforms:
     stages:
       - stage_id: 1
         speculative_config: null
+        # The block's continue/stop id 1 is an ordinary codec id to a
+        # one-frame Talker; stop on codec EOS only.
+        default_sampling_params:
+          stop_token_ids: []
   npu:
     model_runner: v1
   xpu:

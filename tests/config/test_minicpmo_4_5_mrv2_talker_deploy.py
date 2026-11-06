@@ -12,7 +12,7 @@ from vllm_omni.config.stage_config import (
     load_deploy_config,
     merge_pipeline_deploy,
 )
-from vllm_omni.model_executor.models.minicpmo_4_5.pipeline import MINICPMO_4_5_PIPELINE
+from vllm_omni.model_executor.models.minicpmo_4_5.pipeline import _CODEC_EOS_TOKEN_ID, MINICPMO_4_5_PIPELINE
 from vllm_omni.platforms import current_omni_platform
 
 pytestmark = [pytest.mark.core_model, pytest.mark.cpu]
@@ -45,6 +45,8 @@ def test_mrv2_talker_profiles_drop_multi_frame_decode(monkeypatch, name: str) ->
         # The base CUDA profile's multi-frame decode block is V1 only; the
         # MRv2 Talker refuses to load with it.
         assert talker.yaml_engine_args.get("speculative_config") is None
+        # Its continue/stop id 1 is an ordinary codec id to a one-frame Talker.
+        assert talker.yaml_extras["default_sampling_params"]["stop_token_ids"] == [_CODEC_EOS_TOKEN_ID]
 
 
 @pytest.mark.parametrize("name", ["minicpmo_4_5_turn_mrv2.yaml", "minicpmo_4_5_turn_mrv2_h200.yaml"])
