@@ -51,6 +51,12 @@ platforms:
       - stage_id: 1
         # Reserve enough KV for eight concurrent 4096-token Talker requests.
         kv_cache_memory_bytes: 2147483648
+        # The base profile's multi-frame Talker decode is V1 only (see
+        # minicpmo_4_5_duplex_mrv2.yaml), and its async_scheduling: false
+        # belongs to that decode. This profile decodes one codec frame per
+        # step with asynchronous scheduling.
+        speculative_config: null
+        async_scheduling: true
   npu:
     model_runner: v1
   xpu:
