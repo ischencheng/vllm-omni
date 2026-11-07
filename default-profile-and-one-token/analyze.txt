@@ -1,0 +1,9 @@
+round 0: main-on, main-turn-ds, w1-on, w1-turn-ds
+arm            | text TTFT ms miss/hit | decode tok/s miss/hit | tok/verify miss/hit | TTFA ms miss/hit | audio s | cached tok hit | errors
+main-on        |    72 /    77     |  177.4 /  203.6      |     - /     -       |     - /     - | - | - | 0 err, 15 no audio
+main-turn-ds   | not ready: [0;36m(StageEngineCoreProc_stage0_replica0 pid=289)[0;0m [31mERROR[0m [90m11-07 05:04:59[0m [90m[stage_engine_core_proc.py:346][0m     raise OmniPrefixCacheUnmatchError(
+w1-on          |    83 /    83     |  178.2 /  201.9      |     - /     -       |   460 /   352 | 9.44 | - | 0 err, 0 no audio
+w1-turn-ds     |    66 /    39     |  304.0 /  380.6      |  2.34 /  2.96       |   290 /   203 | 9.64 | - | 0 err, 0 no audio
+
+tokens per verify by turn (text + audio workloads):
+turn |   w1-turn-ds

@@ -1,0 +1,407 @@
+[main-turn-ds-r0] tree=main cache=keep draft=ds
+[main-turn-ds-r0] ready=False after 189s
+  | [0;36m(StageEngineCoreProc_stage0_replica0 pid=289)[0;0m [31mERROR[0m [90m11-07 05:04:59[0m [90m[stage_engine_core_proc.py:346][0m     raise OmniPrefixCacheUnmatchError(
+  | [0;36m(StageEngineCoreProc_stage0_replica0 pid=289)[0;0m [31mERROR[0m [90m11-07 05:04:59[0m [90m[stage_engine_core_proc.py:346][0m vllm_omni.core.prefix_cache.interface.OmniPrefixCacheUnmatchError: omni prefix caching is not supported together with speculative decoding; disable enable_prefix_caching on this stage
+  |     raise OmniPrefixCacheUnmatchError(
+  | vllm_omni.core.prefix_cache.interface.OmniPrefixCacheUnmatchError: omni prefix caching is not supported together with speculative decoding; disable enable_prefix_caching on this stage
+  | [0;36m(APIServer pid=5)[0;0m [31mERROR[0m [90m11-07 05:05:03[0m [90m[stage_runtime.py:323][0m     raise RuntimeError(
+  | [0;36m(APIServer pid=5)[0;0m [31mERROR[0m [90m11-07 05:05:03[0m [90m[stage_runtime.py:323][0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+[w1-turn-ds-r0] tree=w1 cache=keep draft=ds
+[w1-turn-ds-r0] ready=True after 285s
+[w1-turn-ds-r0] edge miss_1tok: status=200 audio_s=None cached=None err=
+[w1-turn-ds-r0] edge seed: status=200 audio_s=6.72 cached=None err=
+[w1-turn-ds-r0] edge hit_1tok: status=200 audio_s=None cached=None err=
+[w1-turn-ds-r0] edge after: status=200 audio_s=6.56 cached=None err=
+[w1-turn-ds-r0] text: {"miss": {"n": 4, "ok": 4, "ttft_s": 0.066, "ttfa_s": null, "latency_s": 0.2114, "audio_s": null, "cached_tokens": null, "prompt_tokens": 1050.0, "completion_tokens": 35.75, "tokens_per_verify": 2.176, "noaudio": 0}, "hit": {"n": 20, "ok": 20, "ttft_s": 0.0392, "ttfa_s": null, "latency_s": 0.1146, "audio_s": null, "cached_tokens": null, "prompt_tokens": 1192.9, "completion_tokens": 25.2, "tokens_per_verify": 2.994, "noaudio": 0}}
+[w1-turn-ds-r0] conv_audio: {"miss": {"n": 3, "ok": 3, "ttft_s": 0.2066, "ttfa_s": 0.2897, "latency_s": 0.9832, "audio_s": 15.2933, "cached_tokens": null, "prompt_tokens": 1047.6667, "completion_tokens": 43.3333, "tokens_per_verify": 2.569, "noaudio": 0}, "hit": {"n": 12, "ok": 12, "ttft_s": 0.1214, "ttfa_s": 0.2034, "latency_s": 0.5552, "audio_s": 8.2267, "cached_tokens": null, "prompt_tokens": 1170.5, "completion_tokens": 27.0833, "tokens_per_verify": 2.905, "noaudio": 0}}
+[main-on-r0] tree=main cache=keep draft=off
+[main-on-r0] ready=True after 279s
+[main-on-r0] edge miss_1tok: status=200 audio_s=None cached=None err=
+[main-on-r0] edge seed: status=200 audio_s=None cached=None err=
+[main-on-r0] edge hit_1tok: status=200 audio_s=None cached=None err=
+[main-on-r0] edge after: status=200 audio_s=None cached=None err=
+[main-on-r0] text: {"miss": {"n": 4, "ok": 4, "ttft_s": 0.0719, "ttfa_s": null, "latency_s": 0.2862, "audio_s": null, "cached_tokens": null, "prompt_tokens": 1050.0, "completion_tokens": 35.75, "tokens_per_verify": null, "noaudio": 0}, "hit": {"n": 20, "ok": 20, "ttft_s": 0.0769, "ttfa_s": null, "latency_s": 0.2142, "audio_s": null, "cached_tokens": null, "prompt_tokens": 1192.9, "completion_tokens": 25.15, "tokens_per_verify": null, "noaudio": 0}}
+[main-on-r0] conv_audio: {"miss": {"n": 3, "ok": 3, "ttft_s": 0.3388, "ttfa_s": null, "latency_s": 0.3405, "audio_s": null, "cached_tokens": null, "prompt_tokens": null, "completion_tokens": null, "tokens_per_verify": null, "noaudio": 3}, "hit": {"n": 12, "ok": 12, "ttft_s": 0.2263, "ttfa_s": null, "latency_s": 0.228, "audio_s": null, "cached_tokens": null, "prompt_tokens": null, "completion_tokens": null, "tokens_per_verify": null, "noaudio": 12}}
+[w1-on-r0] tree=w1 cache=keep draft=off
+[w1-on-r0] ready=True after 231s
+[w1-on-r0] edge miss_1tok: status=200 audio_s=None cached=None err=
+[w1-on-r0] edge seed: status=200 audio_s=6.48 cached=None err=
+[w1-on-r0] edge hit_1tok: status=200 audio_s=None cached=None err=
+[w1-on-r0] edge after: status=200 audio_s=6.4 cached=None err=
+[w1-on-r0] text: {"miss": {"n": 4, "ok": 4, "ttft_s": 0.0832, "ttfa_s": null, "latency_s": 0.2953, "audio_s": null, "cached_tokens": null, "prompt_tokens": 1050.0, "completion_tokens": 35.75, "tokens_per_verify": null, "noaudio": 0}, "hit": {"n": 20, "ok": 20, "ttft_s": 0.0834, "ttfa_s": null, "latency_s": 0.2239, "audio_s": null, "cached_tokens": null, "prompt_tokens": 1192.9, "completion_tokens": 25.15, "tokens_per_verify": null, "noaudio": 0}}
+[w1-on-r0] conv_audio: {"miss": {"n": 3, "ok": 3, "ttft_s": 0.3474, "ttfa_s": 0.4605, "latency_s": 1.53, "audio_s": 15.3067, "cached_tokens": null, "prompt_tokens": 1047.6667, "completion_tokens": 43.3333, "tokens_per_verify": null, "noaudio": 0}, "hit": {"n": 12, "ok": 12, "ttft_s": 0.2371, "ttfa_s": 0.3521, "latency_s": 0.8781, "audio_s": 7.9767, "cached_tokens": null, "prompt_tokens": 1170.5, "completion_tokens": 27.0833, "tokens_per_verify": null, "noaudio": 0}}
+[
+ {
+  "arm": "main-turn-ds",
+  "tree": "main",
+  "cache": "keep",
+  "draft": "ds",
+  "profile": "turn",
+  "round": 0,
+  "ready": false,
+  "startup_s": 189,
+  "startup_errors": [
+   "\u001b[0;36m(StageEngineCoreProc_stage0_replica0 pid=289)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:04:59\u001b[0m \u001b[90m[stage_engine_core_proc.py:346]\u001b[0m     raise OmniPrefixCacheUnmatchError(",
+   "\u001b[0;36m(StageEngineCoreProc_stage0_replica0 pid=289)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:04:59\u001b[0m \u001b[90m[stage_engine_core_proc.py:346]\u001b[0m vllm_omni.core.prefix_cache.interface.OmniPrefixCacheUnmatchError: omni prefix caching is not supported together with speculative decoding; disable enable_prefix_caching on this stage",
+   "    raise OmniPrefixCacheUnmatchError(",
+   "vllm_omni.core.prefix_cache.interface.OmniPrefixCacheUnmatchError: omni prefix caching is not supported together with speculative decoding; disable enable_prefix_caching on this stage",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[stage_runtime.py:323]\u001b[0m     raise RuntimeError(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[stage_runtime.py:323]\u001b[0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     raise RuntimeError(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "    raise RuntimeError(",
+   "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "    raise RuntimeError(",
+   "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}"
+  ],
+  "error_tail": [
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_runtime.py\", line 1265, in _initialize_replica",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     return self._initialize_local_llm_replica(plan, stage_init_timeout)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_runtime.py\", line 1308, in _initialize_local_llm_replica",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     with self.launch_stage_engines(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/usr/lib/python3.12/contextlib.py\", line 137, in __enter__",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     return next(self.gen)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m            ^^^^^^^^^^^^^^",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_runtime.py\", line 482, in launch_stage_engines",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     launch_context.__exit__(None, None, None)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/usr/lib/python3.12/contextlib.py\", line 144, in __exit__",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     next(self.gen)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_engine_startup.py\", line 1244, in launch_stage_replica",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     wait_for_engine_startup_with_deadline(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_init_deadline.py\", line 70, in wait_for_engine_startup_with_deadline",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1473, in wait_for_engine_startup",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     raise RuntimeError(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:05:03\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "Exception in thread orchestrator:",
+   "Traceback (most recent call last):",
+   "    raise RuntimeError(",
+   "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "Traceback (most recent call last):",
+   "    raise RuntimeError(",
+   "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "The above exception was the direct cause of the following exception:",
+   "Traceback (most recent call last):",
+   "    raise self._exception",
+   "RuntimeError: Orchestrator initialization failed: Engine core initialization failed. See root cause above. Failed core proc(s): {}"
+  ]
+ },
+ {
+  "arm": "w1-turn-ds",
+  "tree": "w1",
+  "cache": "keep",
+  "draft": "ds",
+  "profile": "turn",
+  "round": 0,
+  "ready": true,
+  "startup_s": 285,
+  "vllm_omni_file": "/opt/trees/w1/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.066,
+    "ttfa_s": null,
+    "latency_s": 0.2114,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": 2.176,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0392,
+    "ttfa_s": null,
+    "latency_s": 0.1146,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.2,
+    "tokens_per_verify": 2.994,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.2066,
+    "ttfa_s": 0.2897,
+    "latency_s": 0.9832,
+    "audio_s": 15.2933,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": 2.569,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.1214,
+    "ttfa_s": 0.2034,
+    "latency_s": 0.5552,
+    "audio_s": 8.2267,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 27.0833,
+    "tokens_per_verify": 2.905,
+    "noaudio": 0
+   }
+  },
+  "metrics": [
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 58431.0",
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940281569907262e+09",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940281569907324e+09",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940281569907377e+09",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 43504.0",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940281569907525e+09",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.794028156990758e+09",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940281569907627e+09",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 0.0",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.794028156990778e+09",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.794028156990783e+09",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.794028156990788e+09",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 0.0",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940281569908016e+09",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940281569908066e+09",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940281569908113e+09"
+  ],
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ },
+ {
+  "arm": "main-on",
+  "tree": "main",
+  "cache": "keep",
+  "draft": "off",
+  "profile": "mrv2",
+  "round": 0,
+  "ready": true,
+  "startup_s": 279,
+  "vllm_omni_file": "/opt/trees/main/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0719,
+    "ttfa_s": null,
+    "latency_s": 0.2862,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0769,
+    "ttfa_s": null,
+    "latency_s": 0.2142,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.15,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.3388,
+    "ttfa_s": null,
+    "latency_s": 0.3405,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "tokens_per_verify": null,
+    "noaudio": 3
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.2263,
+    "ttfa_s": null,
+    "latency_s": 0.228,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "tokens_per_verify": null,
+    "noaudio": 12
+   }
+  },
+  "metrics": [
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 58431.0",
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940284879069e+09",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940284879069073e+09",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.794028487906913e+09",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 43504.0",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940284879069295e+09",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940284879069355e+09",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940284879069407e+09",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 0.0",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940284879069562e+09",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940284879069612e+09",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940284879069662e+09",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 0.0",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940284879069805e+09",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.794028487906986e+09",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940284879069912e+09"
+  ],
+  "error_tail": [
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m11-07 05:16:07\u001b[0m \u001b[90m[async_omni.py:413]\u001b[0m [AsyncOmni] Request chatcmpl-8ef97bc73bdcf930-a8386dcc failed (input error): Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:07\u001b[0m \u001b[90m[serving_chat.py:2511]\u001b[0m EngineDeadError during streaming for request chatcmpl-8ef97bc73bdcf930: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:07\u001b[0m \u001b[90m[orchestrator.py:1760]\u001b[0m [Orchestrator] req=chatcmpl-9da8ebeaf6046573-b969b0d3: stage-1 has no live replica; failing the request",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:07\u001b[0m \u001b[90m[async_omni_base.py:268]\u001b[0m [AsyncOmni] Orchestrator error for req=chatcmpl-9da8ebeaf6046573-b969b0d3 stage-1: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m11-07 05:16:07\u001b[0m \u001b[90m[async_omni.py:413]\u001b[0m [AsyncOmni] Request chatcmpl-9da8ebeaf6046573-b969b0d3 failed (input error): Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:07\u001b[0m \u001b[90m[serving_chat.py:2511]\u001b[0m EngineDeadError during streaming for request chatcmpl-9da8ebeaf6046573: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:08\u001b[0m \u001b[90m[orchestrator.py:1760]\u001b[0m [Orchestrator] req=chatcmpl-9486679bbf747e50-90e326cc: stage-1 has no live replica; failing the request",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:08\u001b[0m \u001b[90m[async_omni_base.py:268]\u001b[0m [AsyncOmni] Orchestrator error for req=chatcmpl-9486679bbf747e50-90e326cc stage-1: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m11-07 05:16:08\u001b[0m \u001b[90m[async_omni.py:413]\u001b[0m [AsyncOmni] Request chatcmpl-9486679bbf747e50-90e326cc failed (input error): Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:08\u001b[0m \u001b[90m[serving_chat.py:2511]\u001b[0m EngineDeadError during streaming for request chatcmpl-9486679bbf747e50: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:08\u001b[0m \u001b[90m[orchestrator.py:1760]\u001b[0m [Orchestrator] req=chatcmpl-8eb92841964c1f21-84bbe1cf: stage-1 has no live replica; failing the request",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:08\u001b[0m \u001b[90m[async_omni_base.py:268]\u001b[0m [AsyncOmni] Orchestrator error for req=chatcmpl-8eb92841964c1f21-84bbe1cf stage-1: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m11-07 05:16:08\u001b[0m \u001b[90m[async_omni.py:413]\u001b[0m [AsyncOmni] Request chatcmpl-8eb92841964c1f21-84bbe1cf failed (input error): Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:08\u001b[0m \u001b[90m[serving_chat.py:2511]\u001b[0m EngineDeadError during streaming for request chatcmpl-8eb92841964c1f21: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:09\u001b[0m \u001b[90m[orchestrator.py:1760]\u001b[0m [Orchestrator] req=chatcmpl-a8857105fae81d02-a45526fe: stage-1 has no live replica; failing the request",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:09\u001b[0m \u001b[90m[async_omni_base.py:268]\u001b[0m [AsyncOmni] Orchestrator error for req=chatcmpl-a8857105fae81d02-a45526fe stage-1: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m11-07 05:16:09\u001b[0m \u001b[90m[async_omni.py:413]\u001b[0m [AsyncOmni] Request chatcmpl-a8857105fae81d02-a45526fe failed (input error): Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:09\u001b[0m \u001b[90m[serving_chat.py:2511]\u001b[0m EngineDeadError during streaming for request chatcmpl-a8857105fae81d02: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:09\u001b[0m \u001b[90m[orchestrator.py:1760]\u001b[0m [Orchestrator] req=chatcmpl-9384a3b1237651d7-b51d3af1: stage-1 has no live replica; failing the request",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:09\u001b[0m \u001b[90m[async_omni_base.py:268]\u001b[0m [AsyncOmni] Orchestrator error for req=chatcmpl-9384a3b1237651d7-b51d3af1 stage-1: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m11-07 05:16:09\u001b[0m \u001b[90m[async_omni.py:413]\u001b[0m [AsyncOmni] Request chatcmpl-9384a3b1237651d7-b51d3af1 failed (input error): Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:09\u001b[0m \u001b[90m[serving_chat.py:2511]\u001b[0m EngineDeadError during streaming for request chatcmpl-9384a3b1237651d7: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:10\u001b[0m \u001b[90m[orchestrator.py:1760]\u001b[0m [Orchestrator] req=chatcmpl-943a55673a1ad120-9ee14167: stage-1 has no live replica; failing the request",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:10\u001b[0m \u001b[90m[async_omni_base.py:268]\u001b[0m [AsyncOmni] Orchestrator error for req=chatcmpl-943a55673a1ad120-9ee14167 stage-1: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m11-07 05:16:10\u001b[0m \u001b[90m[async_omni.py:413]\u001b[0m [AsyncOmni] Request chatcmpl-943a55673a1ad120-9ee14167 failed (input error): Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:10\u001b[0m \u001b[90m[serving_chat.py:2511]\u001b[0m EngineDeadError during streaming for request chatcmpl-943a55673a1ad120: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:10\u001b[0m \u001b[90m[orchestrator.py:1760]\u001b[0m [Orchestrator] req=chatcmpl-80bbb2c8fe984b15-a8774fe7: stage-1 has no live replica; failing the request",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:10\u001b[0m \u001b[90m[async_omni_base.py:268]\u001b[0m [AsyncOmni] Orchestrator error for req=chatcmpl-80bbb2c8fe984b15-a8774fe7 stage-1: Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[32mINFO\u001b[0m \u001b[90m11-07 05:16:10\u001b[0m \u001b[90m[async_omni.py:413]\u001b[0m [AsyncOmni] Request chatcmpl-80bbb2c8fe984b15-a8774fe7 failed (input error): Stage-1 has no live replica",
+   "\u001b[0;36m(APIServer pid=1542)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 05:16:10\u001b[0m \u001b[90m[serving_chat.py:2511]\u001b[0m EngineDeadError during streaming for request chatcmpl-80bbb2c8fe984b15: Stage-1 has no live replica"
+  ]
+ },
+ {
+  "arm": "w1-on",
+  "tree": "w1",
+  "cache": "keep",
+  "draft": "off",
+  "profile": "mrv2",
+  "round": 0,
+  "ready": true,
+  "startup_s": 231,
+  "vllm_omni_file": "/opt/trees/w1/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0832,
+    "ttfa_s": null,
+    "latency_s": 0.2953,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0834,
+    "ttfa_s": null,
+    "latency_s": 0.2239,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.15,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.3474,
+    "ttfa_s": 0.4605,
+    "latency_s": 1.53,
+    "audio_s": 15.3067,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.2371,
+    "ttfa_s": 0.3521,
+    "latency_s": 0.8781,
+    "audio_s": 7.9767,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 27.0833,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "metrics": [
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 58431.0",
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.794028769294671e+09",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940287692946784e+09",
+   "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940287692946842e+09",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 43504.0",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940287692947013e+09",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.794028769294707e+09",
+   "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.794028769294712e+09",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 0.0",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940287692947268e+09",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.794028769294732e+09",
+   "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940287692947373e+09",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 0.0",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+   "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940287692947512e+09",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940287692947564e+09",
+   "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940287692947614e+09"
+  ],
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ }
+]

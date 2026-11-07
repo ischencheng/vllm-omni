@@ -1,0 +1,609 @@
+[
+ {
+  "arm": "main-on-ds",
+  "tree": "main",
+  "cache": "on",
+  "draft": "ds",
+  "round": 0,
+  "ready": false,
+  "startup_s": 195,
+  "startup_errors": [
+   "\u001b[0;36m(StageEngineCoreProc_stage0_replica0 pid=289)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:10\u001b[0m \u001b[90m[stage_engine_core_proc.py:346]\u001b[0m     raise OmniPrefixCacheUnmatchError(",
+   "\u001b[0;36m(StageEngineCoreProc_stage0_replica0 pid=289)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:10\u001b[0m \u001b[90m[stage_engine_core_proc.py:346]\u001b[0m vllm_omni.core.prefix_cache.interface.OmniPrefixCacheUnmatchError: omni prefix caching is not supported together with speculative decoding; disable enable_prefix_caching on this stage",
+   "    raise OmniPrefixCacheUnmatchError(",
+   "vllm_omni.core.prefix_cache.interface.OmniPrefixCacheUnmatchError: omni prefix caching is not supported together with speculative decoding; disable enable_prefix_caching on this stage",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[stage_runtime.py:323]\u001b[0m     raise RuntimeError(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[stage_runtime.py:323]\u001b[0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     raise RuntimeError(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "    raise RuntimeError(",
+   "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "    raise RuntimeError(",
+   "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}"
+  ],
+  "error_tail": [
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_runtime.py\", line 1265, in _initialize_replica",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     return self._initialize_local_llm_replica(plan, stage_init_timeout)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_runtime.py\", line 1308, in _initialize_local_llm_replica",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     with self.launch_stage_engines(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/usr/lib/python3.12/contextlib.py\", line 137, in __enter__",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     return next(self.gen)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m            ^^^^^^^^^^^^^^",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_runtime.py\", line 482, in launch_stage_engines",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     launch_context.__exit__(None, None, None)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/usr/lib/python3.12/contextlib.py\", line 144, in __exit__",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     next(self.gen)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_engine_startup.py\", line 1244, in launch_stage_replica",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     wait_for_engine_startup_with_deadline(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/opt/trees/main/vllm_omni/engine/stage_init_deadline.py\", line 70, in wait_for_engine_startup_with_deadline",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     wait_for_engine_startup(handshake_socket, core_engines, parallel_config, coordinated_dp, cache_config, launch)",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m   File \"/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py\", line 1473, in wait_for_engine_startup",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m     raise RuntimeError(",
+   "\u001b[0;36m(APIServer pid=5)\u001b[0;0m \u001b[31mERROR\u001b[0m \u001b[90m11-07 04:21:14\u001b[0m \u001b[90m[omni_engine_base.py:513]\u001b[0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "Exception in thread orchestrator:",
+   "Traceback (most recent call last):",
+   "    raise RuntimeError(",
+   "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "Traceback (most recent call last):",
+   "    raise RuntimeError(",
+   "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+   "The above exception was the direct cause of the following exception:",
+   "Traceback (most recent call last):",
+   "    raise self._exception",
+   "RuntimeError: Orchestrator initialization failed: Engine core initialization failed. See root cause above. Failed core proc(s): {}"
+  ]
+ },
+ {
+  "arm": "main-on",
+  "tree": "main",
+  "cache": "on",
+  "draft": "off",
+  "round": 0,
+  "ready": true,
+  "startup_s": 261,
+  "vllm_omni_file": "/opt/trees/main/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0747,
+    "ttfa_s": null,
+    "latency_s": 0.2945,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0768,
+    "ttfa_s": null,
+    "latency_s": 0.2196,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.15,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.3472,
+    "ttfa_s": 0.461,
+    "latency_s": 1.5016,
+    "audio_s": 15.3067,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.2335,
+    "ttfa_s": 0.3442,
+    "latency_s": 0.8461,
+    "audio_s": 7.9767,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 27.0833,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ },
+ {
+  "arm": "main-off-ds",
+  "tree": "main",
+  "cache": "off",
+  "draft": "ds",
+  "round": 0,
+  "ready": true,
+  "startup_s": 219,
+  "vllm_omni_file": "/opt/trees/main/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0842,
+    "ttfa_s": null,
+    "latency_s": 0.2175,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": 2.176,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.096,
+    "ttfa_s": null,
+    "latency_s": 0.1486,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 22.85,
+    "tokens_per_verify": 2.727,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.2227,
+    "ttfa_s": 0.337,
+    "latency_s": 1.3585,
+    "audio_s": 15.48,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": 2.569,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.1509,
+    "ttfa_s": 0.2599,
+    "latency_s": 0.8023,
+    "audio_s": 8.75,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 28.25,
+    "tokens_per_verify": 2.95,
+    "noaudio": 0
+   }
+  },
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ },
+ {
+  "arm": "w1-on-ds",
+  "tree": "w1",
+  "cache": "on",
+  "draft": "ds",
+  "round": 0,
+  "ready": true,
+  "startup_s": 228,
+  "vllm_omni_file": "/opt/trees/w1/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0805,
+    "ttfa_s": null,
+    "latency_s": 0.2152,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": 2.176,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0463,
+    "ttfa_s": null,
+    "latency_s": 0.1205,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.2,
+    "tokens_per_verify": 2.994,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.213,
+    "ttfa_s": 0.3252,
+    "latency_s": 1.3725,
+    "audio_s": 15.48,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": 2.569,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.1187,
+    "ttfa_s": 0.2264,
+    "latency_s": 0.7186,
+    "audio_s": 7.9767,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 27.0833,
+    "tokens_per_verify": 2.905,
+    "noaudio": 0
+   }
+  },
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ },
+ {
+  "arm": "w1-on",
+  "tree": "w1",
+  "cache": "on",
+  "draft": "off",
+  "round": 0,
+  "ready": true,
+  "startup_s": 207,
+  "vllm_omni_file": "/opt/trees/w1/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0767,
+    "ttfa_s": null,
+    "latency_s": 0.2944,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0823,
+    "ttfa_s": null,
+    "latency_s": 0.2235,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.15,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.3509,
+    "ttfa_s": 0.4724,
+    "latency_s": 1.6013,
+    "audio_s": 15.3067,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.2428,
+    "ttfa_s": 0.3705,
+    "latency_s": 1.001,
+    "audio_s": 7.9767,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 27.0833,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ },
+ {
+  "arm": "w1-on",
+  "tree": "w1",
+  "cache": "on",
+  "draft": "off",
+  "round": 1,
+  "ready": true,
+  "startup_s": 204,
+  "vllm_omni_file": "/opt/trees/w1/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0771,
+    "ttfa_s": null,
+    "latency_s": 0.2958,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0805,
+    "ttfa_s": null,
+    "latency_s": 0.2224,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.15,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.3486,
+    "ttfa_s": 0.4618,
+    "latency_s": 1.507,
+    "audio_s": 15.3067,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.2423,
+    "ttfa_s": 0.3645,
+    "latency_s": 0.9485,
+    "audio_s": 7.9767,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 27.0833,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ },
+ {
+  "arm": "w1-on-ds",
+  "tree": "w1",
+  "cache": "on",
+  "draft": "ds",
+  "round": 1,
+  "ready": true,
+  "startup_s": 198,
+  "vllm_omni_file": "/opt/trees/w1/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0815,
+    "ttfa_s": null,
+    "latency_s": 0.214,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": 2.176,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0394,
+    "ttfa_s": null,
+    "latency_s": 0.1138,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.2,
+    "tokens_per_verify": 2.994,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.2127,
+    "ttfa_s": 0.3238,
+    "latency_s": 1.328,
+    "audio_s": 15.48,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": 2.569,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.1178,
+    "ttfa_s": 0.2238,
+    "latency_s": 0.7007,
+    "audio_s": 7.9767,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 27.0833,
+    "tokens_per_verify": 2.905,
+    "noaudio": 0
+   }
+  },
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ },
+ {
+  "arm": "main-off-ds",
+  "tree": "main",
+  "cache": "off",
+  "draft": "ds",
+  "round": 1,
+  "ready": true,
+  "startup_s": 213,
+  "vllm_omni_file": "/opt/trees/main/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.083,
+    "ttfa_s": null,
+    "latency_s": 0.213,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": 2.176,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0883,
+    "ttfa_s": null,
+    "latency_s": 0.141,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 22.85,
+    "tokens_per_verify": 2.727,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.2132,
+    "ttfa_s": 0.3301,
+    "latency_s": 1.3729,
+    "audio_s": 15.48,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": 2.569,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.1525,
+    "ttfa_s": 0.2632,
+    "latency_s": 0.8244,
+    "audio_s": 8.75,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 28.25,
+    "tokens_per_verify": 2.95,
+    "noaudio": 0
+   }
+  },
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ },
+ {
+  "arm": "main-on",
+  "tree": "main",
+  "cache": "on",
+  "draft": "off",
+  "round": 1,
+  "ready": true,
+  "startup_s": 198,
+  "vllm_omni_file": "/opt/trees/main/vllm_omni/__init__.py",
+  "text": {
+   "miss": {
+    "n": 4,
+    "ok": 4,
+    "ttft_s": 0.0848,
+    "ttfa_s": null,
+    "latency_s": 0.3003,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1050.0,
+    "completion_tokens": 35.75,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 20,
+    "ok": 20,
+    "ttft_s": 0.0835,
+    "ttfa_s": null,
+    "latency_s": 0.2262,
+    "audio_s": null,
+    "cached_tokens": null,
+    "prompt_tokens": 1192.9,
+    "completion_tokens": 25.15,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "conv_audio": {
+   "miss": {
+    "n": 3,
+    "ok": 3,
+    "ttft_s": 0.3508,
+    "ttfa_s": 0.473,
+    "latency_s": 1.5074,
+    "audio_s": 15.3067,
+    "cached_tokens": null,
+    "prompt_tokens": 1047.6667,
+    "completion_tokens": 43.3333,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   },
+   "hit": {
+    "n": 12,
+    "ok": 12,
+    "ttft_s": 0.234,
+    "ttfa_s": 0.3426,
+    "latency_s": 0.8501,
+    "audio_s": 7.9767,
+    "cached_tokens": null,
+    "prompt_tokens": 1170.5,
+    "completion_tokens": 27.0833,
+    "tokens_per_verify": null,
+    "noaudio": 0
+   }
+  },
+  "error_tail": [
+   "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+  ]
+ }
+]

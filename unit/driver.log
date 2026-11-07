@@ -1,0 +1,54 @@
++ head pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/head.xml tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py tests/model_executor/models/minicpmo_4_5 tests/model_executor/stage_input_processors tests/worker_v2/test_prefix_cache.py tests/core/test_prefix_cache.py tests/config/test_config_factory.py
+tests/model_executor/models/minicpmo_4_5/test_pipeline.py::TestArchAliases::test_shared_minicpmo_alias_present
+tests/model_executor/models/minicpmo_4_5/test_pipeline.py::TestHfConfigPredicate::test_accepts_4_5_string
+  /usr/local/lib/python3.12/dist-packages/_pytest/fixtures.py:1313: PytestRemovedIn10Warning: Class-scoped fixture defined as instance method is deprecated.
+  Instance attributes set in this fixture will NOT be visible to test methods,
+  as each test gets a new instance while the fixture runs only once per class.
+  Use @classmethod decorator and set attributes on cls instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#class-scoped-fixture-as-instance-method
+    fixturefunc = resolve_fixture_function(fixturedef, request)
+
+tests/model_executor/models/minicpmo_4_5/test_talker_batching.py::test_cpu_codec_transport_routes_owned_payloads[False-False]
+  /usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py:24: DeprecationWarning: `vllm.entrypoints.openai.api_server` is deprecated and will likely beunsupported in a future version. Use the corresponding function from `vllm.entrypoints.launchers` instead.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/model_executor/models/minicpmo_4_5/test_encoder_cuda_graph.py::test_cpu_and_grad_paths_remain_eager
+FAILED tests/model_executor/models/minicpmo_4_5/test_encoder_cuda_graph.py::test_invalid_admission_options[options0]
+FAILED tests/model_executor/models/minicpmo_4_5/test_encoder_cuda_graph.py::test_invalid_admission_options[options1]
+FAILED tests/model_executor/models/minicpmo_4_5/test_encoder_cuda_graph.py::test_invalid_admission_options[options2]
+FAILED tests/model_executor/models/minicpmo_4_5/test_encoder_cuda_graph.py::test_invalid_admission_options[options3]
+FAILED tests/model_executor/models/minicpmo_4_5/test_encoder_cuda_graph.py::test_invalid_admission_options[options4]
+FAILED tests/model_executor/models/minicpmo_4_5/test_speaker_cuda_graph.py::test_cpu_fallback_does_not_mutate_shared_model_or_config
+FAILED tests/model_executor/models/minicpmo_4_5/test_speaker_cuda_graph.py::test_facade_rejects_non_torch_speaker
+8 failed, 3334 passed, 33 skipped, 189 deselected, 26 warnings in 201.85s (0:03:21)
+head rc=1
++ main pytest -q -m cpu -p no:cacheprovider --junitxml=/work/out/main.xml tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, forwarded)], prompt=[{}])[0]["model_intermediate_buffer"]
+    
+>       assert info["ids"]["tts"] == [11, 12, 13]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:144: KeyError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it
+=============================== warnings summary ===============================
+vllm_omni/__init__.py:22
+  /opt/trees/main/vllm_omni/__init__.py:22: RuntimeWarning: Failed to import version from _version.py: No module named 'vllm_omni._version'
+  This typically happens in development mode before building.
+  Using fallback version 'dev'.
+    from .version import __version__, __version_tuple__  # isort:skip # noqa: F401
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_mrv2_thinker_with_a_draft_reuses_native_kv_instead_of_being_refused[draft]
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1]
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels]
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_without_reply_rows_is_an_empty_condition
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it
+5 failed, 75 passed, 1 warning in 8.26s
+main rc=1

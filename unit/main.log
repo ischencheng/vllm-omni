@@ -1,0 +1,119 @@
+Running 80 items in this shard
+......F.......................FFFF...................................... [ 90%]
+........                                                                 [100%]
+=================================== FAILURES ===================================
+_ test_mrv2_thinker_with_a_draft_reuses_native_kv_instead_of_being_refused[draft] _
+
+mocker = <pytest_mock.plugin.MockerFixture object at 0x2b0edec938f0>
+drafts = True
+
+    @pytest.mark.parametrize("drafts", [False, True], ids=["no_draft", "draft"])
+    def test_mrv2_thinker_with_a_draft_reuses_native_kv_instead_of_being_refused(mocker, drafts):
+        from vllm_omni.core.prefix_cache.group_view import stage_prefix_cache_config
+        from vllm_omni.core.prefix_cache.interface import OmniPrefixCacheUnmatchError
+    
+        speculative_config = SimpleNamespace(method="dspark", num_speculative_tokens=7) if drafts else None
+        model = _model(mocker, speculative_config=speculative_config)
+        runner = OmniGPUModelRunner.__new__(OmniGPUModelRunner)
+        runner._snapshot_prefix_cache_model_policy(model)
+>       assert model.supports_mrv2_prefix_cache_outputs is not drafts
+E       assert True is not True
+E        +  where True = MiniCPMO45OmniForConditionalGeneration(\n  (thinker): Module()\n  (model): Module()\n).supports_mrv2_prefix_cache_outputs
+
+tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py:86: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_mrv2_thinker_with_a_draft_reuses_native_kv_instead_of_being_refused[draft]
+_ test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1] _
+
+repeat = 1
+
+    @pytest.mark.parametrize("repeat", [1, 2], ids=["v1", "mrv2_both_channels"])
+    def test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt(repeat) -> None:
+        """Native KV reuse forwards only the uncached tail, fewer rows than the reply's position."""
+        prompt_ids, output_ids = list(range(100, 116)), [11, 12, 13]
+        # Tokens 0-14 hit; the last prompt token and the reply are forwarded.
+        steps = [[(115, 15)], [(11, 16)], [(12, 17)]]
+        forwarded = [row for step in steps for row in step * repeat]
+    
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, forwarded)], prompt=[{}])[0]["model_intermediate_buffer"]
+    
+>       assert info["ids"]["tts"] == [11, 12]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:119: KeyError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1]
+_ test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels] _
+
+repeat = 2
+
+    @pytest.mark.parametrize("repeat", [1, 2], ids=["v1", "mrv2_both_channels"])
+    def test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt(repeat) -> None:
+        """Native KV reuse forwards only the uncached tail, fewer rows than the reply's position."""
+        prompt_ids, output_ids = list(range(100, 116)), [11, 12, 13]
+        # Tokens 0-14 hit; the last prompt token and the reply are forwarded.
+        steps = [[(115, 15)], [(11, 16)], [(12, 17)]]
+        forwarded = [row for step in steps for row in step * repeat]
+    
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, forwarded)], prompt=[{}])[0]["model_intermediate_buffer"]
+    
+>       assert info["ids"]["tts"] == [11, 12]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:119: KeyError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels]
+_______ test_plain_chat_handoff_without_reply_rows_is_an_empty_condition _______
+
+    def test_plain_chat_handoff_without_reply_rows_is_an_empty_condition() -> None:
+        """A Thinker that stopped at its first token has no reply rows; the Talker finishes such a request."""
+        prompt_ids, output_ids = [101, 102], [11]
+    
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, [(101, 0), (102, 1)])], prompt=[{}])[0][
+            "model_intermediate_buffer"
+        ]
+    
+>       assert info["ids"]["tts"] == []
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:132: KeyError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_without_reply_rows_is_an_empty_condition
+__ test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it __
+
+    def test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it() -> None:
+        """A resumed request hits on its earlier reply tokens, so their rows come from before the preemption."""
+        prompt_ids, output_ids = list(range(100, 116)), [11, 12, 13, 14]
+        # Forwarded up to token 13, preempted, then resumed from a hit that ends after token 11.
+        forwarded = [(115, 15), (11, 16), (12, 17), (13, 18), (12, 17), (13, 18)]
+    
+        info = llm2tts([_ledger_output(prompt_ids, output_ids, forwarded)], prompt=[{}])[0]["model_intermediate_buffer"]
+    
+>       assert info["ids"]["tts"] == [11, 12, 13]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tts'
+
+tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py:144: KeyError
+---------------------------- Captured stdout setup -----------------------------
+--- Running test: test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it
+=============================== warnings summary ===============================
+vllm_omni/__init__.py:22
+  /opt/trees/main/vllm_omni/__init__.py:22: RuntimeWarning: Failed to import version from _version.py: No module named 'vllm_omni._version'
+  This typically happens in development mode before building.
+  Using fallback version 'dev'.
+    from .version import __version__, __version_tuple__  # isort:skip # noqa: F401
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--- Running Summary
+=========================== short test summary info ============================
+FAILED tests/model_executor/models/minicpmo_4_5/test_thinker_mrv2.py::test_mrv2_thinker_with_a_draft_reuses_native_kv_instead_of_being_refused[draft]
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[v1]
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_prefix_hit_has_no_rows_for_the_cached_prompt[mrv2_both_channels]
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_without_reply_rows_is_an_empty_condition
+FAILED tests/model_executor/stage_input_processors/test_minicpmo_4_5_omni.py::test_plain_chat_handoff_after_a_preemption_keeps_reply_rows_from_before_it
+5 failed, 75 passed, 1 warning in 8.26s
+
+--- stderr ---

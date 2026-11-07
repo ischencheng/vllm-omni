@@ -1,0 +1,1163 @@
+{
+ "arm": "w1-turn-ds",
+ "tree": "w1",
+ "cache": "keep",
+ "draft": "ds",
+ "profile": "turn",
+ "round": 0,
+ "ready": true,
+ "startup_s": 285,
+ "vllm_omni_file": "/opt/trees/w1/vllm_omni/__init__.py",
+ "text": {
+  "miss": {
+   "n": 4,
+   "ok": 4,
+   "ttft_s": 0.066,
+   "ttfa_s": null,
+   "latency_s": 0.2114,
+   "audio_s": null,
+   "cached_tokens": null,
+   "prompt_tokens": 1050.0,
+   "completion_tokens": 35.75,
+   "tokens_per_verify": 2.176,
+   "noaudio": 0
+  },
+  "hit": {
+   "n": 20,
+   "ok": 20,
+   "ttft_s": 0.0392,
+   "ttfa_s": null,
+   "latency_s": 0.1146,
+   "audio_s": null,
+   "cached_tokens": null,
+   "prompt_tokens": 1192.9,
+   "completion_tokens": 25.2,
+   "tokens_per_verify": 2.994,
+   "noaudio": 0
+  }
+ },
+ "conv_audio": {
+  "miss": {
+   "n": 3,
+   "ok": 3,
+   "ttft_s": 0.2066,
+   "ttfa_s": 0.2897,
+   "latency_s": 0.9832,
+   "audio_s": 15.2933,
+   "cached_tokens": null,
+   "prompt_tokens": 1047.6667,
+   "completion_tokens": 43.3333,
+   "tokens_per_verify": 2.569,
+   "noaudio": 0
+  },
+  "hit": {
+   "n": 12,
+   "ok": 12,
+   "ttft_s": 0.1214,
+   "ttfa_s": 0.2034,
+   "latency_s": 0.5552,
+   "audio_s": 8.2267,
+   "cached_tokens": null,
+   "prompt_tokens": 1170.5,
+   "completion_tokens": 27.0833,
+   "tokens_per_verify": 2.905,
+   "noaudio": 0
+  }
+ },
+ "rows": [
+  {
+   "status": 200,
+   "ttft_s": 0.0555382250000207,
+   "usage": {
+    "prompt_tokens": 1047,
+    "total_tokens": 1048,
+    "completion_tokens": 1
+   },
+   "latency_s": 0.07057742099999587,
+   "text": "A",
+   "text_chunks": 1,
+   "workload": "edge",
+   "label": "miss_1tok"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.11766429400000789,
+   "usage": {
+    "prompt_tokens": 1044,
+    "total_tokens": 1065,
+    "completion_tokens": 21
+   },
+   "ttfa_s": 0.20027697099999386,
+   "latency_s": 0.4732908770000108,
+   "text": "The capital of China is Beijing. The Great Wall, the Forbidden City, and the Summer Palace.",
+   "text_chunks": 1,
+   "audio_s": 6.72,
+   "workload": "edge",
+   "label": "seed"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.028942848999975013,
+   "usage": {
+    "prompt_tokens": 1098,
+    "total_tokens": 1099,
+    "completion_tokens": 1
+   },
+   "latency_s": 0.042140142999983254,
+   "text": "A",
+   "text_chunks": 1,
+   "workload": "edge",
+   "label": "hit_1tok"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.24430656000004092,
+   "usage": {
+    "prompt_tokens": 1145,
+    "total_tokens": 1164,
+    "completion_tokens": 19
+   },
+   "ttfa_s": 0.324162508000029,
+   "latency_s": 0.591828195000005,
+   "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+   "text_chunks": 1,
+   "audio_s": 6.56,
+   "workload": "edge",
+   "label": "after"
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.060440899000013815,
+   "usage": {
+    "prompt_tokens": 1052,
+    "total_tokens": 1073,
+    "completion_tokens": 21
+   },
+   "latency_s": 0.11154815100002224,
+   "text": "The capital of China is Beijing. The Great Wall, the Forbidden City, and the Summer Palace.",
+   "text_chunks": 6,
+   "text_span_s": 0.0397667070000125,
+   "workload": "text",
+   "conversation": 0,
+   "turn": 0,
+   "verify_steps": 7,
+   "verify_tokens": 22,
+   "steps": 8,
+   "cached_tokens": null,
+   "prompt_tokens": 1052,
+   "completion_tokens": 21,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03748314400002073,
+   "usage": {
+    "prompt_tokens": 1106,
+    "total_tokens": 1145,
+    "completion_tokens": 39
+   },
+   "latency_s": 0.17795318600002474,
+   "text": "A hash map uses collision resolution techniques like chaining or open addressing to handle collisions. Chaining stores multiple entries in a linked list at the same index, while open addressing finds another open slot.",
+   "text_chunks": 15,
+   "text_span_s": 0.12985037499998953,
+   "workload": "text",
+   "conversation": 0,
+   "turn": 1,
+   "verify_steps": 16,
+   "verify_tokens": 40,
+   "steps": 17,
+   "cached_tokens": null,
+   "prompt_tokens": 1106,
+   "completion_tokens": 39,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03821992600001067,
+   "usage": {
+    "prompt_tokens": 1153,
+    "total_tokens": 1172,
+    "completion_tokens": 19
+   },
+   "latency_s": 0.0924680830000284,
+   "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+   "text_chunks": 7,
+   "text_span_s": 0.0538905399999976,
+   "workload": "text",
+   "conversation": 0,
+   "turn": 2,
+   "verify_steps": 7,
+   "verify_tokens": 21,
+   "steps": 8,
+   "cached_tokens": null,
+   "prompt_tokens": 1153,
+   "completion_tokens": 19,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03784304999999222,
+   "usage": {
+    "prompt_tokens": 1207,
+    "total_tokens": 1234,
+    "completion_tokens": 27
+   },
+   "latency_s": 0.10431410699999333,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 8,
+   "text_span_s": 0.06619402699999455,
+   "workload": "text",
+   "conversation": 0,
+   "turn": 3,
+   "verify_steps": 8,
+   "verify_tokens": 29,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1207,
+   "completion_tokens": 27,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.039069917999995596,
+   "usage": {
+    "prompt_tokens": 1257,
+    "total_tokens": 1281,
+    "completion_tokens": 24
+   },
+   "latency_s": 0.162376681000012,
+   "text": "Let me think. I would say the first step is to understand the basics, then add a real world example.",
+   "text_chunks": 13,
+   "text_span_s": 0.11270297400000118,
+   "workload": "text",
+   "conversation": 0,
+   "turn": 4,
+   "verify_steps": 14,
+   "verify_tokens": 26,
+   "steps": 15,
+   "cached_tokens": null,
+   "prompt_tokens": 1257,
+   "completion_tokens": 24,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.041578972000024805,
+   "usage": {
+    "prompt_tokens": 1302,
+    "total_tokens": 1326,
+    "completion_tokens": 24
+   },
+   "latency_s": 0.08897648700002492,
+   "text": "Got it. The basic idea is to start with the known facts, then add one new piece at a time.",
+   "text_chunks": 6,
+   "text_span_s": 0.04708432000001039,
+   "workload": "text",
+   "conversation": 0,
+   "turn": 5,
+   "verify_steps": 6,
+   "verify_tokens": 26,
+   "steps": 7,
+   "cached_tokens": null,
+   "prompt_tokens": 1302,
+   "completion_tokens": 24,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.08014944500001775,
+   "usage": {
+    "prompt_tokens": 1063,
+    "total_tokens": 1129,
+    "completion_tokens": 66
+   },
+   "latency_s": 0.38661142800003745,
+   "text": "The robot learned to paint. It used a brush to make marks on a canvas. It mixed colors. It made patterns. It learned to create art. The robot found joy in painting. It painted every day. It became a talented artist. The robot's art brought happiness to others. It learned that creativity is beautiful.",
+   "text_chunks": 34,
+   "text_span_s": 0.30611318400002574,
+   "workload": "text",
+   "conversation": 1,
+   "turn": 0,
+   "verify_steps": 34,
+   "verify_tokens": 68,
+   "steps": 35,
+   "cached_tokens": null,
+   "prompt_tokens": 1063,
+   "completion_tokens": 66,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03835547599999245,
+   "usage": {
+    "prompt_tokens": 1112,
+    "total_tokens": 1150,
+    "completion_tokens": 38
+   },
+   "latency_s": 0.16092437699995799,
+   "text": "TCP is connection-oriented, ensuring reliable data transfer, while UDP is connectionless, offering faster but less reliable communication. TCP guarantees delivery and order, whereas UDP prioritizes speed over reliability.",
+   "text_chunks": 14,
+   "text_span_s": 0.12220280299999331,
+   "workload": "text",
+   "conversation": 1,
+   "turn": 1,
+   "verify_steps": 14,
+   "verify_tokens": 39,
+   "steps": 15,
+   "cached_tokens": null,
+   "prompt_tokens": 1112,
+   "completion_tokens": 38,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03888224400003537,
+   "usage": {
+    "prompt_tokens": 1160,
+    "total_tokens": 1187,
+    "completion_tokens": 27
+   },
+   "latency_s": 0.10475053499999376,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 8,
+   "text_span_s": 0.06554440499996872,
+   "workload": "text",
+   "conversation": 1,
+   "turn": 2,
+   "verify_steps": 8,
+   "verify_tokens": 27,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1160,
+   "completion_tokens": 27,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.037734868000029564,
+   "usage": {
+    "prompt_tokens": 1208,
+    "total_tokens": 1237,
+    "completion_tokens": 29
+   },
+   "latency_s": 0.12283435099999451,
+   "text": "Okay, here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 10,
+   "text_span_s": 0.08475327499996865,
+   "workload": "text",
+   "conversation": 1,
+   "turn": 3,
+   "verify_steps": 10,
+   "verify_tokens": 30,
+   "steps": 11,
+   "cached_tokens": null,
+   "prompt_tokens": 1208,
+   "completion_tokens": 29,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.039147742000011476,
+   "usage": {
+    "prompt_tokens": 1256,
+    "total_tokens": 1283,
+    "completion_tokens": 27
+   },
+   "latency_s": 0.10526724600003945,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 8,
+   "text_span_s": 0.06578512300001194,
+   "workload": "text",
+   "conversation": 1,
+   "turn": 4,
+   "verify_steps": 8,
+   "verify_tokens": 28,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1256,
+   "completion_tokens": 27,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.0438793550000014,
+   "usage": {
+    "prompt_tokens": 1300,
+    "total_tokens": 1323,
+    "completion_tokens": 23
+   },
+   "latency_s": 0.14271955200001685,
+   "text": "Okay, here is a quick version. I will focus on the most important points and leave out the rest.",
+   "text_chunks": 11,
+   "text_span_s": 0.09847272600001133,
+   "workload": "text",
+   "conversation": 1,
+   "turn": 5,
+   "verify_steps": 11,
+   "verify_tokens": 24,
+   "steps": 12,
+   "cached_tokens": null,
+   "prompt_tokens": 1300,
+   "completion_tokens": 23,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.06232096100001172,
+   "usage": {
+    "prompt_tokens": 1050,
+    "total_tokens": 1085,
+    "completion_tokens": 35
+   },
+   "latency_s": 0.17905315900003416,
+   "text": "Romeo and Juliet is a tragic love story about two young lovers from feuding families in Verona. Their secret marriage and eventual deaths bring peace to their families.",
+   "text_chunks": 14,
+   "text_span_s": 0.11637213300002713,
+   "workload": "text",
+   "conversation": 2,
+   "turn": 0,
+   "verify_steps": 14,
+   "verify_tokens": 36,
+   "steps": 15,
+   "cached_tokens": null,
+   "prompt_tokens": 1050,
+   "completion_tokens": 35,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03898099700001012,
+   "usage": {
+    "prompt_tokens": 1101,
+    "total_tokens": 1128,
+    "completion_tokens": 27
+   },
+   "latency_s": 0.07742412499999318,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 5,
+   "text_span_s": 0.038104267999983676,
+   "workload": "text",
+   "conversation": 2,
+   "turn": 1,
+   "verify_steps": 5,
+   "verify_tokens": 29,
+   "steps": 6,
+   "cached_tokens": null,
+   "prompt_tokens": 1101,
+   "completion_tokens": 27,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03743367799995667,
+   "usage": {
+    "prompt_tokens": 1148,
+    "total_tokens": 1175,
+    "completion_tokens": 27
+   },
+   "latency_s": 0.09393577499997718,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 7,
+   "text_span_s": 0.056192535000036514,
+   "workload": "text",
+   "conversation": 2,
+   "turn": 2,
+   "verify_steps": 7,
+   "verify_tokens": 29,
+   "steps": 8,
+   "cached_tokens": null,
+   "prompt_tokens": 1148,
+   "completion_tokens": 27,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.041275777999999264,
+   "usage": {
+    "prompt_tokens": 1192,
+    "total_tokens": 1216,
+    "completion_tokens": 24
+   },
+   "latency_s": 0.08881229100001065,
+   "text": "In short, yes. There are a few exceptions, but for everyday use you can rely on the common rule.",
+   "text_chunks": 6,
+   "text_span_s": 0.047107380999989346,
+   "workload": "text",
+   "conversation": 2,
+   "turn": 3,
+   "verify_steps": 6,
+   "verify_tokens": 25,
+   "steps": 7,
+   "cached_tokens": null,
+   "prompt_tokens": 1192,
+   "completion_tokens": 24,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03726904199999126,
+   "usage": {
+    "prompt_tokens": 1234,
+    "total_tokens": 1261,
+    "completion_tokens": 27
+   },
+   "latency_s": 0.09363363300002447,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 7,
+   "text_span_s": 0.05606194300003153,
+   "workload": "text",
+   "conversation": 2,
+   "turn": 4,
+   "verify_steps": 7,
+   "verify_tokens": 28,
+   "steps": 8,
+   "cached_tokens": null,
+   "prompt_tokens": 1234,
+   "completion_tokens": 27,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03897412499998154,
+   "usage": {
+    "prompt_tokens": 1280,
+    "total_tokens": 1298,
+    "completion_tokens": 18
+   },
+   "latency_s": 0.15230685500000618,
+   "text": "Yes, that's the main idea. The rest is just details that support it.",
+   "text_chunks": 12,
+   "text_span_s": 0.11302775900003326,
+   "workload": "text",
+   "conversation": 2,
+   "turn": 5,
+   "verify_steps": 12,
+   "verify_tokens": 20,
+   "steps": 13,
+   "cached_tokens": null,
+   "prompt_tokens": 1280,
+   "completion_tokens": 18,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.061243453999964004,
+   "usage": {
+    "prompt_tokens": 1035,
+    "total_tokens": 1056,
+    "completion_tokens": 21
+   },
+   "latency_s": 0.1683384769999634,
+   "text": "The sky appears blue because of Rayleigh scattering. Shorter blue wavelengths scatter more in all directions.",
+   "text_chunks": 12,
+   "text_span_s": 0.0959209009999995,
+   "workload": "text",
+   "conversation": 3,
+   "turn": 0,
+   "verify_steps": 13,
+   "verify_tokens": 22,
+   "steps": 14,
+   "cached_tokens": null,
+   "prompt_tokens": 1035,
+   "completion_tokens": 21,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.04206915999998273,
+   "usage": {
+    "prompt_tokens": 1080,
+    "total_tokens": 1088,
+    "completion_tokens": 8
+   },
+   "latency_s": 0.06301653200000601,
+   "text": "Octopuses have three hearts.",
+   "text_chunks": 2,
+   "text_span_s": 0.009037930000033612,
+   "workload": "text",
+   "conversation": 3,
+   "turn": 1,
+   "verify_steps": 3,
+   "verify_tokens": 10,
+   "steps": 4,
+   "cached_tokens": null,
+   "prompt_tokens": 1080,
+   "completion_tokens": 8,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03904510699999264,
+   "usage": {
+    "prompt_tokens": 1122,
+    "total_tokens": 1146,
+    "completion_tokens": 24
+   },
+   "latency_s": 0.10534125800000993,
+   "text": "I would put it this way: start with what you already know, then add one new piece at a time.",
+   "text_chunks": 8,
+   "text_span_s": 0.06599968699998726,
+   "workload": "text",
+   "conversation": 3,
+   "turn": 2,
+   "verify_steps": 8,
+   "verify_tokens": 25,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1122,
+   "completion_tokens": 24,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03617771699998684,
+   "usage": {
+    "prompt_tokens": 1164,
+    "total_tokens": 1183,
+    "completion_tokens": 19
+   },
+   "latency_s": 0.12087339400000019,
+   "text": "I would say that the first one is the most important, and the others are secondary.",
+   "text_chunks": 10,
+   "text_span_s": 0.08434578399999282,
+   "workload": "text",
+   "conversation": 3,
+   "turn": 3,
+   "verify_steps": 10,
+   "verify_tokens": 21,
+   "steps": 11,
+   "cached_tokens": null,
+   "prompt_tokens": 1164,
+   "completion_tokens": 19,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.042215354000006755,
+   "usage": {
+    "prompt_tokens": 1215,
+    "total_tokens": 1246,
+    "completion_tokens": 31
+   },
+   "latency_s": 0.11923249700004135,
+   "text": "I can do that. The short answer is that it depends on the details, but the usual case is simple and I can walk you through it.",
+   "text_chunks": 9,
+   "text_span_s": 0.07661268399999699,
+   "workload": "text",
+   "conversation": 3,
+   "turn": 4,
+   "verify_steps": 9,
+   "verify_tokens": 33,
+   "steps": 10,
+   "cached_tokens": null,
+   "prompt_tokens": 1215,
+   "completion_tokens": 31,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.03773939999996401,
+   "usage": {
+    "prompt_tokens": 1261,
+    "total_tokens": 1283,
+    "completion_tokens": 22
+   },
+   "latency_s": 0.11411536899998964,
+   "text": "I can do that. The key point is the first one, and the rest mostly follows from it.",
+   "text_chunks": 9,
+   "text_span_s": 0.07601560900002369,
+   "workload": "text",
+   "conversation": 3,
+   "turn": 5,
+   "verify_steps": 9,
+   "verify_tokens": 23,
+   "steps": 10,
+   "cached_tokens": null,
+   "prompt_tokens": 1261,
+   "completion_tokens": 22,
+   "modalities": [
+    "text"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.10281221299999288,
+   "usage": {
+    "prompt_tokens": 1045,
+    "total_tokens": 1072,
+    "completion_tokens": 27
+   },
+   "ttfa_s": 0.18388659999993706,
+   "latency_s": 0.5670490389999259,
+   "text": "The capital of China is Beijing. Three famous places there are the Great Wall, the Forbidden City, and the Temple of Heaven.",
+   "text_chunks": 1,
+   "audio_s": 8.96,
+   "workload": "conv_audio",
+   "conversation": 0,
+   "turn": 0,
+   "verify_steps": 6,
+   "verify_tokens": 27,
+   "steps": 7,
+   "cached_tokens": null,
+   "prompt_tokens": 1045,
+   "completion_tokens": 27,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.14720213199996124,
+   "usage": {
+    "prompt_tokens": 1099,
+    "total_tokens": 1127,
+    "completion_tokens": 28
+   },
+   "ttfa_s": 0.2283141649999152,
+   "latency_s": 0.6716280139999071,
+   "text": "A hash map uses a collision resolution strategy, like chaining or open addressing, to handle collisions when two keys hash to the same index.",
+   "text_chunks": 1,
+   "audio_s": 10.12,
+   "workload": "conv_audio",
+   "conversation": 0,
+   "turn": 1,
+   "verify_steps": 12,
+   "verify_tokens": 29,
+   "steps": 13,
+   "cached_tokens": null,
+   "prompt_tokens": 1099,
+   "completion_tokens": 28,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.1001500140000644,
+   "usage": {
+    "prompt_tokens": 1146,
+    "total_tokens": 1165,
+    "completion_tokens": 19
+   },
+   "ttfa_s": 0.18266696400007731,
+   "latency_s": 0.48747368199997254,
+   "text": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.",
+   "text_chunks": 1,
+   "audio_s": 7.2,
+   "workload": "conv_audio",
+   "conversation": 0,
+   "turn": 2,
+   "verify_steps": 7,
+   "verify_tokens": 20,
+   "steps": 8,
+   "cached_tokens": null,
+   "prompt_tokens": 1146,
+   "completion_tokens": 19,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.11424533300009898,
+   "usage": {
+    "prompt_tokens": 1200,
+    "total_tokens": 1229,
+    "completion_tokens": 29
+   },
+   "ttfa_s": 0.1974874660000978,
+   "latency_s": 0.542636162000008,
+   "text": "Sure, here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 1,
+   "audio_s": 7.84,
+   "workload": "conv_audio",
+   "conversation": 0,
+   "turn": 3,
+   "verify_steps": 9,
+   "verify_tokens": 31,
+   "steps": 10,
+   "cached_tokens": null,
+   "prompt_tokens": 1200,
+   "completion_tokens": 29,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.18730259899996327,
+   "usage": {
+    "prompt_tokens": 1250,
+    "total_tokens": 1281,
+    "completion_tokens": 31
+   },
+   "ttfa_s": 0.2677002090000542,
+   "latency_s": 0.6191019870000218,
+   "text": "Got it. I would say the first step is to look at the basic facts, then add a few examples, and then give a quick tip.",
+   "text_chunks": 1,
+   "audio_s": 8.2,
+   "workload": "conv_audio",
+   "conversation": 0,
+   "turn": 4,
+   "verify_steps": 17,
+   "verify_tokens": 31,
+   "steps": 18,
+   "cached_tokens": null,
+   "prompt_tokens": 1250,
+   "completion_tokens": 31,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.321118040999977,
+   "usage": {
+    "prompt_tokens": 1046,
+    "total_tokens": 1110,
+    "completion_tokens": 64
+   },
+   "ttfa_s": 0.4068395580000015,
+   "latency_s": 1.5303902499999822,
+   "text": "A robot named REX learned to paint. It mixed colors, made marks, and created art. REX discovered joy in creativity. It painted every day, turning metal into beauty. REX realized art was not just code, but a way to express itself. It became a master painter, surprising everyone. REX",
+   "text_chunks": 1,
+   "audio_s": 24.24,
+   "workload": "conv_audio",
+   "conversation": 1,
+   "turn": 0,
+   "verify_steps": 29,
+   "verify_tokens": 64,
+   "steps": 30,
+   "cached_tokens": null,
+   "prompt_tokens": 1046,
+   "completion_tokens": 64,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.13176032499995927,
+   "usage": {
+    "prompt_tokens": 1095,
+    "total_tokens": 1116,
+    "completion_tokens": 21
+   },
+   "ttfa_s": 0.20981736299995646,
+   "latency_s": 0.6114596170000368,
+   "text": "TCP is connection oriented and guarantees delivery. UDP is connectionless and faster but does not guarantee delivery.",
+   "text_chunks": 1,
+   "audio_s": 9.32,
+   "workload": "conv_audio",
+   "conversation": 1,
+   "turn": 1,
+   "verify_steps": 11,
+   "verify_tokens": 23,
+   "steps": 12,
+   "cached_tokens": null,
+   "prompt_tokens": 1095,
+   "completion_tokens": 21,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.10377406899999642,
+   "usage": {
+    "prompt_tokens": 1143,
+    "total_tokens": 1170,
+    "completion_tokens": 27
+   },
+   "ttfa_s": 0.1835383439999987,
+   "latency_s": 0.5175771639999311,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 1,
+   "audio_s": 7.96,
+   "workload": "conv_audio",
+   "conversation": 1,
+   "turn": 2,
+   "verify_steps": 8,
+   "verify_tokens": 28,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1143,
+   "completion_tokens": 27,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.10302356699992288,
+   "usage": {
+    "prompt_tokens": 1191,
+    "total_tokens": 1211,
+    "completion_tokens": 20
+   },
+   "ttfa_s": 0.18377077799993913,
+   "latency_s": 0.41604477399994266,
+   "text": "Okay, I will keep it short. First, the basic idea, then one key event.",
+   "text_chunks": 1,
+   "audio_s": 5.72,
+   "workload": "conv_audio",
+   "conversation": 1,
+   "turn": 3,
+   "verify_steps": 8,
+   "verify_tokens": 21,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1191,
+   "completion_tokens": 20,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.10542808299999251,
+   "usage": {
+    "prompt_tokens": 1239,
+    "total_tokens": 1266,
+    "completion_tokens": 27
+   },
+   "ttfa_s": 0.1886034120000204,
+   "latency_s": 0.4902419520000194,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 1,
+   "audio_s": 7.28,
+   "workload": "conv_audio",
+   "conversation": 1,
+   "turn": 4,
+   "verify_steps": 8,
+   "verify_tokens": 28,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1239,
+   "completion_tokens": 27,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.19599510299997291,
+   "usage": {
+    "prompt_tokens": 1052,
+    "total_tokens": 1091,
+    "completion_tokens": 39
+   },
+   "ttfa_s": 0.2784164659999533,
+   "latency_s": 0.8522866039999144,
+   "text": "Romeo and Juliet is a tragic love story about two young lovers from feuding families in Verona. Their secret marriage and eventual deaths unite their families, ending the long-standing feud.",
+   "text_chunks": 1,
+   "audio_s": 12.68,
+   "workload": "conv_audio",
+   "conversation": 2,
+   "turn": 0,
+   "verify_steps": 16,
+   "verify_tokens": 40,
+   "steps": 17,
+   "cached_tokens": null,
+   "prompt_tokens": 1052,
+   "completion_tokens": 39,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.07413099999996575,
+   "usage": {
+    "prompt_tokens": 1103,
+    "total_tokens": 1130,
+    "completion_tokens": 27
+   },
+   "ttfa_s": 0.1543047850000221,
+   "latency_s": 0.4648027859999502,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 1,
+   "audio_s": 7.16,
+   "workload": "conv_audio",
+   "conversation": 2,
+   "turn": 1,
+   "verify_steps": 5,
+   "verify_tokens": 27,
+   "steps": 6,
+   "cached_tokens": null,
+   "prompt_tokens": 1103,
+   "completion_tokens": 27,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.10712842800000999,
+   "usage": {
+    "prompt_tokens": 1150,
+    "total_tokens": 1177,
+    "completion_tokens": 27
+   },
+   "ttfa_s": 0.19366735999994944,
+   "latency_s": 0.4521608269999433,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 1,
+   "audio_s": 6.32,
+   "workload": "conv_audio",
+   "conversation": 2,
+   "turn": 2,
+   "verify_steps": 8,
+   "verify_tokens": 29,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1150,
+   "completion_tokens": 27,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.17786400699992555,
+   "usage": {
+    "prompt_tokens": 1194,
+    "total_tokens": 1236,
+    "completion_tokens": 42
+   },
+   "ttfa_s": 0.264457800999935,
+   "latency_s": 0.9133885579999514,
+   "text": "The sky appears blue because of a process called Rayleigh scattering. When sunlight passes through the Earth's atmosphere, it collides with gas molecules and other particles, scattering shorter blue wavelengths more than other colors.",
+   "text_chunks": 1,
+   "audio_s": 14.48,
+   "workload": "conv_audio",
+   "conversation": 2,
+   "turn": 3,
+   "verify_steps": 15,
+   "verify_tokens": 42,
+   "steps": 16,
+   "cached_tokens": null,
+   "prompt_tokens": 1194,
+   "completion_tokens": 42,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  },
+  {
+   "status": 200,
+   "ttft_s": 0.10510478399999101,
+   "usage": {
+    "prompt_tokens": 1236,
+    "total_tokens": 1263,
+    "completion_tokens": 27
+   },
+   "ttfa_s": 0.1858844500000032,
+   "latency_s": 0.47563212599993676,
+   "text": "Here is a quick version. First comes the basic fact, then one example, and then a short tip you can use today.",
+   "text_chunks": 1,
+   "audio_s": 7.12,
+   "workload": "conv_audio",
+   "conversation": 2,
+   "turn": 4,
+   "verify_steps": 8,
+   "verify_tokens": 28,
+   "steps": 9,
+   "cached_tokens": null,
+   "prompt_tokens": 1236,
+   "completion_tokens": 27,
+   "modalities": [
+    "text",
+    "audio"
+   ]
+  }
+ ],
+ "metrics": [
+  "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 58431.0",
+  "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+  "vllm:prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+  "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940281569907262e+09",
+  "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940281569907324e+09",
+  "vllm:prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940281569907377e+09",
+  "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 43504.0",
+  "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+  "vllm:prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+  "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940281569907525e+09",
+  "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.794028156990758e+09",
+  "vllm:prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940281569907627e+09",
+  "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 0.0",
+  "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+  "vllm:external_prefix_cache_queries_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+  "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.794028156990778e+09",
+  "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.794028156990783e+09",
+  "vllm:external_prefix_cache_queries_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.794028156990788e+09",
+  "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 0.0",
+  "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 0.0",
+  "vllm:external_prefix_cache_hits_total{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 0.0",
+  "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"0\"} 1.7940281569908016e+09",
+  "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"1\"} 1.7940281569908066e+09",
+  "vllm:external_prefix_cache_hits_created{model_name=\"openbmb/MiniCPM-o-4_5\",replica=\"0\",stage=\"2\"} 1.7940281569908113e+09"
+ ],
+ "error_tail": [
+  "x_model_len (max_position_embeddings=40960.0 or model_max_length=None in model's config.json). VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error."
+ ]
+}
